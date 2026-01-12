@@ -38,22 +38,16 @@ export default [
             {
               target: 'src/pages',
               from: 'src',
-              except: [
-                'src/pages',
-                'src/modules',
-                'src/components',
-                'src/ui',
-                'src/shared',
-              ],
+              except: ['src/pages', 'src/modules', 'src/components', 'src/ui'],
               message:
-                'Pages могут импортировать только через алиасы @modules/*, @components/*, @ui/*, @shared/*',
+                'Pages могут импортировать только через алиасы @modules/*, @components/*, @ui/*',
             },
             {
               target: 'src/modules',
               from: 'src',
               except: ['src/modules', 'src/components', 'src/ui', 'src/shared'],
               message:
-                'Modules могут импортировать только через алиасы @components/*, @ui/*, @shared/*',
+                'Modules могут импортировать только через алиасы @components/*, @ui/*',
             },
           ],
         },
