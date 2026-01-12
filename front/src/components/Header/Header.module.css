@@ -1,0 +1,21 @@
+.header {
+  width: 100%;
+  padding: 20px 0px;
+  background-color: #13515e;
+  border-bottom: 2px solid #217987;
+}
+
+.container {
+  width: 1200px;
+  margin: auto;
+}
+
+.link {
+  color: #f1ae79;
+  text-decoration: none;
+  font-family: 'Naga', serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 100%;
+}

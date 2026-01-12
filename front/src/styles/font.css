@@ -1,0 +1,9 @@
+@font-face {
+  font-family: 'Naga';
+  src: url('/fonts/Naga-Regular.woff2') format('woff2'),
+    url('/fonts/Naga-Regular.woff') format('woff'),
+    url('/fonts/Naga.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
