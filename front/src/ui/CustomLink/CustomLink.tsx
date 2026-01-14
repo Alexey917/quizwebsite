@@ -6,12 +6,25 @@ import classes from './CustomLink.module.css';
 interface ICustomLink {
   to: string;
   text: string;
+  variant?: 'main';
 }
 
-export const CustomLink: FC<ICustomLink> = ({ to, text }) => {
+export const CustomLink: FC<ICustomLink> = ({ to, text, variant }) => {
   return (
-    <div className={classes.wrapper}>
-      <div className={classes.inner}>
+    <div
+      className={
+        variant === 'main'
+          ? `${classes.wrapper} ${classes.main}`
+          : classes.wrapper
+      }
+    >
+      <div
+        className={
+          variant === 'main'
+            ? `${classes.inner} ${classes.main}`
+            : classes.inner
+        }
+      >
         <Link to={to} className={classes.link}>
           {text}
         </Link>

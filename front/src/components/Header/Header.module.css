@@ -26,3 +26,9 @@
   justify-content: flex-end;
   gap: 60px;
 }
+
+@media (hover: hover) {
+  .link:hover {
+    color: #fecda7;
+  }
+}

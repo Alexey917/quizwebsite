@@ -9,13 +9,15 @@ export const QuizyTales = () => {
       <div className={classes.container}>
         <Logo width={590} height={536} />
         <div className={classes.contentWrapper}>
-          <h1 className={classes.title}>QuizyTales</h1>
           <svg className={classes.icon}>
-            <use href={title + '#title'} className={classes.use}></use>
+            <use href={title + '#title'}></use>
           </svg>
-          <p>где каждый квиз - это маленькая история</p>
+          <p className={classes.text}>
+            где каждый квиз -<br /> это маленькая
+            <br /> история
+          </p>
           <div className={classes.btnGroup}>
-            <CustomLink to="/" text="Выбрать готовый квиз" />
+            <CustomLink to="/" text="Выбрать готовый квиз" variant="main" />
             <button></button>
           </div>
         </div>
