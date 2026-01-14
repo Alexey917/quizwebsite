@@ -1,7 +1,9 @@
-import React from 'react';
+import { QuizyTales } from '@/modules';
 
-const MainPage = () => {
-  return <></>;
+export const MainPage = () => {
+  return (
+    <>
+      <QuizyTales />
+    </>
+  );
 };
-
-export default MainPage;

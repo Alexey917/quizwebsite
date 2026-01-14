@@ -1,9 +1,8 @@
 @font-face {
-    font-family: 'Naga';
-    src: url('Naga-Regular.woff2') format('woff2'),
-        url('Naga-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'Ebbe';
+  src: url('Ebbe.woff2') format('woff2'), url('Ebbe.woff') format('woff'),
+    url('Ebbe-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
-
