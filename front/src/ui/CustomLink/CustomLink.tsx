@@ -6,26 +6,36 @@ import classes from './CustomLink.module.css';
 interface ICustomLink {
   to: string;
   text: string;
-  variant?: 'main';
+  width?: string;
+  background?: string;
+  padding?: string;
+  fontSize?: string;
+  variant?: 'main' | 'leftRight' | 'right' | 'bottom';
 }
 
-export const CustomLink: FC<ICustomLink> = ({ to, text, variant }) => {
+export const CustomLink: FC<ICustomLink> = ({
+  to,
+  text,
+  width,
+  background,
+  padding,
+  fontSize,
+  variant,
+}) => {
   return (
     <div
-      className={
-        variant === 'main'
-          ? `${classes.wrapper} ${classes.main}`
-          : classes.wrapper
-      }
+      className={variant === 'main' ? classes.wrapper : classes.leftRight}
+      style={{ width: `${width}` }}
     >
       <div
-        className={
-          variant === 'main'
-            ? `${classes.inner} ${classes.main}`
-            : classes.inner
-        }
+        className={variant === 'main' ? classes.inner : classes.innerLeftRight}
+        style={{ padding: `${padding}`, background: `${background}` }}
       >
-        <Link to={to} className={classes.link}>
+        <Link
+          to={to}
+          className={classes.link}
+          style={{ fontSize: `${fontSize}` }}
+        >
           {text}
         </Link>
       </div>

@@ -17,7 +17,15 @@ export const QuizyTales = () => {
             <br /> история
           </p>
           <div className={classes.btnGroup}>
-            <CustomLink to="/" text="Выбрать готовый квиз" variant="main" />
+            <CustomLink
+              to="/"
+              text="Выбрать готовый квиз"
+              width="285px"
+              fontSize="24px"
+              padding="24px 33px"
+              background="#49969b"
+              variant="leftRight"
+            />
             <button></button>
           </div>
         </div>

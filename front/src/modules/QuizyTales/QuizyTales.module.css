@@ -9,6 +9,11 @@
   margin: auto;
 }
 
+.contentWrapper {
+  position: relative;
+  left: -68px;
+}
+
 .title {
   margin: 0;
   font-family: 'Ebbe', sans-serif;
@@ -30,11 +35,12 @@
   margin-right: 178px;
   width: 495px;
   height: 158px;
+  flex-shrink: 0;
 }
 
 .text {
   margin-top: 0;
-  margin-bottom: 155px;
+  margin-bottom: 125px;
   font-family: 'Naga', serif;
   text-align: right;
   font-weight: 400;
@@ -42,4 +48,8 @@
   font-size: 48px;
   line-height: 104%;
   color: #f1ae79;
+}
+
+.btnGroup {
+  margin-left: 29px;
 }
