@@ -17,7 +17,7 @@ export const Header = () => {
           <Link to="rate" className={classes.link}>
             Тарифы
           </Link>
-          <CustomLink to="/" text="Сделать заказ" variant="main" />
+          <CustomLink to="catalog" text="Сделать заказ" variant="main" />
         </nav>
       </div>
     </header>

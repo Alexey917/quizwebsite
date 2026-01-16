@@ -1,4 +1,4 @@
-import { CustomLink, Logo } from '@/ui';
+import { CustomLink, Logo, CustomButton } from '@/ui';
 
 import classes from './QuizyTales.module.css';
 import title from '../../assets/sprite.svg';
@@ -18,7 +18,7 @@ export const QuizyTales = () => {
           </p>
           <div className={classes.btnGroup}>
             <CustomLink
-              to="/"
+              to="catalog"
               text="Выбрать готовый квиз"
               width="285px"
               fontSize="24px"
@@ -26,7 +26,15 @@ export const QuizyTales = () => {
               background="#49969b"
               variant="leftRight"
             />
-            <button></button>
+            <CustomButton
+              type="button"
+              text="Создать собственный квиз"
+              width="285px"
+              fontSize="24px"
+              padding="24px 22px"
+              background="#49969b"
+              variant="author"
+            />
           </div>
         </div>
       </div>

@@ -51,5 +51,8 @@
 }
 
 .btnGroup {
-  margin-left: 29px;
+  margin-left: 62px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }

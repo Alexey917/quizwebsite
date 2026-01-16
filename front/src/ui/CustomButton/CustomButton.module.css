@@ -4,6 +4,12 @@
   inherits: false;
 }
 
+@property --angleAuthor {
+  syntax: '<angle>';
+  initial-value: 160deg;
+  inherits: false;
+}
+
 .wrapper {
   position: relative;
   display: inline-block;
@@ -25,11 +31,20 @@
   border: 0.5px solid #13515e;
 }
 
-.leftRight {
+.author {
   position: relative;
   padding: 2px;
-  border-left: 2px solid #f1ae79;
-  border-right: 2px solid #b46b48;
+  background: conic-gradient(
+    from var(--angleAuthor),
+    #f1ae79,
+    #fecda7,
+    transparent,
+    transparent,
+    transparent,
+    transparent,
+    #b46b48,
+    #f1ae79
+  );
   border-radius: 36px 4px 36px 36px;
 }
 
@@ -42,7 +57,7 @@
   z-index: 1;
 }
 
-.innerLeftRight {
+.innerAuthor {
   text-align: center;
   position: relative;
   padding: 15px 26px;
@@ -69,7 +84,8 @@
   }
 }
 
-.link {
+.btn {
+  padding: 0;
   color: #f1ae79;
   text-decoration: none;
   font-family: 'Naga', serif;
@@ -77,6 +93,8 @@
   font-style: normal;
   font-size: 20px;
   line-height: 110%;
+  border: none;
+  cursor: pointer;
 }
 
 @media (hover: hover) {
@@ -85,7 +103,7 @@
     animation: spin 3s linear infinite;
   }
 
-  .leftRight:hover {
+  .author:hover {
     cursor: pointer;
     border: none;
     padding: 2px;
@@ -106,8 +124,8 @@
     animation: spin 3s linear infinite;
   }
 
-  .wrapper:hover .link,
-  .leftRight:hover .link {
+  .wrapper:hover .btn,
+  .author:hover .btn {
     color: #fecda7;
   }
 }
