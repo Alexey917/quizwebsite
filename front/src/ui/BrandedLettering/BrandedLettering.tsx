@@ -6,20 +6,20 @@ import title from '../../assets/sprite.svg';
 interface IBrandedLettering {
   width: string;
   height: string;
-  marginLeft?: string;
+  marginRight?: string;
 }
 
 export const BrandedLettering: FC<IBrandedLettering> = ({
   width,
   height,
-  marginLeft,
+  marginRight,
 }) => {
   return (
     <>
       <svg
         className={classes.icon}
         aria-hidden="true"
-        style={{ width: width, height: height, marginLeft: marginLeft }}
+        style={{ width: width, height: height, marginRight: marginRight }}
       >
         <use href={title + '#title'}></use>
         <span className="visually-hidden">QuizyTales</span>

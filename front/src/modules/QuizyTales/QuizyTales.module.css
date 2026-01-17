@@ -18,6 +18,13 @@
   margin: 0;
 }
 
+.icon {
+  margin-right: 178px;
+  width: 495px;
+  height: 158px;
+  flex-shrink: 0;
+}
+
 .text {
   margin-top: 0;
   margin-bottom: 125px;

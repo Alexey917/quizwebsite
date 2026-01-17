@@ -19,8 +19,9 @@
 .navigation {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 32px;
-  padding: 19px 40px;
+  padding: 19px 10px;
   width: 175px;
   height: 552px;
   background: rgba(19, 81, 94, 1);
@@ -35,6 +36,13 @@
   font-style: normal;
   font-size: 24px;
   line-height: 100%;
+}
+
+.brandedLettering {
+  margin-top: 287px;
+  align-self: flex-end;
+  width: 154px;
+  height: 60px;
 }
 
 @media (hover: hover) {

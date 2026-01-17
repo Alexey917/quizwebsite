@@ -6,7 +6,7 @@ import { MobileMenu } from '../MobileMenu';
 import classes from './Layout.module.css';
 
 export const Layout = () => {
-  const [isMobile, setIsMobile] = useState<boolean>(false);
+  const [isMobile, setIsMobile] = useState<boolean>(true);
 
   return (
     <>
