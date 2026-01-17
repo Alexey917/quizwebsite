@@ -23,18 +23,18 @@ export const CustomButton: FC<ICustomButton> = ({
   return (
     <div
       className={variant === 'main' ? classes.wrapper : classes.author}
-      style={{ width: `${width}` }}
+      style={{ width: width }}
     >
       <div
         className={variant === 'main' ? classes.inner : classes.innerAuthor}
-        style={{ padding: `${padding}`, background: `${background}` }}
+        style={{ padding: padding, background: background }}
       >
         <button
           type={type}
           className={classes.btn}
-          style={{ background: `${background}` }}
+          style={{ background: background }}
         >
-          <span style={{ fontSize: `${fontSize}` }}>{text}</span>
+          <span style={{ fontSize: fontSize }}>{text}</span>
         </button>
       </div>
     </div>

@@ -3,9 +3,13 @@
   padding: 20px 0px;
   background-color: #13515e;
   border-bottom: 2px solid #217987;
+  z-index: 2;
 }
 
 .container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
   width: 1200px;
   margin: auto;
 }
@@ -27,8 +31,41 @@
   gap: 60px;
 }
 
+.menuIcon {
+  width: 60px;
+  height: 60px;
+}
+
+.btnMenu {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  width: 60px;
+  height: 60px;
+  background: none;
+  border: none;
+}
+
 @media (hover: hover) {
   .link:hover {
     color: #fecda7;
+  }
+}
+
+@media (max-width: 1200px) {
+  .container {
+    width: 904px;
+    margin: auto;
+  }
+}
+
+@media (max-width: 1024px) {
+  .btnMenu {
+    display: flex;
+  }
+
+  .navigation {
+    display: none;
   }
 }

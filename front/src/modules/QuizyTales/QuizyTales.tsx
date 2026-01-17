@@ -1,17 +1,25 @@
-import { CustomLink, Logo, CustomButton } from '@/ui';
+import { CustomLink, Logo, CustomButton, BrandedLettering } from '@/ui';
 
 import classes from './QuizyTales.module.css';
-import title from '../../assets/sprite.svg';
 
 export const QuizyTales = () => {
   return (
-    <section className={classes.section}>
+    <section className={classes.section} aria-labelledby="quizy-tales-title">
       <div className={classes.container}>
-        <Logo width={590} height={536} />
+        <Logo width={590} height={536} aria-label="Логотип QuizyTales" />
         <div className={classes.contentWrapper}>
-          <svg className={classes.icon}>
-            <use href={title + '#title'}></use>
-          </svg>
+          <h1 id="quizy-tales-title" className={classes.title}>
+            {/* <svg className={classes.icon} aria-hidden="true">
+              <use href={title + '#title'}></use>
+              <span className="visually-hidden">QuizyTales</span>
+            </svg> */}
+            <BrandedLettering
+              width="495px;"
+              height="158px;"
+              marginLeft="178px;"
+            />
+          </h1>
+
           <p className={classes.text}>
             где каждый квиз -<br /> это маленькая
             <br /> история

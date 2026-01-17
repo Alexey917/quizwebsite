@@ -33,3 +33,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+@media (max-width: 1920px) {
+  html {
+    font-size: 16px;
+  }
+}

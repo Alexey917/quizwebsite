@@ -13,7 +13,6 @@ interface ICustomLink {
   padding?: string;
   fontSize?: string;
   variant?: TLinkVariant;
-  'aria-label'?: string;
 }
 
 const getWrapperClass = (variant: TLinkVariant): string => {
@@ -54,7 +53,6 @@ export const CustomLink: FC<ICustomLink> = ({
   padding,
   fontSize,
   variant = 'main',
-  'aria-label': ariaLabel,
 }) => {
   return (
     <div
@@ -66,12 +64,7 @@ export const CustomLink: FC<ICustomLink> = ({
         className={getInnerClass(variant)}
         style={{ padding: padding, background: background }}
       >
-        <Link
-          to={to}
-          className={classes.link}
-          style={{ fontSize: fontSize }}
-          aria-label={ariaLabel || text}
-        >
+        <Link to={to} className={classes.link} style={{ fontSize: fontSize }}>
           {text}
         </Link>
       </div>

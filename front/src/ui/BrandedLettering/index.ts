@@ -1,0 +1,1 @@
+export { BrandedLettering } from './BrandedLettering';
