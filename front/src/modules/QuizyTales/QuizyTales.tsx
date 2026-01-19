@@ -35,7 +35,7 @@ export const QuizyTales = () => {
               text="Создать собственный квиз"
               width="285px"
               fontSize="24px"
-              padding="24px 22px"
+              padding="26px 22px"
               background="#49969b"
               variant="author"
             />

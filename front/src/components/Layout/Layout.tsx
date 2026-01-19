@@ -12,7 +12,7 @@ export const Layout = () => {
 
   return (
     <>
-      <Header setIsMobile={setIsMobile} isMobile={isMobile} />
+      <Header setIsMobile={setIsMobile} />
       {isMobile && <MobileMenu setIsMobile={setIsMobile} />}
       <Outlet />
     </>
