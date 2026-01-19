@@ -15,11 +15,7 @@ export const Header: FC<IHeader> = ({ isMobile, setIsMobile }) => {
   const location = useLocation();
 
   return (
-    <header
-      className={classes.header}
-      role="banner"
-      style={{ position: `${isMobile ? 'fixed' : 'static'}` }}
-    >
+    <header className={classes.header} role="banner">
       <div className={classes.container}>
         <nav className={classes.navigation} aria-label="Основная навигация">
           <Link

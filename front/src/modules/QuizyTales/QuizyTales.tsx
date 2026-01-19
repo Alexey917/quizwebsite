@@ -1,4 +1,4 @@
-import { CustomLink, Logo, CustomButton, BrandedLettering } from '@/ui';
+import { CustomLink, Logo, CustomButton } from '@/ui';
 
 import classes from './QuizyTales.module.css';
 import title from '../../assets/sprite.svg';
@@ -14,11 +14,6 @@ export const QuizyTales = () => {
               <use href={title + '#title'}></use>
               <span className="visually-hidden">QuizyTales</span>
             </svg>
-            {/* <BrandedLettering
-              width="495px"
-              height="158px"
-              marginRight="178px"
-            /> */}
           </h1>
 
           <p className={classes.text}>

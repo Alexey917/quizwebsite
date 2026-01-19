@@ -1,10 +1,9 @@
+import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { BrandedLettering } from '@/ui';
 
 import type { FC } from 'react';
 
 import classes from './MobileMenu.module.css';
-import brandedLettering from '../../assets/sprite.svg';
 import title from '../../assets/sprite.svg';
 
 interface IMobileMenu {
@@ -12,14 +11,44 @@ interface IMobileMenu {
 }
 
 export const MobileMenu: FC<IMobileMenu> = ({ setIsMobile }) => {
+  const overlayRef = useRef<HTMLDivElement | null>(null);
+  const navigationRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const handleClick = (e: MouseEvent | TouchEvent) => {
+      if (
+        overlayRef.current &&
+        overlayRef.current.contains(e.target as Node) &&
+        !navigationRef.current?.contains(e.target as Node)
+      ) {
+        setIsMobile(false);
+      }
+    };
+
+    const overlay = overlayRef.current;
+
+    if (overlay) {
+      overlay.addEventListener('click', handleClick);
+      overlay.addEventListener('touchstart', handleClick);
+    }
+
+    return () => {
+      if (overlay) {
+        overlay.removeEventListener('click', handleClick);
+        overlay.removeEventListener('touchstart', handleClick);
+      }
+    };
+  }, []);
+
   return (
-    <div className={classes.overlay}>
+    <div className={classes.overlay} ref={overlayRef}>
       <div className={classes.container}>
-        <nav className={classes.navigation}>
+        <nav className={classes.navigation} ref={navigationRef}>
           <Link
             to="/"
             className={classes.link}
             aria-current={location.pathname === '/' && 'page'}
+            onClick={() => setIsMobile(false)}
           >
             Главная
           </Link>
@@ -27,6 +56,7 @@ export const MobileMenu: FC<IMobileMenu> = ({ setIsMobile }) => {
             to="catalog"
             className={classes.link}
             aria-current={location.pathname === '/catalog' && 'page'}
+            onClick={() => setIsMobile(false)}
           >
             Каталог
           </Link>
@@ -34,14 +64,10 @@ export const MobileMenu: FC<IMobileMenu> = ({ setIsMobile }) => {
             to="rate"
             className={classes.link}
             aria-current={location.pathname === '/rate' && 'page'}
+            onClick={() => setIsMobile(false)}
           >
             Тарифы
           </Link>
-
-          {/* <svg className={classes.brandedLettering} aria-hidden="true">
-            <use href={brandedLettering + '#brandedLettering'}></use>
-            <span className="visually-hidden">QuizyTales</span>
-          </svg> */}
 
           <svg className={classes.brandedLettering} aria-hidden="true">
             <use href={title + '#title'}></use>
