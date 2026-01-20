@@ -7,7 +7,7 @@ export const router = createBrowserRouter([
     path: '/',
     element: <Layout />,
     children: [
-      { index: true, element: <MainPage /> },
+      // { index: true, element: <MainPage /> },
       { path: '/catalog', element: <CatalogPage /> },
     ],
   },
