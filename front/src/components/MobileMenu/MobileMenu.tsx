@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { BrandedLettering } from '@/ui';
 
 import type { FC } from 'react';
 
@@ -29,7 +30,7 @@ export const MobileMenu: FC<IMobileMenu> = ({ setIsMobile }) => {
 
     if (overlay) {
       overlay.addEventListener('click', handleClick);
-      overlay.addEventListener('touchstart', handleClick);
+      overlay.addEventListener('touchstart', handleClick, { passive: true });
     }
 
     return () => {
@@ -69,10 +70,17 @@ export const MobileMenu: FC<IMobileMenu> = ({ setIsMobile }) => {
             Тарифы
           </Link>
 
-          <svg className={classes.brandedLettering} aria-hidden="true">
+          <BrandedLettering
+            positionX={10}
+            positionY={0}
+            boxWidth={310}
+            boxHeight={95}
+            variant="menu"
+          />
+          {/* <svg className={classes.brandedLettering} aria-hidden="true">
             <use href={title + '#title'}></use>
             <span className="visually-hidden">QuizyTales</span>
-          </svg>
+          </svg> */}
         </nav>
       </div>
     </div>

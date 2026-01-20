@@ -1,4 +1,4 @@
-import { CustomLink, Logo, CustomButton } from '@/ui';
+import { CustomLink, Logo, CustomButton, BrandedLettering } from '@/ui';
 
 import classes from './QuizyTales.module.css';
 import title from '../../assets/sprite.svg';
@@ -14,6 +14,13 @@ export const QuizyTales = () => {
               <use href={title + '#title'}></use>
               <span className="visually-hidden">QuizyTales</span>
             </svg>
+            {/* <BrandedLettering
+              positionX={15}
+              positionY={40}
+              boxWidth={295}
+              boxHeight={28}
+              variant="main"
+            /> */}
           </h1>
 
           <p className={classes.text}>
@@ -35,7 +42,7 @@ export const QuizyTales = () => {
               text="Создать собственный квиз"
               width="285px"
               fontSize="24px"
-              padding="26px 22px"
+              padding="28px 22px"
               background="#49969b"
               variant="author"
             />

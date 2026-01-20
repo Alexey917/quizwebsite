@@ -293,9 +293,6 @@
 </defs>
 </svg>
 
-
-
-
 <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" id="menu">
 <rect x="1" y="1" width="58" height="58" rx="22.0769" stroke="url(#paint0_linear_547_366)" stroke-width="2"/>
 <line x1="17.1538" y1="22.0769" x2="42.8461" y2="22.0769" stroke="#F1AE79" stroke-width="2" stroke-linecap="round"/>

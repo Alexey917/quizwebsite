@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { CustomLink } from '@/ui';
+import { CustomLink, BrandedLettering } from '@/ui';
 
 import type { FC } from 'react';
 
@@ -28,9 +28,18 @@ export const Header: FC<IHeader> = ({ setIsMobile }) => {
         }
       >
         {location.pathname !== '/' && (
-          <svg className={classes.headerLettering}>
-            <use href={headerLettering + '#headerLettering'}></use>
-          </svg>
+          <>
+            {/* <svg className={classes.headerLettering}>
+              <use href={headerLettering + '#headerLettering'}></use>
+            </svg> */}
+            <BrandedLettering
+              positionX={10}
+              positionY={40}
+              boxWidth={320}
+              boxHeight={30}
+              variant="header"
+            />
+          </>
         )}
 
         <nav className={classes.navigation} aria-label="Основная навигация">
