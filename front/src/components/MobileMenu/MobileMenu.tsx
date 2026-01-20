@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { BrandedLettering } from '@/ui';
+import { routes } from '@/consts';
 
 import type { FC } from 'react';
 
@@ -45,30 +46,17 @@ export const MobileMenu: FC<IMobileMenu> = ({ setIsMobile }) => {
     <div className={classes.overlay} ref={overlayRef}>
       <div className={classes.container}>
         <nav className={classes.navigation} ref={navigationRef}>
-          <Link
-            to="/"
-            className={classes.link}
-            aria-current={location.pathname === '/' && 'page'}
-            onClick={() => setIsMobile(false)}
-          >
-            Главная
-          </Link>
-          <Link
-            to="catalog"
-            className={classes.link}
-            aria-current={location.pathname === '/catalog' && 'page'}
-            onClick={() => setIsMobile(false)}
-          >
-            Каталог
-          </Link>
-          <Link
-            to="rate"
-            className={classes.link}
-            aria-current={location.pathname === '/rate' && 'page'}
-            onClick={() => setIsMobile(false)}
-          >
-            Тарифы
-          </Link>
+          {routes.map((route) => (
+            <Link
+              key={route.title}
+              to={route.path}
+              className={classes.link}
+              aria-current={location.pathname === route.path && 'page'}
+              onClick={() => setIsMobile(false)}
+            >
+              {route.title}
+            </Link>
+          ))}
 
           <BrandedLettering
             positionX={10}

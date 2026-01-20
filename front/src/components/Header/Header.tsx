@@ -48,7 +48,7 @@ export const Header: FC<IHeader> = ({ setIsMobile }) => {
               key={route.title}
               to={route.path}
               className={classes.link}
-              aria-current={location.pathname === '/' && 'page'}
+              aria-current={location.pathname === route.path && 'page'}
             >
               {route.title}
             </Link>

@@ -1,24 +1,47 @@
 .headerLettering {
-  margin-left: 108px;
-  width: 203px;
-  height: 60px;
+  margin-left: 6.75rem;
+  width: 12.6875rem;
+  height: 3.75rem;
 }
 
 .menuLettering {
-  margin-top: 287px;
-  width: 154px;
-  height: 60px;
+  margin-top: 17.9375rem;
+  width: 9.625rem;
+  height: 3.75rem;
 }
 
 .mainLettering {
-  margin-right: 178px;
-  width: 495px;
-  height: 158px;
+  margin-right: 11.125rem;
+  width: 30.9375rem;
+  height: 9.875rem;
   flex-shrink: 0;
 }
 
 @media (max-width: 1024px) {
   .headerLettering {
     display: none;
+  }
+}
+
+@media (max-width: 904px) {
+  .menuLettering {
+    margin-top: 17.9375rem;
+    width: 8.75rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .menuLettering {
+    margin-top: 20.1875rem;
+    width: 8.125rem;
+    height: 2.5rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .menuLettering {
+    margin-top: 5.9375rem;
+    width: 5rem;
+    height: 3.125rem;
   }
 }
