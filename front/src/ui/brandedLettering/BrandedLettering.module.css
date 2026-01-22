@@ -5,7 +5,7 @@
 }
 
 .menuLettering {
-  margin-top: 17.9375rem;
+  margin-top: 11.9375rem;
   width: 9.625rem;
   height: 3.75rem;
 }
@@ -25,14 +25,14 @@
 
 @media (max-width: 904px) {
   .menuLettering {
-    margin-top: 17.9375rem;
+    margin-top: 11.9375rem;
     width: 8.75rem;
   }
 }
 
 @media (max-width: 576px) {
   .menuLettering {
-    margin-top: 20.1875rem;
+    margin-top: 14.1875rem;
     width: 8.125rem;
     height: 2.5rem;
   }

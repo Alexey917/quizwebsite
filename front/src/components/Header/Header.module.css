@@ -74,6 +74,10 @@
   height: 2.75rem;
 }
 
+.mainLink {
+  display: none;
+}
+
 @media (hover: hover) {
   .link:hover {
     color: #fecda7;
@@ -158,6 +162,6 @@
   }
 
   .currentPath {
-    font-size: 0.75rem;
+    font-size: 1rem;
   }
 }

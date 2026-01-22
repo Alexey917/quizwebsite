@@ -44,14 +44,25 @@ export const Header: FC<IHeader> = ({ setIsMobile }) => {
 
         <nav className={classes.navigation} aria-label="Основная навигация">
           {routes.map((route) => (
-            <Link
-              key={route.title}
-              to={route.path}
-              className={classes.link}
-              aria-current={location.pathname === route.path && 'page'}
-            >
-              {route.title}
-            </Link>
+            <div key={route.title}>
+              {location.pathname === '/' && route.path === '/' ? (
+                <Link
+                  to={route.path}
+                  className={`${classes.link} ${classes.mainLink}`}
+                  aria-current={location.pathname === route.path && 'page'}
+                >
+                  {route.title}
+                </Link>
+              ) : (
+                <Link
+                  to={route.path}
+                  className={classes.link}
+                  aria-current={location.pathname === route.path && 'page'}
+                >
+                  {route.title}
+                </Link>
+              )}
+            </div>
           ))}
 
           <CustomLink to="catalog" text="Сделать заказ" variant="main" />
