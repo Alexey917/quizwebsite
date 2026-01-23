@@ -30,40 +30,44 @@ export const Header: FC<IHeader> = ({ isMobile, setIsMobile }) => {
         }
       >
         {location.pathname !== '/' && (
-          <>
-            <BrandedLettering
-              positionX={10}
-              positionY={40}
-              boxWidth={320}
-              boxHeight={30}
-              variant="header"
-              label="QuizyTales"
-            />
-          </>
+          <BrandedLettering
+            positionX={10}
+            positionY={40}
+            boxWidth={320}
+            boxHeight={30}
+            variant="header"
+            label="QuizyTales"
+          />
         )}
 
         <nav className={classes.navigation} aria-label="Основная навигация">
-          {routes.map((route) => (
-            <div key={route.title}>
-              {location.pathname === '/' && route.path === '/' ? (
-                <Link
-                  to={route.path}
-                  className={`${classes.link} ${classes.mainLink}`}
-                  aria-current={location.pathname === route.path && 'page'}
-                >
-                  {route.title}
-                </Link>
-              ) : (
-                <Link
-                  to={route.path}
-                  className={classes.link}
-                  aria-current={location.pathname === route.path && 'page'}
-                >
-                  {route.title}
-                </Link>
-              )}
-            </div>
-          ))}
+          <ul className={classes.list}>
+            {routes.map((route) => (
+              <li key={route.title}>
+                {location.pathname === '/' && route.path === '/' ? (
+                  <Link
+                    to={route.path}
+                    className={`${classes.link} ${classes.mainLink}`}
+                    aria-current={
+                      location.pathname === route.path ? 'page' : undefined
+                    }
+                  >
+                    {route.title}
+                  </Link>
+                ) : (
+                  <Link
+                    to={route.path}
+                    className={classes.link}
+                    aria-current={
+                      location.pathname === route.path ? 'page' : undefined
+                    }
+                  >
+                    {route.title}
+                  </Link>
+                )}
+              </li>
+            ))}
+          </ul>
 
           <CustomLink to="catalog" text="Сделать заказ" variant="main" />
         </nav>

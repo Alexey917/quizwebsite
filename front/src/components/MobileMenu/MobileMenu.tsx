@@ -63,6 +63,7 @@ export const MobileMenu: FC<IMobileMenu> = ({ isMobile, setIsMobile }) => {
       aria-modal="true"
       aria-labelledby="mobile-menu-title"
       tabIndex={-1}
+      id="mobile-menu-id"
     >
       <div className={classes.container}>
         <nav
@@ -70,19 +71,22 @@ export const MobileMenu: FC<IMobileMenu> = ({ isMobile, setIsMobile }) => {
           ref={navigationRef}
           aria-label="Основная навигация"
         >
-          {routes.map((route) => (
-            <Link
-              key={route.title}
-              to={route.path}
-              className={classes.link}
-              aria-current={
-                location.pathname === route.path ? 'page' : undefined
-              }
-              onClick={() => setIsMobile(false)}
-            >
-              {route.title}
-            </Link>
-          ))}
+          <ul className={classes.list}>
+            {routes.map((route) => (
+              <li key={route.title}>
+                <Link
+                  to={route.path}
+                  className={classes.link}
+                  aria-current={
+                    location.pathname === route.path ? 'page' : undefined
+                  }
+                  onClick={() => setIsMobile(false)}
+                >
+                  {route.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
 
           <BrandedLettering
             positionX={10}
