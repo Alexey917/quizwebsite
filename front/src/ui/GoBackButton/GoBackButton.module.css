@@ -1,0 +1,50 @@
+.btnMenu {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  width: 3.75rem;
+  height: 3.75rem;
+  background: none;
+  border: none;
+  border-radius: 1.375rem;
+  cursor: pointer;
+}
+
+.back {
+  visibility: visible;
+  cursor: pointer;
+}
+
+.hiddenBack {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+@media (hover: hover) {
+  .btnMenu:hover {
+    box-shadow: 0.125rem 0.125rem 0.625rem #f1ae79;
+  }
+}
+
+@media (max-width: 1024px) {
+  .btnMenu {
+    display: flex;
+  }
+}
+
+@media (max-width: 576px) {
+  .back,
+  .btnMenu {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .back,
+  .btnMenu {
+    width: 1.625rem;
+    height: 1.625rem;
+  }
+}

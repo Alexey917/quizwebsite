@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { CustomLink, BrandedLettering } from '@/ui';
+import { CustomLink, BrandedLettering, GoBackButton } from '@/ui';
 
 import type { FC } from 'react';
 
@@ -7,8 +7,6 @@ import { routes } from '@/consts';
 
 import classes from './Header.module.css';
 import menu from '../../assets/sprite.svg';
-import back from '../../assets/sprite.svg';
-import headerLettering from '../../assets/sprite.svg';
 
 interface IHeader {
   setIsMobile: (flag: boolean) => void;
@@ -16,7 +14,6 @@ interface IHeader {
 
 export const Header: FC<IHeader> = ({ setIsMobile }) => {
   const location = useLocation();
-  console.log(location.pathname);
 
   return (
     <header className={classes.header} role="banner">
@@ -29,15 +26,13 @@ export const Header: FC<IHeader> = ({ setIsMobile }) => {
       >
         {location.pathname !== '/' && (
           <>
-            {/* <svg className={classes.headerLettering}>
-              <use href={headerLettering + '#headerLettering'}></use>
-            </svg> */}
             <BrandedLettering
               positionX={10}
               positionY={40}
               boxWidth={320}
               boxHeight={30}
               variant="header"
+              label="QuizyTales"
             />
           </>
         )}
@@ -67,11 +62,8 @@ export const Header: FC<IHeader> = ({ setIsMobile }) => {
 
           <CustomLink to="catalog" text="Сделать заказ" variant="main" />
         </nav>
-        <button className={classes.btnMenu}>
-          <svg className={classes.back}>
-            <use href={back + '#back'}></use>
-          </svg>
-        </button>
+
+        <GoBackButton />
 
         <h2 className={classes.currentPath}>
           {routes.find((route) => route.path === location.pathname)?.title}

@@ -1,15 +1,24 @@
-import React, { type FC, useId } from 'react';
+import { type FC, useId } from 'react';
 
 import classes from './BrandedLettering.module.css';
 
 type TVariant = 'header' | 'menu' | 'main';
 
 interface IBrandedLettering {
-  positionX: number;
-  positionY: number;
-  boxWidth: number;
-  boxHeight: number;
+  /** X координата viewBox */
+  positionX?: number;
+  /** Y координата viewBox */
+  positionY?: number;
+  /** Ширина viewBox */
+  boxWidth?: number;
+  /** Высота viewBox */
+  boxHeight?: number;
+  /** Вариант стилизации */
   variant: TVariant;
+  /** Текстовое описание для скринридеров */
+  label?: string;
+  /** Дополнительное описание (длинный текст) */
+  description?: string;
 }
 
 const getSvgClass = (variant: TVariant) => {
@@ -31,8 +40,12 @@ export const BrandedLettering: FC<IBrandedLettering> = ({
   boxWidth,
   boxHeight,
   variant,
+  label,
+  description,
 }) => {
   const uniqueId = useId();
+  const titleId = `${uniqueId}-title`;
+  const descId = `${uniqueId}-desc`;
 
   return (
     <svg
@@ -40,8 +53,12 @@ export const BrandedLettering: FC<IBrandedLettering> = ({
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={getSvgClass(variant)}
-      id="headerLettering"
+      role="img"
+      aria-labelledby={description ? `${titleId} ${descId}` : titleId}
     >
+      <title id={titleId}>{label}</title>
+      {description && <desc id={descId}>{description}</desc>}
+
       <g filter={`url(#filter0_f_${uniqueId})`}>
         <path
           d="M60.8438 87.0625L57.6562 78.7812H48.75L45.6562 73.6875C42.7812 73.4375 40.1667 72.2812 37.8125 70.2188C35.4583 68.1354 33.5625 65.3958 32.125 62C30.7083 58.6042 30 54.8646 30 50.7812C30 46.5521 30.75 42.7083 32.25 39.25C33.7708 35.7708 35.7812 33 38.2812 30.9375C40.7812 28.8542 43.5104 27.8125 46.4688 27.8125C49.4271 27.8125 52.1562 28.8542 54.6562 30.9375C57.1562 33 59.1667 35.7708 60.6875 39.25C62.2083 42.7083 62.9688 46.5521 62.9688 50.7812C62.9688 54.1562 62.4688 57.3021 61.4688 60.2188C60.4688 63.1354 59.1146 65.6562 57.4062 67.7812C55.7188 69.9062 53.7812 71.4896 51.5938 72.5312H60.8438V87.0625ZM46.375 70.2188C48.2083 70.2188 49.8646 69.3438 51.3438 67.5938C52.8438 65.8438 54.0417 63.5 54.9375 60.5625C55.8333 57.6042 56.2812 54.3438 56.2812 50.7812C56.2812 47.1979 55.8333 43.9375 54.9375 41C54.0417 38.0417 52.8438 35.6875 51.3438 33.9375C49.8646 32.1875 48.2083 31.3125 46.375 31.3125C44.5625 31.3125 42.9062 32.1875 41.4062 33.9375C39.9271 35.6875 38.7396 38.0417 37.8438 41C36.9479 43.9375 36.5 47.1979 36.5 50.7812C36.5 54.3438 36.9479 57.6042 37.8438 60.5625C38.7396 63.5 39.9271 65.8438 41.4062 67.5938C42.9062 69.3438 44.5625 70.2188 46.375 70.2188Z"
