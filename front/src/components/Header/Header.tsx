@@ -1,18 +1,23 @@
 import { Link, useLocation } from 'react-router-dom';
-import { CustomLink, BrandedLettering, GoBackButton } from '@/ui';
+import {
+  CustomLink,
+  BrandedLettering,
+  GoBackButton,
+  MobileMenuBtn,
+} from '@/ui';
 
 import type { FC } from 'react';
 
 import { routes } from '@/consts';
 
 import classes from './Header.module.css';
-import menu from '../../assets/sprite.svg';
 
 interface IHeader {
+  isMobile: boolean;
   setIsMobile: (flag: boolean) => void;
 }
 
-export const Header: FC<IHeader> = ({ setIsMobile }) => {
+export const Header: FC<IHeader> = ({ isMobile, setIsMobile }) => {
   const location = useLocation();
 
   return (
@@ -69,11 +74,7 @@ export const Header: FC<IHeader> = ({ setIsMobile }) => {
           {routes.find((route) => route.path === location.pathname)?.title}
         </h2>
 
-        <button className={classes.btnMenu} onClick={() => setIsMobile(true)}>
-          <svg className={classes.menuIcon}>
-            <use href={menu + '#menu'}></use>
-          </svg>
-        </button>
+        <MobileMenuBtn setIsMobile={setIsMobile} isMobile={isMobile} />
       </div>
     </header>
   );

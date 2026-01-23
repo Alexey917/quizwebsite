@@ -8,37 +8,50 @@ export const GoBackButton = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const isGoingBackRef = useRef<boolean>(false);
-  const [history, setHistory] = useState<string[]>([]);
+  const [history, setHistory] = useState<string[]>(() => {
+    return [location.pathname];
+  });
 
-  console.log(history);
+  const canGoBack = history.length > 1;
 
   const handleNavigate = () => {
-    if (history.length > 1) {
-      navigate(-1);
+    if (canGoBack) {
       isGoingBackRef.current = true;
-      setHistory((prevItems) => prevItems.slice(0, -1));
+      setHistory((prevItems) => {
+        return prevItems.slice(0, -1);
+      });
+      navigate(-1);
     }
   };
 
   useEffect(() => {
     if (isGoingBackRef.current) {
       isGoingBackRef.current = false;
-    } else {
-      setHistory([...history, location.pathname]);
+      return;
     }
+
+    setHistory((prev) => {
+      if (prev[prev.length - 1] === location.pathname) {
+        return prev; // Уже есть
+      }
+      return [...prev, location.pathname];
+    });
   }, [location]);
 
   return (
     <button
       className={classes.btnMenu}
       onClick={handleNavigate}
-      disabled={history.length < 2}
+      disabled={!canGoBack}
+      aria-label="Назад на предыдущую страницу"
+      title="Вернуться назад"
     >
       <svg
-        className={
-          history.length > 1 ? `${classes.back}` : `${classes.hiddenBack}`
-        }
+        className={canGoBack ? `${classes.back}` : `${classes.hiddenBack}`}
+        aria-hidden="true"
+        focusable="false"
       >
+        <title>Стрелка назад</title>
         <use href={back + '#back'}></use>
       </svg>
     </button>

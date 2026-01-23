@@ -78,6 +78,10 @@
   .link:hover {
     color: #fecda7;
   }
+
+  .btnMenu:hover {
+    box-shadow: 0.125rem 0.125rem 0.625rem #f1ae79;
+  }
 }
 
 @media (max-width: 1200px) {
