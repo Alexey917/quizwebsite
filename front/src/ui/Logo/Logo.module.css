@@ -10,3 +10,25 @@
     height: 400px;
   }
 }
+
+@media (max-width: 904px) {
+  .icon {
+    width: 289px;
+    height: 330px;
+  }
+}
+
+@media (max-width: 576px) {
+  .icon {
+    width: 180px;
+    height: 202px;
+  }
+
+  .text {
+    margin-top: -14px;
+  }
+
+  .contentWrapper {
+    left: -25px;
+  }
+}
