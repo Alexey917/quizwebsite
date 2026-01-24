@@ -54,3 +54,25 @@
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
+
+@media (max-width: 1200px) {
+  .container {
+    width: 1024px;
+  }
+
+  .icon {
+    margin-right: 0;
+    margin-left: -60px;
+    margin-top: -22px;
+    width: 445px;
+    height: 118px;
+  }
+
+  .text {
+    font-size: 36px;
+  }
+
+  .contentWrapper {
+    left: 0;
+  }
+}
