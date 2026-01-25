@@ -171,6 +171,8 @@
     width: 156px;
     height: 54px;
     border-radius: 16px 2px 16px 16px;
+    border-left: 1.5px solid #f1ae79;
+    border-right: 1.5px solid #b46b48;
   }
 
   .linkMain {
@@ -182,6 +184,22 @@
 
   .innerMain {
     height: 49px;
+    padding: 12px 17px;
+    border-radius: 13px 0 13px 13px;
+  }
+}
+
+@media (max-width: 360px) {
+  .main {
+    border-left: 1.5px solid #f1ae79;
+    border-right: 1.5px solid #b46b48;
+  }
+
+  .linkMain {
+    font-size: 12px;
+  }
+
+  .innerMain {
     padding: 12px 17px;
     border-radius: 13px 0 13px 13px;
   }

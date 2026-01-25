@@ -94,7 +94,7 @@
     width: 576px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
     row-gap: 32px;
   }
 
@@ -120,6 +120,7 @@
     grid-area: 2 / 1 / 3 / 3;
     justify-content: center;
     align-items: start;
+    height: 80px;
   }
 }
 
@@ -147,6 +148,32 @@
   }
 
   .btnGroup {
-    height: 88px;
+    height: 60px;
+  }
+}
+
+@media (max-width: 360px) {
+  .container {
+    width: 320px;
+  }
+
+  .icon {
+    margin-left: 130px;
+    margin-top: -41px;
+    width: 188px;
+    height: 142px;
+  }
+
+  .text {
+    margin-top: -48px;
+  }
+
+  .contentWrapper {
+    position: absolute;
+    right: 18px;
+  }
+
+  .btnGroup {
+    height: 60px;
   }
 }

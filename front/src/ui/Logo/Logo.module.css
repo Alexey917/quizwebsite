@@ -32,3 +32,18 @@
     left: -25px;
   }
 }
+
+@media (max-width: 360px) {
+  .icon {
+    width: 156px;
+    height: 142px;
+  }
+
+  .text {
+    margin-top: -14px;
+  }
+
+  .contentWrapper {
+    left: -25px;
+  }
+}

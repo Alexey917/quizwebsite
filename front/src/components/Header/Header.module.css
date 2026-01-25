@@ -159,6 +159,10 @@
     margin: auto;
   }
 
+  .header {
+    padding: 0.4375rem 0;
+  }
+
   .menuIcon,
   .back,
   .btnMenu {
