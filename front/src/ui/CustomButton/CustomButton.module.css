@@ -33,6 +33,7 @@
 
 .author {
   position: relative;
+  width: 285px;
   padding: 2px;
   background: conic-gradient(
     from var(--angleAuthor),
@@ -61,8 +62,8 @@
 .innerAuthor {
   text-align: center;
   position: relative;
-  padding: 15px 26px;
-  background: #13515e;
+  padding: 26.5px 22px;
+  background: #49969b;
   border-radius: 33px 1px 33px 33px;
   z-index: 1;
 }
@@ -85,17 +86,20 @@
   }
 }
 
-.btn {
+.btn,
+.btnAuthor {
+  width: 100%;
   padding: 0;
   color: #f1ae79;
   text-decoration: none;
   font-family: 'Naga', serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 20px;
+  font-size: 24px;
   line-height: 100%;
   border: none;
   cursor: pointer;
+  background: transparent;
 }
 
 @media (hover: hover) {
@@ -128,5 +132,65 @@
   .wrapper:hover .btn,
   .author:hover .btn {
     color: #fecda7;
+  }
+}
+
+@media (max-width: 1200px) {
+  .author {
+    width: 277px;
+    height: 86px;
+    border-radius: 28px 4px 28px 28px;
+  }
+
+  .btnAuthor {
+    font-size: 20px;
+  }
+
+  .innerAuthor {
+    height: 81.2px;
+    padding: 21px 26px;
+    border-radius: 25px 1px 25px 25px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .author {
+    width: 211px;
+    height: 76px;
+  }
+
+  .innerAuthor {
+    height: 71.5px;
+    padding: 15.5px 8px;
+  }
+}
+
+@media (max-width: 904px) {
+  .author {
+    width: 231px;
+    height: 76px;
+  }
+
+  .innerAuthor {
+    height: 71.8px;
+    padding: 15.5px 8px;
+  }
+}
+
+@media (max-width: 576px) {
+  .author {
+    width: 156px;
+    height: 54px;
+    border-radius: 16px 2px 16px 16px;
+  }
+
+  .btnAuthor {
+    font-size: 13px;
+  }
+
+  .innerAuthor {
+    height: 50px;
+    padding: 13px 13px;
+    border-radius: 13px 0 13px 13px;
   }
 }

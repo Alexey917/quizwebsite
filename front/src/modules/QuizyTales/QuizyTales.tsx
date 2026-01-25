@@ -10,31 +10,7 @@ export const QuizyTales = () => {
   const isTablet = useMediaQuery({ minWidth: 576, maxWidth: 904 });
   const isPhone = useMediaQuery({ minWidth: 320, maxWidth: 576 });
 
-  const getLinkProps = () => {
-    if (isDesktop)
-      return { width: '277px', fontSize: '20px', padding: '19px 47px' };
-    if (isLaptop)
-      return { width: '211px', fontSize: '20px', padding: '12px 12px' };
-    if (isTablet)
-      return { width: '231px', fontSize: '20px', padding: '12px 22px' };
-    if (isPhone)
-      return { width: '156px', fontSize: '12px', padding: '1px 21px' };
-
-    return { width: '285px', fontSize: '24px', padding: '24px 33px' };
-  };
-
-  const getButtonProps = () => {
-    if (isDesktop)
-      return { width: '277px', fontSize: '20px', padding: '21px 26px' };
-    if (isLaptop)
-      return { width: '211px', fontSize: '20px', padding: '15.5px 8px' };
-    if (isTablet)
-      return { width: '231px', fontSize: '20px', padding: '15.5px 8px' };
-    if (isPhone)
-      return { width: '156px', fontSize: '12px', padding: '3px 17px' };
-
-    return { width: '285px', fontSize: '24px', padding: '26.5px 22px' };
-  };
+  const getButtonProps = () => {};
 
   return (
     <section className={classes.section} aria-labelledby="quizy-tales-title">
@@ -57,14 +33,12 @@ export const QuizyTales = () => {
               <CustomLink
                 to="catalog"
                 text="Выбрать готовый квиз"
-                {...getLinkProps()}
                 background="#49969b"
-                variant="leftRight"
+                variant="main"
               />
               <CustomButton
                 type="button"
                 text="Создать собственный квиз"
-                {...getButtonProps()}
                 background="#49969b"
                 variant="author"
               />
@@ -76,14 +50,12 @@ export const QuizyTales = () => {
             <CustomLink
               to="catalog"
               text="Выбрать готовый квиз"
-              {...getLinkProps()}
               background="#49969b"
-              variant="leftRight"
+              variant="main"
             />
             <CustomButton
               type="button"
               text="Создать собственный квиз"
-              {...getButtonProps()}
               background="#49969b"
               variant="author"
             />

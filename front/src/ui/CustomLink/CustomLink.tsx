@@ -3,28 +3,21 @@ import { Link } from 'react-router-dom';
 
 import classes from './CustomLink.module.css';
 
-type TLinkVariant = 'main' | 'leftRight' | 'right' | 'bottom';
+type TLinkVariant = 'wrapper' | 'main' | 'right' | 'bottom';
 
 interface ICustomLink {
   to: string;
   text: string;
-  width?: string;
   background?: string;
-  padding?: string;
-  fontSize?: string;
   variant?: TLinkVariant;
 }
 
 const getWrapperClass = (variant: TLinkVariant): string => {
   switch (variant) {
-    case 'main':
+    case 'wrapper':
       return classes.wrapper;
-    case 'leftRight':
-      return classes.leftRight;
-    case 'right':
-      return classes.right;
-    case 'bottom':
-      return classes.bottom;
+    case 'main':
+      return classes.main;
     default:
       return classes.wrapper;
   }
@@ -32,39 +25,39 @@ const getWrapperClass = (variant: TLinkVariant): string => {
 
 const getInnerClass = (variant: TLinkVariant): string => {
   switch (variant) {
-    case 'main':
+    case 'wrapper':
       return classes.inner;
-    case 'leftRight':
-      return classes.innerLeftRight;
-    case 'right':
-      return classes.innerRight;
-    case 'bottom':
-      return classes.innerBottom;
+    case 'main':
+      return classes.innerMain;
     default:
-      return classes.wrapper;
+      return classes.inner;
+  }
+};
+
+const getLinkClass = (variant: TLinkVariant): string => {
+  switch (variant) {
+    case 'wrapper':
+      return classes.link;
+    case 'main':
+      return classes.linkMain;
+    default:
+      return classes.link;
   }
 };
 
 export const CustomLink: FC<ICustomLink> = ({
   to,
   text,
-  width,
   background,
-  padding,
-  fontSize,
   variant = 'main',
 }) => {
   return (
-    <div
-      role="presentation"
-      className={getWrapperClass(variant)}
-      style={{ width: width }}
-    >
+    <div role="presentation" className={getWrapperClass(variant)}>
       <div
         className={getInnerClass(variant)}
-        style={{ padding: padding, background: background }}
+        style={{ background: background }}
       >
-        <Link to={to} className={classes.link} style={{ fontSize: fontSize }}>
+        <Link to={to} className={getLinkClass(variant)}>
           {text}
         </Link>
       </div>

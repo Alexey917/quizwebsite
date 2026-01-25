@@ -69,7 +69,7 @@ export const Header: FC<IHeader> = ({ isMobile, setIsMobile }) => {
             ))}
           </ul>
 
-          <CustomLink to="catalog" text="Сделать заказ" variant="main" />
+          <CustomLink to="catalog" text="Сделать заказ" variant="wrapper" />
         </nav>
 
         <GoBackButton />

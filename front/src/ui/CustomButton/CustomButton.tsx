@@ -1,40 +1,57 @@
 import type { FC } from 'react';
 import classes from './CustomButton.module.css';
 
+type TBtnVariant = 'author';
+
 interface ICustomButton {
   type: 'button' | 'submit';
   text: string;
-  width: string;
   background: string;
-  padding: string;
-  fontSize: string;
-  variant: 'main' | 'author';
+  variant: TBtnVariant;
 }
+
+const getWrapperClass = (variant: TBtnVariant) => {
+  switch (variant) {
+    case 'author':
+      return classes.author;
+    default:
+      return classes.author;
+  }
+};
+
+const getInnerClass = (variant: TBtnVariant) => {
+  switch (variant) {
+    case 'author':
+      return classes.innerAuthor;
+    default:
+      return classes.innerAuthor;
+  }
+};
+
+const getBtnClass = (variant: TBtnVariant) => {
+  switch (variant) {
+    case 'author':
+      return classes.btnAuthor;
+    default:
+      return classes.btnAuthor;
+  }
+};
 
 export const CustomButton: FC<ICustomButton> = ({
   type,
   text,
-  width,
   background,
-  padding,
-  fontSize,
   variant,
 }) => {
   return (
-    <div
-      className={variant === 'main' ? classes.wrapper : classes.author}
-      style={{ width: width }}
-    >
-      <div
-        className={variant === 'main' ? classes.inner : classes.innerAuthor}
-        style={{ padding: padding, background: background }}
-      >
+    <div className={getWrapperClass(variant)}>
+      <div className={getInnerClass(variant)}>
         <button
           type={type}
-          className={classes.btn}
+          className={getBtnClass(variant)}
           style={{ background: background }}
         >
-          <span style={{ fontSize: fontSize }}>{text}</span>
+          {text}
         </button>
       </div>
     </div>
