@@ -1,49 +1,49 @@
 .icon {
-  width: 590px;
-  height: 536px;
+  width: 36.875rem;
+  height: 33.5rem;
   flex-shrink: 0;
 }
 
 @media (max-width: 1200px) {
   .icon {
-    width: 440px;
-    height: 400px;
+    width: 27.5rem;
+    height: 25rem;
   }
 }
 
 @media (max-width: 904px) {
   .icon {
-    width: 289px;
-    height: 330px;
+    width: 18.0625rem;
+    height: 20.625rem;
   }
 }
 
 @media (max-width: 576px) {
   .icon {
-    width: 180px;
-    height: 202px;
+    width: 11.25rem;
+    height: 12.625rem;
   }
 
   .text {
-    margin-top: -14px;
+    margin-top: -0.875rem;
   }
 
   .contentWrapper {
-    left: -25px;
+    left: -1.5625rem;
   }
 }
 
 @media (max-width: 360px) {
   .icon {
-    width: 156px;
-    height: 142px;
+    width: 9.75rem;
+    height: 8.875rem;
   }
 
   .text {
-    margin-top: -14px;
+    margin-top: -0.875rem;
   }
 
   .contentWrapper {
-    left: -25px;
+    left: -1.5625rem;
   }
 }

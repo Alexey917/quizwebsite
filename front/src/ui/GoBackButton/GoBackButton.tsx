@@ -32,10 +32,12 @@ export const GoBackButton = () => {
 
     setHistory((prev) => {
       if (prev[prev.length - 1] === location.pathname) {
-        return prev; // Уже есть
+        return prev;
       }
       return [...prev, location.pathname];
     });
+
+    // window.addEventListener('popstate', checkHistory);
   }, [location]);
 
   return (

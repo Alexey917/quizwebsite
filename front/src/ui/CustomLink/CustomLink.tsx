@@ -8,6 +8,7 @@ type TLinkVariant = 'wrapper' | 'main' | 'right' | 'bottom';
 interface ICustomLink {
   to: string;
   text: string;
+  textBr?: string;
   background?: string;
   variant?: TLinkVariant;
 }
@@ -48,6 +49,7 @@ const getLinkClass = (variant: TLinkVariant): string => {
 export const CustomLink: FC<ICustomLink> = ({
   to,
   text,
+  textBr,
   background,
   variant = 'main',
 }) => {
@@ -59,6 +61,12 @@ export const CustomLink: FC<ICustomLink> = ({
       >
         <Link to={to} className={getLinkClass(variant)}>
           {text}
+          {textBr && (
+            <>
+              <br />
+              {textBr}
+            </>
+          )}
         </Link>
       </div>
     </div>

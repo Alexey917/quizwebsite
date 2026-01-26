@@ -5,12 +5,8 @@ import classes from './QuizyTales.module.css';
 import title from '../../assets/sprite.svg';
 
 export const QuizyTales = () => {
-  const isDesktop = useMediaQuery({ minWidth: 1024, maxWidth: 1200 });
-  const isLaptop = useMediaQuery({ minWidth: 904, maxWidth: 1024 });
   const isTablet = useMediaQuery({ minWidth: 576, maxWidth: 904 });
   const isPhone = useMediaQuery({ minWidth: 320, maxWidth: 576 });
-
-  const getButtonProps = () => {};
 
   return (
     <section className={classes.section} aria-labelledby="quizy-tales-title">
@@ -32,7 +28,8 @@ export const QuizyTales = () => {
             <div className={classes.btnGroup}>
               <CustomLink
                 to="catalog"
-                text="Выбрать готовый квиз"
+                text="Выбрать"
+                textBr="готовый квиз"
                 background="#49969b"
                 variant="main"
               />
@@ -49,7 +46,8 @@ export const QuizyTales = () => {
           <div className={classes.btnGroup}>
             <CustomLink
               to="catalog"
-              text="Выбрать готовый квиз"
+              text="Выбрать"
+              textBr="готовый квиз"
               background="#49969b"
               variant="main"
             />

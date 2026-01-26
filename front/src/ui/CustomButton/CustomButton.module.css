@@ -13,8 +13,8 @@
 .wrapper {
   position: relative;
   display: inline-block;
-  padding: 2px; /* Толщина градиентного бордера */
-  border-radius: 24px 4px 24px 24px;
+  padding: 0.125rem; /* Толщина градиентного бордера */
+  border-radius: 1.5rem 0.25rem 1.5rem 1.5rem;
   background: conic-gradient(
     from var(--angle),
     transparent,
@@ -28,13 +28,13 @@
     #b46b48,
     #b46b48
   );
-  border: 0.5px solid #13515e;
+  border: 0.0313rem solid #13515e;
 }
 
 .author {
   position: relative;
-  width: 285px;
-  padding: 2px;
+  width: 17.8125rem;
+  padding: 0.125rem;
   background: conic-gradient(
     from var(--angleAuthor),
     #f1ae79,
@@ -46,25 +46,25 @@
     #b46b48,
     #f1ae79
   );
-  border-radius: 36px 4px 36px 36px;
-  box-shadow: 0px 3.01px 3.01px 0px #081e2140;
+  border-radius: 2.25rem 0.25rem 2.25rem 2.25rem;
+  box-shadow: 0rem 0.1881rem 0.1881rem 0rem #081e2140;
 }
 
 .inner {
   text-align: center;
   position: relative;
-  padding: 15px 26px;
+  padding: 0.9375rem 1.625rem;
   background: #13515e;
-  border-radius: 21px 1px 21px 21px;
+  border-radius: 1.3125rem 0.0625rem 1.3125rem 1.3125rem;
   z-index: 1;
 }
 
 .innerAuthor {
   text-align: center;
   position: relative;
-  padding: 26.5px 22px;
+  padding: 1.6563rem 1.375rem;
   background: #49969b;
-  border-radius: 33px 1px 33px 33px;
+  border-radius: 2.0625rem 0.0625rem 2.0625rem 2.0625rem;
   z-index: 1;
 }
 
@@ -95,7 +95,7 @@
   font-family: 'Naga', serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 24px;
+  font-size: 1.5rem;
   line-height: 100%;
   border: none;
   cursor: pointer;
@@ -111,7 +111,7 @@
   .author:hover {
     cursor: pointer;
     border: none;
-    padding: 2px;
+    padding: 0.125rem;
     background: conic-gradient(
       from var(--angle),
       transparent,
@@ -137,60 +137,70 @@
 
 @media (max-width: 1200px) {
   .author {
-    width: 277px;
-    height: 86px;
-    border-radius: 28px 4px 28px 28px;
+    width: 17.3125rem;
+    height: 5.375rem;
+    border-radius: 1.75rem 0.25rem 1.75rem 1.75rem;
   }
 
   .btnAuthor {
-    font-size: 20px;
+    font-size: 1.25rem;
   }
 
   .innerAuthor {
-    height: 81.2px;
-    padding: 21px 26px;
-    border-radius: 25px 1px 25px 25px;
+    height: 5.075rem;
+    padding: 1.3125rem 1.625rem;
+    border-radius: 1.5625rem 0.0625rem 1.5625rem 1.5625rem;
   }
 }
 
 @media (max-width: 1024px) {
   .author {
-    width: 211px;
-    height: 76px;
+    width: 13.1875rem;
+    height: 4.75rem;
   }
 
   .innerAuthor {
-    height: 71.5px;
-    padding: 15.5px 8px;
+    height: 4.4688rem;
+    padding: 0.9688rem 0.5rem;
   }
 }
 
 @media (max-width: 904px) {
   .author {
-    width: 231px;
-    height: 76px;
+    width: 14.4375rem;
+    height: 4.75rem;
   }
 
   .innerAuthor {
-    height: 71.8px;
-    padding: 15.5px 8px;
+    height: 4.4875rem;
+    padding: 0.9688rem 0.5rem;
   }
 }
 
 @media (max-width: 576px) {
   .author {
-    width: 156px;
-    height: 54px;
-    border-radius: 16px 2px 16px 16px;
+    width: 9.75rem;
+    height: 3.375rem;
+    border-radius: 1rem 0.125rem 1rem 1rem;
   }
 
   .btnAuthor {
-    font-size: 13px;
+    font-size: 0.8125rem;
   }
 
   .innerAuthor {
-    height: 50px;
-    padding: 13px 13px;
-    border-radius: 13px 0 13px 13px;
+    height: 3.125rem;
+    padding: 0.8125rem 0.8125rem;
+    border-radius: 0.8125rem 0 0.8125rem 0.8125rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .btnAuthor {
+    font-size: 0.75rem;
+  }
+
+  .innerAuthor {
+    padding: 0.8125rem 0.625rem;
   }
 }
