@@ -1,0 +1,62 @@
+.forWhom {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 0;
+}
+
+.title {
+  margin: 0;
+  grid-area: 1 / 1 / 2 / 3;
+  align-self: center;
+  font-family: 'Naga', serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 48px;
+  line-height: 100%;
+  color: #f1ae79;
+}
+
+.textWrapper {
+  --borderWidth: 2px;
+  --borderGradient: linear-gradient(
+    266.43deg,
+    #b46b48 0%,
+    rgba(211, 141, 97, 0) 50%,
+    rgba(226, 157, 109, 0) 75%,
+    #f1ae79 100%
+  );
+
+  position: relative;
+  border-radius: 40px 4px 40px 40px;
+  padding: 28px;
+  border: 2px solid transparent;
+
+  background: linear-gradient(
+    360deg,
+    rgba(8, 30, 33, 0.125) 0%,
+    rgba(19, 81, 94, 0) 100%
+  );
+
+  box-shadow: 0px 4px 4px 0px #081e2140;
+}
+
+.textWrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: var(--borderWidth);
+  background-image: var(--borderGradient);
+  border-radius: inherit;
+  mask: conic-gradient(#000 0 0) content-box exclude, conic-gradient(#000 0 0);
+}
+
+.text {
+  font-family: Nunito;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 20px;
+
+  line-height: 28px;
+}
