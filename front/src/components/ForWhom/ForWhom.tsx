@@ -14,11 +14,19 @@ export const ForWhom = () => {
       </div>
       <div className={classes.textWrapper}>
         <h4 className={classes.textTitle}>QuizyTales — это:</h4>
-        <ul>
-          <li>Корпоративный дух и командная синергия</li>
-          <li>Интеллектуальный досуг с элементами игры</li>
-          <li>Гибкие решения для удалённых и гибридных команд</li>
-          <li>Полный цикл организации без стресса для HR</li>
+        <ul className={classes.list}>
+          <li className={classes.listItem}>
+            Корпоративный дух и командная синергия
+          </li>
+          <li className={classes.listItem}>
+            Интеллектуальный досуг с элементами игры
+          </li>
+          <li className={classes.listItem}>
+            Гибкие решения для удалённых и гибридных команд
+          </li>
+          <li className={classes.listItem}>
+            Полный цикл организации без стресса для HR
+          </li>
         </ul>
       </div>
     </article>

@@ -1,25 +1,28 @@
 .forWhom {
+  margin-top: 5.625rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  grid-column-gap: 20px;
+  grid-template-rows: repeat(2, -webkit-max-content);
+  grid-template-rows: repeat(2, max-content);
+  grid-column-gap: 1.25rem;
   grid-row-gap: 0;
 }
 
 .title {
   margin: 0;
+  margin-bottom: 5rem;
   grid-area: 1 / 1 / 2 / 3;
   align-self: center;
   font-family: 'Naga', serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 48px;
+  font-size: 3rem;
   line-height: 100%;
   color: #f1ae79;
 }
 
 .textWrapper {
-  --borderWidth: 2px;
+  --borderWidth: 0.125rem;
   --borderGradient: linear-gradient(
     266.43deg,
     #b46b48 0%,
@@ -29,9 +32,9 @@
   );
 
   position: relative;
-  border-radius: 40px 4px 40px 40px;
-  padding: 28px;
-  border: 2px solid transparent;
+  border-radius: 2.5rem 0.25rem 2.5rem 2.5rem;
+  padding: 1.75rem;
+  border: 0.125rem solid transparent;
 
   background: linear-gradient(
     360deg,
@@ -39,7 +42,7 @@
     rgba(19, 81, 94, 0) 100%
   );
 
-  box-shadow: 0px 4px 4px 0px #081e2140;
+  box-shadow: 0rem 0.25rem 0.25rem 0rem #081e2140;
 }
 
 .textWrapper::before {
@@ -49,14 +52,169 @@
   padding: var(--borderWidth);
   background-image: var(--borderGradient);
   border-radius: inherit;
+  -webkit-mask: conic-gradient(#000 0 0) content-box, conic-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
   mask: conic-gradient(#000 0 0) content-box exclude, conic-gradient(#000 0 0);
 }
 
 .text {
-  font-family: Nunito;
-  font-weight: 500;
-  font-style: Medium;
-  font-size: 20px;
+  margin: 0;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  color: #fecda7;
+}
 
-  line-height: 28px;
+.textTitle {
+  margin: 0;
+  margin-bottom: 0.75rem;
+  font-family: 'Naga', serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.75rem;
+  line-height: 100%;
+  color: #fecda7;
+}
+
+.list {
+  padding: 0;
+  padding-left: 1.75rem;
+  margin: 0;
+  color: #fecda7;
+}
+
+.listItem {
+  margin: 0;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.1875rem;
+  line-height: 2rem;
+}
+
+@media (max-width: 1200px) {
+  .title {
+    margin-bottom: 52px;
+    font-size: 36px;
+  }
+
+  .text {
+    font-size: 1.1875rem;
+  }
+
+  .textTitle {
+    font-size: 1.5rem;
+  }
+
+  .listItem {
+    font-size: 1.125rem;
+  }
+
+  .forWhom {
+    margin-top: 2.9375rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .forWhom {
+    margin-top: 1.75rem;
+  }
+
+  .text {
+    font-size: 1.0625rem;
+  }
+
+  .textTitle {
+    font-size: 1.25rem;
+  }
+
+  .listItem {
+    font-size: 1rem;
+  }
+
+  .textWrapper {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 904px) {
+  .forWhom {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-top: 1.25rem;
+  }
+
+  .title {
+    margin-bottom: 1.25rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .title {
+    font-size: 1.6875rem;
+  }
+
+  .text {
+    font-size: 13px;
+    line-height: 24px;
+  }
+
+  .textTitle {
+    font-size: 1.125rem;
+  }
+
+  .listItem {
+    font-size: 0.75rem;
+    line-height: 1.5rem;
+  }
+
+  .forWhom {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 360px) {
+  .title {
+    font-size: 1.375rem;
+    margin-bottom: 0;
+  }
+
+  .text {
+    font-size: 0.8125rem;
+    line-height: 1.5rem;
+  }
+
+  .textTitle {
+    font-size: 1rem;
+    margin-left: 0.6875rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .listItem {
+    font-size: 0.75rem;
+    line-height: 1.5rem;
+  }
+
+  .textWrapper {
+    padding: 0.75rem;
+  }
+
+  .textWrapper:first-of-type {
+    border-radius: 0;
+    padding: 0;
+    background: transparent;
+
+    box-shadow: 0rem 0rem 0rem 0rem #081e2140;
+  }
+
+  .textWrapper:first-of-type::before {
+    display: none;
+  }
+
+  .forWhom {
+    margin-top: 1.25rem;
+  }
 }
