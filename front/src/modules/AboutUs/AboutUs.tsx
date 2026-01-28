@@ -1,4 +1,5 @@
 import { ForWhom } from '@/components';
+import { Benefits } from './components/Benefits';
 
 import classes from './AboutUs.module.css';
 import waves from '../../assets/sprite.svg';
@@ -17,6 +18,7 @@ export const AboutUs = () => {
       <div className={classes.content}>
         <div className={classes.container}>
           <ForWhom />
+          <Benefits />
         </div>
       </div>
     </section>

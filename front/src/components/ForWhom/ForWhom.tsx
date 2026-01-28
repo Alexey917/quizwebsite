@@ -3,7 +3,9 @@ import classes from './ForWhom.module.css';
 export const ForWhom = () => {
   return (
     <article className={classes.forWhom}>
-      <h2 className={classes.title}>Кому подходит QuizyTales и почему:</h2>
+      <h2 className={classes.title} id="forWhomTitle">
+        Кому подходит QuizyTales и почему:
+      </h2>
       <div className={classes.textWrapper}>
         <p className={classes.text}>
           Если вы: HR-отдел, планирующий корпоратив, event-менеджер, ищущий
@@ -13,8 +15,14 @@ export const ForWhom = () => {
         </p>
       </div>
       <div className={classes.textWrapper}>
-        <h4 className={classes.textTitle}>QuizyTales — это:</h4>
-        <ul className={classes.list}>
+        <h3 className={classes.textTitle} id="quizyTalesDesc">
+          QuizyTales — это:
+        </h3>
+        <ul
+          className={classes.list}
+          aria-labelledby="quizyTalesDesc"
+          aria-describedby="forWhomTitle"
+        >
           <li className={classes.listItem}>
             Корпоративный дух и командная синергия
           </li>
