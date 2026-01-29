@@ -26,6 +26,7 @@
 }
 
 .text {
+  max-width: 307px;
   font-family: 'Nunito', sans-serif;
   font-weight: 600;
   font-style: normal;
@@ -34,9 +35,9 @@
   color: #f1ae79;
 }
 
-.slider {
+/* .slider {
   overflow: hidden;
-  width: 1400px;
+  width: 2600px;
 }
 
 .sliderWrapper {
@@ -46,7 +47,7 @@
   align-items: center;
   gap: 64px;
   overflow: hidden;
-}
+} */
 
 .benefitWrapper {
   --borderWidth: 0.125rem;

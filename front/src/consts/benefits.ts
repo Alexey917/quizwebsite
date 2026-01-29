@@ -4,7 +4,14 @@ import Rocket from '../assets/Rocket.svg';
 import Box from '../assets/Box.svg';
 import Money from '../assets/Money.svg';
 
-export const benefits = [
+export interface IBenefits {
+  title: string;
+  description: string;
+  svg: string;
+  class: string;
+}
+
+export const benefits: IBenefits[] = [
   {
     title: 'Атмосфера погружения',
     description:
