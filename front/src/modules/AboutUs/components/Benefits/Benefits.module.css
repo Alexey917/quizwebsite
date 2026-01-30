@@ -1,4 +1,4 @@
-.section {
+.article {
   margin-top: 72px;
 }
 
@@ -34,20 +34,6 @@
   line-height: 24px;
   color: #f1ae79;
 }
-
-/* .slider {
-  overflow: hidden;
-  width: 2600px;
-}
-
-.sliderWrapper {
-  display: flex;
-  height: 400px;
-  padding: 32px;
-  align-items: center;
-  gap: 64px;
-  overflow: hidden;
-} */
 
 .benefitWrapper {
   --borderWidth: 0.125rem;
@@ -131,4 +117,7 @@
   right: -44px;
   width: 160px;
   height: 160px;
+}
+
+@media (max-width: 1200px) {
 }

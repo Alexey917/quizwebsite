@@ -1,6 +1,7 @@
 .section {
   position: relative;
   min-height: 31.25rem;
+  height: 1997px;
 }
 
 .wavesBg {
@@ -12,9 +13,28 @@
   z-index: 0;
 }
 
+.wavesBgBottom {
+  position: absolute;
+  bottom: -100px;
+  left: 0;
+  width: 100%;
+  height: 18.75rem;
+  z-index: 0;
+  /* transform: rotateX(180deg); */
+}
+
 .waves {
   position: absolute;
   top: 6.25rem;
+  left: 0;
+  width: 100%;
+  height: 18.75rem;
+  z-index: 1;
+}
+
+.wavesBottom {
+  position: absolute;
+  bottom: 0;
   left: 0;
   width: 100%;
   height: 18.75rem;

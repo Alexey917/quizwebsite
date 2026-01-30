@@ -4,6 +4,8 @@ import { Benefits } from './components/Benefits';
 import classes from './AboutUs.module.css';
 import waves from '../../assets/sprite.svg';
 import wavesBg from '../../assets/sprite.svg';
+import wavesBgBottom from '../../assets/sprite.svg';
+import { GetToKnowUs } from './components/GetToKnowUs';
 
 export const AboutUs = () => {
   return (
@@ -19,8 +21,17 @@ export const AboutUs = () => {
         <div className={classes.container}>
           <ForWhom />
           <Benefits />
+          <GetToKnowUs />
         </div>
       </div>
+
+      <svg className={classes.wavesBottom}>
+        <use href={waves + '#waves'}></use>
+      </svg>
+
+      <svg className={classes.wavesBgBottom}>
+        <use href={wavesBgBottom + '#wavesBgBottom'}></use>
+      </svg>
     </section>
   );
 };

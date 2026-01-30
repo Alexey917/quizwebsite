@@ -1,0 +1,98 @@
+.article {
+  margin-top: 72px;
+  margin-bottom: 409px;
+}
+
+.title {
+  margin: 0;
+  margin-bottom: 72px;
+  font-family: 'Naga', serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 36px;
+  line-height: 100%;
+  color: #f1ae79;
+}
+
+.wrapper {
+  display: flex;
+  gap: 122px;
+}
+
+.linkWrapper {
+  position: relative;
+  display: inline-block;
+  display: flex;
+  align-items: center;
+  width: 400px;
+  height: 107px;
+  justify-content: center;
+  padding: 0.125rem; /* Толщина градиентного бордера */
+  border-radius: 40px 4px 40px 40px;
+  background: conic-gradient(
+    from var(--angle),
+    transparent,
+    transparent,
+    transparent,
+    #f1ae79,
+    #fecda7,
+    transparent,
+    transparent,
+    transparent,
+    #b46b48,
+    #b46b48
+  );
+  border: 0.0313rem solid #13515e;
+}
+
+.innerWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 400px;
+  height: 103px;
+  text-align: center;
+  position: relative;
+  background: #13515e;
+  border-radius: 37px 1px 37px 37px;
+  z-index: 1;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Naga', serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 28px;
+  line-height: 100%;
+  color: #f1ae79;
+  text-decoration: none;
+}
+
+@keyframes spin {
+  0% {
+    --angle: 125deg;
+  }
+
+  25% {
+    --angle: 215deg;
+  }
+
+  75% {
+    --angle: 395deg;
+  }
+
+  100% {
+    --angle: 485deg;
+  }
+}
+
+@media (hover: hover) {
+  .linkWrapper:hover {
+    cursor: pointer;
+    animation: spin 3s linear infinite;
+  }
+}
