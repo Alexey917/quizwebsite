@@ -15,12 +15,11 @@
 
 .wavesBgBottom {
   position: absolute;
-  bottom: -100px;
+  bottom: 30px;
   left: 0;
   width: 100%;
   height: 18.75rem;
   z-index: 0;
-  /* transform: rotateX(180deg); */
 }
 
 .waves {
@@ -34,7 +33,7 @@
 
 .wavesBottom {
   position: absolute;
-  bottom: 0;
+  bottom: 133px;
   left: 0;
   width: 100%;
   height: 18.75rem;
@@ -56,13 +55,23 @@
 }
 
 @media (min-width: 1500px) {
-  .wavesBg {
+  .wavesBg,
+  .wavesBgBottom {
     height: 29.125rem;
+  }
+
+  .wavesBgBottom {
+    bottom: -126px;
   }
 
   .waves {
     height: 31.125rem;
     top: 5.625rem;
+  }
+
+  .wavesBottom {
+    height: 31.125rem;
+    bottom: -25px;
   }
 
   .content {
@@ -77,6 +86,10 @@
 
   .wavesBg {
     top: -3.625rem;
+  }
+
+  .wavesBgBottom {
+    bottom: 60px;
   }
 
   .waves {
@@ -103,6 +116,14 @@
     top: 1.875rem;
   }
 
+  .wavesBottom {
+    bottom: 278px;
+  }
+
+  .wavesBgBottom {
+    bottom: 207px;
+  }
+
   .content {
     top: 14.4375rem;
   }
@@ -120,6 +141,14 @@
   .waves {
     height: 11.3125rem;
     top: 2.9375rem;
+  }
+
+  .wavesBottom {
+    bottom: -9px;
+  }
+
+  .wavesBgBottom {
+    bottom: -58px;
   }
 
   .content {
@@ -141,6 +170,14 @@
     top: 1.875rem;
   }
 
+  .wavesBottom {
+    bottom: 73px;
+  }
+
+  .wavesBgBottom {
+    bottom: 34px;
+  }
+
   .content {
     top: 9.375rem;
   }
@@ -158,6 +195,14 @@
   .waves {
     height: 4.125rem;
     top: 1.875rem;
+  }
+
+  .wavesBottom {
+    bottom: 311px;
+  }
+
+  .wavesBgBottom {
+    bottom: 279px;
   }
 
   .content {

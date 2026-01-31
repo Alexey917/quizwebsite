@@ -30,7 +30,7 @@ export const Benefits = () => {
         slidesPerView={3}
         spaceBetween={64}
         loop={true}
-        style={{ width: widthScreen - 210 }}
+        // style={{ width: widthScreen - 210 }}
         autoplay={{
           delay: 2500,
           disableOnInteraction: false,

@@ -7,22 +7,18 @@ export const GetToKnowUs = () => {
     <article className={classes.article}>
       <h3 className={classes.title}>Познакомиться с нами поближе можно:</h3>
       <div className={classes.wrapper}>
-        <div className={classes.linkWrapper}>
+        <a href="#" className={classes.linkWrapper}>
           <div className={classes.innerWrapper}>
             <img src={tg} alt="Иконка телеграмма" className={classes.img} />
-            <a href="#" className={classes.link}>
-              Группа в Telegram
-            </a>
+            <span className={classes.link}>Группа в Telegram</span>
           </div>
-        </div>
-        <div className={classes.linkWrapper}>
+        </a>
+        <a href="#" className={classes.linkWrapper}>
           <div className={classes.innerWrapper}>
             <img src={vk} alt="Иконка Вконтакте" className={classes.img} />
-            <a href="#" className={classes.link}>
-              Группа во Вконтакте
-            </a>
+            <span className={classes.link}>Группа во Вконтакте</span>
           </div>
-        </div>
+        </a>
       </div>
     </article>
   );

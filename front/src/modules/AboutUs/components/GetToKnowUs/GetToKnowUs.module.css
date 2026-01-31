@@ -1,6 +1,6 @@
 .article {
   margin-top: 72px;
-  margin-bottom: 409px;
+  margin-bottom: 402px;
 }
 
 .title {
@@ -24,7 +24,7 @@
   display: inline-block;
   display: flex;
   align-items: center;
-  width: 400px;
+  width: 420px;
   height: 107px;
   justify-content: center;
   padding: 0.125rem; /* Толщина градиентного бордера */
@@ -43,6 +43,7 @@
     #b46b48
   );
   border: 0.0313rem solid #13515e;
+  text-decoration: none;
 }
 
 .innerWrapper {
@@ -50,13 +51,13 @@
   align-items: center;
   justify-content: center;
   gap: 20px;
-  width: 400px;
+  width: 420px;
   height: 103px;
-  text-align: center;
+
   position: relative;
   background: #13515e;
   border-radius: 37px 1px 37px 37px;
-  z-index: 1;
+  z-index: 2;
 }
 
 .link {
@@ -69,7 +70,6 @@
   font-size: 28px;
   line-height: 100%;
   color: #f1ae79;
-  text-decoration: none;
 }
 
 @keyframes spin {
@@ -91,8 +91,142 @@
 }
 
 @media (hover: hover) {
-  .linkWrapper:hover {
+  .linkWrapper:hover,
+  .innerWrapper:hover {
     cursor: pointer;
     animation: spin 3s linear infinite;
+  }
+}
+
+@media (max-width: 1200px) {
+  .article {
+    margin-bottom: 481px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .link {
+    font-size: 24px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .linkWrapper,
+  .innerWrapper {
+    width: 380px;
+  }
+
+  .linkWrapper {
+    height: 104px;
+  }
+
+  .innerWrapper {
+    height: 100px;
+  }
+
+  .article {
+    margin-bottom: 359px;
+  }
+}
+
+@media (max-width: 904px) {
+  .wrapper {
+    flex-direction: column;
+    gap: 57px;
+    align-items: center;
+  }
+
+  .article {
+    margin-bottom: 283px;
+  }
+
+  .link {
+    font-size: 20px;
+  }
+
+  .linkWrapper {
+    width: 340px;
+    height: 96px;
+  }
+
+  .innerWrapper {
+    width: 340px;
+    height: 92px;
+  }
+
+  .img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .title {
+    text-align: center;
+    line-height: 120%;
+  }
+}
+
+@media (max-width: 576px) {
+  .article {
+    margin-bottom: 283px;
+  }
+
+  .link {
+    font-size: 18px;
+  }
+
+  .linkWrapper {
+    width: 308px;
+    height: 90px;
+  }
+
+  .innerWrapper {
+    width: 308px;
+    height: 86px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .img {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+@media (max-width: 360px) {
+  .article {
+    margin-bottom: 251px;
+  }
+
+  .link {
+    font-size: 14px;
+  }
+
+  .linkWrapper {
+    width: 270px;
+    height: 80px;
+  }
+
+  .innerWrapper {
+    width: 270px;
+    height: 76px;
+  }
+
+  .title {
+    font-size: 18px;
+    text-align: left;
+    margin-bottom: 62px;
+  }
+
+  .img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .wrapper {
+    gap: 34px;
   }
 }
