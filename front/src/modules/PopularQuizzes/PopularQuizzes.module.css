@@ -1,0 +1,18 @@
+.section {
+}
+
+.container {
+  width: 1200px;
+  margin: auto;
+}
+
+.quiz {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quizImg {
+  width: 1200px;
+  height: 600px;
+}
