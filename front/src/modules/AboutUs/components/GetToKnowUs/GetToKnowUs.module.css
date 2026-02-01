@@ -1,22 +1,22 @@
 .article {
-  margin-top: 72px;
-  margin-bottom: 402px;
+  margin-top: 4.5rem;
+  margin-bottom: 25.125rem;
 }
 
 .title {
   margin: 0;
-  margin-bottom: 72px;
+  margin-bottom: 4.5rem;
   font-family: 'Naga', serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 36px;
+  font-size: 2.25rem;
   line-height: 100%;
   color: #f1ae79;
 }
 
 .wrapper {
   display: flex;
-  gap: 122px;
+  gap: 7.625rem;
 }
 
 .linkWrapper {
@@ -24,11 +24,11 @@
   display: inline-block;
   display: flex;
   align-items: center;
-  width: 420px;
-  height: 107px;
+  width: 26.25rem;
+  height: 6.6875rem;
   justify-content: center;
-  padding: 0.125rem; /* Толщина градиентного бордера */
-  border-radius: 40px 4px 40px 40px;
+  padding: 0.125rem;
+  border-radius: 2.5rem 0.25rem 2.5rem 2.5rem;
   background: conic-gradient(
     from var(--angle),
     transparent,
@@ -50,13 +50,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
-  width: 420px;
-  height: 103px;
+  gap: 1.25rem;
+  width: 26.25rem;
+  height: 6.4375rem;
 
   position: relative;
   background: #13515e;
-  border-radius: 37px 1px 37px 37px;
+  border-radius: 2.3125rem 0.0625rem 2.3125rem 2.3125rem;
   z-index: 2;
 }
 
@@ -67,9 +67,27 @@
   font-family: 'Naga', serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 28px;
+  font-size: 1.75rem;
   line-height: 100%;
   color: #f1ae79;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    --angle: 125deg;
+  }
+
+  25% {
+    --angle: 215deg;
+  }
+
+  75% {
+    --angle: 395deg;
+  }
+
+  100% {
+    --angle: 485deg;
+  }
 }
 
 @keyframes spin {
@@ -94,71 +112,78 @@
   .linkWrapper:hover,
   .innerWrapper:hover {
     cursor: pointer;
+    -webkit-animation: spin 3s linear infinite;
     animation: spin 3s linear infinite;
+  }
+}
+
+@media (min-width: 1500px) {
+  .article {
+    margin-bottom: 35.5625rem;
   }
 }
 
 @media (max-width: 1200px) {
   .article {
-    margin-bottom: 481px;
+    margin-bottom: 29.625rem;
   }
 }
 
 @media (max-width: 1024px) {
   .link {
-    font-size: 24px;
+    font-size: 1.5rem;
   }
 
   .title {
-    font-size: 28px;
+    font-size: 1.75rem;
   }
 
   .linkWrapper,
   .innerWrapper {
-    width: 380px;
+    width: 23.75rem;
   }
 
   .linkWrapper {
-    height: 104px;
+    height: 6.5rem;
   }
 
   .innerWrapper {
-    height: 100px;
+    height: 6.25rem;
   }
 
   .article {
-    margin-bottom: 359px;
+    margin-bottom: 22.4375rem;
   }
 }
 
 @media (max-width: 904px) {
   .wrapper {
     flex-direction: column;
-    gap: 57px;
+    gap: 3.5625rem;
     align-items: center;
   }
 
   .article {
-    margin-bottom: 283px;
+    margin-bottom: 19.375rem;
   }
 
   .link {
-    font-size: 20px;
+    font-size: 1.25rem;
   }
 
   .linkWrapper {
-    width: 340px;
-    height: 96px;
+    width: 21.25rem;
+    height: 6rem;
   }
 
   .innerWrapper {
-    width: 340px;
-    height: 92px;
+    width: 21.25rem;
+    height: 5.75rem;
   }
 
   .img {
-    width: 30px;
-    height: 30px;
+    width: 1.875rem;
+    height: 1.875rem;
   }
 
   .title {
@@ -169,64 +194,64 @@
 
 @media (max-width: 576px) {
   .article {
-    margin-bottom: 283px;
+    margin-bottom: 17.6875rem;
   }
 
   .link {
-    font-size: 18px;
+    font-size: 1.125rem;
   }
 
   .linkWrapper {
-    width: 308px;
-    height: 90px;
+    width: 19.25rem;
+    height: 5.625rem;
   }
 
   .innerWrapper {
-    width: 308px;
-    height: 86px;
+    width: 19.25rem;
+    height: 5.375rem;
   }
 
   .title {
-    font-size: 24px;
+    font-size: 1.5rem;
   }
 
   .img {
-    width: 26px;
-    height: 26px;
+    width: 1.625rem;
+    height: 1.625rem;
   }
 }
 
 @media (max-width: 360px) {
   .article {
-    margin-bottom: 251px;
+    margin-bottom: 15.6875rem;
   }
 
   .link {
-    font-size: 14px;
+    font-size: 0.875rem;
   }
 
   .linkWrapper {
-    width: 270px;
-    height: 80px;
+    width: 16.875rem;
+    height: 5rem;
   }
 
   .innerWrapper {
-    width: 270px;
-    height: 76px;
+    width: 16.875rem;
+    height: 4.75rem;
   }
 
   .title {
-    font-size: 18px;
+    font-size: 1.125rem;
     text-align: left;
-    margin-bottom: 62px;
+    margin-bottom: 3.875rem;
   }
 
   .img {
-    width: 20px;
-    height: 20px;
+    width: 1.25rem;
+    height: 1.25rem;
   }
 
   .wrapper {
-    gap: 34px;
+    gap: 2.125rem;
   }
 }

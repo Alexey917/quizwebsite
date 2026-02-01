@@ -4,20 +4,46 @@ import vk from '../../../../assets/vk.svg';
 
 export const GetToKnowUs = () => {
   return (
-    <article className={classes.article}>
-      <h3 className={classes.title}>Познакомиться с нами поближе можно:</h3>
-      <div className={classes.wrapper}>
-        <a href="#" className={classes.linkWrapper}>
-          <div className={classes.innerWrapper}>
-            <img src={tg} alt="Иконка телеграмма" className={classes.img} />
+    <article className={classes.article} aria-labelledby="social-title">
+      <h3 className={classes.title} id="social-title">
+        Познакомиться с нами поближе можно:
+      </h3>
+      <div className={classes.wrapper} role="list">
+        <a
+          href="#"
+          className={classes.linkWrapper}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Группа в Telegram (откроется в новой вкладке)"
+          role="listitem"
+        >
+          <span className={classes.innerWrapper}>
+            <img
+              src={tg}
+              alt="Иконка телеграмма"
+              className={classes.img}
+              loading="lazy"
+            />
             <span className={classes.link}>Группа в Telegram</span>
-          </div>
+          </span>
         </a>
-        <a href="#" className={classes.linkWrapper}>
-          <div className={classes.innerWrapper}>
-            <img src={vk} alt="Иконка Вконтакте" className={classes.img} />
+        <a
+          href="#"
+          className={classes.linkWrapper}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Группа во Вконтакте (откроется в новой вкладке)"
+          role="listitem"
+        >
+          <span className={classes.innerWrapper}>
+            <img
+              src={vk}
+              alt="Иконка Вконтакте"
+              className={classes.img}
+              loading="lazy"
+            />
             <span className={classes.link}>Группа во Вконтакте</span>
-          </div>
+          </span>
         </a>
       </div>
     </article>
