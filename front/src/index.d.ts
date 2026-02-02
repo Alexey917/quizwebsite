@@ -32,3 +32,8 @@ declare module '*/css' {
   const url: string;
   export default url;
 }
+
+declare module 'swiper/css/*' {
+  const url: string;
+  export default url;
+}

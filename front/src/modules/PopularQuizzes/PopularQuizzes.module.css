@@ -1,5 +1,6 @@
 .section {
   position: relative;
+  margin-bottom: 92px;
 }
 
 .swiper {
@@ -32,6 +33,24 @@
   border-radius: 40px;
   width: 1200px;
   height: 600px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor;
+}
+
+.quizOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 40px;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
 }
 
 .quizImg {
@@ -41,6 +60,7 @@
   width: 100%;
   height: 100%;
   border-radius: 40px;
+  object-fit: cover;
 }
 
 .quizTitle {
@@ -75,6 +95,7 @@
 
 .customNext,
 .customPrev {
+  display: flex;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -82,7 +103,7 @@
 
 .customNavigation {
   position: absolute;
-  width: 100%;
+  width: 1200px;
   padding: 0 102px;
   display: flex;
   align-items: center;
@@ -132,16 +153,9 @@
   mask: conic-gradient(#000 0 0) content-box exclude, conic-gradient(#000 0 0);
 }
 
-.linkWrapper::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-
-  z-index: 1;
-}
-
 .quizLink {
+  position: relative;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -159,12 +173,28 @@
   text-decoration: none;
 }
 
+.quizLink::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, #fecda7, transparent);
+  transition: all 650ms;
+  z-index: 1;
+}
+
 @media (hover: hover) {
   .quizLink:hover {
     color: #fecda7;
   }
 
   .quizLink:hover {
-    box-shadow: 0px 0px 10px 0px #fecda7;
+    box-shadow: 1px 1px 25px 0 #fecda7;
+  }
+
+  .quizLink:hover:after {
+    left: 100%;
   }
 }
