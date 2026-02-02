@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 import { Navigation, EffectCube } from 'swiper/modules';
 import { popularQuizzes } from '@/consts';
-import { CustomLink } from '@/ui';
+import { CustomLink, SliderArrow } from '@/ui';
 
 import 'swiper/css';
 import 'swiper/css/effect-cube';
@@ -81,17 +81,25 @@ export const PopularQuizzes = () => {
         <div className={classes.customNavigation}>
           {!isBeginning && (
             <button onClick={handlePrev} className={classes.customPrev}>
-              <svg className={classes.iconPrev}>
-                <use href={`${sprite}#arrowSliderPrev`}></use>
-              </svg>
+              <SliderArrow
+                one={classes.one}
+                two={classes.two}
+                three={classes.three}
+                prev={true}
+              />
             </button>
           )}
 
           {!isEnd && (
             <button onClick={handleNext} className={classes.customNext}>
-              <svg className={classes.iconNext}>
+              {/* <svg className={classes.iconNext}>
                 <use href={`${sprite}#arrowSliderNext`}></use>
-              </svg>
+              </svg> */}
+              <SliderArrow
+                one={classes.one}
+                two={classes.two}
+                three={classes.three}
+              />
             </button>
           )}
         </div>

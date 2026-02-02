@@ -185,6 +185,16 @@
   z-index: 1;
 }
 
+path.one {
+  transition: 0.4s;
+  transform: translateX(-60%);
+}
+
+path.two {
+  transition: 0.5s;
+  transform: translateX(-30%);
+}
+
 @media (hover: hover) {
   .quizLink:hover {
     color: #fecda7;
@@ -196,5 +206,52 @@
 
   .quizLink:hover:after {
     left: 100%;
+  }
+
+  .customNext:hover path.three,
+  .customPrev:hover path.three {
+    animation: color_anim 1s infinite 0.2s;
+  }
+
+  .customNext:hover path.one {
+    transform: translateX(0%);
+    animation: color_anim 1s infinite 0.6s;
+  }
+
+  .customPrev:hover path.one {
+    transform: translateX(0%);
+    animation: color_anim 1s infinite 0.6s;
+  }
+
+  .customNext:hover path.two {
+    transform: translateX(0%);
+    animation: color_anim 1s infinite 0.4s;
+  }
+
+  .customPrev:hover path.two {
+    transform: translateX(0%);
+    animation: color_anim 1s infinite 0.4s;
+  }
+}
+
+@keyframes color_anim {
+  0% {
+    fill: #fecda7;
+  }
+  50% {
+    fill: #b46b48;
+  }
+  100% {
+    fill: #fecda7;
+  }
+}
+
+@keyframes animate {
+  0% {
+    transform: translate(-25%, -75%) rotate(0);
+  }
+
+  100% {
+    transform: translate(-25%, -75%) rotate(360deg);
   }
 }

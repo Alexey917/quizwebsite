@@ -4,3 +4,4 @@ export { BrandedLettering } from './brandedLettering/BrandedLettering';
 export { GoBackButton } from './GoBackButton/GoBackButton';
 export { MobileMenuBtn } from './MobileMenuBtn/MobileMenuBtn';
 export { Logo } from './Logo/Logo';
+export { SliderArrow } from './SliderArrow/SliderArrow';
