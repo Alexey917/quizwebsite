@@ -7,6 +7,7 @@ import { CustomLink } from '@/ui';
 
 import 'swiper/css';
 import classes from './PopularQuizzes.module.css';
+import sprite from '../../assets/sprite.svg';
 
 export const PopularQuizzes = () => {
   return (
@@ -15,8 +16,13 @@ export const PopularQuizzes = () => {
         <h2 className={classes.title}>Популярные квизы</h2>
         <Swiper
           slidesPerView={1}
-          // spaceBetween={64}
-          navigation={true}
+          cssMode={true}
+          spaceBetween={0}
+          navigation={{
+            nextEl: '.customNext',
+            prevEl: '.customPrev',
+          }}
+          style={{ borderRadius: '40px' }}
           modules={[Navigation]}
           className={classes.swiperWrapper}
         >
@@ -30,11 +36,27 @@ export const PopularQuizzes = () => {
                 />
                 <h3 className={classes.quizTitle}>{quiz.title}</h3>
                 <p className={classes.quizText}>{quiz.description}</p>
-                <Link to={quiz.link} className={classes.quizLink}></Link>
-                {/* <CustomLink /> */}
+
+                <div className={classes.linkWrapper}>
+                  <Link to={quiz.link} className={classes.quizLink}>
+                    Подробнее
+                  </Link>
+                </div>
               </div>
             </SwiperSlide>
           ))}
+          <div className={classes.customNavigation}>
+            <button className={classes.customNext}>
+              <svg className={classes.iconPrev}>
+                <use href={`${sprite}#arrowSliderPrev`}></use>
+              </svg>
+            </button>
+            <button className={classes.customPrev}>
+              <svg className={classes.iconNext}>
+                <use href={`${sprite}#arrowSliderNext`}></use>
+              </svg>
+            </button>
+          </div>
         </Swiper>
       </div>
     </section>
