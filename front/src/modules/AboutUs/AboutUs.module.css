@@ -1,7 +1,7 @@
 .section {
   position: relative;
   height: 124.8125rem;
-  margin-bottom: 315px;
+  margin-bottom: 0;
 }
 
 .wavesBg {
@@ -95,6 +95,10 @@
 }
 
 @media (min-width: 1500px) {
+  .section {
+    margin-bottom: 315px;
+  }
+
   .wavesBg,
   .wavesBgBottom {
     height: 29.125rem;
@@ -138,7 +142,7 @@
   }
 
   .content {
-    top: 15.125rem;
+    top: 15.025rem;
   }
 }
 

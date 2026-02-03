@@ -155,7 +155,6 @@ export const PopularQuizzes = () => {
             setIsBeginning(swiper.isBeginning);
             setIsEnd(swiper.isEnd);
           }}
-          style={{ borderRadius: '40px', height: '600px' }}
           modules={[EffectCube, Navigation]}
           className={classes.swiperWrapper}
         >
@@ -201,6 +200,9 @@ export const PopularQuizzes = () => {
             </button>
           )}
         </div>
+        {/* <div className={classes.align}>
+          <span className={classes.error}>Ошибка</span>
+        </div> */}
       </div>
     </section>
   );

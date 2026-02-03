@@ -1,3 +1,41 @@
 .prev {
   transform: rotate(180deg);
 }
+
+.next {
+  transform: rotate(0deg);
+}
+
+.icon,
+.next,
+.prev {
+  width: 45px;
+  height: 45px;
+}
+
+@media (max-width: 1024px) {
+  .icon,
+  .next,
+  .prev {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+@media (max-width: 904px) {
+  .icon,
+  .next,
+  .prev {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 576px) {
+  .icon,
+  .next,
+  .prev {
+    width: 25px;
+    height: 25px;
+  }
+}

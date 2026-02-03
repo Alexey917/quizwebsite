@@ -10,7 +10,6 @@ import 'swiper/css';
 
 export const Benefits = () => {
   const [widthScreen, setWidthScreen] = useState<number>(window.innerWidth);
-  console.log(window.innerWidth);
 
   useEffect(() => {
     const handleResize = () => {

@@ -11,10 +11,9 @@ interface IArrow {
 
 export const SliderArrow: FC<IArrow> = ({ one, two, three, prev }) => {
   return (
-    <div className={prev ? classes.prev : ''}>
+    <div className={prev ? classes.prev : classes.next}>
       <svg
-        width="45px"
-        height="45px"
+        className={classes.icon}
         viewBox="0 0 66 43"
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
