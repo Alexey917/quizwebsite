@@ -1,5 +1,5 @@
 .loader {
-  width: 50px;
+  width: 3.125rem;
   aspect-ratio: 1;
   display: grid;
   -webkit-mask: conic-gradient(from 15deg, #0000, #000);

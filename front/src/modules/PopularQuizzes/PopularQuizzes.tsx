@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { Swiper as SwiperType } from 'swiper';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -17,28 +17,32 @@ import 'swiper/css/pagination';
 import classes from './PopularQuizzes.module.css';
 
 export const PopularQuizzes = () => {
-  const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
-  const [isBeginning, setIsBeginning] = useState(true);
-  const [isEnd, setIsEnd] = useState(false);
+  const [swiperState, setSwiperState] = useState({
+    instance: null as SwiperType | null,
+    isBeginning: true,
+    isEnd: false,
+  });
 
   const [quizzes, setQuizzes] = useState<IPopularQuizzes[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
-  const handlePrev = () => {
-    if (swiperInstance) {
-      swiperInstance.slidePrev();
+  const handlePrev = useCallback(() => {
+    if (swiperState.instance) {
+      swiperState.instance.slidePrev();
     }
-  };
+  }, [swiperState.instance]);
 
-  const handleNext = () => {
-    if (swiperInstance) {
-      swiperInstance.slideNext();
+  const handleNext = useCallback(() => {
+    if (swiperState.instance) {
+      swiperState.instance.slideNext();
     }
-  };
+  }, [swiperState.instance]);
 
-  const handleQuizzes = async () => {
+  const handleQuizzes = useCallback(async () => {
     setLoading(true);
+    setError(null);
+
     try {
       const result = await popularApi();
       setQuizzes(result);
@@ -48,96 +52,68 @@ export const PopularQuizzes = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
   useEffect(() => {
     handleQuizzes();
+  }, [handleQuizzes]);
+
+  const handleSwiper = useCallback((swiper: SwiperType) => {
+    setSwiperState({
+      instance: swiper,
+      isBeginning: swiper.isBeginning,
+      isEnd: swiper.isEnd,
+    });
   }, []);
 
+  const handleSlideChange = useCallback((swiper: SwiperType) => {
+    setSwiperState((prev) => ({
+      ...prev,
+      isBeginning: swiper.isBeginning,
+      isEnd: swiper.isEnd,
+    }));
+  }, []);
+
+  if (loading) {
+    return (
+      <section
+        className={classes.section}
+        aria-label="Загрузка популярных квизов"
+      >
+        <div className={classes.container}>
+          <h2 className={classes.title}>Популярные квизы</h2>
+          <div className={classes.align}>
+            <Loader />
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section className={classes.section} aria-label="Ошибка загрузки">
+        <div className={classes.container}>
+          <h2 className={classes.title}>Популярные квизы</h2>
+          <div className={classes.align}>
+            <span className={classes.error} role="alert">
+              {error}
+            </span>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
-    <section className={classes.section}>
+    <section className={classes.section} aria-label="Популярные квизы">
       <div className={classes.container}>
         <h2 className={classes.title}>Популярные квизы</h2>
-        {/* <>
-          {loading ? (
-            <div className={classes.align}>
-              <Loader />
-            </div>
-          ) : error ? (
-            <div className={classes.align}>
-              <span className={classes.error}>{error}</span>
-            </div>
-          ) : (
-            <>
-              <Swiper
-                effect={'cube'}
-                grabCursor={true}
-                cubeEffect={{
-                  shadow: true,
-                  slideShadows: true,
-                  shadowOffset: 20,
-                  shadowScale: 0.94,
-                }}
-                onSwiper={(swiper) => {
-                  setSwiperInstance(swiper);
-                  setIsBeginning(swiper.isBeginning);
-                  setIsEnd(swiper.isEnd);
-                }}
-                onSlideChange={(swiper) => {
-                  setIsBeginning(swiper.isBeginning);
-                  setIsEnd(swiper.isEnd);
-                }}
-                style={{ borderRadius: '40px', height: '600px' }}
-                modules={[EffectCube, Navigation]}
-                className={classes.swiperWrapper}
-              >
-                {quizzes.map((quiz) => (
-                  <SwiperSlide>
-                    <div className={classes.quizOverlay}></div>
-                    <div
-                      className={classes.quiz}
-                      style={{ backgroundImage: `url(${quiz.img})` }}
-                    >
-                      <h3 className={classes.quizTitle}>{quiz.title}</h3>
-                      <p className={classes.quizText}>{quiz.description}</p>
-
-                      <div className={classes.linkWrapper}>
-                        <Link to={quiz.link} className={classes.quizLink}>
-                          Подробнее
-                        </Link>
-                      </div>
-                    </div>
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-
-              <div className={classes.customNavigation}>
-                {!isBeginning && (
-                  <button onClick={handlePrev} className={classes.customPrev}>
-                    <SliderArrow
-                      one={classes.one}
-                      two={classes.two}
-                      three={classes.three}
-                      prev={true}
-                    />
-                  </button>
-                )}
-
-                {!isEnd && (
-                  <button onClick={handleNext} className={classes.customNext}>
-                    <SliderArrow
-                      one={classes.one}
-                      two={classes.two}
-                      three={classes.three}
-                    />
-                  </button>
-                )}
-              </div>
-            </>
-          )}
-        </> */}
 
         <Swiper
+          role="region"
+          aria-roledescription="carousel"
+          aria-live="polite"
           effect={'cube'}
           grabCursor={true}
           cubeEffect={{
@@ -146,21 +122,19 @@ export const PopularQuizzes = () => {
             shadowOffset: 20,
             shadowScale: 0.94,
           }}
-          onSwiper={(swiper) => {
-            setSwiperInstance(swiper);
-            setIsBeginning(swiper.isBeginning);
-            setIsEnd(swiper.isEnd);
-          }}
-          onSlideChange={(swiper) => {
-            setIsBeginning(swiper.isBeginning);
-            setIsEnd(swiper.isEnd);
-          }}
+          onSwiper={handleSwiper}
+          onSlideChange={handleSlideChange}
           modules={[EffectCube, Navigation]}
           className={classes.swiperWrapper}
         >
           {popularQuizzes.map((quiz) => (
-            <SwiperSlide>
-              <div className={classes.quizOverlay}></div>
+            <SwiperSlide
+              key={quiz.title}
+              role="group"
+              aria-roledescription="slide"
+              aria-label={`${quiz.title}. ${quiz.description}`}
+            >
+              <div className={classes.quizOverlay} aria-hidden="true"></div>
               <div
                 className={classes.quiz}
                 style={{ backgroundImage: `url(${quiz.img})` }}
@@ -169,7 +143,11 @@ export const PopularQuizzes = () => {
                 <p className={classes.quizText}>{quiz.description}</p>
 
                 <div className={classes.linkWrapper}>
-                  <Link to={quiz.link} className={classes.quizLink}>
+                  <Link
+                    to={quiz.link}
+                    className={classes.quizLink}
+                    aria-label={`Подробнее о квизе: ${quiz.title}`}
+                  >
                     Подробнее
                   </Link>
                 </div>
@@ -179,8 +157,13 @@ export const PopularQuizzes = () => {
         </Swiper>
 
         <div className={classes.customNavigation}>
-          {!isBeginning && (
-            <button onClick={handlePrev} className={classes.customPrev}>
+          {!swiperState.isBeginning && (
+            <button
+              onClick={handlePrev}
+              className={classes.customPrev}
+              aria-label="Предыдущий слайд"
+              disabled={swiperState.isBeginning}
+            >
               <SliderArrow
                 one={classes.one}
                 two={classes.two}
@@ -190,8 +173,13 @@ export const PopularQuizzes = () => {
             </button>
           )}
 
-          {!isEnd && (
-            <button onClick={handleNext} className={classes.customNext}>
+          {!swiperState.isEnd && (
+            <button
+              onClick={handleNext}
+              className={classes.customNext}
+              aria-label="Следующий слайд"
+              disabled={swiperState.isEnd}
+            >
               <SliderArrow
                 one={classes.one}
                 two={classes.two}
@@ -200,9 +188,6 @@ export const PopularQuizzes = () => {
             </button>
           )}
         </div>
-        {/* <div className={classes.align}>
-          <span className={classes.error}>Ошибка</span>
-        </div> */}
       </div>
     </section>
   );

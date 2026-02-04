@@ -1,24 +1,24 @@
 .section {
   position: relative;
-  margin-bottom: 92px;
+  margin-bottom: 5.75rem;
 }
 
 .swiperWrapper {
-  height: 600px;
-  border-radius: 40px;
+  height: 37.5rem;
+  border-radius: 2.5rem;
 }
 
 .container {
-  width: 1200px;
+  width: 75rem;
   margin: auto;
 }
 
 .title {
-  margin-bottom: 46px;
+  margin-bottom: 2.875rem;
   font-family: 'Naga', serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 48px;
+  font-size: 3rem;
   line-height: 100%;
   color: #f1ae79;
   order: 0;
@@ -28,10 +28,10 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 92px 102px 46px 102px;
-  border-radius: 40px;
-  width: 1200px;
-  height: 600px;
+  padding: 5.75rem 6.375rem 2.875rem 6.375rem;
+  border-radius: 2.5rem;
+  width: 75rem;
+  height: 37.5rem;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -47,18 +47,18 @@
   left: 0;
   width: 100%;
   height: 100%;
-  border-radius: 40px;
+  border-radius: 2.5rem;
   background: rgba(0, 0, 0, 0.3);
   z-index: 1;
 }
 
 .quizTitle {
   margin: 0;
-  margin-bottom: 40px;
+  margin-bottom: 2.5rem;
   font-family: 'Naga', serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 48px;
+  font-size: 3rem;
   line-height: 100%;
   z-index: 2;
   color: #f1ae79;
@@ -66,20 +66,20 @@
 
 .quizText {
   margin: 0;
-  max-width: 564px;
+  max-width: 35.25rem;
   font-family: 'Nunito', sans-serif;
   font-weight: 600;
   font-style: normal;
-  font-size: 20px;
-  line-height: 32px;
+  font-size: 1.25rem;
+  line-height: 2rem;
   z-index: 2;
   color: #fecda7;
 }
 
 .iconPrev,
 .iconNext {
-  width: 17px;
-  height: 30px;
+  width: 1.0625rem;
+  height: 1.875rem;
 }
 
 .customNext,
@@ -93,12 +93,12 @@
 
 .customNavigation {
   position: absolute;
-  width: 1200px;
-  padding: 0 102px;
+  width: 75rem;
+  padding: 0 6.375rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  bottom: 24px;
+  bottom: 1.5rem;
   z-index: 2;
 }
 
@@ -113,8 +113,8 @@
   );
 
   position: absolute;
-  bottom: 100px;
-  border-radius: 28px 4px 28px 28px;
+  bottom: 6.25rem;
+  border-radius: 1.75rem 0.25rem 1.75rem 1.75rem;
   border: 0.125rem solid transparent;
 
   background: linear-gradient(
@@ -122,8 +122,8 @@
     rgba(8, 30, 33, 0.125) 0%,
     rgba(19, 81, 94, 0) 100%
   );
-  width: 285px;
-  height: 80px;
+  width: 17.8125rem;
+  height: 5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -138,6 +138,8 @@
   padding: var(--borderWidth);
   background-image: var(--borderGradient);
   border-radius: inherit;
+  -webkit-mask: conic-gradient(#000 0 0) content-box, conic-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
   -webkit-mask: conic-gradient(#000 0 0) content-box, conic-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask: conic-gradient(#000 0 0) content-box exclude, conic-gradient(#000 0 0);
@@ -156,10 +158,10 @@
   font-family: 'Naga', serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 24px;
+  font-size: 1.5rem;
   line-height: 100%;
   color: #f1ae79;
-  border-radius: 28px 4px 28px 28px;
+  border-radius: 1.75rem 0.25rem 1.75rem 1.75rem;
   text-decoration: none;
 }
 
@@ -195,7 +197,7 @@ path.two {
   font-family: 'Naga', serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 24px;
+  font-size: 1.5rem;
   line-height: 100%;
   color: #ff0000;
 }
@@ -206,7 +208,7 @@ path.two {
   }
 
   .quizLink:hover {
-    box-shadow: 1px 1px 25px 0 #fecda7;
+    box-shadow: 0.0625rem 0.0625rem 1.5625rem 0 #fecda7;
   }
 
   .quizLink:hover:after {
@@ -215,27 +217,44 @@ path.two {
 
   .customNext:hover path.three,
   .customPrev:hover path.three {
+    -webkit-animation: color_anim 1s infinite 0.2s;
     animation: color_anim 1s infinite 0.2s;
   }
 
   .customNext:hover path.one {
     transform: translateX(0%);
+    -webkit-animation: color_anim 1s infinite 0.6s;
     animation: color_anim 1s infinite 0.6s;
   }
 
   .customPrev:hover path.one {
     transform: translateX(0%);
+    -webkit-animation: color_anim 1s infinite 0.6s;
     animation: color_anim 1s infinite 0.6s;
   }
 
   .customNext:hover path.two {
     transform: translateX(0%);
+    -webkit-animation: color_anim 1s infinite 0.4s;
     animation: color_anim 1s infinite 0.4s;
   }
 
   .customPrev:hover path.two {
     transform: translateX(0%);
+    -webkit-animation: color_anim 1s infinite 0.4s;
     animation: color_anim 1s infinite 0.4s;
+  }
+}
+
+@-webkit-keyframes color_anim {
+  0% {
+    fill: #fecda7;
+  }
+  50% {
+    fill: #b46b48;
+  }
+  100% {
+    fill: #fecda7;
   }
 }
 
@@ -251,6 +270,16 @@ path.two {
   }
 }
 
+@-webkit-keyframes animate {
+  0% {
+    transform: translate(-25%, -75%) rotate(0);
+  }
+
+  100% {
+    transform: translate(-25%, -75%) rotate(360deg);
+  }
+}
+
 @keyframes animate {
   0% {
     transform: translate(-25%, -75%) rotate(0);
@@ -263,232 +292,244 @@ path.two {
 
 @media (max-width: 1200px) {
   .container {
-    width: 1024px;
+    width: 64rem;
   }
 
   .quiz {
-    width: 1024px;
-    height: 600px;
+    width: 64rem;
+    height: 37.5rem;
   }
 
   .customNavigation {
-    width: 1024px;
+    width: 64rem;
   }
 
   .title,
   .quizTitle {
-    font-size: 36px;
+    font-size: 2.25rem;
   }
 
   .section {
-    margin-top: -50px;
+    margin-top: -3.125rem;
   }
 }
 
 @media (max-width: 1024px) {
   .container {
-    width: 904px;
+    width: 56.5rem;
   }
 
   .quiz {
-    width: 904px;
-    height: 452px;
-    border-radius: 32px;
+    width: 56.5rem;
+    height: 28.25rem;
+    border-radius: 2rem;
   }
 
   .swiperWrapper {
-    height: 452px;
-    border-radius: 32px;
+    height: 28.25rem;
+    border-radius: 2rem;
   }
 
   .quizOverlay {
-    border-radius: 32px;
+    border-radius: 2rem;
   }
 
   .customNavigation {
-    width: 904px;
+    width: 56.5rem;
   }
 
   .quizTitle {
-    margin-bottom: 24px;
+    margin-bottom: 1.5rem;
   }
 
   .quizText {
-    font-size: 16px;
-    max-width: 442px;
-    line-height: 24px;
+    font-size: 1rem;
+    max-width: 27.625rem;
+    line-height: 1.5rem;
   }
 
   .quiz {
-    padding: 72px 116px 36px 116px;
+    padding: 4.5rem 7.25rem 2.25rem 7.25rem;
   }
 
   .linkWrapper {
-    width: 226px;
-    height: 60px;
-    border-radius: 20px 2px 20px 20px;
+    width: 14.125rem;
+    height: 3.75rem;
+    border-radius: 1.25rem 0.125rem 1.25rem 1.25rem;
   }
 
   .quizLink {
-    font-size: 18px;
-    border-radius: 20px 2px 20px 20px;
+    font-size: 1.125rem;
+    border-radius: 1.25rem 0.125rem 1.25rem 1.25rem;
   }
 
   .customNavigation {
-    padding: 0 116px;
-    bottom: 27px;
+    padding: 0 7.25rem;
+    bottom: 1.6875rem;
   }
 
   .section {
-    margin-top: -205px;
+    margin-top: -12.8125rem;
   }
 }
 
 @media (max-width: 904px) {
   .container {
-    width: 576px;
+    width: 36rem;
   }
 
   .quiz {
-    width: 576px;
+    width: 36rem;
   }
 
   .customNavigation {
-    width: 576px;
+    width: 36rem;
   }
 
   .title {
-    font-size: 28px;
+    font-size: 1.75rem;
   }
 
   .quizTitle {
-    font-size: 28px;
+    font-size: 1.75rem;
   }
 
   .quizText {
-    max-width: 366px;
+    max-width: 22.875rem;
   }
 
   .quiz {
-    padding: 50px 50px 41px 50px;
+    padding: 3.125rem 3.125rem 2.5625rem 3.125rem;
   }
 
   .linkWrapper {
-    width: 205px;
-    height: 55px;
-    bottom: 75px;
+    width: 12.8125rem;
+    height: 3.4375rem;
+    bottom: 4.6875rem;
   }
 
   .quizLink {
-    font-size: 16px;
+    font-size: 1rem;
   }
 
   .customNavigation {
-    padding: 0 50px;
-    bottom: 19px;
+    padding: 0 3.125rem;
+    bottom: 1.1875rem;
   }
 
   .section {
-    margin-top: 71px;
+    margin-top: 4.4375rem;
+  }
+
+  .error {
+    font-size: 1.25rem;
   }
 }
 
 @media (max-width: 576px) {
   .container {
-    width: 360px;
+    width: 22.5rem;
   }
 
   .quiz {
-    width: 360px;
-    height: 270px;
+    width: 22.5rem;
+    height: 16.875rem;
   }
 
   .swiperWrapper {
-    height: 270px;
-    border-radius: 16px;
+    height: 16.875rem;
+    border-radius: 1rem;
   }
 
   .customNavigation {
-    width: 360px;
+    width: 22.5rem;
   }
 
   .title {
-    font-size: 24px;
-    margin-bottom: 20px;
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
   }
 
   .quizTitle {
-    font-size: 24px;
-    margin-bottom: 16px;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
   }
 
   .quizText {
-    max-width: 280px;
-    font-size: 12px;
-    line-height: 16px;
+    max-width: 17.5rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
   }
 
   .quiz {
-    border-radius: 16px;
-    padding: 40px 20px 41px 20px;
+    border-radius: 1rem;
+    padding: 2.5rem 1.25rem 2.5625rem 1.25rem;
   }
 
   .quizOverlay {
-    border-radius: 16px;
+    border-radius: 1rem;
   }
 
   .swiper {
-    border-radius: 16px;
+    border-radius: 1rem;
   }
 
   .linkWrapper {
-    width: 128px;
-    height: 36px;
-    bottom: 25px;
-    border-radius: 12px 2px 12px 12px;
+    width: 8rem;
+    height: 2.25rem;
+    bottom: 1.5625rem;
+    border-radius: 0.75rem 0.125rem 0.75rem 0.75rem;
   }
 
   .quizLink {
-    font-size: 12px;
-    border-radius: 12px 2px 12px 12px;
+    font-size: 0.75rem;
+    border-radius: 0.75rem 0.125rem 0.75rem 0.75rem;
   }
 
   .customNavigation {
-    padding: 0 5px 0 0;
+    padding: 0 0.3125rem 0 0;
     justify-content: flex-end;
     align-items: flex-start;
-    gap: 15px;
+    gap: 0.9375rem;
     top: 0;
-    height: 25px;
+    height: 1.5625rem;
   }
 
   .section {
-    margin-top: -72px;
+    margin-top: -4.5rem;
+  }
+
+  .error {
+    font-size: 1.125rem;
   }
 }
 
 @media (max-width: 360px) {
   .container {
-    width: 320px;
+    width: 20rem;
   }
 
   .quiz {
-    width: 320px;
+    width: 20rem;
   }
 
   .customNavigation {
-    width: 320px;
+    width: 20rem;
   }
 
   .title {
-    font-size: 20px;
+    font-size: 1.25rem;
   }
 
   .quizTitle {
-    font-size: 18px;
+    font-size: 1.125rem;
   }
 
   .section {
-    margin-top: -296px;
+    margin-top: -18.5rem;
+  }
+
+  .error {
+    font-size: 0.875rem;
   }
 }
