@@ -27,19 +27,19 @@ export const PopularQuizzes = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
-  const handlePrev = useCallback(() => {
+  const handlePrev = () => {
     if (swiperState.instance) {
       swiperState.instance.slidePrev();
     }
-  }, [swiperState.instance]);
+  };
 
-  const handleNext = useCallback(() => {
+  const handleNext = () => {
     if (swiperState.instance) {
       swiperState.instance.slideNext();
     }
-  }, [swiperState.instance]);
+  };
 
-  const handleQuizzes = useCallback(async () => {
+  const handleQuizzes = async () => {
     setLoading(true);
     setError(null);
 
@@ -52,27 +52,27 @@ export const PopularQuizzes = () => {
     } finally {
       setLoading(false);
     }
-  }, []);
+  };
 
   useEffect(() => {
     handleQuizzes();
-  }, [handleQuizzes]);
+  }, []);
 
-  const handleSwiper = useCallback((swiper: SwiperType) => {
+  const handleSwiper = (swiper: SwiperType) => {
     setSwiperState({
       instance: swiper,
       isBeginning: swiper.isBeginning,
       isEnd: swiper.isEnd,
     });
-  }, []);
+  };
 
-  const handleSlideChange = useCallback((swiper: SwiperType) => {
+  const handleSlideChange = (swiper: SwiperType) => {
     setSwiperState((prev) => ({
       ...prev,
       isBeginning: swiper.isBeginning,
       isEnd: swiper.isEnd,
     }));
-  }, []);
+  };
 
   if (loading) {
     return (
@@ -135,10 +135,13 @@ export const PopularQuizzes = () => {
               aria-label={`${quiz.title}. ${quiz.description}`}
             >
               <div className={classes.quizOverlay} aria-hidden="true"></div>
-              <div
-                className={classes.quiz}
-                style={{ backgroundImage: `url(${quiz.img})` }}
-              >
+              <div className={classes.quiz}>
+                <img
+                  src={quiz.img}
+                  alt={quiz.title}
+                  loading="lazy"
+                  className={classes.quizImage}
+                />
                 <h3 className={classes.quizTitle}>{quiz.title}</h3>
                 <p className={classes.quizText}>{quiz.description}</p>
 
