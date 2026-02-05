@@ -1,59 +1,26 @@
 import type { FC } from 'react';
 import classes from './CustomButton.module.css';
 
-type TBtnVariant = 'author';
-
 interface ICustomButton {
   type: 'button' | 'submit';
   text: string;
-  background: string;
-  variant: TBtnVariant;
+  textBr?: string;
 }
 
-const getWrapperClass = (variant: TBtnVariant) => {
-  switch (variant) {
-    case 'author':
-      return classes.author;
-    default:
-      return classes.author;
-  }
-};
-
-const getInnerClass = (variant: TBtnVariant) => {
-  switch (variant) {
-    case 'author':
-      return classes.innerAuthor;
-    default:
-      return classes.innerAuthor;
-  }
-};
-
-const getBtnClass = (variant: TBtnVariant) => {
-  switch (variant) {
-    case 'author':
-      return classes.btnAuthor;
-    default:
-      return classes.btnAuthor;
-  }
-};
-
-export const CustomButton: FC<ICustomButton> = ({
-  type,
-  text,
-  background,
-  variant,
-}) => {
+export const CustomButton: FC<ICustomButton> = ({ type, text, textBr }) => {
   return (
-    <div className={getWrapperClass(variant)}>
-      <div className={getInnerClass(variant)}>
-        <button
-          type={type}
-          className={getBtnClass(variant)}
-          style={{ background: background }}
-        >
-          {text}
-        </button>
-      </div>
+    <div className={classes.wrapper}>
+      <button type={type} className={classes.btn}>
+        {textBr ? (
+          <span className={classes.text}>
+            {text}
+            <br />
+            {textBr}
+          </span>
+        ) : (
+          <span className={classes.text}>{text}</span>
+        )}
+      </button>
     </div>
   );
 };

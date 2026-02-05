@@ -1,5 +1,6 @@
 import { useMediaQuery } from 'react-responsive';
-import { CustomLink, Logo, CustomButton } from '@/ui';
+import { Link } from 'react-router-dom';
+import { Logo, CustomButton } from '@/ui';
 
 import classes from './QuizyTales.module.css';
 import title from '../../assets/sprite.svg';
@@ -14,9 +15,8 @@ export const QuizyTales = () => {
         <Logo aria-label="Логотип QuizyTales" />
         <div className={classes.contentWrapper}>
           <h1 id="quizy-tales-title" className={classes.title}>
-            <svg className={classes.icon} aria-hidden="true">
+            <svg className={classes.icon} aria-label="QuizyTales" role="img">
               <use href={title + '#title'}></use>
-              <span className="visually-hidden">QuizyTales</span>
             </svg>
           </h1>
 
@@ -26,36 +26,34 @@ export const QuizyTales = () => {
           </p>
           {!isTablet && !isPhone && (
             <div className={classes.btnGroup}>
-              <CustomLink
-                to="catalog"
-                text="Выбрать"
-                textBr="готовый квиз"
-                background="#49969b"
-                variant="main"
-              />
+              <div className={classes.linkWrapper}>
+                <Link to="catalog" className={classes.quizLink}>
+                  Выбрать
+                  <br />
+                  готовый квиз
+                </Link>
+              </div>
               <CustomButton
                 type="button"
-                text="Создать собственный квиз"
-                background="#49969b"
-                variant="author"
+                text="Создать"
+                textBr="собственный квиз"
               />
             </div>
           )}
         </div>
         {(isTablet || isPhone) && (
           <div className={classes.btnGroup}>
-            <CustomLink
-              to="catalog"
-              text="Выбрать"
-              textBr="готовый квиз"
-              background="#49969b"
-              variant="main"
-            />
+            <div className={classes.linkWrapper}>
+              <Link to="catalog" className={classes.quizLink}>
+                Выбрать
+                <br />
+                готовый квиз
+              </Link>
+            </div>
             <CustomButton
               type="button"
-              text="Создать собственный квиз"
-              background="#49969b"
-              variant="author"
+              text="Создать"
+              textBr="собственный квиз"
             />
           </div>
         )}
