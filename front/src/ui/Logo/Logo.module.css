@@ -5,8 +5,8 @@
 }
 
 .footer {
-  width: 132px;
-  height: 120px;
+  width: 8.25rem;
+  height: 7.5rem;
   flex-shrink: 0;
 }
 
@@ -17,8 +17,8 @@
   }
 
   .footer {
-    width: 100px;
-    height: 91px;
+    width: 6.25rem;
+    height: 5.6875rem;
   }
 }
 
@@ -26,6 +26,11 @@
   .icon {
     width: 18.0625rem;
     height: 20.625rem;
+  }
+
+  .footer {
+    width: 7.25rem;
+    height: 6.6875rem;
   }
 }
 
@@ -59,7 +64,7 @@
   }
 
   .footer {
-    width: 80px;
-    height: 80px;
+    width: 5rem;
+    height: 5rem;
   }
 }

@@ -9,52 +9,73 @@ export const Footer = () => {
   return (
     <footer className={classes.footer}>
       <div className={classes.container}>
-        <Logo className="footer" />
+        <Logo className="footer" aria-label="Логотип QuizyTales" />
         <ul className={classes.list}>
           <li className={classes.listItem}>
-            <img
-              src={tgMini}
-              className={classes.miniImg}
-              alt="иконка телеграмма"
-            />
-            <a href="#" className={classes.link}>
+            <img src={tgMini} className={classes.miniImg} alt="" />
+            <a
+              href="#"
+              className={classes.link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Дмитрий
               <br />
               @DerrKaterr
             </a>
           </li>
           <li className={classes.listItem}>
-            <img
-              src={tgMini}
-              className={classes.miniImg}
-              alt="иконка телеграмма"
-            />
-            <a href="#" className={classes.link}>
+            <img src={tgMini} className={classes.miniImg} alt="" />
+            <a
+              href="#"
+              className={classes.link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Ирина
               <br />
               @Renardren
             </a>
           </li>
           <li>
-            <a href="#" className={classes.link}>
+            <a
+              href="#"
+              className={classes.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="группа в телеграмме"
+            >
               <img
                 src={tg}
                 className={classes.socialImg}
-                alt="иконка телеграмма"
+                alt=""
+                aria-hidden="true"
               />
             </a>
           </li>
           <li>
-            <a href="#" className={classes.link}>
+            <a
+              href="#"
+              className={classes.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="группа во вконтакте"
+            >
               <img
                 src={vk}
                 className={classes.socialImg}
-                alt="иконка вконтакте"
+                alt=""
+                aria-hidden="true"
               />
             </a>
           </li>
           <li className={classes.offer}>
-            <a href="#" className={classes.link}>
+            <a
+              href="#"
+              className={classes.link}
+              aria-label="Скачать оферту"
+              download=""
+            >
               Оферта
             </a>
           </li>

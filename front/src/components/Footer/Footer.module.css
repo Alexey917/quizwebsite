@@ -1,7 +1,7 @@
 .footer {
   position: relative;
-  margin-top: 92px;
-  padding: 21px 0 24px 0;
+  margin-top: 5.75rem;
+  padding: 1.3125rem 0 1.5rem 0;
   bottom: 0;
   background: #13515e;
   border-top: 2px solid #217987;
@@ -10,7 +10,7 @@
 .container {
   display: flex;
   justify-content: space-between;
-  width: 1200px;
+  width: 75rem;
   margin: auto;
 }
 
@@ -21,30 +21,30 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 62px;
+  gap: 3.875rem;
 }
 
 .listItem {
   text-align: right;
-  line-height: 16px;
+  line-height: 1rem;
 }
 
 .miniImg {
-  margin-right: 5px;
-  width: 13px;
-  height: 13px;
+  margin-right: 0.3125rem;
+  width: 0.8125rem;
+  height: 0.8125rem;
 }
 
 .socialImg {
-  width: 40px;
-  height: 40px;
+  width: 2.5rem;
+  height: 2.5rem;
 }
 
 .link {
   font-family: 'Naga', serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 100%;
   letter-spacing: 0%;
   text-align: right;
@@ -70,33 +70,33 @@
 
 @media (max-width: 1200px) {
   .container {
-    width: 1024px;
+    width: 64rem;
   }
 
   .socialImg {
-    width: 30px;
-    height: 30px;
+    width: 1.875rem;
+    height: 1.875rem;
   }
 }
 
 @media (max-width: 1024px) {
   .container {
-    width: 904px;
+    width: 56.5rem;
   }
 
   .list {
-    gap: 48px;
+    gap: 3rem;
   }
 }
 
 @media (max-width: 904px) {
   .container {
-    width: 576px;
+    width: 36rem;
     align-self: flex-start;
   }
 
   .link {
-    font-size: 14px;
+    font-size: 0.875rem;
   }
 
   .list {
@@ -104,8 +104,8 @@
     grid-template-areas:
       'link img offer'
       'link img offer';
-    grid-row-gap: 20px;
-    grid-column-gap: 30px;
+    grid-row-gap: 1.25rem;
+    grid-column-gap: 1.875rem;
     align-items: start;
   }
 
@@ -128,21 +128,21 @@
 
 @media (max-width: 576px) {
   .container {
-    width: 360px;
+    width: 22.5rem;
   }
 
   .socialImg {
-    width: 20px;
-    height: 20px;
+    width: 1.25rem;
+    height: 1.25rem;
   }
 
   .link {
-    font-size: 12px;
+    font-size: 0.75rem;
   }
 
   .list {
     align-items: center;
-    grid-column-gap: 25px;
+    grid-column-gap: 1.5625rem;
   }
 
   .offer {
@@ -152,21 +152,21 @@
 
 @media (max-width: 360px) {
   .container {
-    width: 320px;
+    width: 20rem;
   }
 
   .socialImg {
-    width: 16px;
-    height: 16px;
+    width: 1rem;
+    height: 1rem;
   }
 
   .list {
-    grid-column-gap: 20px;
-    grid-row-gap: 12px;
+    grid-column-gap: 1.25rem;
+    grid-row-gap: 0.75rem;
   }
 
   .miniImg {
-    width: 12px;
-    height: 12px;
+    width: 0.75rem;
+    height: 0.75rem;
   }
 }
