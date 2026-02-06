@@ -6,3 +6,4 @@ export { MobileMenuBtn } from './MobileMenuBtn/MobileMenuBtn';
 export { Logo } from './Logo/Logo';
 export { SliderArrow } from './SliderArrow/SliderArrow';
 export { Loader } from './Loader/Loader';
+export { ScrollStart } from './ScrollStart/ScrollStart';

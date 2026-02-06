@@ -3,9 +3,10 @@ import { Outlet } from 'react-router-dom';
 import { Header } from '../Header';
 import { MobileMenu } from '../MobileMenu';
 import { useScrollLock } from '@/hooks';
+import { Footer } from '../Footer';
+import { ScrollStart } from '@/ui';
 
 import classes from './Layout.module.css';
-import { Footer } from '../Footer';
 
 export const Layout = () => {
   const [isMobile, setIsMobile] = useState<boolean>(false);
@@ -16,6 +17,7 @@ export const Layout = () => {
       <Header setIsMobile={setIsMobile} isMobile={isMobile} />
       {isMobile && <MobileMenu setIsMobile={setIsMobile} isMobile={isMobile} />}
       <Outlet />
+      <ScrollStart />
       <Footer />
     </>
   );
