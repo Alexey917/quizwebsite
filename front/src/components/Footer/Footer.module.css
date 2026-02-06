@@ -1,0 +1,172 @@
+.footer {
+  position: relative;
+  margin-top: 92px;
+  padding: 21px 0 24px 0;
+  bottom: 0;
+  background: #13515e;
+  border-top: 2px solid #217987;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  width: 1200px;
+  margin: auto;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 62px;
+}
+
+.listItem {
+  text-align: right;
+  line-height: 16px;
+}
+
+.miniImg {
+  margin-right: 5px;
+  width: 13px;
+  height: 13px;
+}
+
+.socialImg {
+  width: 40px;
+  height: 40px;
+}
+
+.link {
+  font-family: 'Naga', serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: right;
+  text-decoration: none;
+  color: #f1ae79;
+}
+
+@media (hover: hover) {
+  .link:hover {
+    color: #fecda7;
+  }
+
+  .listItem:hover .miniImg {
+    transform: rotateY(360deg);
+    transition: all 2s;
+  }
+
+  .socialImg:hover {
+    transform: rotateY(360deg);
+    transition: all 2s;
+  }
+}
+
+@media (max-width: 1200px) {
+  .container {
+    width: 1024px;
+  }
+
+  .socialImg {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    width: 904px;
+  }
+
+  .list {
+    gap: 48px;
+  }
+}
+
+@media (max-width: 904px) {
+  .container {
+    width: 576px;
+    align-self: flex-start;
+  }
+
+  .link {
+    font-size: 14px;
+  }
+
+  .list {
+    display: grid;
+    grid-template-areas:
+      'link img offer'
+      'link img offer';
+    grid-row-gap: 20px;
+    grid-column-gap: 30px;
+    align-items: start;
+  }
+
+  .listItem:first-of-type {
+    grid-area: 1/2/2/3;
+  }
+
+  .listItem:nth-of-type(2) {
+    grid-area: 2/2/3/3;
+  }
+
+  .socialImg {
+    grid-area: 1/1/3/2;
+  }
+
+  .offer {
+    grid-area: 1/3/2/4;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    width: 360px;
+  }
+
+  .socialImg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .link {
+    font-size: 12px;
+  }
+
+  .list {
+    align-items: center;
+    grid-column-gap: 25px;
+  }
+
+  .offer {
+    align-self: start;
+  }
+}
+
+@media (max-width: 360px) {
+  .container {
+    width: 320px;
+  }
+
+  .socialImg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .list {
+    grid-column-gap: 20px;
+    grid-row-gap: 12px;
+  }
+
+  .miniImg {
+    width: 12px;
+    height: 12px;
+  }
+}
