@@ -5,6 +5,7 @@
   bottom: 0;
   background: #13515e;
   border-top: 2px solid #217987;
+  align-self: flex-end;
 }
 
 .container {

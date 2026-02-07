@@ -13,12 +13,12 @@ export const Layout = () => {
   useScrollLock(isMobile);
 
   return (
-    <>
+    <div className={classes.layout}>
       <Header setIsMobile={setIsMobile} isMobile={isMobile} />
       {isMobile && <MobileMenu setIsMobile={setIsMobile} isMobile={isMobile} />}
       <Outlet />
       <ScrollStart />
       <Footer />
-    </>
+    </div>
   );
 };

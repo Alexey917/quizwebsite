@@ -39,22 +39,22 @@ export const PopularQuizzes = () => {
     }
   };
 
-  const handleQuizzes = async () => {
-    setLoading(true);
-    setError(null);
-
-    try {
-      const result = await popularApi();
-      setQuizzes(result);
-    } catch (e: unknown) {
-      const message = getErrorMessage(e);
-      setError(message);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
+    const handleQuizzes = async () => {
+      setLoading(true);
+      setError(null);
+
+      try {
+        const result = await popularApi();
+        setQuizzes(result.data);
+      } catch (e: unknown) {
+        const message = getErrorMessage(e);
+        setError(message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
     handleQuizzes();
   }, []);
 
@@ -127,27 +127,27 @@ export const PopularQuizzes = () => {
           modules={[EffectCube, Navigation]}
           className={classes.swiperWrapper}
         >
-          {popularQuizzes.map((quiz) => (
+          {quizzes.map((quiz) => (
             <SwiperSlide
               key={quiz.title}
               role="group"
               aria-roledescription="slide"
-              aria-label={`${quiz.title}. ${quiz.description}`}
+              aria-label={`${quiz.title}. ${quiz.preview_text}`}
             >
               <div className={classes.quizOverlay} aria-hidden="true"></div>
               <div className={classes.quiz}>
                 <img
-                  src={quiz.img}
+                  src={quiz.detail_image}
                   alt={quiz.title}
                   loading="lazy"
                   className={classes.quizImage}
                 />
                 <h3 className={classes.quizTitle}>{quiz.title}</h3>
-                <p className={classes.quizText}>{quiz.description}</p>
+                <p className={classes.quizText}>{quiz.preview_text}</p>
 
                 <div className={classes.linkWrapper}>
                   <Link
-                    to={quiz.link}
+                    to={'#'}
                     className={classes.quizLink}
                     aria-label={`Подробнее о квизе: ${quiz.title}`}
                   >

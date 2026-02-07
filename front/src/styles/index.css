@@ -4,8 +4,11 @@
 }
 
 body {
+  position: relative;
   width: 100%;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   overflow-x: hidden;
   /* height: 3152px; */
   background: linear-gradient(

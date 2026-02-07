@@ -14,7 +14,7 @@
 }
 
 .title {
-  margin-bottom: 2.875rem;
+  margin-bottom: 5rem;
   font-family: 'Naga', serif;
   font-weight: 400;
   font-style: normal;
@@ -48,6 +48,8 @@
   width: 100%;
   height: 100%;
   border-radius: 2.5rem;
+  -o-object-fit: cover;
+  object-fit: cover;
 }
 
 .quizOverlay {
@@ -57,7 +59,7 @@
   width: 100%;
   height: 100%;
   border-radius: 2.5rem;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.7);
   z-index: 1;
 }
 
@@ -147,6 +149,8 @@
   padding: var(--borderWidth);
   background-image: var(--borderGradient);
   border-radius: inherit;
+  -webkit-mask: conic-gradient(#000 0 0) content-box, conic-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
   -webkit-mask: conic-gradient(#000 0 0) content-box, conic-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   -webkit-mask: conic-gradient(#000 0 0) content-box, conic-gradient(#000 0 0);
@@ -405,6 +409,7 @@ path.two {
 
   .title {
     font-size: 1.75rem;
+    margin-bottom: 3.5rem;
   }
 
   .quizTitle {
@@ -462,7 +467,7 @@ path.two {
 
   .title {
     font-size: 1.5rem;
-    margin-bottom: 1.25rem;
+    margin-bottom: 2rem;
   }
 
   .quizTitle {
