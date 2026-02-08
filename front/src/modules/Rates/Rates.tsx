@@ -1,29 +1,21 @@
 import { useEffect, useState } from 'react';
-import { Swiper as SwiperType } from 'swiper';
-
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Link } from 'react-router-dom';
-
-import { Navigation, EffectCube } from 'swiper/modules';
-import { popularQuizzes } from '@/consts';
+import { Swiper as SwiperType } from 'swiper';
+import { Navigation } from 'swiper/modules';
 import { SliderArrow, Loader } from '@/ui';
-import { popularApi, type IPopularQuizzes } from './api/popularApi';
-import { getErrorMessage } from '@/api';
+import { rates } from '@/consts';
 
-import 'swiper/css';
-import 'swiper/css/effect-cube';
-import 'swiper/css/pagination';
+import classes from './Rates.module.css';
+import { Rate } from './components';
 
-import classes from './PopularQuizzes.module.css';
-
-export const PopularQuizzes = () => {
+export const Rates = () => {
   const [swiperState, setSwiperState] = useState({
     instance: null as SwiperType | null,
     isBeginning: true,
     isEnd: false,
   });
 
-  const [quizzes, setQuizzes] = useState<IPopularQuizzes[]>([]);
+  // const [rates, setRates] = useState<IRates[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -38,26 +30,6 @@ export const PopularQuizzes = () => {
       swiperState.instance.slideNext();
     }
   };
-
-  useEffect(() => {
-    const handleQuizzes = async () => {
-      setLoading(true);
-      setError(null);
-
-      try {
-        const result = await popularApi();
-        setQuizzes(result.data);
-        console.log(result.data);
-      } catch (e: unknown) {
-        const message = getErrorMessage(e);
-        setError(message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    handleQuizzes();
-  }, []);
 
   const handleSwiper = (swiper: SwiperType) => {
     setSwiperState({
@@ -107,60 +79,31 @@ export const PopularQuizzes = () => {
   }
 
   return (
-    <section className={classes.section} aria-label="Популярные квизы">
+    <section>
       <div className={classes.container}>
-        <h2 className={classes.title}>Популярные квизы</h2>
+        <h2>Тарифы</h2>
 
         <Swiper
           role="region"
           aria-roledescription="carousel"
           aria-live="polite"
-          effect={'cube'}
-          grabCursor={true}
-          cubeEffect={{
-            shadow: true,
-            slideShadows: true,
-            shadowOffset: 20,
-            shadowScale: 0.94,
-          }}
+          slidesPerView={2}
+          spaceBetween={20}
           onSwiper={handleSwiper}
           onSlideChange={handleSlideChange}
-          modules={[EffectCube, Navigation]}
+          modules={[Navigation]}
           className={classes.swiperWrapper}
         >
-          {quizzes.map((quiz) => (
+          {rates.map((rate) => (
             <>
-              {quiz.is_popular && (
-                <SwiperSlide
-                  key={quiz.title}
-                  role="group"
-                  aria-roledescription="slide"
-                  aria-label={`${quiz.title}. ${quiz.preview_text}`}
-                >
-                  <div className={classes.quizOverlay} aria-hidden="true"></div>
-
-                  <div className={classes.quiz}>
-                    <img
-                      src={quiz.detail_image}
-                      alt={quiz.title}
-                      loading="lazy"
-                      className={classes.quizImage}
-                    />
-                    <h3 className={classes.quizTitle}>{quiz.title}</h3>
-                    <p className={classes.quizText}>{quiz.preview_text}</p>
-
-                    <div className={classes.linkWrapper}>
-                      <Link
-                        to={'#'}
-                        className={classes.quizLink}
-                        aria-label={`Подробнее о квизе: ${quiz.title}`}
-                      >
-                        Подробнее
-                      </Link>
-                    </div>
-                  </div>
-                </SwiperSlide>
-              )}
+              <SwiperSlide
+                key={rate.title}
+                role="group"
+                aria-roledescription="slide"
+                aria-label={`${rate.title}. ${rate.description}`}
+              >
+                <Rate {...rate} />
+              </SwiperSlide>
             </>
           ))}
         </Swiper>
@@ -201,5 +144,3 @@ export const PopularQuizzes = () => {
     </section>
   );
 };
-
-export default PopularQuizzes;

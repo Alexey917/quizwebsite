@@ -1,5 +1,5 @@
 import { Stages } from '@/components';
-import { AboutUs, QuizyTales } from '@/modules';
+import { AboutUs, QuizyTales, Rates } from '@/modules';
 import { PopularQuizzes } from '@/modules/PopularQuizzes';
 
 export const MainPage = () => {
@@ -9,6 +9,7 @@ export const MainPage = () => {
       <AboutUs />
       <PopularQuizzes />
       <Stages />
+      <Rates />
     </main>
   );
 };

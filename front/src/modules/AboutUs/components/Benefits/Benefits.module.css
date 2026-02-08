@@ -44,14 +44,6 @@
   position: relative;
   border-radius: 2.5rem 0.5rem 2.5rem 2.5rem;
   padding: 1.75rem;
-
-  /* background: linear-gradient(
-    360deg,
-    rgba(8, 30, 33, 0.125) 0%,
-    rgba(19, 81, 94, 0) 100%
-  ); */
-
-  /* box-shadow: 0rem 0.25rem 0.25rem 0rem #081e2140; */
 }
 
 .benefitWrapper::before {

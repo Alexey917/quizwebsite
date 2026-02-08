@@ -7,9 +7,10 @@ export interface IPopularQuizzes {
   detail_image: string;
   description: string;
   background_image_text: string;
+  is_popular: boolean;
 }
 
 export const popularApi = async () => {
-  const response = await client.get('/api/categories/2/quizzes');
+  const response = await client.get('/api/quizzes');
   return response.data;
 };
