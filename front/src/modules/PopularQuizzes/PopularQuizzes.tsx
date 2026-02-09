@@ -47,7 +47,6 @@ export const PopularQuizzes = () => {
       try {
         const result = await popularApi();
         setQuizzes(result.data);
-        console.log(result.data);
       } catch (e: unknown) {
         const message = getErrorMessage(e);
         setError(message);

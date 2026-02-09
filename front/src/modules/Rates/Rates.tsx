@@ -3,6 +3,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Swiper as SwiperType } from 'swiper';
 import { Navigation } from 'swiper/modules';
 import { SliderArrow, Loader } from '@/ui';
+import { getErrorMessage } from '@/api';
+import { RatesApi, type IRates } from './api/RatesApi';
 import { rates } from '@/consts';
 
 import classes from './Rates.module.css';
@@ -15,7 +17,7 @@ export const Rates = () => {
     isEnd: false,
   });
 
-  // const [rates, setRates] = useState<IRates[]>([]);
+  const [rates, setRates] = useState<IRates[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -46,6 +48,26 @@ export const Rates = () => {
       isEnd: swiper.isEnd,
     }));
   };
+
+  useEffect(() => {
+    const handleRates = async () => {
+      setLoading(true);
+      setError(null);
+
+      try {
+        const result = await RatesApi();
+        setRates(result.data);
+        console.log(result.data);
+      } catch (e: unknown) {
+        const message = getErrorMessage(e);
+        setError(message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    handleRates();
+  }, []);
 
   if (loading) {
     return (
@@ -79,9 +101,9 @@ export const Rates = () => {
   }
 
   return (
-    <section>
+    <section className={classes.section}>
       <div className={classes.container}>
-        <h2>Тарифы</h2>
+        <h2 className={classes.title}>Тарифы</h2>
 
         <Swiper
           role="region"
@@ -100,7 +122,7 @@ export const Rates = () => {
                 key={rate.title}
                 role="group"
                 aria-roledescription="slide"
-                aria-label={`${rate.title}. ${rate.description}`}
+                aria-label={`${rate.title}`}
               >
                 <Rate {...rate} />
               </SwiperSlide>

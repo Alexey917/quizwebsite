@@ -1,3 +1,8 @@
+.section {
+  margin-top: 92px;
+  position: relative;
+}
+
 .container {
   width: 1200px;
   margin: auto;
@@ -5,4 +10,138 @@
 
 .swiperWrapper {
   height: 760px;
+}
+
+.title {
+  margin: 0;
+  margin-bottom: 107px;
+  font-family: 'Naga', serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 48px;
+  line-height: 100%;
+  color: #f1ae79;
+}
+
+.customNext,
+.customPrev {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.customNavigation {
+  position: absolute;
+
+  padding: 0 6.375rem;
+  display: flex;
+  gap: 182px;
+  align-items: center;
+  justify-content: space-between;
+  top: 0;
+  right: 75px;
+  z-index: 2;
+}
+
+path.one {
+  transition: 0.4s;
+  transform: translateX(-60%);
+}
+
+path.two {
+  transition: 0.5s;
+  transform: translateX(-30%);
+}
+
+.align {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.error {
+  font-family: 'Naga', serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.5rem;
+  line-height: 100%;
+  color: #ff0000;
+}
+
+@-webkit-keyframes color_anim {
+  0% {
+    fill: #fecda7;
+  }
+  50% {
+    fill: #b46b48;
+  }
+  100% {
+    fill: #fecda7;
+  }
+}
+
+@keyframes color_anim {
+  0% {
+    fill: #fecda7;
+  }
+  50% {
+    fill: #b46b48;
+  }
+  100% {
+    fill: #fecda7;
+  }
+}
+
+@-webkit-keyframes animate {
+  0% {
+    transform: translate(-25%, -75%) rotate(0);
+  }
+
+  100% {
+    transform: translate(-25%, -75%) rotate(360deg);
+  }
+}
+
+@keyframes animate {
+  0% {
+    transform: translate(-25%, -75%) rotate(0);
+  }
+
+  100% {
+    transform: translate(-25%, -75%) rotate(360deg);
+  }
+}
+
+@media (hover: hover) {
+  .customNext:hover path.three,
+  .customPrev:hover path.three {
+    -webkit-animation: color_anim 1s infinite 0.2s;
+    animation: color_anim 1s infinite 0.2s;
+  }
+
+  .customNext:hover path.one {
+    transform: translateX(0%);
+    -webkit-animation: color_anim 1s infinite 0.6s;
+    animation: color_anim 1s infinite 0.6s;
+  }
+
+  .customPrev:hover path.one {
+    transform: translateX(0%);
+    -webkit-animation: color_anim 1s infinite 0.6s;
+    animation: color_anim 1s infinite 0.6s;
+  }
+
+  .customNext:hover path.two {
+    transform: translateX(0%);
+    -webkit-animation: color_anim 1s infinite 0.4s;
+    animation: color_anim 1s infinite 0.4s;
+  }
+
+  .customPrev:hover path.two {
+    transform: translateX(0%);
+    -webkit-animation: color_anim 1s infinite 0.4s;
+    animation: color_anim 1s infinite 0.4s;
+  }
 }
