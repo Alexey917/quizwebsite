@@ -72,6 +72,7 @@ export const Rates = () => {
   if (loading) {
     return (
       <section
+        id="rates"
         className={classes.section}
         aria-label="Загрузка популярных квизов"
       >

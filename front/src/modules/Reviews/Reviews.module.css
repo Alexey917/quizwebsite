@@ -1,0 +1,195 @@
+.section {
+  position: relative;
+  height: 98.75rem;
+}
+
+.wavesBg {
+  position: absolute;
+  top: -0.8125rem;
+  left: 0;
+  width: 100%;
+  height: 18.75rem;
+  z-index: 0;
+}
+
+.waves {
+  position: absolute;
+  top: 6.25rem;
+  left: 0;
+  width: 100%;
+  height: 18.75rem;
+  z-index: 1;
+}
+
+.content {
+  position: absolute;
+  top: 17.875rem;
+  left: 0;
+  width: 100%;
+  z-index: 0;
+  height: 1230px;
+  background-color: #13515e;
+}
+
+.container {
+  width: 75rem;
+  margin: auto;
+}
+
+.title {
+  margin-top: 60px;
+  margin-bottom: 40px;
+  font-family: 'Naga', serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 48px;
+  line-height: 100%;
+
+  background: linear-gradient(
+    90.46deg,
+    #efc6a3 0%,
+    #f1ae79 14.87%,
+    #b46b48 29.74%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 0.0625rem;
+  height: 0.0625rem;
+  padding: 0;
+  margin: -0.0625rem;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.swiperWrapper {
+  height: 950px;
+}
+
+.customNavigation {
+  display: none;
+}
+
+@media (min-width: 1500px) {
+  .section {
+    /* margin-bottom: 19.6875rem; */
+  }
+
+  .wavesBg {
+    height: 29.125rem;
+  }
+
+  .wavesBgBottom {
+    bottom: -19.3125rem;
+  }
+
+  .waves {
+    height: 31.125rem;
+    top: 5.625rem;
+  }
+
+  .content {
+    top: 28.225rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .container {
+    width: 64rem;
+  }
+
+  .wavesBg {
+    top: -3.625rem;
+  }
+
+  .waves {
+    height: 15.125rem;
+    top: 2.625rem;
+  }
+
+  .content {
+    top: 15.025rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    width: 56.5rem;
+  }
+
+  .wavesBg {
+    top: -4.0625rem;
+  }
+
+  .waves {
+    height: 14.6875rem;
+    top: 1.875rem;
+  }
+
+  .content {
+    top: 14.4375rem;
+  }
+}
+
+@media (max-width: 904px) {
+  .container {
+    width: 36rem;
+  }
+
+  .wavesBg {
+    top: -4.5625rem;
+  }
+
+  .waves {
+    height: 11.3125rem;
+    top: 2.9375rem;
+  }
+
+  .content {
+    top: 13.125rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    width: 22.5rem;
+  }
+
+  .wavesBg {
+    top: -6.25rem;
+  }
+
+  .waves {
+    height: 8.125rem;
+    top: 1.875rem;
+  }
+
+  .content {
+    top: 9.375rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .container {
+    width: 20rem;
+  }
+
+  .wavesBg {
+    top: -7.4375rem;
+  }
+
+  .waves {
+    height: 4.125rem;
+    top: 1.875rem;
+  }
+
+  .content {
+    top: 6.125rem;
+  }
+}
