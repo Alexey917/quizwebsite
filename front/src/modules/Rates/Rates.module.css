@@ -55,12 +55,6 @@ path.two {
   transform: translateX(-30%);
 }
 
-.align {
-  display: flex;
-  align-content: center;
-  justify-content: center;
-}
-
 .error {
   font-family: 'Naga', serif;
   font-weight: 400;
@@ -143,5 +137,35 @@ path.two {
     transform: translateX(0%);
     -webkit-animation: color_anim 1s infinite 0.4s;
     animation: color_anim 1s infinite 0.4s;
+  }
+}
+
+@media (max-width: 1200px) {
+  .container {
+    width: 64rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    width: 56.5rem;
+  }
+}
+
+@media (max-width: 904px) {
+  .container {
+    width: 36rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    width: 22.5rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .container {
+    width: 20rem;
   }
 }

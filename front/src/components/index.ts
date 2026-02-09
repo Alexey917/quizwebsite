@@ -4,3 +4,4 @@ export { MobileMenu } from './MobileMenu';
 export { ForWhom } from './ForWhom';
 export { Stages } from './Stages';
 export { Footer } from './Footer';
+export { Loading } from './Loading';

@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 import { Navigation, EffectCube } from 'swiper/modules';
 import { popularQuizzes } from '@/consts';
+import { Loading } from '@/components';
 import { SliderArrow, Loader } from '@/ui';
 import { popularApi, type IPopularQuizzes } from './api/popularApi';
 import { getErrorMessage } from '@/api';
@@ -76,17 +77,12 @@ export const PopularQuizzes = () => {
 
   if (loading) {
     return (
-      <section
-        className={classes.section}
-        aria-label="Загрузка популярных квизов"
-      >
-        <div className={classes.container}>
-          <h2 className={classes.title}>Популярные квизы</h2>
-          <div className={classes.align}>
-            <Loader />
-          </div>
-        </div>
-      </section>
+      <Loading
+        ariaLabel="Загрузка популярных квизов"
+        classSection={`${classes.section}`}
+        classTitle={`${classes.title}`}
+        text="Популярные квизы"
+      />
     );
   }
 

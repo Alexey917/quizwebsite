@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
-import { Loader, SliderArrow } from '@/ui';
+import { SliderArrow } from '@/ui';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Swiper as SwiperType } from 'swiper';
+import { Loading } from '@/components';
 
 import { Review } from './components';
 import { reviews } from '@/consts';
@@ -71,17 +72,12 @@ export const Reviews = () => {
 
   if (loading) {
     return (
-      <section
-        className={classes.section}
-        aria-label="Загрузка популярных квизов"
-      >
-        <div className={classes.container}>
-          <h2 className={classes.title}>Популярные квизы</h2>
-          <div className={classes.align}>
-            <Loader />
-          </div>
-        </div>
-      </section>
+      <Loading
+        ariaLabel="Загрузка отзывов"
+        classSection={`${classes.section}`}
+        classTitle={`${classes.title}`}
+        text="Отзывы"
+      />
     );
   }
 
@@ -127,7 +123,7 @@ export const Reviews = () => {
             }}
             loop={true}
             autoplay={{
-              delay: 3500,
+              delay: 5000,
               disableOnInteraction: false,
             }}
             modules={[EffectFade, Navigation, Autoplay]}

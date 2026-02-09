@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Swiper as SwiperType } from 'swiper';
 import { Navigation } from 'swiper/modules';
-import { SliderArrow, Loader } from '@/ui';
+import { SliderArrow } from '@/ui';
+import { Loading } from '@/components';
 import { getErrorMessage } from '@/api';
 import { RatesApi, type IRates } from './api/RatesApi';
 import { rates } from '@/consts';
@@ -71,18 +72,12 @@ export const Rates = () => {
 
   if (loading) {
     return (
-      <section
-        id="rates"
-        className={classes.section}
-        aria-label="Загрузка популярных квизов"
-      >
-        <div className={classes.container}>
-          <h2 className={classes.title}>Популярные квизы</h2>
-          <div className={classes.align}>
-            <Loader />
-          </div>
-        </div>
-      </section>
+      <Loading
+        ariaLabel="Загрузка тарифов"
+        classSection={`${classes.section}`}
+        classTitle={`${classes.title}`}
+        text="Тарифы"
+      />
     );
   }
 
@@ -90,7 +85,7 @@ export const Rates = () => {
     return (
       <section className={classes.section} aria-label="Ошибка загрузки">
         <div className={classes.container}>
-          <h2 className={classes.title}>Популярные квизы</h2>
+          <h2 className={classes.title}>Тарифы</h2>
           <div className={classes.align}>
             <span className={classes.error} role="alert">
               {error}
@@ -110,17 +105,17 @@ export const Rates = () => {
           role="region"
           aria-roledescription="carousel"
           aria-live="polite"
-          slidesPerView={2}
+          slidesPerView={1}
           spaceBetween={20}
           onSwiper={handleSwiper}
           onSlideChange={handleSlideChange}
           modules={[Navigation]}
           className={classes.swiperWrapper}
         >
-          {rates.map((rate) => (
+          {rates.map((rate, index) => (
             <>
               <SwiperSlide
-                key={rate.title}
+                key={`${rate.title}-${index}`}
                 role="group"
                 aria-roledescription="slide"
                 aria-label={`${rate.title}`}

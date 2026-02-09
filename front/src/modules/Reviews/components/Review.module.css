@@ -84,3 +84,62 @@
   line-height: 28px;
   color: #fecda7;
 }
+
+@media (max-width: 1200px) {
+  .company {
+    font-size: 18px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .text {
+    font-size: 16px;
+  }
+
+  .avatar {
+    width: 132px;
+    height: 132px;
+  }
+
+  .star {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .review {
+    border-radius: 1.75rem 4px 1.75rem 1.75rem;
+    padding: 1.5rem 2rem;
+  }
+}
+
+@media (max-width: 904px) {
+  .avatar {
+    display: none;
+  }
+
+  .star {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@media (max-width: 576px) {
+  .star {
+    width: 16px;
+    height: 16px;
+  }
+
+  .title,
+  .company {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .text {
+    font-size: 14px;
+  }
+}
