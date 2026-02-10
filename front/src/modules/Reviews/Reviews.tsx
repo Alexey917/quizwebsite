@@ -3,6 +3,8 @@ import { SliderArrow } from '@/ui';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Swiper as SwiperType } from 'swiper';
 import { Loading } from '@/components';
+import { reviewsApi, type IReviews } from './api';
+import { getErrorMessage } from '@/api';
 
 import { Review } from './components';
 import { reviews } from '@/consts';
@@ -18,7 +20,7 @@ export const Reviews = () => {
     isEnd: false,
   });
 
-  // const [rates, setRates] = useState<IRates[]>([]);
+  const [reviews, setReviews] = useState<IReviews[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -50,25 +52,25 @@ export const Reviews = () => {
     }));
   };
 
-  // useEffect(() => {
-  //   const handleRates = async () => {
-  //     setLoading(true);
-  //     setError(null);
+  useEffect(() => {
+    const handleReviews = async () => {
+      setLoading(true);
+      setError(null);
 
-  //     try {
-  //       const result = await RatesApi();
-  //       setRates(result.data);
-  //       console.log(result.data);
-  //     } catch (e: unknown) {
-  //       const message = getErrorMessage(e);
-  //       setError(message);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
+      try {
+        const result = await reviewsApi();
+        setReviews(result.data);
+        console.log(result.data);
+      } catch (e: unknown) {
+        const message = getErrorMessage(e);
+        setError(message);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  //   handleRates();
-  // }, []);
+    handleReviews();
+  }, []);
 
   if (loading) {
     return (
@@ -114,7 +116,7 @@ export const Reviews = () => {
             aria-roledescription="carousel"
             aria-live="polite"
             slidesPerView={3}
-            spaceBetween={32}
+            spaceBetween={28}
             onSwiper={handleSwiper}
             onSlideChange={handleSlideChange}
             direction={'vertical'}
@@ -122,20 +124,20 @@ export const Reviews = () => {
               clickable: true,
             }}
             loop={true}
-            // autoplay={{
-            //   delay: 5000,
-            //   disableOnInteraction: false,
-            // }}
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false,
+            }}
             modules={[EffectFade, Navigation, Autoplay]}
             className={classes.swiperWrapper}
           >
             {reviews.map((review, index) => (
               <>
                 <SwiperSlide
-                  key={review.title}
+                  key={`${review.author}-${index}`}
                   role="group"
                   aria-roledescription="slide"
-                  aria-label={`${review.title}`}
+                  aria-label={`${review.review}`}
                   className={classes.swiperSlider}
                 >
                   <Review {...review} index={index} />

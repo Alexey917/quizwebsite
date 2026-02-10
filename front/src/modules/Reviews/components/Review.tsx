@@ -3,14 +3,20 @@ import avatar from '../../../assets/avatar.png';
 import sprite from '../../../assets/sprite.svg';
 
 interface IReviews {
-  title: string;
+  author: string;
   company: string;
   review: string;
   rating: number;
   index: number;
 }
 
-export const Review = ({ title, company, review, rating, index }: IReviews) => {
+export const Review = ({
+  author,
+  company,
+  review,
+  rating,
+  index,
+}: IReviews) => {
   return (
     <div
       className={`${
@@ -31,7 +37,7 @@ export const Review = ({ title, company, review, rating, index }: IReviews) => {
             )}
           </>
         ))}
-        <h3 className={classes.title}>{title}</h3>
+        <h3 className={classes.title}>{author}</h3>
         <span className={classes.company}>{company}</span>
         <p className={classes.text}>{review}</p>
       </div>

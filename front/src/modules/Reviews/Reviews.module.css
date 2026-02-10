@@ -246,7 +246,7 @@ path.two {
 
   .content {
     top: 14.4375rem;
-    height: 74.375rem;
+    height: 65.375rem;
   }
 
   .title {
@@ -254,7 +254,11 @@ path.two {
   }
 
   .section {
-    height: 80.75rem;
+    height: 71.75rem;
+  }
+
+  .swiperWrapper {
+    height: 48.375rem;
   }
 }
 
@@ -275,7 +279,7 @@ path.two {
 
   .content {
     top: 13.125rem;
-    height: 75rem;
+    height: 67rem;
   }
 
   .title {
@@ -291,7 +295,7 @@ path.two {
   }
 
   .section {
-    height: 78.75rem;
+    height: 72.75rem;
   }
 }
 
@@ -311,7 +315,7 @@ path.two {
 
   .content {
     top: 9.375rem;
-    height: 65.625rem;
+    height: 54.625rem;
   }
 
   .title {
@@ -319,11 +323,11 @@ path.two {
   }
 
   .swiperWrapper {
-    height: 45.9375rem;
+    height: 39.9375rem;
   }
 
   .section {
-    height: 61.75rem;
+    height: 56.75rem;
   }
 }
 
@@ -343,14 +347,14 @@ path.two {
 
   .content {
     top: 6.125rem;
-    height: 800px;
+    height: 44.875rem;
   }
 
   .swiperWrapper {
-    height: 38.4375rem;
+    height: 31.4375rem;
   }
 
   .section {
-    height: 49.75rem;
+    height: 43.75rem;
   }
 }

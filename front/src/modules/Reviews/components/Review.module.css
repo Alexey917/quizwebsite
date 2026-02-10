@@ -1,12 +1,13 @@
 .wrapperReview {
   display: flex;
-  gap: 20px;
+
+  gap: 1.25rem;
 }
 
 .wrapperReverse {
   display: flex;
   flex-direction: row-reverse;
-  gap: 20px;
+  gap: 1.25rem;
 }
 
 .review {
@@ -19,6 +20,7 @@
     #f1ae79 100%
   );
 
+  width: 62.3125rem;
   position: relative;
   border-radius: 3.75rem 0.375rem 3.75rem 3.75rem;
   padding: 2.5rem 3.75rem;
@@ -39,39 +41,41 @@
   border-radius: inherit;
   -webkit-mask: conic-gradient(#000 0 0) content-box, conic-gradient(#000 0 0);
   -webkit-mask-composite: xor;
+  -webkit-mask: conic-gradient(#000 0 0) content-box, conic-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
   mask: conic-gradient(#000 0 0) content-box exclude, conic-gradient(#000 0 0);
 }
 
 .avatar {
-  width: 183px;
-  height: 183px;
-  border-radius: 40px;
+  width: 11.4375rem;
+  height: 11.4375rem;
+  border-radius: 2.5rem;
 }
 
 .star {
-  width: 35px;
-  height: 33px;
+  width: 2.1875rem;
+  height: 2.0625rem;
 }
 
 .title {
-  margin-top: 28px;
-  margin-bottom: 2px;
+  margin-top: 1.75rem;
+  margin-bottom: 0.125rem;
   font-family: 'Nunito', sans-serif;
   font-weight: 700;
   font-style: normal;
-  font-size: 24px;
-  line-height: 32px;
+  font-size: 1.5rem;
+  line-height: 2rem;
   color: #f1ae79;
 }
 
 .company {
   margin-top: 0;
-  margin-bottom: 12px;
+  margin-bottom: 0.75rem;
   font-family: 'Nunito', sans-serif;
   font-weight: 700;
   font-style: normal;
-  font-size: 24px;
-  line-height: 32px;
+  font-size: 1.5rem;
+  line-height: 2rem;
   color: #f1ae79;
 }
 
@@ -80,8 +84,8 @@
   font-family: 'Nunito', sans-serif;
   font-weight: 500;
   font-style: normal;
-  font-size: 20px;
-  line-height: 28px;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
   color: #fecda7;
 }
 
@@ -111,6 +115,7 @@
 
 @media (max-width: 1024px) {
   .review {
+    width: 47.375rem;
     border-radius: 1.75rem 4px 1.75rem 1.75rem;
     padding: 1.5rem 2rem;
   }
@@ -122,34 +127,34 @@
   }
 
   .star {
-    width: 28px;
-    height: 28px;
+    width: 1.75rem;
+    height: 1.75rem;
   }
 }
 
 @media (max-width: 576px) {
   .star {
-    width: 16px;
-    height: 16px;
+    width: 1rem;
+    height: 1rem;
   }
 
   .title,
   .company {
-    font-size: 16px;
-    line-height: 20px;
+    font-size: 1rem;
+    line-height: 1.25rem;
   }
 
   .title {
-    margin-top: 12px;
+    margin-top: 0.75rem;
   }
 
   .text {
-    font-size: 14px;
+    font-size: 0.875rem;
   }
 
   .review {
-    border-radius: 1.75rem 4px 1.75rem 1.75rem;
-    padding: 12px 12px 12px 15px;
+    border-radius: 1.75rem 0.25rem 1.75rem 1.75rem;
+    padding: 0.75rem 0.75rem 0.75rem 0.9375rem;
   }
 }
 
@@ -157,12 +162,16 @@
   .text,
   .title,
   .company {
-    font-size: 12px;
-    line-height: 20px;
+    font-size: 0.75rem;
+    line-height: 1.25rem;
   }
 
   .title {
-    margin-top: 8px;
+    margin-top: 0.5rem;
     margin-bottom: 0;
+  }
+
+  .review {
+    width: 20rem;
   }
 }
