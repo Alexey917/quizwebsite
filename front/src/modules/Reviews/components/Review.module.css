@@ -46,6 +46,22 @@
   mask: conic-gradient(#000 0 0) content-box exclude, conic-gradient(#000 0 0);
 }
 
+.rating {
+  display: flex;
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .avatar {
   width: 11.4375rem;
   height: 11.4375rem;

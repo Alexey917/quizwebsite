@@ -7,7 +7,7 @@ interface IReviews {
   company: string;
   review: string;
   rating: number;
-  index: number;
+  slideIndex: number;
 }
 
 export const Review = ({
@@ -15,33 +15,52 @@ export const Review = ({
   company,
   review,
   rating,
-  index,
+  slideIndex,
 }: IReviews) => {
+  const isReversed = slideIndex % 2 !== 0;
   return (
-    <div
+    <article
       className={`${
-        index % 2 !== 0 ? classes.wrapperReverse : classes.wrapperReview
+        isReversed ? classes.wrapperReverse : classes.wrapperReview
       }`}
+      aria-label={`Отзыв от ${author} из ${company}`}
     >
       <div className={classes.review}>
-        {[...Array(5)].map((_, index) => (
-          <>
-            {rating < index + 1 ? (
-              <svg key={index} className={classes.star} aria-hidden="true">
-                <use href={`${sprite}#emptyStar`}></use>
-              </svg>
-            ) : (
-              <svg key={index} className={classes.star} aria-hidden="true">
-                <use href={`${sprite}#fillStar`}></use>
-              </svg>
-            )}
-          </>
-        ))}
+        <div role="img" aria-label={`Рейтинг: ${rating} из 5 звёзд`}>
+          {[...Array(5)].map((_, index) => (
+            <>
+              {rating < index + 1 ? (
+                <svg
+                  key={`${author}-star-${index}`}
+                  className={classes.star}
+                  aria-hidden="true"
+                >
+                  <use href={`${sprite}#emptyStar`}></use>
+                </svg>
+              ) : (
+                <svg
+                  key={`${author}-star-${index}`}
+                  className={classes.star}
+                  aria-hidden="true"
+                >
+                  <use href={`${sprite}#fillStar`}></use>
+                </svg>
+              )}
+              <span className={classes.visuallyHidden}>
+                Рейтинг: {rating} из 5 звёзд
+              </span>
+            </>
+          ))}
+        </div>
         <h3 className={classes.title}>{author}</h3>
         <span className={classes.company}>{company}</span>
         <p className={classes.text}>{review}</p>
       </div>
-      <img src={avatar} className={classes.avatar} alt="аватарка" />
-    </div>
+      <img
+        src={avatar}
+        className={classes.avatar}
+        alt={`Аватар ${author} из ${company}`}
+      />
+    </article>
   );
 };

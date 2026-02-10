@@ -7,7 +7,7 @@ import { reviewsApi, type IReviews } from './api';
 import { getErrorMessage } from '@/api';
 
 import { Review } from './components';
-import { reviews } from '@/consts';
+// import { reviews } from '@/consts';
 import { Navigation, EffectFade, Autoplay } from 'swiper/modules';
 
 import classes from './Reviews.module.css';
@@ -87,7 +87,7 @@ export const Reviews = () => {
     return (
       <section className={classes.section} aria-label="Ошибка загрузки">
         <div className={classes.container}>
-          <h2 className={classes.title}>Популярные квизы</h2>
+          <h2 className={classes.title}>Отзывы</h2>
           <div className={classes.align}>
             <span className={classes.error} role="alert">
               {error}
@@ -99,7 +99,7 @@ export const Reviews = () => {
   }
 
   return (
-    <section className={classes.section}>
+    <section className={classes.section} aria-label="Отзывы">
       <svg className={classes.wavesBg} aria-hidden="true">
         <use href={`${sprite}#wavesBg`}></use>
       </svg>
@@ -132,17 +132,15 @@ export const Reviews = () => {
             className={classes.swiperWrapper}
           >
             {reviews.map((review, index) => (
-              <>
-                <SwiperSlide
-                  key={`${review.author}-${index}`}
-                  role="group"
-                  aria-roledescription="slide"
-                  aria-label={`${review.review}`}
-                  className={classes.swiperSlider}
-                >
-                  <Review {...review} index={index} />
-                </SwiperSlide>
-              </>
+              <SwiperSlide
+                key={`${review.author}-${index}`}
+                role="group"
+                aria-roledescription="slide"
+                aria-label={`Отзыв ${index + 1} из ${reviews.length}`}
+                className={classes.swiperSlider}
+              >
+                <Review {...review} slideIndex={index} />
+              </SwiperSlide>
             ))}
           </Swiper>
 
