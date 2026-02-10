@@ -9,14 +9,18 @@ export const Rate = ({
   preview_description,
   price,
   oldPrice,
+  subtitle,
+  image,
+  is_new,
 }: IRates) => {
   return (
     <>
       {!is_authorial ? (
         <Link to="catalog" className={classes.link}>
           <div className={classes.info}>
+            {is_new && <span className={classes.new}>NEW</span>}
             <h3 className={classes.title}>{title}</h3>
-            <p className={classes.text}></p>
+            <p className={classes.text}>{subtitle}</p>
             <ul className={classes.list}>
               {preview_description.split(',').map((listItem, index) => (
                 <li key={index} className={classes.listItem}>
@@ -29,7 +33,7 @@ export const Rate = ({
             <span className={classes.oldPrice}>{`${oldPrice} ₽`}</span>
           )}
           <span className={classes.price}>{`${price} ₽`}</span>
-          {/* <img src={img} className={classes.icon} alt="" /> */}
+          {image !== '' && <img src={image} className={classes.icon} alt="" />}
         </Link>
       ) : (
         <div className={classes.btn}>

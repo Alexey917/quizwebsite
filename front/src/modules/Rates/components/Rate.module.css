@@ -112,6 +112,20 @@
   color: #f1ae79;
 }
 
+.new {
+  position: absolute;
+  top: 24px;
+  right: 21px;
+  font-family: 'Naga', serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0%;
+
+  color: #6ec4c5;
+}
+
 .text {
   margin: 0;
   margin-bottom: 23px;
