@@ -5,3 +5,4 @@ export { ForWhom } from './ForWhom';
 export { Stages } from './Stages';
 export { Footer } from './Footer';
 export { Loading } from './Loading';
+export { Navigation } from './Navigation/Navigation';

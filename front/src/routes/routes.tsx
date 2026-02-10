@@ -9,6 +9,7 @@ export const router = createBrowserRouter([
     children: [
       { index: true, element: <MainPage /> },
       { path: '/catalog', element: <CatalogPage /> },
+      // { path: '/catalog/:categoryId/quizzes', element: <CatalogPage /> },
     ],
   },
 ]);
