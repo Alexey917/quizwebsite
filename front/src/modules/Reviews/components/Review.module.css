@@ -139,7 +139,30 @@
     line-height: 20px;
   }
 
+  .title {
+    margin-top: 12px;
+  }
+
   .text {
     font-size: 14px;
+  }
+
+  .review {
+    border-radius: 1.75rem 4px 1.75rem 1.75rem;
+    padding: 12px 12px 12px 15px;
+  }
+}
+
+@media (max-width: 360px) {
+  .text,
+  .title,
+  .company {
+    font-size: 12px;
+    line-height: 20px;
+  }
+
+  .title {
+    margin-top: 8px;
+    margin-bottom: 0;
   }
 }

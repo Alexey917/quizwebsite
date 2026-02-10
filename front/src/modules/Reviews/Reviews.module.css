@@ -1,6 +1,6 @@
 .section {
   position: relative;
-  height: 98.75rem;
+  height: 90.75rem;
 }
 
 .wavesBg {
@@ -27,7 +27,7 @@
   left: 0;
   width: 100%;
   z-index: 0;
-  height: 1390px;
+  height: 81.25rem;
   background-color: #13515e;
 }
 
@@ -37,12 +37,12 @@
 }
 
 .title {
-  margin-top: 60px;
-  margin-bottom: 40px;
+  margin-top: 3.75rem;
+  margin-bottom: 2.5rem;
   font-family: 'Naga', serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 48px;
+  font-size: 3rem;
   line-height: 100%;
 
   background: linear-gradient(
@@ -69,18 +69,18 @@
 }
 
 .swiperWrapper {
-  height: 950px;
+  height: 59.375rem;
 }
 
 .customNavigation {
   display: none;
   position: absolute;
   padding: 0 6.375rem;
-  gap: 182px;
+  gap: 11.375rem;
   align-items: center;
   justify-content: space-between;
   top: 0;
-  right: 75px;
+  right: 4.6875rem;
   z-index: 2;
 }
 
@@ -181,7 +181,7 @@ path.two {
 
 @media (min-width: 1500px) {
   .section {
-    /* margin-bottom: 19.6875rem; */
+    height: 98.75rem;
   }
 
   .wavesBg {
@@ -199,7 +199,7 @@ path.two {
 
   .content {
     top: 28.225rem;
-    height: 1230px;
+    height: 77.625rem;
   }
 }
 
@@ -226,7 +226,7 @@ path.two {
   }
 
   .title {
-    font-size: 36px;
+    font-size: 2.25rem;
   }
 }
 
@@ -246,16 +246,22 @@ path.two {
 
   .content {
     top: 14.4375rem;
+    height: 74.375rem;
   }
 
   .title {
-    margin-top: 40px;
+    margin-top: 2.5rem;
+  }
+
+  .section {
+    height: 80.75rem;
   }
 }
 
 @media (max-width: 904px) {
   .container {
     width: 36rem;
+    position: relative;
   }
 
   .wavesBg {
@@ -269,18 +275,23 @@ path.two {
 
   .content {
     top: 13.125rem;
+    height: 75rem;
   }
 
   .title {
-    font-size: 28px;
+    font-size: 1.75rem;
   }
 
   .customNavigation {
     display: flex;
     padding: 0;
-    right: 137px;
-    top: 40px;
-    gap: 40px;
+    right: 0;
+    top: 0;
+    gap: 2.5rem;
+  }
+
+  .section {
+    height: 78.75rem;
   }
 }
 
@@ -300,10 +311,19 @@ path.two {
 
   .content {
     top: 9.375rem;
+    height: 65.625rem;
   }
 
   .title {
-    font-size: 24px;
+    font-size: 1.5rem;
+  }
+
+  .swiperWrapper {
+    height: 45.9375rem;
+  }
+
+  .section {
+    height: 61.75rem;
   }
 }
 
@@ -323,5 +343,14 @@ path.two {
 
   .content {
     top: 6.125rem;
+    height: 800px;
+  }
+
+  .swiperWrapper {
+    height: 38.4375rem;
+  }
+
+  .section {
+    height: 49.75rem;
   }
 }

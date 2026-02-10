@@ -122,10 +122,10 @@ export const Reviews = () => {
               clickable: true,
             }}
             loop={true}
-            autoplay={{
-              delay: 5000,
-              disableOnInteraction: false,
-            }}
+            // autoplay={{
+            //   delay: 5000,
+            //   disableOnInteraction: false,
+            // }}
             modules={[EffectFade, Navigation, Autoplay]}
             className={classes.swiperWrapper}
           >

@@ -10,7 +10,6 @@ body {
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
-  /* height: 3152px; */
   background: linear-gradient(
     180deg,
     #13515e 3.3%,
