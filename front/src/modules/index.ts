@@ -3,4 +3,4 @@ export { PopularQuizzes } from './PopularQuizzes/PopularQuizzes';
 export { AboutUs } from './AboutUs/AboutUs';
 export { Rates } from './Rates/Rates';
 export { Reviews } from './Reviews';
-export { Categories } from './Categories/Categories';
+export { Catalog } from './Catalog/Catalog';
