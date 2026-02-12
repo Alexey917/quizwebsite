@@ -47,7 +47,6 @@ export const Catalog = ({ variant }: IVariant) => {
         }
 
         setData(result.data);
-        console.log(result.data);
       } catch (e: unknown) {
         const message = getErrorMessage(e);
         setError(message);
@@ -65,8 +64,8 @@ export const Catalog = ({ variant }: IVariant) => {
         ariaLabel={
           variant === 'categories' ? 'Загрузка категорий' : 'Загрузка квизов'
         }
-        classSection={`${classes.section}`}
-        classTitle={`${classes.title}`}
+        classSection={classes.section}
+        classTitle={classes.title}
         text=""
       />
     );
