@@ -1,5 +1,5 @@
 import { Layout } from '@/components/Layout';
-import { MainPage, CatalogPage, QuizzesPage } from '@/pages';
+import { MainPage, CatalogPage, QuizzesPage, QuizPage } from '@/pages';
 import { createBrowserRouter } from 'react-router-dom';
 
 export const router = createBrowserRouter([
@@ -10,6 +10,7 @@ export const router = createBrowserRouter([
       { index: true, element: <MainPage /> },
       { path: '/catalog', element: <CatalogPage /> },
       { path: '/catalog/:categoryId/quizzes', element: <QuizzesPage /> },
+      { path: '/catalog/:categoryId/quizzes/:quizId', element: <QuizPage /> },
     ],
   },
 ]);

@@ -6,7 +6,7 @@ interface ILoading {
   ariaLabel: string;
   classSection: string;
   classTitle: string;
-  text: string;
+  text?: string;
 }
 
 export const Loading = ({

@@ -1,25 +1,52 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
+import type { ICategories, IQuizzes } from '../api';
+import { createSlug } from '../utils';
 
 import classes from './Card.module.css';
 
-interface ICard<T> {
-  data: T;
+interface ICard {
+  data: ICategories | IQuizzes;
   dataIndex: number;
 }
 
-export const Card = ({ data, dataIndex }: ICard<any>) => {
+export const Card = ({ data, dataIndex }: ICard) => {
+  const location = useLocation();
+  const { categoryId } = useParams<{ categoryId: string }>();
+
   return (
-    <article className={classes.card}>
+    <article
+      className={classes.card}
+      aria-labelledby={`card-title-${data.title}`}
+    >
       <img
-        src={data.preview}
+        src={data.preview_image}
         className={classes.img}
         alt={`${data.title} картинка`}
+        loading="lazy"
+        decoding="async"
       />
-      <h3 className={classes.title}>{data.title}</h3>
-      <p className={classes.description}>{data.description}</p>
-      <Link className={classes.link} to={`/catalog/${dataIndex}/quizzes`}>
-        Подробнее
-      </Link>
+      <div className={classes.overlay} aria-hidden="true"></div>
+      <h3 id={`card-title-${data.title}`} className={classes.title}>
+        {data.title}
+      </h3>
+      <p className={classes.description}>{data.preview_text}</p>
+      {location.pathname === '/catalog' ? (
+        <Link
+          className={classes.link}
+          to={`/catalog/${dataIndex}-${createSlug(data.title)}/quizzes`}
+        >
+          Подробнее
+        </Link>
+      ) : (
+        <Link
+          className={classes.link}
+          to={`/catalog/${categoryId}/quizzes/${dataIndex}-${createSlug(
+            data.title,
+          )}`}
+        >
+          Подробнее
+        </Link>
+      )}
     </article>
   );
 };

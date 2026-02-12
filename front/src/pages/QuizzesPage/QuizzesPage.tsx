@@ -1,10 +1,11 @@
-import React from 'react'
+import { Catalog } from '@/modules';
+
+import classes from './QuizzesPage.module.css';
 
 export const QuizzesPage = () => {
   return (
-    <div>
-      
-    </div>
-  )
-}
-
+    <main className={classes.main}>
+      <Catalog variant="quizzes" />
+    </main>
+  );
+};

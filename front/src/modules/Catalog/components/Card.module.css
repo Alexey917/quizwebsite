@@ -15,8 +15,21 @@
   width: 24.1875rem;
   height: 12.5rem;
   border-radius: 2.5rem 0.5rem 0 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 0;
   -o-object-fit: cover;
   object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 12.5rem;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  border-radius: 2.5rem 0.5rem 0 0;
 }
 
 .title {
@@ -31,6 +44,7 @@
   font-size: 2.25rem;
   line-height: 100%;
   color: #f1ae79;
+  z-index: 2;
 }
 
 .description {
@@ -142,7 +156,8 @@
   }
 
   .card,
-  .img {
+  .img,
+  .overlay {
     width: 20.5rem;
   }
 }
@@ -152,7 +167,8 @@
     border-radius: 1.75rem 0.25rem 1.75rem 1.75rem;
   }
 
-  .img {
+  .img,
+  .overlay {
     border-radius: 1.75rem 0.25rem 0 0;
   }
 
@@ -163,7 +179,8 @@
 
 @media (max-width: 904px) {
   .card,
-  .img {
+  .img,
+  .overlay {
     width: 24.1875rem;
   }
 
@@ -192,7 +209,8 @@
   }
 
   .card,
-  .img {
+  .img,
+  .overlay {
     width: 20.5rem;
   }
 }
@@ -222,7 +240,8 @@
     border-radius: 1rem 0.125rem 1rem 1rem;
   }
 
-  .img {
+  .img,
+  .overlay {
     width: 19.9375rem;
     height: 8.75rem;
     border-radius: 1rem 0.125rem 0 0;
