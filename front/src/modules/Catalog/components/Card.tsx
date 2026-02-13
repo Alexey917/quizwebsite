@@ -1,6 +1,8 @@
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams, useNavigate } from 'react-router-dom';
 import type { ICategories, IQuizzes } from '../api';
 import { createSlug } from '../utils';
+import { store } from '@/store/index';
+import { addCategoryName, addQuizName } from '@/store/breadCrumbs/breadCrumb';
 
 import classes from './Card.module.css';
 
@@ -11,7 +13,24 @@ interface ICard {
 
 export const Card = ({ data, dataIndex }: ICard) => {
   const location = useLocation();
+  const navigate = useNavigate();
+  const dispatch = store.dispatch;
   const { categoryId } = useParams<{ categoryId: string }>();
+
+  const handleCategory = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    to: string,
+  ) => {
+    e.preventDefault();
+    dispatch(addCategoryName(data.title));
+    navigate(to);
+  };
+
+  const handleQuiz = (e: React.MouseEvent<HTMLAnchorElement>, to: string) => {
+    e.preventDefault();
+    dispatch(addQuizName(data.title));
+    navigate(to);
+  };
 
   return (
     <article
@@ -34,6 +53,12 @@ export const Card = ({ data, dataIndex }: ICard) => {
         <Link
           className={classes.link}
           to={`/catalog/${dataIndex}-${createSlug(data.title)}/quizzes`}
+          onClick={(e) =>
+            handleCategory(
+              e,
+              `/catalog/${dataIndex}-${createSlug(data.title)}/quizzes`,
+            )
+          }
         >
           Подробнее
         </Link>
@@ -43,6 +68,14 @@ export const Card = ({ data, dataIndex }: ICard) => {
           to={`/catalog/${categoryId}/quizzes/${dataIndex}-${createSlug(
             data.title,
           )}`}
+          onClick={(e) =>
+            handleQuiz(
+              e,
+              `/catalog/${categoryId}/quizzes/${dataIndex}-${createSlug(
+                data.title,
+              )}`,
+            )
+          }
         >
           Подробнее
         </Link>

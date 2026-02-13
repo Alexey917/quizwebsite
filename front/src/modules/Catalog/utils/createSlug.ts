@@ -1,5 +1,9 @@
+import { hasRussianChars, translitToLatin } from '@/utils';
+
 export const createSlug = (title: string): string => {
-  return title
+  const latinTitle = hasRussianChars(title) ? translitToLatin(title) : title;
+
+  return latinTitle
     .toLowerCase()
     .replace(/[^\w\s-]/g, '')
     .replace(/\s+/g, '-')

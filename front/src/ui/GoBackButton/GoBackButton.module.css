@@ -11,6 +11,19 @@
   cursor: pointer;
 }
 
+.btnNav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  width: 3.75rem;
+  height: 3.75rem;
+  background: none;
+  border: none;
+  border-radius: 1.375rem;
+  cursor: pointer;
+}
+
 .back {
   visibility: visible;
   cursor: pointer;
@@ -26,7 +39,8 @@
 }
 
 @media (hover: hover) {
-  .btnMenu:hover {
+  .btnMenu:hover,
+  .btnNav:hover {
     box-shadow: 0.125rem 0.125rem 0.625rem #f1ae79;
   }
 }

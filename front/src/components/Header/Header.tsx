@@ -1,13 +1,14 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import {
   CustomLink,
   BrandedLettering,
   GoBackButton,
   MobileMenuBtn,
 } from '@/ui';
+import { useSelector } from 'react-redux';
+import { getBreadcrumb } from '../../store/index';
 
-import type { FC } from 'react';
-
+import { useEffect, type FC, useState } from 'react';
 import { routes } from '@/consts';
 
 import classes from './Header.module.css';
@@ -18,7 +19,23 @@ interface IHeader {
 }
 
 export const Header: FC<IHeader> = ({ isMobile, setIsMobile }) => {
+  const [mobileTitle, setMobileTitle] = useState<string>('');
   const location = useLocation();
+  const { categoryId, quizId } = useParams();
+  const { categoryName, quizName } = useSelector(getBreadcrumb);
+
+  useEffect(() => {
+    const [title] = routes.filter((route) => {
+      return route.path === location.pathname && route.title;
+    });
+    if (quizId && quizName) {
+      setMobileTitle(quizName);
+    } else if (categoryId && categoryName) {
+      setMobileTitle(categoryName);
+    } else {
+      setMobileTitle(title.title);
+    }
+  }, [categoryId, quizId, location.pathname]);
 
   return (
     <header className={classes.header} role="banner">
@@ -72,11 +89,9 @@ export const Header: FC<IHeader> = ({ isMobile, setIsMobile }) => {
           <CustomLink to="catalog" text="Сделать заказ" variant="wrapper" />
         </nav>
 
-        <GoBackButton />
+        <GoBackButton classBtn="btnMenu" />
 
-        <h2 className={classes.currentPath}>
-          {routes.find((route) => route.path === location.pathname)?.title}
-        </h2>
+        <h2 className={classes.currentPath}>{mobileTitle}</h2>
 
         <MobileMenuBtn setIsMobile={setIsMobile} isMobile={isMobile} />
       </div>

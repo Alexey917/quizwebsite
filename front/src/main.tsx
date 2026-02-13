@@ -5,9 +5,13 @@ import { router } from './routes/routes.tsx';
 import './styles/font.css';
 import './styles/normalize.css';
 import './styles/index.css';
+import { Provider } from 'react-redux';
+import { store } from './store/index.ts';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </StrictMode>,
 );
