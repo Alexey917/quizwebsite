@@ -4,3 +4,4 @@ export { AboutUs } from './AboutUs/AboutUs';
 export { Rates } from './Rates/Rates';
 export { Reviews } from './Reviews';
 export { Catalog } from './Catalog/Catalog';
+export { Quiz } from './Quiz/Quiz';
