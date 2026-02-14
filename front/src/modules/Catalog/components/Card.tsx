@@ -23,12 +23,14 @@ export const Card = ({ data, dataIndex }: ICard) => {
   ) => {
     e.preventDefault();
     dispatch(addCategoryName(data.title));
+    localStorage.setItem('category', data.title);
     navigate(to);
   };
 
   const handleQuiz = (e: React.MouseEvent<HTMLAnchorElement>, to: string) => {
     e.preventDefault();
     dispatch(addQuizName(data.title));
+    localStorage.setItem('quiz', data.title);
     navigate(to);
   };
 

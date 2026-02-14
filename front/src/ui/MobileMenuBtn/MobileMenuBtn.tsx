@@ -20,6 +20,7 @@ export const MobileMenuBtn: FC<IMobileBtn> = ({ isMobile, setIsMobile }) => {
           title="Открыть меню навигации"
           aria-controls="mobile-menu-id"
         >
+          <img src="" alt="" />
           <svg
             className={classes.menuIcon}
             aria-hidden="true"

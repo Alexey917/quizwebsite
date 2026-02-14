@@ -1,9 +1,9 @@
 .nav {
-  width: 1200px;
+  width: 75rem;
   margin: auto;
   margin-top: 48px;
   display: flex;
-  gap: 20px;
+  gap: 1.25rem;
 }
 
 .list {
@@ -23,9 +23,9 @@
   position: relative;
   display: flex;
   align-items: center;
-  gap: 36px;
-  padding: 23px 24px;
-  height: 60px;
+  gap: 2.25rem;
+  padding: 1.4375rem 1.5rem;
+  height: 3.75rem;
   border-radius: 1.5rem 0.25rem 1.5rem 1.5rem;
 }
 
@@ -44,6 +44,8 @@
   -webkit-mask-composite: xor;
   -webkit-mask: conic-gradient(#000 0 0) content-box, conic-gradient(#000 0 0);
   -webkit-mask-composite: xor;
+  -webkit-mask: conic-gradient(#000 0 0) content-box, conic-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
   mask: conic-gradient(#000 0 0) content-box exclude, conic-gradient(#000 0 0);
 }
 
@@ -53,12 +55,12 @@
 
 .listItem::before {
   content: '';
-  width: 28px;
-  height: 1px;
+  width: 1.75rem;
+  height: 0.0625rem;
   background: #f1ae79;
   position: absolute;
-  right: -32px;
-  top: 12px;
+  right: -2rem;
+  top: 0.75rem;
 }
 
 .listItem:last-of-type::before {
@@ -73,7 +75,7 @@
   font-family: 'Naga', serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 20px;
+  font-size: 1.25rem;
   line-height: 100%;
   letter-spacing: 0%;
   color: #f1ae79;
@@ -88,11 +90,11 @@
 
 @media (max-width: 1200px) {
   .nav {
-    width: 1024px;
+    width: 64rem;
   }
 
   .link {
-    font-size: 18px;
+    font-size: 1.125rem;
   }
 }
 

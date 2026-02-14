@@ -1,4 +1,4 @@
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import {
   CustomLink,
   BrandedLettering,
@@ -21,21 +21,27 @@ interface IHeader {
 export const Header: FC<IHeader> = ({ isMobile, setIsMobile }) => {
   const [mobileTitle, setMobileTitle] = useState<string>('');
   const location = useLocation();
+  const navigate = useNavigate();
   const { categoryId, quizId } = useParams();
   const { categoryName, quizName } = useSelector(getBreadcrumb);
 
   useEffect(() => {
-    const [title] = routes.filter((route) => {
+    const category = localStorage.getItem('category');
+    const quiz = localStorage.getItem('quiz');
+
+    const title = routes.find((route) => {
       return route.path === location.pathname && route.title;
     });
-    if (quizId && quizName) {
-      setMobileTitle(quizName);
-    } else if (categoryId && categoryName) {
-      setMobileTitle(categoryName);
-    } else {
+    if (quizId && quiz) {
+      setMobileTitle(quizName ? quizName : quiz);
+    } else if (categoryId && category) {
+      setMobileTitle(categoryName ? categoryName : category);
+    } else if (title) {
       setMobileTitle(title.title);
+    } else {
+      navigate('/');
     }
-  }, [categoryId, quizId, location.pathname]);
+  }, [categoryId, quizId, location.pathname, quizName, categoryName]);
 
   return (
     <header className={classes.header} role="banner">
@@ -61,7 +67,7 @@ export const Header: FC<IHeader> = ({ isMobile, setIsMobile }) => {
           <ul className={classes.list}>
             {routes.map((route) => (
               <li key={route.title}>
-                {location.pathname === '/' && route.path === '/' ? (
+                {location.pathname === '/' && route.title === 'Главная' ? (
                   <Link
                     to={route.path}
                     className={`${classes.link} ${classes.mainLink}`}

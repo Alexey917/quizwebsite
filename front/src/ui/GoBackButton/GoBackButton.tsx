@@ -11,39 +11,12 @@ interface IGoBack {
 export const GoBackButton = ({ classBtn }: IGoBack) => {
   const navigate = useNavigate();
   const location = useLocation();
-  const isGoingBackRef = useRef<boolean>(false);
-  const [history, setHistory] = useState<string[]>(() => {
-    return [location.pathname];
-  });
 
   const canGoBack = location.pathname === '/';
 
   const handleNavigate = () => {
-    // if (canGoBack) {
-    //   isGoingBackRef.current = true;
-    //   setHistory((prevItems) => {
-    //     return prevItems.slice(0, -1);
-    //   });
-    //   navigate(-1);
-    // }
     navigate(-1);
   };
-
-  // useEffect(() => {
-  //   if (isGoingBackRef.current) {
-  //     isGoingBackRef.current = false;
-  //     return;
-  //   }
-
-  //   setHistory((prev) => {
-  //     if (prev[prev.length - 1] === location.pathname) {
-  //       return prev;
-  //     }
-  //     return [...prev, location.pathname];
-  //   });
-
-  //   // window.addEventListener('popstate', checkHistory);
-  // }, [location]);
 
   return (
     <button
