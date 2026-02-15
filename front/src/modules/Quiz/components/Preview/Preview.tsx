@@ -6,9 +6,10 @@ interface IPreview {
   img: string;
   text: string;
   title: string;
+  preview_text: string;
 }
 
-export const Preview = ({ img, text, title }: IPreview) => {
+export const Preview = ({ img, text, title, preview_text }: IPreview) => {
   return (
     <article className={classes.article}>
       <img
@@ -18,7 +19,11 @@ export const Preview = ({ img, text, title }: IPreview) => {
       />
       <div className={classes.overlay}></div>
       <h2 className={classes.title}>{title}</h2>
-      <div className={classes.text}>{parse(text)}</div>
+      <p className={classes.previewText}>{preview_text}</p>
+      <div className={classes.text}>
+        <h3 className={classes.await}>Что вас ждёт:</h3>
+        {parse(text)}
+      </div>
     </article>
   );
 };

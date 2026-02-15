@@ -1,46 +1,51 @@
 .article {
-  margin-top: 40px;
+  margin-top: 2.5rem;
   position: relative;
 }
 
 .img {
-  width: 1200px;
-  height: 600px;
+  width: 75rem;
+  height: 37.5rem;
   -o-object-fit: cover;
   object-fit: cover;
-  border-radius: 32px;
+  border-radius: 2rem;
 }
 
 .overlay {
   position: absolute;
   top: 0;
   left: 0;
-  width: 1200px;
-  height: 600px;
-  border-radius: 32px;
+  width: 75rem;
+  height: 37.5rem;
+  border-radius: 2rem;
   background: rgba(0, 0, 0, 0.7);
 }
 
 .title {
   position: absolute;
   margin: 0;
-  top: 92px;
-  left: 102px;
+  top: 5.75rem;
+  left: 6.375rem;
 
   font-family: 'Naga', serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 48px;
+  font-size: 3rem;
   line-height: 100%;
   color: #f1ae79;
 }
 
+.await,
+.previewText {
+  display: none;
+}
+
 .text {
   position: absolute;
-  top: 180px;
-  left: 102px;
-  width: 895px;
-  height: 262px;
+  top: 11.25rem;
+  left: 6.375rem;
+  width: 55.9375rem;
+  height: 16.375rem;
   z-index: 1;
 
   --borderWidth: 0.125rem;
@@ -52,8 +57,8 @@
     #f1ae79 100%
   );
 
-  border-radius: 28px;
-  box-shadow: 0px 4px 4px 0px #081e2140;
+  border-radius: 1.75rem;
+  box-shadow: 0px 0.25rem 0.25rem 0px #081e2140;
 }
 
 .text::before {
@@ -65,14 +70,17 @@
   border-radius: inherit;
   -webkit-mask: conic-gradient(#000 0 0) content-box, conic-gradient(#000 0 0);
   -webkit-mask-composite: xor;
+  -webkit-mask: conic-gradient(#000 0 0) content-box, conic-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
   mask: conic-gradient(#000 0 0) content-box exclude, conic-gradient(#000 0 0);
+  pointer-events: none;
 }
 
 .text ul {
   padding: 0;
-  padding-left: 28px;
-  margin: 28px;
-  height: 206px;
+  padding-left: 1.75rem;
+  margin: 1.75rem;
+  height: 12.875rem;
   overflow-y: auto;
   scrollbar-color: #f1ae79 transparent;
   scrollbar-width: none;
@@ -90,6 +98,7 @@
 .text ul::-webkit-scrollbar {
   width: 0.375rem;
   opacity: 0;
+  -webkit-transition: opacity 0.3s ease;
   transition: opacity 0.3s ease;
 }
 
@@ -116,5 +125,181 @@
 
   .text ul::-webkit-scrollbar-thumb:hover {
     background: #fecda7;
+  }
+}
+
+@media (max-width: 1200px) {
+  .img,
+  .overlay {
+    width: 64rem;
+  }
+
+  .text {
+    width: 49.6875rem;
+  }
+
+  .text li {
+    font-size: 1.125rem;
+  }
+
+  .title {
+    font-size: 2.25rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .img,
+  .overlay {
+    width: 56.5rem;
+    height: 28.25rem;
+  }
+
+  .text {
+    top: 9.25rem;
+    width: 42.0625rem;
+    height: 13.6875rem;
+    border-radius: 1.25rem;
+  }
+
+  .text ul {
+    margin: 1.25rem;
+    height: 11.1875rem;
+  }
+
+  .text li {
+    font-size: 1rem;
+  }
+
+  .title {
+    top: 4.5rem;
+  }
+}
+
+@media (max-width: 904px) {
+  .img,
+  .overlay {
+    width: 36rem;
+    height: 22rem;
+  }
+
+  .text {
+    top: 6.625rem;
+    left: 3.125rem;
+    width: 29.75rem;
+    height: 13.6875rem;
+    border-radius: 1.25rem;
+  }
+
+  .text ul {
+    margin: 1.25rem;
+    height: 11.1875rem;
+  }
+
+  .text li {
+    font-size: 1rem;
+  }
+
+  .title {
+    font-size: 1.75rem;
+    top: 3.375rem;
+    left: 3.125rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .img,
+  .overlay {
+    width: 22.5rem;
+    height: 16.875rem;
+  }
+
+  .text {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 22.5rem;
+    height: 12.125rem;
+    border-radius: 1.25rem 0.125rem 1.25rem 1.25rem;
+  }
+
+  .text ul {
+    margin: 0;
+    padding-left: 2.25rem;
+    height: 9rem;
+  }
+
+  .text li {
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+    color: #fecda7;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    top: 2.5rem;
+    left: 2.5rem;
+  }
+
+  .await {
+    position: relative;
+    top: 1.25rem;
+    left: 1rem;
+    margin-bottom: 1.5rem;
+    display: block;
+    width: 17.5rem;
+    font-family: 'Naga', serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1rem;
+    line-height: 100%;
+    color: #fecda7;
+  }
+
+  .previewText {
+    position: absolute;
+    top: 3.75rem;
+    left: 2.5rem;
+    z-index: 1;
+    display: block;
+    width: 17.5rem;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 0.875rem;
+    line-height: 1rem;
+    color: #fecda7;
+  }
+}
+
+@media (max-width: 360px) {
+  .img,
+  .overlay {
+    width: 20rem;
+    height: 16.875rem;
+    border-radius: 1rem;
+  }
+
+  .text {
+    position: relative;
+    top: 1.25rem;
+    left: 0;
+    width: 20rem;
+    height: 12.125rem;
+  }
+
+  .text ul {
+    padding-left: 2rem;
+  }
+
+  .title {
+    font-size: 1.125rem;
+    top: 2.5rem;
+    left: 1.25rem;
+  }
+
+  .previewText {
+    top: 3.125rem;
+    left: 1.25rem;
+    font-size: 0.875rem;
   }
 }

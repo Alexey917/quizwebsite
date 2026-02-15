@@ -59,9 +59,10 @@ export const Quiz = () => {
           img={quiz.detail_image}
           text={quiz.background_image_text}
           title={quiz.title}
+          preview_text={quiz.preview_text}
         />
       )}
-      <Description />
+      {/* <Description /> */}
     </div>
   );
 };
