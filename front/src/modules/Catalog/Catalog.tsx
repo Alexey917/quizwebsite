@@ -38,11 +38,13 @@ export const Catalog = ({ variant }: IVariant) => {
         let result;
         if (variant === 'categories') {
           result = await categoriesApi();
+          console.log(result.data);
         } else {
           if (categoryId) {
             const numericId = extractNumericId(categoryId);
 
             result = await quizzesApi({ numericId });
+            console.log(result.data);
           }
         }
 
@@ -89,11 +91,7 @@ export const Catalog = ({ variant }: IVariant) => {
     <section className={classes.section}>
       <div className={classes.container}>
         {data.map((elem, index) => (
-          <Card
-            key={`${elem.title}-${index}`}
-            data={elem}
-            dataIndex={index + 1}
-          />
+          <Card key={`${elem.title}-${index}`} data={elem} dataIndex={index} />
         ))}
       </div>
     </section>

@@ -1,1 +1,1 @@
-export { quizApi } from './quizApi';
+export { quizApi, type IQuiz } from './quizApi';

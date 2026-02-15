@@ -1,19 +1,28 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { quizApi } from './api';
+import { quizApi, type IQuiz } from './api';
 import { getErrorMessage } from '@/api';
 import { Description } from './components/Description';
+import { Preview } from './components/Preview';
 
 import classes from './Quiz.module.css';
 
 export const Quiz = () => {
-  // const [quiz, setQuiz] = useState<ICategories[] | IQuizzes[]>([]);
+  const [quiz, setQuiz] = useState<IQuiz | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
-  const { quizId } = useParams<{ quizId: string }>();
+  const { quizId, categoryId } = useParams<{
+    quizId: string;
+    categoryId: string;
+  }>();
 
-  const extractNumericId = (param: string): string => {
+  const extractNumericId = (param: string): number => {
+    const numericPart = param.split('-')[0];
+    return +numericPart;
+  };
+
+  const extractNumericQuiz = (param: string): string => {
     const numericPart = param.split('-')[0];
     return numericPart;
   };
@@ -25,13 +34,13 @@ export const Quiz = () => {
 
       try {
         let result;
-        if (quizId) {
+        if (quizId && categoryId) {
           const numericId = extractNumericId(quizId);
-          result = await quizApi({ numericId });
-          console.log(result.data);
+          const numericQuiz = extractNumericQuiz(categoryId);
+          result = await quizApi({ numericQuiz });
+          console.log(result.data[numericId]);
+          setQuiz(result.data[numericId]);
         }
-
-        // setData(result.data);
       } catch (e: unknown) {
         const message = getErrorMessage(e);
         setError(message);
@@ -41,11 +50,17 @@ export const Quiz = () => {
     };
 
     handleQuiz();
-  }, [quizId]);
+  }, [quizId, categoryId]);
 
   return (
-    <div>
-      {/* <Preview /> */}
+    <div className={classes.container}>
+      {quiz && (
+        <Preview
+          img={quiz.detail_image}
+          text={quiz.background_image_text}
+          title={quiz.title}
+        />
+      )}
       <Description />
     </div>
   );

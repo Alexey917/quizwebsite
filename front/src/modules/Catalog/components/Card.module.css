@@ -63,7 +63,7 @@
   z-index: 2;
 
   scrollbar-width: thin;
-  scrollbar-color: #f1ae79 #13515e;
+  scrollbar-color: #f1ae79 transparent;
 }
 
 .description::-webkit-scrollbar {
@@ -73,7 +73,7 @@
 }
 
 .description::-webkit-scrollbar-track {
-  background: #13515e;
+  background: transparent;
   border-radius: 0.5rem;
   margin: 0.25rem 0;
 }
