@@ -1,6 +1,7 @@
 .article {
   margin-top: 2.5rem;
   position: relative;
+  z-index: 2;
 }
 
 .img {

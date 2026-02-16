@@ -53,16 +53,18 @@ export const Quiz = () => {
   }, [quizId, categoryId]);
 
   return (
-    <div className={classes.container}>
-      {quiz && (
-        <Preview
-          img={quiz.detail_image}
-          text={quiz.background_image_text}
-          title={quiz.title}
-          preview_text={quiz.preview_text}
-        />
-      )}
-      {/* <Description /> */}
-    </div>
+    <>
+      <div className={classes.container}>
+        {quiz && (
+          <Preview
+            img={quiz.detail_image}
+            text={quiz.background_image_text}
+            title={quiz.title}
+            preview_text={quiz.preview_text}
+          />
+        )}
+      </div>
+      {quiz && <Description description={quiz.description} />}
+    </>
   );
 };

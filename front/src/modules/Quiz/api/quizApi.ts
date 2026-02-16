@@ -4,7 +4,7 @@ export interface IQuiz {
   background_image_text: string;
   title: string;
   detail_image: string;
-  description: string;
+  description: string[];
   is_popular: boolean;
   preview_image: string;
   preview_text: string;
