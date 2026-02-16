@@ -65,6 +65,11 @@ export const Quiz = () => {
         )}
       </div>
       {quiz && <Description description={quiz.description} />}
+      <div className={classes.container}>
+        <button type="button" className={classes.btn}>
+          <span className={classes.btnText}>Выбрать</span>
+        </button>
+      </div>
     </>
   );
 };

@@ -30,8 +30,8 @@ export const Description = ({ description }: IDescription) => {
                 <Step
                   num={index + 1}
                   text={elem}
-                  classWrapper={classes.wrapperDescription}
-                  classText={classes.textDescription}
+                  classWrapper="wrapperDescription"
+                  classText="textDescription"
                 />
               </li>
             ))}
