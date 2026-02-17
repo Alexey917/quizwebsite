@@ -18,3 +18,8 @@ export const quizApi = async ({ numericQuiz }: IQuizzesApi) => {
   const response = await client.get(`/api/categories/${numericQuiz}/quizzes`);
   return response.data;
 };
+
+export const quizPopularApi = async ({ numericQuiz }: IQuizzesApi) => {
+  const response = await client.get(`/api/quizzes/${numericQuiz}`);
+  return response.data;
+};

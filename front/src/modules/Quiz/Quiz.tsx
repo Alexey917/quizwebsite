@@ -4,8 +4,10 @@ import { quizApi, type IQuiz } from './api';
 import { getErrorMessage } from '@/api';
 import { Description } from './components/Description';
 import { Preview } from './components/Preview';
+import { Loading } from '@/components';
 
 import classes from './Quiz.module.css';
+import { quizPopularApi } from './api/quizApi';
 
 export const Quiz = () => {
   const [quiz, setQuiz] = useState<IQuiz | null>(null);
@@ -34,12 +36,18 @@ export const Quiz = () => {
 
       try {
         let result;
+
         if (quizId && categoryId) {
           const numericId = extractNumericId(quizId);
           const numericQuiz = extractNumericQuiz(categoryId);
           result = await quizApi({ numericQuiz });
           console.log(result.data[numericId]);
-          setQuiz(result.data[numericId]);
+          setQuiz(result?.data?.[numericId]);
+        } else if (quizId && !categoryId) {
+          const numericQuiz = extractNumericQuiz(quizId);
+          result = await quizPopularApi({ numericQuiz });
+          console.log(result.data);
+          setQuiz(result?.data);
         }
       } catch (e: unknown) {
         const message = getErrorMessage(e);
@@ -51,6 +59,31 @@ export const Quiz = () => {
 
     handleQuiz();
   }, [quizId, categoryId]);
+
+  if (loading) {
+    return (
+      <Loading
+        ariaLabel="Загрузка страницы квиза"
+        classSection={`${classes.section}`}
+        classTitle={`${classes.title}`}
+        text=""
+      />
+    );
+  }
+
+  if (error) {
+    return (
+      <section className={classes.section} aria-label="Ошибка загрузки">
+        <div className={classes.container}>
+          <div className={classes.align}>
+            <span className={classes.error} role="alert">
+              {error}
+            </span>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <>

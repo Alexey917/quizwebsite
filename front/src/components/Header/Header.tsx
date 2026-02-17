@@ -28,16 +28,19 @@ export const Header: FC<IHeader> = ({ isMobile, setIsMobile }) => {
   useEffect(() => {
     const category = localStorage.getItem('category');
     const quiz = localStorage.getItem('quiz');
+    const popular = localStorage.getItem('popular');
 
     const title = routes.find((route) => {
       return route.path === location.pathname && route.title;
     });
     if (quizId && quiz) {
-      setMobileTitle(quizName ? quizName : quiz);
+      setMobileTitle(quiz);
     } else if (categoryId && category) {
-      setMobileTitle(categoryName ? categoryName : category);
+      setMobileTitle(category);
     } else if (title) {
       setMobileTitle(title.title);
+    } else if (quizId && popular) {
+      setMobileTitle(popular);
     } else {
       navigate('/');
     }

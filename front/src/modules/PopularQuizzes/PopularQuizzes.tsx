@@ -2,12 +2,16 @@ import { useEffect, useState } from 'react';
 import { Swiper as SwiperType } from 'swiper';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+
+import { store } from '@/store';
+import { addQuizName } from '@/store/breadCrumbs/breadCrumb';
 
 import { Navigation, EffectCube } from 'swiper/modules';
 import { popularQuizzes } from '@/consts';
 import { Loading } from '@/components';
 import { SliderArrow, Loader } from '@/ui';
+import { createSlug } from '@/utils';
 import { popularApi, type IPopularQuizzes } from './api/popularApi';
 import { getErrorMessage } from '@/api';
 
@@ -18,6 +22,9 @@ import 'swiper/css/pagination';
 import classes from './PopularQuizzes.module.css';
 
 export const PopularQuizzes = () => {
+  const navigate = useNavigate();
+  const dispatch = store.dispatch;
+
   const [swiperState, setSwiperState] = useState({
     instance: null as SwiperType | null,
     isBeginning: true,
@@ -47,6 +54,7 @@ export const PopularQuizzes = () => {
 
       try {
         const result = await popularApi();
+        console.log(result.data);
         setQuizzes(result.data);
       } catch (e: unknown) {
         const message = getErrorMessage(e);
@@ -73,6 +81,18 @@ export const PopularQuizzes = () => {
       isBeginning: swiper.isBeginning,
       isEnd: swiper.isEnd,
     }));
+  };
+
+  const handleQuiz = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    to: string,
+    title: string,
+  ) => {
+    e.preventDefault();
+    localStorage.setItem('popular', title);
+    localStorage.removeItem('quiz');
+    localStorage.removeItem('category');
+    navigate(to);
   };
 
   if (loading) {
@@ -123,11 +143,10 @@ export const PopularQuizzes = () => {
           modules={[EffectCube, Navigation]}
           className={classes.swiperWrapper}
         >
-          {quizzes.map((quiz) => (
-            <>
+          {quizzes.map((quiz, index) => (
+            <div key={`${index + 1}-${quiz.title}`}>
               {quiz.is_popular && (
                 <SwiperSlide
-                  key={quiz.title}
                   role="group"
                   aria-roledescription="slide"
                   aria-label={`${quiz.title}. ${quiz.preview_text}`}
@@ -146,7 +165,18 @@ export const PopularQuizzes = () => {
 
                     <div className={classes.linkWrapper}>
                       <Link
-                        to={'#'}
+                        to={`/catalog/quizzes/${index + 1}-${createSlug(
+                          quiz.title,
+                        )}`}
+                        onClick={(e) =>
+                          handleQuiz(
+                            e,
+                            `/catalog/quizzes/${index + 1}-${createSlug(
+                              quiz.title,
+                            )}`,
+                            quiz.title,
+                          )
+                        }
                         className={classes.quizLink}
                         aria-label={`Подробнее о квизе: ${quiz.title}`}
                       >
@@ -156,7 +186,7 @@ export const PopularQuizzes = () => {
                   </div>
                 </SwiperSlide>
               )}
-            </>
+            </div>
           ))}
         </Swiper>
 

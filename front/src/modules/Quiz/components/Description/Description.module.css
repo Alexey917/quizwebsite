@@ -43,7 +43,7 @@
 
 .title {
   margin: 0;
-  margin-top: 100px;
+  margin-top: 6.25rem;
   margin-bottom: 2.75rem;
   font-family: 'Naga', serif;
   font-weight: 400;
@@ -148,6 +148,7 @@
 
   .content {
     top: 15.025rem;
+    height: 98%;
   }
 }
 
@@ -175,7 +176,7 @@
   }
 
   .title {
-    margin-top: 60px;
+    margin-top: 3.75rem;
   }
 }
 
@@ -196,7 +197,7 @@
 
   .content {
     top: 13.125rem;
-    min-height: 93%;
+    min-height: 100%;
   }
 
   .article {
@@ -232,6 +233,7 @@
   .article {
     margin-top: -21.5625rem;
     min-height: 91.875rem;
+    margin-bottom: 2.75rem;
   }
 
   .title {
@@ -263,6 +265,7 @@
   .article {
     margin-top: -21.5625rem;
     min-height: 91.875rem;
+    margin-bottom: 0.75rem;
   }
 
   .title {

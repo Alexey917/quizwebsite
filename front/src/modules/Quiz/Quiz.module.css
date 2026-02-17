@@ -1,15 +1,18 @@
 .container {
-  width: 1200px;
+  width: 75rem;
   margin: auto;
   margin-top: 0;
 }
 
 .btn {
   position: relative;
-  margin-left: 101px;
-  margin-bottom: 92px;
-  width: 285px;
-  height: 80px;
+  margin-left: 6.3125rem;
+  margin-bottom: 5.75rem;
+  width: 17.8125rem;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   background: transparent;
   border: none;
@@ -49,7 +52,7 @@
   font-family: 'Naga', serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 24px;
+  font-size: 1.5rem;
   line-height: 100%;
   color: #f1ae79;
 }
@@ -86,30 +89,63 @@
 
 @media (max-width: 1200px) {
   .container {
-    width: 1024px;
+    width: 64rem;
   }
 }
 
 @media (max-width: 1024px) {
   .container {
-    width: 904px;
+    width: 56.5rem;
+  }
+
+  .btn {
+    width: 14.125rem;
+    height: 3.75rem;
+    border-radius: 1.25rem 0.125rem 1.25rem 1.25rem;
+    margin-left: 0;
+  }
+
+  .btnText {
+    font-size: 1.125rem;
   }
 }
 
 @media (max-width: 904px) {
   .container {
-    width: 576px;
+    width: 36rem;
   }
 }
 
 @media (max-width: 576px) {
   .container {
-    width: 360px;
+    width: 22.5rem;
+  }
+
+  .btn {
+    width: 11.25rem;
+    height: 3.125rem;
+    margin-bottom: 2.8125rem;
+    border-radius: 1rem 0.125rem 1rem 1rem;
+  }
+
+  .btnText {
+    font-size: 1rem;
   }
 }
 
 @media (max-width: 360px) {
   .container {
-    width: 320px;
+    width: 20rem;
+  }
+
+  .btn {
+    width: 8rem;
+    height: 2.25rem;
+    margin-bottom: 2.8125rem;
+    border-radius: 0.75rem 0.125rem 0.75rem 0.75rem;
+  }
+
+  .btnText {
+    font-size: 0.75rem;
   }
 }

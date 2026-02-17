@@ -3,10 +3,17 @@ import sprite from '../../../../assets/sprite.svg';
 import { Step } from '@/ui/Step/Step';
 
 interface IDescription {
-  description: string[];
+  description?: string[] | string;
 }
 
 export const Description = ({ description }: IDescription) => {
+  const descriptionArray = (() => {
+    if (!description) return [];
+    if (Array.isArray(description)) return description;
+    if (typeof description === 'string') return [description]; // строка -> массив с одним элементом
+    return [];
+  })();
+
   return (
     <article className={classes.article} aria-labelledby="description-title">
       <svg className={classes.wavesBg} aria-hidden="true">
@@ -22,19 +29,21 @@ export const Description = ({ description }: IDescription) => {
             Описание
           </h2>
           <ul className={classes.list} aria-labelledby="description-title">
-            {description.map((elem, index) => (
-              <li
-                key={`desc-${index}-${elem.substring(0, 10)}`}
-                className={classes.listItem}
-              >
-                <Step
-                  num={index + 1}
-                  text={elem}
-                  classWrapper="wrapperDescription"
-                  classText="textDescription"
-                />
-              </li>
-            ))}
+            {descriptionArray &&
+              descriptionArray.length > 0 &&
+              descriptionArray.map((elem, index) => (
+                <li
+                  key={`desc-${index}-${elem.substring(0, 10)}`}
+                  className={classes.listItem}
+                >
+                  <Step
+                    num={index + 1}
+                    text={elem}
+                    classWrapper="wrapperDescription"
+                    classText="textDescription"
+                  />
+                </li>
+              ))}
           </ul>
         </div>
       </div>

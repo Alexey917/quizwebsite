@@ -1,6 +1,6 @@
 import { Link, useLocation, useParams, useNavigate } from 'react-router-dom';
 import type { ICategories, IQuizzes } from '../api';
-import { createSlug } from '../utils';
+import { createSlug } from '@/utils';
 import { store } from '@/store/index';
 import { addCategoryName, addQuizName } from '@/store/breadCrumbs/breadCrumb';
 
@@ -14,7 +14,6 @@ interface ICard {
 export const Card = ({ data, dataIndex }: ICard) => {
   const location = useLocation();
   const navigate = useNavigate();
-  const dispatch = store.dispatch;
   const { categoryId } = useParams<{ categoryId: string }>();
 
   const handleCategory = (
@@ -22,15 +21,15 @@ export const Card = ({ data, dataIndex }: ICard) => {
     to: string,
   ) => {
     e.preventDefault();
-    dispatch(addCategoryName(data.title));
     localStorage.setItem('category', data.title);
+    localStorage.removeItem('popular');
     navigate(to);
   };
 
   const handleQuiz = (e: React.MouseEvent<HTMLAnchorElement>, to: string) => {
     e.preventDefault();
-    dispatch(addQuizName(data.title));
     localStorage.setItem('quiz', data.title);
+    localStorage.removeItem('popular');
     navigate(to);
   };
 

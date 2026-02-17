@@ -1,1 +1,0 @@
-export { createSlug } from './createSlug';
