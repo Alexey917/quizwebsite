@@ -4,9 +4,6 @@ import { Swiper as SwiperType } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Link, useNavigate } from 'react-router-dom';
 
-import { store } from '@/store';
-import { addQuizName } from '@/store/breadCrumbs/breadCrumb';
-
 import { Navigation, EffectCube } from 'swiper/modules';
 import { popularQuizzes } from '@/consts';
 import { Loading } from '@/components';
@@ -20,10 +17,10 @@ import 'swiper/css/effect-cube';
 import 'swiper/css/pagination';
 
 import classes from './PopularQuizzes.module.css';
+import { useSaveRate } from '@/hooks';
 
 export const PopularQuizzes = () => {
   const navigate = useNavigate();
-  const dispatch = store.dispatch;
 
   const [swiperState, setSwiperState] = useState({
     instance: null as SwiperType | null,
@@ -34,6 +31,8 @@ export const PopularQuizzes = () => {
   const [quizzes, setQuizzes] = useState<IPopularQuizzes[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
+
+  const saveRate = useSaveRate();
 
   const handlePrev = () => {
     if (swiperState.instance) {
@@ -93,6 +92,7 @@ export const PopularQuizzes = () => {
     localStorage.removeItem('quiz');
     localStorage.removeItem('category');
     navigate(to);
+    saveRate(e, to, '');
   };
 
   if (loading) {

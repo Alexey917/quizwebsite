@@ -9,7 +9,11 @@ import { Loading } from '@/components';
 import classes from './Quiz.module.css';
 import { quizPopularApi } from './api/quizApi';
 
-export const Quiz = () => {
+type TQuiz = {
+  setModal: (flag: boolean) => void;
+};
+
+export const Quiz = ({ setModal }: TQuiz) => {
   const [quiz, setQuiz] = useState<IQuiz | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
@@ -99,7 +103,11 @@ export const Quiz = () => {
       </div>
       {quiz && <Description description={quiz.description} />}
       <div className={classes.container}>
-        <button type="button" className={classes.btn}>
+        <button
+          type="button"
+          className={classes.btn}
+          onClick={() => setModal(true)}
+        >
           <span className={classes.btnText}>Выбрать</span>
         </button>
       </div>

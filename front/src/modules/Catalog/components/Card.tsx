@@ -2,7 +2,7 @@ import { Link, useLocation, useParams, useNavigate } from 'react-router-dom';
 import type { ICategories, IQuizzes } from '../api';
 import { createSlug } from '@/utils';
 import { store } from '@/store/index';
-import { addCategoryName, addQuizName } from '@/store/breadCrumbs/breadCrumb';
+import { addCategoryName, addQuizName } from '@/store/Choice/choice';
 
 import classes from './Card.module.css';
 

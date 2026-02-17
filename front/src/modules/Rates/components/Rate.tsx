@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { type IRates } from '../api/RatesApi';
+import { useSaveRate } from '@/hooks';
 
 import classes from './Rate.module.css';
 
@@ -13,10 +14,16 @@ export const Rate = ({
   image,
   is_new,
 }: IRates) => {
+  const saveRate = useSaveRate();
+
   return (
     <>
       {!is_authorial ? (
-        <Link to="catalog" className={classes.link}>
+        <Link
+          to="catalog"
+          className={classes.link}
+          onClick={(e) => saveRate(e, 'catalog', title)}
+        >
           <div className={classes.info}>
             {is_new && <span className={classes.new}>NEW</span>}
             <h3 className={classes.title}>{title}</h3>

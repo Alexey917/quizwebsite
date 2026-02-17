@@ -1,0 +1,1 @@
+export { ModalRates } from './ModalRates';

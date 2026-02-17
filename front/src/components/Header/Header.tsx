@@ -5,8 +5,6 @@ import {
   GoBackButton,
   MobileMenuBtn,
 } from '@/ui';
-import { useSelector } from 'react-redux';
-import { getBreadcrumb } from '../../store/index';
 
 import { useEffect, type FC, useState } from 'react';
 import { routes } from '@/consts';
@@ -23,7 +21,6 @@ export const Header: FC<IHeader> = ({ isMobile, setIsMobile }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const { categoryId, quizId } = useParams();
-  const { categoryName, quizName } = useSelector(getBreadcrumb);
 
   useEffect(() => {
     const category = localStorage.getItem('category');
@@ -44,7 +41,7 @@ export const Header: FC<IHeader> = ({ isMobile, setIsMobile }) => {
     } else {
       navigate('/');
     }
-  }, [categoryId, quizId, location.pathname, quizName, categoryName]);
+  }, [categoryId, quizId, location.pathname]);
 
   return (
     <header className={classes.header} role="banner">
