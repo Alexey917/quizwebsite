@@ -2,6 +2,7 @@ import type { FC } from 'react';
 import { Link } from 'react-router-dom';
 
 import classes from './CustomLink.module.css';
+import { useSaveRate } from '@/hooks';
 
 type TLinkVariant = 'wrapper' | 'main' | 'right' | 'bottom';
 
@@ -53,13 +54,19 @@ export const CustomLink: FC<ICustomLink> = ({
   background,
   variant = 'main',
 }) => {
+  const saveRate = useSaveRate();
+
   return (
     <div role="presentation" className={getWrapperClass(variant)}>
       <div
         className={getInnerClass(variant)}
         style={{ background: background }}
       >
-        <Link to={to} className={getLinkClass(variant)}>
+        <Link
+          to={to}
+          className={getLinkClass(variant)}
+          onClick={(e) => saveRate(e, to, '')}
+        >
           {text}
           {textBr && (
             <>

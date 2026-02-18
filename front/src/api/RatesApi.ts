@@ -1,10 +1,10 @@
-import { client } from '../../../api/client';
+import { client } from './client';
 
 export interface IRates {
   title: string;
   subtitle: string;
   preview_description: string;
-  oldPrice: number | null;
+  old_price: number | null;
   price: number;
   is_new: boolean;
   is_authorial: boolean;

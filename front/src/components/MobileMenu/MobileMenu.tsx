@@ -6,6 +6,7 @@ import { routes } from '@/consts';
 import type { FC } from 'react';
 
 import classes from './MobileMenu.module.css';
+import { useSaveRate } from '@/hooks';
 
 interface IMobileMenu {
   isMobile: boolean;
@@ -16,6 +17,7 @@ export const MobileMenu: FC<IMobileMenu> = ({ isMobile, setIsMobile }) => {
   const overlayRef = useRef<HTMLDivElement | null>(null);
   const navigationRef = useRef<HTMLDivElement | null>(null);
   const location = useLocation();
+  const saveRate = useSaveRate();
 
   useEffect(() => {
     const handleClick = (e: MouseEvent | TouchEvent | KeyboardEvent) => {
@@ -55,6 +57,15 @@ export const MobileMenu: FC<IMobileMenu> = ({ isMobile, setIsMobile }) => {
     };
   }, [isMobile]);
 
+  const mobileSaveRate = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    to: string,
+    title: string,
+  ) => {
+    setIsMobile(false);
+    saveRate(e, to, title);
+  };
+
   return (
     <div
       className={classes.overlay}
@@ -80,7 +91,7 @@ export const MobileMenu: FC<IMobileMenu> = ({ isMobile, setIsMobile }) => {
                   aria-current={
                     location.pathname === route.path ? 'page' : undefined
                   }
-                  onClick={() => setIsMobile(false)}
+                  onClick={(e) => mobileSaveRate(e, route.path, '')}
                 >
                   {route.title}
                 </Link>

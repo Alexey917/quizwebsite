@@ -10,6 +10,7 @@ import { useEffect, type FC, useState } from 'react';
 import { routes } from '@/consts';
 
 import classes from './Header.module.css';
+import { useSaveRate } from '@/hooks';
 
 interface IHeader {
   isMobile: boolean;
@@ -21,6 +22,7 @@ export const Header: FC<IHeader> = ({ isMobile, setIsMobile }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const { categoryId, quizId } = useParams();
+  const saveRate = useSaveRate();
 
   useEffect(() => {
     const category = localStorage.getItem('category');
@@ -84,6 +86,7 @@ export const Header: FC<IHeader> = ({ isMobile, setIsMobile }) => {
                     aria-current={
                       location.pathname === route.path ? 'page' : undefined
                     }
+                    onClick={(e) => saveRate(e, route.path, '')}
                   >
                     {route.title}
                   </Link>

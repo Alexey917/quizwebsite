@@ -4,10 +4,13 @@ import { Logo, CustomButton } from '@/ui';
 
 import classes from './QuizyTales.module.css';
 import title from '../../assets/sprite.svg';
+import { useSaveRate } from '@/hooks';
 
 export const QuizyTales = () => {
   const isTablet = useMediaQuery({ minWidth: 576, maxWidth: 904 });
   const isPhone = useMediaQuery({ minWidth: 320, maxWidth: 576 });
+
+  const saveRate = useSaveRate();
 
   return (
     <section className={classes.section} aria-labelledby="quizy-tales-title">
@@ -27,7 +30,11 @@ export const QuizyTales = () => {
           {!isTablet && !isPhone && (
             <div className={classes.btnGroup}>
               <div className={classes.linkWrapper}>
-                <Link to="catalog" className={classes.quizLink}>
+                <Link
+                  to="catalog"
+                  className={classes.quizLink}
+                  onClick={(e) => saveRate(e, 'catalog', '')}
+                >
                   Выбрать
                   <br />
                   готовый квиз
@@ -44,7 +51,11 @@ export const QuizyTales = () => {
         {(isTablet || isPhone) && (
           <div className={classes.btnGroup}>
             <div className={classes.linkWrapper}>
-              <Link to="catalog" className={classes.quizLink}>
+              <Link
+                to="catalog"
+                className={classes.quizLink}
+                onClick={(e) => saveRate(e, 'catalog', '')}
+              >
                 Выбрать
                 <br />
                 готовый квиз

@@ -1,8 +1,6 @@
 import { Link, useLocation, useParams, useNavigate } from 'react-router-dom';
 import type { ICategories, IQuizzes } from '../api';
 import { createSlug } from '@/utils';
-import { store } from '@/store/index';
-import { addCategoryName, addQuizName } from '@/store/Choice/choice';
 
 import classes from './Card.module.css';
 
@@ -53,11 +51,11 @@ export const Card = ({ data, dataIndex }: ICard) => {
       {location.pathname === '/catalog' ? (
         <Link
           className={classes.link}
-          to={`/catalog/${dataIndex}-${createSlug(data.title)}/quizzes`}
+          to={`/catalog/${dataIndex + 1}-${createSlug(data.title)}/quizzes`}
           onClick={(e) =>
             handleCategory(
               e,
-              `/catalog/${dataIndex}-${createSlug(data.title)}/quizzes`,
+              `/catalog/${dataIndex + 1}-${createSlug(data.title)}/quizzes`,
             )
           }
         >

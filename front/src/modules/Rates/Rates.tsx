@@ -5,7 +5,7 @@ import { Navigation } from 'swiper/modules';
 import { SliderArrow } from '@/ui';
 import { Loading } from '@/components';
 import { getErrorMessage } from '@/api';
-import { RatesApi, type IRates } from './api/RatesApi';
+import { RatesApi, type IRates } from '@/api';
 import { rates } from '@/consts';
 
 import classes from './Rates.module.css';

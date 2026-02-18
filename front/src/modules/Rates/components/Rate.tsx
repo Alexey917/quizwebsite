@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { type IRates } from '../api/RatesApi';
+import { type IRates } from '@/api';
 import { useSaveRate } from '@/hooks';
 
 import classes from './Rate.module.css';
@@ -9,7 +9,7 @@ export const Rate = ({
   title,
   preview_description,
   price,
-  oldPrice,
+  old_price,
   subtitle,
   image,
   is_new,
@@ -36,8 +36,8 @@ export const Rate = ({
               ))}
             </ul>
           </div>
-          {oldPrice && (
-            <span className={classes.oldPrice}>{`${oldPrice} ₽`}</span>
+          {old_price && (
+            <span className={classes.oldPrice}>{`${old_price} ₽`}</span>
           )}
           <span className={classes.price}>{`${price} ₽`}</span>
           {image !== '' && <img src={image} className={classes.icon} alt="" />}
@@ -55,7 +55,7 @@ export const Rate = ({
               ))}
             </ul>
           </div>
-          <span className={classes.oldPrice}>{oldPrice}</span>
+          <span className={classes.oldPrice}>{old_price}</span>
           <span className={classes.price}>{price}</span>
           {/* <img src={img} className={classes.icon} alt="" /> */}
         </div>

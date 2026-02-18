@@ -14,13 +14,15 @@ export const QuizPage = () => {
 
   useScrollLock(isModal);
 
+  console.log(rate);
+
   return (
     <main className={classes.main}>
       <Navigation />
       <Quiz setModal={setIsModal} />
       {isModal && (
         <Modal setModal={setIsModal} isModal={isModal}>
-          {rate ? <ModalRates /> : <span>форма</span>}
+          {rate.rate === '' ? <ModalRates /> : <span>форма</span>}
         </Modal>
       )}
     </main>
