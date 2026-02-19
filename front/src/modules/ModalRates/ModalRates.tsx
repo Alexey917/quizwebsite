@@ -4,11 +4,17 @@ import { Loading } from '@/components';
 import parse from 'html-react-parser';
 
 import classes from './ModalRates.module.css';
+import { useSaveRate } from '@/hooks';
 
-export const ModalRates = () => {
+interface IModalRates {
+  variant?: 'authorial' | 'usual';
+}
+
+export const ModalRates = ({ variant = 'usual' }: IModalRates) => {
   const [rates, setRates] = useState<IRates[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
+  const saveRate = useSaveRate();
 
   useEffect(() => {
     const handleRates = async () => {
@@ -45,7 +51,7 @@ export const ModalRates = () => {
     return (
       <section className={classes.section} aria-label="Ошибка загрузки">
         <div className={classes.container}>
-          <h3 className={classes.title}>Выберите тариф:</h3>
+          <h2 className={classes.title}>Выберите тариф:</h2>
           <div className={classes.align}>
             <span className={classes.error} role="alert">
               {error}
@@ -57,25 +63,47 @@ export const ModalRates = () => {
   }
 
   return (
-    <div className={classes.wrapper}>
+    <section className={classes.wrapper} aria-label="Доступные тарифы">
       <h2 className={classes.title}>Выберите тариф:</h2>
 
       {rates
-        .filter((rate) => rate.is_authorial === false)
-        .map((rate) => (
-          <div className={classes.rate}>
-            <h3 className={classes.rateTitle}>{rate.title}</h3>
+        .filter((rate) =>
+          variant === 'usual' ? !rate.is_authorial : rate.is_authorial,
+        )
+        .map((rate, index) => (
+          <article
+            className={classes.rate}
+            key={`${index}-${rate.title}`}
+            aria-labelledby={`rate-title-${index}`}
+            onClick={(e) => saveRate(e, null, rate.title)}
+          >
+            <h3 className={classes.rateTitle} id={`rate-title-${index}`}>
+              {rate.title}
+            </h3>
             {parse(rate.preview_description)}
-            <button className={classes.rateBtn}>
+            <button
+              type="button"
+              className={classes.rateBtn}
+              aria-label={`Выбрать тариф "${rate.title}" за ${rate.price} рублей`}
+              onClick={(e) => saveRate(e, null, rate.title)}
+            >
               <span className={classes.rateBtnText}>Выбрать</span>
             </button>
-            {rate.is_new && <span className={classes.new}>NEW</span>}
-            {rate.old_price && (
-              <span className={classes.oldPrice}>{rate.old_price} ₽</span>
+            {rate.is_new && (
+              <span className={classes.new} aria-label="Новый тариф">
+                NEW
+              </span>
             )}
-            <span className={classes.price}>Стоимость {rate.price} ₽</span>
-          </div>
+            {rate.old_price && (
+              <span className={classes.oldPrice} aria-label="Старая цена">
+                {rate.old_price} ₽
+              </span>
+            )}
+            <span className={classes.price} aria-label="Текущая цена">
+              Стоимость {rate.price} ₽
+            </span>
+          </article>
         ))}
-    </div>
+    </section>
   );
 };

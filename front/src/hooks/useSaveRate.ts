@@ -7,13 +7,15 @@ export const useSaveRate = () => {
   const navigate = useNavigate();
 
   const saveRate = (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    to: string,
+    e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement | HTMLElement>,
+    to: string | null,
     title: string,
   ) => {
     e.preventDefault();
     dispatch(addRate(title));
-    navigate(to);
+    if (to) {
+      navigate(to);
+    }
   };
 
   return saveRate;

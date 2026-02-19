@@ -1,47 +1,47 @@
 .overlay {
   position: fixed;
   display: flex;
-
   justify-content: center;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: 4;
-  overflow-y: auto; /* вертикальная прокрутка */
-  overflow-x: hidden; /* отключаем горизонтальную */
+  overflow-y: auto;
+  overflow-x: hidden;
   background: #00000080;
 }
 
 .wrapper {
   margin: auto;
-  width: 794px;
-  padding: 28px;
+  width: 49.625rem;
+  padding: 1.75rem;
   background: #13515e;
-  border-radius: 40px 4px 40px 40px;
+  border-radius: 2.5rem 0.25rem 2.5rem 2.5rem;
 }
 
 .logoIcon {
-  margin-top: 60px;
-  width: 217px;
-  height: 229px;
+  margin-top: 3.75rem;
+  width: 13.5625rem;
+  height: 14.3125rem;
 }
 
 .closeIcon {
-  width: 40px;
-  height: 40px;
+  width: 2.5rem;
+  height: 2.5rem;
+  pointer-events: none;
 }
 
 .btnClose {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 1.25rem;
+  right: 1.25rem;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0;
-  width: 40px;
-  height: 40px;
+  width: 2.5rem;
+  height: 2.5rem;
   border: none;
   outline: none;
   background: none;
@@ -64,7 +64,7 @@
   position: relative;
   border-radius: 2.5rem 0.25rem 2.5rem 2.5rem;
 
-  box-shadow: 0px 4px 4px 0px #00000040;
+  box-shadow: 0rem 0.25rem 0.25rem 0rem #00000040;
 }
 
 .content::before {
@@ -76,6 +76,8 @@
   border-radius: inherit;
   -webkit-mask: conic-gradient(#000 0 0) content-box, conic-gradient(#000 0 0);
   -webkit-mask-composite: xor;
+  -webkit-mask: conic-gradient(#000 0 0) content-box, conic-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
   mask: conic-gradient(#000 0 0) content-box exclude, conic-gradient(#000 0 0);
 }
 
@@ -83,5 +85,75 @@
   .btnClose:hover {
     transform: rotateZ(360deg);
     transition: all 2s;
+  }
+}
+
+@media (max-width: 75rem) {
+  .closeIcon {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+
+  .btnClose {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+
+  .logoIcon {
+    margin-top: 2.5rem;
+    width: 13.1875rem;
+    height: 13.875rem;
+  }
+
+  .wrapper {
+    width: 42.0625rem;
+    padding: 1.25rem;
+    border-radius: 1.75rem 0.25rem 1.75rem 1.75rem;
+  }
+
+  .content {
+    border-radius: 1.75rem 0.25rem 1.75rem 1.75rem;
+  }
+}
+
+@media (max-width: 56.5rem) {
+  .wrapper {
+    width: 576px;
+  }
+}
+
+@media (max-width: 36rem) {
+  .wrapper {
+    width: 360px;
+    padding: 12px;
+    border-radius: 14px 2px 14px 14px;
+  }
+
+  .content {
+    border-radius: 14px 2px 14px 14px;
+  }
+
+  .closeIcon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .btnClose {
+    width: 32px;
+    height: 32px;
+    top: 8px;
+    right: 8px;
+  }
+
+  .logoIcon {
+    margin-top: 1.25rem;
+    width: 104px;
+    height: 108px;
+  }
+}
+
+@media (max-width: 22.5rem) {
+  .wrapper {
+    width: 312px;
   }
 }

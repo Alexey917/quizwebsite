@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import { type IRates } from '@/api';
 import { useSaveRate } from '@/hooks';
+import { store } from '@/store';
+import { setModal } from '@/store/Modal/modal';
 
 import classes from './Rate.module.css';
 
@@ -15,6 +17,16 @@ export const Rate = ({
   is_new,
 }: IRates) => {
   const saveRate = useSaveRate();
+  const dispatch = store.dispatch;
+
+  const handleClick = (
+    e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement | HTMLElement>,
+    to: string | null,
+    title: string,
+  ) => {
+    saveRate(e, to, title);
+    dispatch(setModal(true));
+  };
 
   return (
     <>
@@ -43,7 +55,10 @@ export const Rate = ({
           {image !== '' && <img src={image} className={classes.icon} alt="" />}
         </Link>
       ) : (
-        <div className={classes.btn}>
+        <div
+          className={classes.btn}
+          onClick={(e) => handleClick(e, null, title)}
+        >
           <div className={classes.info}>
             <h3 className={classes.title}>{title}</h3>
             <p className={classes.text}></p>

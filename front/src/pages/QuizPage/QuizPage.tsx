@@ -1,15 +1,16 @@
 import { Navigation } from '@/components';
-import { ModalRates, Quiz } from '@/modules';
+import { Form, ModalRates, Quiz } from '@/modules';
 import { Modal } from '@/ui';
 import { useScrollLock } from '@/hooks';
 
 import classes from './QuizPage.module.css';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { getChoice } from '@/store';
+import { getChoice, getModal } from '@/store';
 
 export const QuizPage = () => {
-  const [isModal, setIsModal] = useState<boolean>(false);
+  // const [isModal, setIsModal] = useState<boolean>(false);
+  const isModal = useSelector(getModal);
   const rate = useSelector(getChoice);
 
   useScrollLock(isModal);
@@ -19,12 +20,8 @@ export const QuizPage = () => {
   return (
     <main className={classes.main}>
       <Navigation />
-      <Quiz setModal={setIsModal} />
-      {isModal && (
-        <Modal setModal={setIsModal} isModal={isModal}>
-          {rate.rate === '' ? <ModalRates /> : <span>форма</span>}
-        </Modal>
-      )}
+      <Quiz />
+      {isModal && <Modal>{rate.rate === '' ? <ModalRates /> : <Form />}</Modal>}
     </main>
   );
 };

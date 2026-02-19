@@ -1,18 +1,21 @@
 import type { ReactNode } from 'react';
 import { useRef, useEffect } from 'react';
+import { getModal, store } from '@/store';
+import { setModal } from '@/store/Modal/modal';
+import { useSelector } from 'react-redux';
 
 import classes from './Modal.module.css';
 import sprite from '../../assets/sprite.svg';
 
 type TModal = {
   children: ReactNode;
-  setModal: (flag: boolean) => void;
-  isModal: boolean;
 };
 
-export const Modal = ({ children, setModal, isModal }: TModal) => {
+export const Modal = ({ children }: TModal) => {
   const overlayRef = useRef<HTMLDivElement | null>(null);
   const wrapperRef = useRef<HTMLDivElement | null>(null);
+  const dispatch = store.dispatch;
+  const isModal = useSelector(getModal);
 
   useEffect(() => {
     const handleClick = (e: MouseEvent | TouchEvent | KeyboardEvent) => {
@@ -21,7 +24,7 @@ export const Modal = ({ children, setModal, isModal }: TModal) => {
         overlayRef.current.contains(e.target as Node) &&
         !wrapperRef.current?.contains(e.target as Node)
       ) {
-        setModal(false);
+        dispatch(setModal(false));
       }
     };
 
@@ -31,7 +34,7 @@ export const Modal = ({ children, setModal, isModal }: TModal) => {
 
     const handleKeyboard = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && isModal) {
-        setModal(false);
+        dispatch(setModal(false));
       }
     };
 
@@ -63,7 +66,10 @@ export const Modal = ({ children, setModal, isModal }: TModal) => {
     >
       <div className={classes.wrapper} ref={wrapperRef}>
         <div className={classes.content}>
-          <button className={classes.btnClose} onClick={() => setModal(false)}>
+          <button
+            className={classes.btnClose}
+            onClick={() => dispatch(setModal(false))}
+          >
             <svg
               className={classes.closeIcon}
               aria-hidden="true"

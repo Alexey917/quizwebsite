@@ -8,15 +8,14 @@ import { Loading } from '@/components';
 
 import classes from './Quiz.module.css';
 import { quizPopularApi } from './api/quizApi';
+import { store } from '@/store';
+import { setModal } from '@/store/Modal/modal';
 
-type TQuiz = {
-  setModal: (flag: boolean) => void;
-};
-
-export const Quiz = ({ setModal }: TQuiz) => {
+export const Quiz = () => {
   const [quiz, setQuiz] = useState<IQuiz | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
+  const dispatch = store.dispatch;
 
   const { quizId, categoryId } = useParams<{
     quizId: string;
@@ -106,7 +105,7 @@ export const Quiz = ({ setModal }: TQuiz) => {
         <button
           type="button"
           className={classes.btn}
-          onClick={() => setModal(true)}
+          onClick={() => dispatch(setModal(true))}
         >
           <span className={classes.btnText}>Выбрать</span>
         </button>

@@ -1,4 +1,7 @@
 import type { FC } from 'react';
+import { useSaveRate } from '@/hooks';
+import { store } from '@/store';
+import { setModal } from '@/store/Modal/modal';
 import classes from './CustomButton.module.css';
 
 interface ICustomButton {
@@ -8,9 +11,25 @@ interface ICustomButton {
 }
 
 export const CustomButton: FC<ICustomButton> = ({ type, text, textBr }) => {
+  const saveRate = useSaveRate();
+  const dispatch = store.dispatch;
+
+  const handleClick = (
+    e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement | HTMLElement>,
+    to: string | null,
+    title: string,
+  ) => {
+    saveRate(e, to, title);
+    dispatch(setModal(true));
+  };
+
   return (
     <div className={classes.wrapper}>
-      <button type={type} className={classes.btn}>
+      <button
+        type={type}
+        className={classes.btn}
+        onClick={(e) => handleClick(e, null, '')}
+      >
         {textBr ? (
           <span className={classes.text}>
             {text}
