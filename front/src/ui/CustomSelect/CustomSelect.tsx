@@ -79,7 +79,7 @@ export const CustomSelect = ({
           </div>
 
           {isOpen && (
-            <div className={classes.dropdown}>
+            <div className={classes.dropdown} tabIndex={0}>
               {options.map((option) => (
                 <div
                   key={option.value}

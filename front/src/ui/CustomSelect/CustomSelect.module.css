@@ -6,14 +6,14 @@
 
 .inputGroup .selectTrigger {
   width: 100%;
-  height: 60px;
+  height: 3.75rem;
   background: transparent;
   border: none;
   outline: none;
-  border-radius: 20px 2px 20px 20px;
-  padding: 0 40px 0 20px;
+  border-radius: 1.25rem 0.125rem 1.25rem 1.25rem;
+  padding: 0 2.5rem 0 1.25rem;
   font-family: 'Naga', serif;
-  font-size: 16px;
+  font-size: 1rem;
   color: #fecda7;
   cursor: pointer;
   display: flex;
@@ -27,14 +27,14 @@
 .inputError {
   --borderWidth: 0.125rem;
   --borderGradient: linear-gradient(266.43deg, #b46b48 0%, #fecda7 100%);
-  width: 590px;
-  height: 60px;
+  width: 36.875rem;
+  height: 3.75rem;
   position: relative;
   background: transparent;
   border: none;
   outline: none;
-  border-radius: 20px 2px 20px 20px;
-  box-shadow: 0px 4px 4px 0px #00000040;
+  border-radius: 1.25rem 0.125rem 1.25rem 1.25rem;
+  box-shadow: 0rem 0.25rem 0.25rem 0rem #00000040;
   padding: 0;
   z-index: 1;
 }
@@ -51,6 +51,8 @@
   -webkit-mask-composite: xor;
   -webkit-mask: conic-gradient(#000 0 0) content-box, conic-gradient(#000 0 0);
   -webkit-mask-composite: xor;
+  -webkit-mask: conic-gradient(#000 0 0) content-box, conic-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
   mask: conic-gradient(#000 0 0) content-box exclude, conic-gradient(#000 0 0);
   z-index: 0;
 }
@@ -63,11 +65,10 @@
   background: #13515e;
   --borderWidth: 0.125rem;
   --borderGradient: linear-gradient(266.43deg, #b46b48 0%, #fecda7 100%);
-  border-radius: 20px 2px 20px 20px;
-  max-height: 200px;
-  /* overflow-y: auto; */
+  border-radius: 1.25rem 0.125rem 1.25rem 1.25rem;
+  max-height: 12.5rem;
   z-index: 100;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0.25rem 1.25rem rgba(0, 0, 0, 0.3);
   scrollbar-width: thin;
   scrollbar-color: #fecda7 #13515e;
   z-index: 4;
@@ -84,35 +85,33 @@
   -webkit-mask-composite: xor;
   -webkit-mask: conic-gradient(#000 0 0) content-box, conic-gradient(#000 0 0);
   -webkit-mask-composite: xor;
+  -webkit-mask: conic-gradient(#000 0 0) content-box, conic-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
   mask: conic-gradient(#000 0 0) content-box exclude, conic-gradient(#000 0 0);
   z-index: 0;
 }
 
 .dropdown::-webkit-scrollbar {
-  width: 8px;
+  width: 0.5rem;
 }
 
 .dropdown::-webkit-scrollbar-track {
   background: #13515e;
-  border-radius: 10px;
+  border-radius: 0.625rem;
 }
 
 .dropdown::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, #b46b48, #fecda7);
-  border-radius: 10px;
+  border-radius: 0.625rem;
 }
 
 .option {
-  padding: 8px 20px;
+  padding: 0.5rem 1.25rem;
   font-family: 'Naga', serif;
-  font-size: 16px;
+  font-size: 1rem;
   color: #93908d;
   cursor: pointer;
   transition: all 0.3s ease;
-}
-
-.option:hover {
-  color: #fecda7;
 }
 
 .option.selected {
@@ -144,20 +143,186 @@
 
 .required {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 0.625rem;
+  right: 0.625rem;
   color: #ff0000;
 }
 
 .error {
   position: absolute;
-  bottom: -18px;
-  right: 10px;
+  bottom: -1.125rem;
+  right: 0.625rem;
   color: #ff0000;
 
   font-family: 'Naga', serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 100%;
+}
+
+@media (hover: hover) {
+  .option:hover {
+    color: #fecda7;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 1200px) {
+  .inputGroup,
+  .inputError {
+    width: 30.125rem;
+    height: 3rem;
+    border-radius: 1.0212rem 0.1019rem 1.0212rem 1.0212rem;
+  }
+
+  .inputGroup .selectTrigger {
+    height: 3rem;
+  }
+
+  .input {
+    height: 3rem;
+    border-radius: 1.0212rem 0.1019rem 1.0212rem 1.0212rem;
+    font-size: 0.875rem;
+  }
+
+  .dropdown {
+    border-radius: 1.0212rem 0.1019rem 1.0212rem 1.0212rem;
+  }
+
+  .option {
+    padding: 0.5625rem 1.25rem;
+    font-size: 0.875rem;
+  }
+
+  .placeholder {
+    font-size: 0.875rem;
+  }
+
+  .required {
+    top: 0.3125rem;
+  }
+}
+
+@media (max-width: 904px) {
+  .inputGroup,
+  .inputError {
+    width: 27rem;
+  }
+
+  .input::-webkit-input-placeholder {
+    font-size: 0.875rem;
+  }
+
+  .input::-moz-placeholder {
+    font-size: 0.875rem;
+  }
+
+  .input:-ms-input-placeholder {
+    font-size: 0.875rem;
+  }
+
+  .input::-ms-input-placeholder {
+    font-size: 0.875rem;
+  }
+
+  .input::placeholder {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .inputGroup,
+  .inputError {
+    width: 15.5rem;
+    height: 1.75rem;
+    border-radius: 0.75rem 0.125rem 0.75rem 0.75rem;
+  }
+
+  .inputGroup .selectTrigger {
+    height: 1.75rem;
+  }
+
+  .input {
+    height: 1.75rem;
+    border-radius: 0.75rem 0.125rem 0.75rem 0.75rem;
+    font-size: 0.75rem;
+  }
+
+  .dropdown {
+    border-radius: 0.75rem 0.125rem 0.75rem 0.75rem;
+  }
+
+  .option {
+    padding: 0.3125rem 1.25rem;
+    font-size: 0.75rem;
+  }
+
+  .input::-webkit-input-placeholder {
+    font-size: 0.75rem;
+  }
+
+  .input::-moz-placeholder {
+    font-size: 0.75rem;
+  }
+
+  .input:-ms-input-placeholder {
+    font-size: 0.75rem;
+  }
+
+  .input::-ms-input-placeholder {
+    font-size: 0.75rem;
+  }
+
+  .input::placeholder {
+    font-size: 0.75rem;
+  }
+
+  .placeholder {
+    font-size: 0.75rem;
+  }
+
+  .required {
+    top: 0;
+    right: 0.3125rem;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .input {
+    font-size: 0.625rem;
+  }
+
+  .option {
+    font-size: 0.625rem;
+  }
+
+  .input::-webkit-input-placeholder {
+    font-size: 0.625rem;
+  }
+
+  .input::-moz-placeholder {
+    font-size: 0.625rem;
+  }
+
+  .input:-ms-input-placeholder {
+    font-size: 0.625rem;
+  }
+
+  .input::-ms-input-placeholder {
+    font-size: 0.625rem;
+  }
+
+  .input::placeholder {
+    font-size: 0.625rem;
+  }
+
+  .placeholder {
+    font-size: 0.625rem;
+  }
+
+  .required {
+    font-size: 0.625rem;
+  }
 }

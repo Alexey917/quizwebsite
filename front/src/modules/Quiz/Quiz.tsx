@@ -10,6 +10,7 @@ import classes from './Quiz.module.css';
 import { quizPopularApi } from './api/quizApi';
 import { store } from '@/store';
 import { setModal } from '@/store/Modal/modal';
+import { addTitle } from '@/store/Choice/choice';
 
 export const Quiz = () => {
   const [quiz, setQuiz] = useState<IQuiz | null>(null);
@@ -30,6 +31,11 @@ export const Quiz = () => {
   const extractNumericQuiz = (param: string): string => {
     const numericPart = param.split('-')[0];
     return numericPart;
+  };
+
+  const handleClick = (title: string) => {
+    dispatch(setModal(true));
+    dispatch(addTitle(title));
   };
 
   useEffect(() => {
@@ -102,13 +108,15 @@ export const Quiz = () => {
       </div>
       {quiz && <Description description={quiz.description} />}
       <div className={classes.container}>
-        <button
-          type="button"
-          className={classes.btn}
-          onClick={() => dispatch(setModal(true))}
-        >
-          <span className={classes.btnText}>Выбрать</span>
-        </button>
+        {quiz && (
+          <button
+            type="button"
+            className={classes.btn}
+            onClick={() => handleClick(quiz.title)}
+          >
+            <span className={classes.btnText}>Выбрать</span>
+          </button>
+        )}
       </div>
     </>
   );

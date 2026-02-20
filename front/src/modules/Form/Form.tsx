@@ -1,12 +1,16 @@
 import { CustomSelect } from '@/ui';
 
 import classes from './Form.module.css';
+import { useSelector } from 'react-redux';
+import { getChoice } from '@/store';
 
 interface IForm {
   variant?: 'authorial' | 'usual';
 }
 
 export const Form = ({ variant = 'usual' }: IForm) => {
+  const rate = useSelector(getChoice);
+
   return (
     <form className={classes.form}>
       <legend className={classes.title}>
@@ -15,14 +19,24 @@ export const Form = ({ variant = 'usual' }: IForm) => {
       </legend>
       <div className={classes.wrapper}>
         <fieldset className={classes.inputGroup}>
-          <input className={classes.input} type="text" placeholder="Тариф" />
+          <input
+            className={classes.input}
+            type="text"
+            placeholder="Тариф"
+            value={rate.rate}
+          />
           <span className={classes.required}>*</span>
           <span className={classes.error}>текст ошибки</span>
         </fieldset>
 
         {variant === 'authorial' ? (
           <fieldset className={classes.inputGroup}>
-            <input className={classes.input} type="text" placeholder="" />
+            <input
+              className={classes.input}
+              type="text"
+              placeholder=""
+              value="Авторский квиз"
+            />
             <span className={classes.required}>*</span>
             <span className={classes.error}>текст ошибки</span>
           </fieldset>
@@ -32,6 +46,7 @@ export const Form = ({ variant = 'usual' }: IForm) => {
               className={classes.input}
               type="text"
               placeholder="Выбранный квиз"
+              value={rate.title}
             />
             <span className={classes.required}>*</span>
             <span className={classes.error}>текст ошибки</span>
@@ -64,26 +79,6 @@ export const Form = ({ variant = 'usual' }: IForm) => {
           <span className={classes.error}>текст ошибки</span>
         </fieldset>
 
-        {/* <fieldset className={classes.inputGroup}>
-          <select
-            className={`${classes.input} ${classes.select}`}
-            name=""
-            id=""
-            defaultValue=""
-          >
-            <optgroup>
-              <option value="" disabled hidden>
-                Способ связи
-              </option>
-              <option value="">Звонок</option>
-              <option value="">Telegram</option>
-              <option value="">WhatsApp</option>
-            </optgroup>
-          </select>
-          <span className={classes.required}>*</span>
-          <span className={classes.error}>текст ошибки</span>
-        </fieldset> */}
-
         <CustomSelect
           options={[
             { value: 'phone', label: 'Звонок' },
@@ -108,13 +103,13 @@ export const Form = ({ variant = 'usual' }: IForm) => {
         </fieldset>
 
         {variant === 'authorial' && (
-          <fieldset className={classes.inputGroup}>
+          <fieldset className={classes.textAreaGroup}>
             <textarea
               className={classes.textarea}
               name=""
               id=""
               placeholder="Опишите желаемый квиз"
-            ></textarea>
+            />
             <span className={classes.required}>*</span>
             <span className={classes.error}>текст ошибки</span>
           </fieldset>
