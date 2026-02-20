@@ -1,3 +1,5 @@
+import { CustomSelect } from '@/ui';
+
 import classes from './Form.module.css';
 
 interface IForm {
@@ -62,9 +64,17 @@ export const Form = ({ variant = 'usual' }: IForm) => {
           <span className={classes.error}>текст ошибки</span>
         </fieldset>
 
-        <fieldset className={classes.inputGroup}>
-          <select className={classes.input} name="" id="">
+        {/* <fieldset className={classes.inputGroup}>
+          <select
+            className={`${classes.input} ${classes.select}`}
+            name=""
+            id=""
+            defaultValue=""
+          >
             <optgroup>
+              <option value="" disabled hidden>
+                Способ связи
+              </option>
               <option value="">Звонок</option>
               <option value="">Telegram</option>
               <option value="">WhatsApp</option>
@@ -72,9 +82,22 @@ export const Form = ({ variant = 'usual' }: IForm) => {
           </select>
           <span className={classes.required}>*</span>
           <span className={classes.error}>текст ошибки</span>
-        </fieldset>
+        </fieldset> */}
 
-        <fieldset className={classes.inputGroup}>
+        <CustomSelect
+          options={[
+            { value: 'phone', label: 'Звонок' },
+            { value: 'telegram', label: 'Telegram' },
+            { value: 'whatsapp', label: 'WhatsApp' },
+          ]}
+          // value={contact}
+          // onChange={setContact}
+          placeholder="Cпособ связи"
+          required
+          // error={error}
+        />
+
+        <fieldset className={`${classes.inputGroup} ${classes.login}`}>
           <input
             className={classes.input}
             type="text"
