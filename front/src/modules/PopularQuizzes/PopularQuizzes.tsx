@@ -92,7 +92,7 @@ export const PopularQuizzes = () => {
     localStorage.removeItem('quiz');
     localStorage.removeItem('category');
     navigate(to);
-    saveRate(e, to, '');
+    saveRate(e, to, { name: '', id: null });
   };
 
   if (loading) {

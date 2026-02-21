@@ -98,18 +98,6 @@ export const CustomSelect = ({
         {required && <span className={classes.required}>*</span>}
         {error && <span className={classes.error}>{error}</span>}
       </fieldset>
-
-      {value === 'telegram' && (
-        <fieldset className={`${classes.inputGroup} ${classes.login}`}>
-          <input
-            className={classes.input}
-            type="text"
-            placeholder="Логин Telegram"
-          />
-          <span className={classes.required}>*</span>
-          <span className={classes.error}>текст ошибки</span>
-        </fieldset>
-      )}
     </>
   );
 };

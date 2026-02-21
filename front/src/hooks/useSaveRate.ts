@@ -9,10 +9,10 @@ export const useSaveRate = () => {
   const saveRate = (
     e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement | HTMLElement>,
     to: string | null,
-    title: string,
+    rate: { name: string; id: string | null },
   ) => {
     e.preventDefault();
-    dispatch(addRate(title));
+    dispatch(addRate(rate));
     if (to) {
       navigate(to);
     }

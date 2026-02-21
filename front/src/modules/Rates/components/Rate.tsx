@@ -5,9 +5,15 @@ import { store } from '@/store';
 import { setModal } from '@/store/Modal/modal';
 
 import classes from './Rate.module.css';
+import type { FC } from 'react';
 
-export const Rate = ({
-  is_authorial,
+interface IRateProps {
+  props: IRates;
+  index: number;
+}
+
+/*
+is_authorial,
   title,
   preview_description,
   price,
@@ -15,63 +21,71 @@ export const Rate = ({
   subtitle,
   image,
   is_new,
-}: IRates) => {
+*/
+
+export const Rate: FC<IRateProps> = ({ props, index }) => {
   const saveRate = useSaveRate();
   const dispatch = store.dispatch;
 
   const handleClick = (
     e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement | HTMLElement>,
     to: string | null,
-    title: string,
+    rate: { name: string; id: number },
   ) => {
-    saveRate(e, to, title);
+    saveRate(e, to, rate);
     dispatch(setModal(true));
   };
 
   return (
     <>
-      {!is_authorial ? (
+      {!props.is_authorial ? (
         <Link
           to="catalog"
           className={classes.link}
-          onClick={(e) => saveRate(e, 'catalog', title)}
+          onClick={(e) =>
+            saveRate(e, 'catalog', { name: props.title, id: index + 1 })
+          }
         >
           <div className={classes.info}>
-            {is_new && <span className={classes.new}>NEW</span>}
-            <h3 className={classes.title}>{title}</h3>
-            <p className={classes.text}>{subtitle}</p>
+            {props.is_new && <span className={classes.new}>NEW</span>}
+            <h3 className={classes.title}>{props.title}</h3>
+            <p className={classes.text}>{props.subtitle}</p>
             <ul className={classes.list}>
-              {preview_description.split(',').map((listItem, index) => (
+              {props.preview_description.split(',').map((listItem, index) => (
                 <li key={index} className={classes.listItem}>
                   {listItem}
                 </li>
               ))}
             </ul>
           </div>
-          {old_price && (
-            <span className={classes.oldPrice}>{`${old_price} ₽`}</span>
+          {props.old_price && (
+            <span className={classes.oldPrice}>{`${props.old_price} ₽`}</span>
           )}
-          <span className={classes.price}>{`${price} ₽`}</span>
-          {image !== '' && <img src={image} className={classes.icon} alt="" />}
+          <span className={classes.price}>{`${props.price} ₽`}</span>
+          {props.image !== '' && (
+            <img src={props.image} className={classes.icon} alt="" />
+          )}
         </Link>
       ) : (
         <div
           className={classes.btn}
-          onClick={(e) => handleClick(e, null, title)}
+          onClick={(e) =>
+            handleClick(e, null, { name: props.title, id: index + 1 })
+          }
         >
           <div className={classes.info}>
-            <h3 className={classes.title}>{title}</h3>
+            <h3 className={classes.title}>{props.title}</h3>
             <p className={classes.text}></p>
             <ul className={classes.list}>
-              {preview_description.split(',').map((listItem, index) => (
+              {props.preview_description.split(',').map((listItem, index) => (
                 <li key={index} className={classes.listItem}>
                   {listItem}
                 </li>
               ))}
             </ul>
           </div>
-          <span className={classes.oldPrice}>{old_price}</span>
-          <span className={classes.price}>{price}</span>
+          <span className={classes.oldPrice}>{props.old_price}</span>
+          <span className={classes.price}>{props.price}</span>
           {/* <img src={img} className={classes.icon} alt="" /> */}
         </div>
       )}

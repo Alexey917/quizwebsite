@@ -33,7 +33,9 @@ export const QuizyTales = () => {
                 <Link
                   to="catalog"
                   className={classes.quizLink}
-                  onClick={(e) => saveRate(e, 'catalog', '')}
+                  onClick={(e) =>
+                    saveRate(e, 'catalog', { name: '', id: null })
+                  }
                 >
                   Выбрать
                   <br />
@@ -54,7 +56,7 @@ export const QuizyTales = () => {
               <Link
                 to="catalog"
                 className={classes.quizLink}
-                onClick={(e) => saveRate(e, 'catalog', '')}
+                onClick={(e) => saveRate(e, 'catalog', { name: '', id: null })}
               >
                 Выбрать
                 <br />

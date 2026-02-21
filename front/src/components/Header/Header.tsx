@@ -86,7 +86,9 @@ export const Header: FC<IHeader> = ({ isMobile, setIsMobile }) => {
                     aria-current={
                       location.pathname === route.path ? 'page' : undefined
                     }
-                    onClick={(e) => saveRate(e, route.path, '')}
+                    onClick={(e) =>
+                      saveRate(e, route.path, { name: '', id: null })
+                    }
                   >
                     {route.title}
                   </Link>

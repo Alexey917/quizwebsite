@@ -1,12 +1,20 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+type TRate = {
+  id: number | null;
+  name: string;
+};
+
 interface IChoice {
-  rate: string;
+  rate: TRate;
   title: string;
 }
 
 const initialChoiceState: IChoice = {
-  rate: '',
+  rate: {
+    id: null,
+    name: '',
+  },
   title: '',
 };
 
@@ -14,8 +22,9 @@ const ChoiceSlice = createSlice({
   name: 'choice',
   initialState: initialChoiceState,
   reducers: {
-    addRate: (state, action: { payload: string }) => {
-      state.rate = action.payload;
+    addRate: (state, action: { payload: TRate }) => {
+      state.rate.id = action.payload.id;
+      state.rate.name = action.payload.name;
     },
 
     addTitle: (state, action: { payload: string }) => {

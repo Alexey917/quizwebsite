@@ -120,7 +120,7 @@ export const Rates = () => {
                 aria-roledescription="slide"
                 aria-label={`${rate.title}`}
               >
-                <Rate {...rate} />
+                <Rate props={rate} index={index} />
               </SwiperSlide>
             </>
           ))}

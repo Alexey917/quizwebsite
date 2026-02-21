@@ -47,7 +47,7 @@
   overflow: hidden;
   background: transparent;
   border-radius: 1.75rem 0.25rem 1.75rem 1.75rem;
-  z-index: 1;
+  z-index: 0;
 }
 
 .btn::before {
@@ -81,9 +81,14 @@
   z-index: 1;
 }
 
+.btn:disabled {
+  cursor: not-allowed;
+}
+
 .inputGroup,
 .inputError,
-.textAreaGroup {
+.textAreaGroup,
+.inputErrorArea {
   --borderWidth: 0.125rem;
   --borderGradient: linear-gradient(266.43deg, #b46b48 0%, #fecda7 100%);
   width: 36.875rem;
@@ -129,7 +134,8 @@
 
 .inputGroup::before,
 .inputError::before,
-.textAreaGroup::before {
+.textAreaGroup::before,
+.inputErrorArea::before {
   content: '';
   position: absolute;
   inset: 0;
@@ -146,7 +152,8 @@
   z-index: 0;
 }
 
-.inputError:after {
+.inputError:after,
+.inputErrorArea:after {
   content: '';
   position: absolute;
   inset: 0;
@@ -204,6 +211,47 @@
   line-height: 100%;
 }
 
+.input[type='number'] {
+  -moz-appearance: textfield; /* Firefox */
+}
+
+.input[type='number']::-webkit-outer-spin-button,
+.input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input[type='number']::-ms-clear,
+.input[type='number']::-ms-reveal {
+  display: none;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px #13515e inset !important;
+  -webkit-text-fill-color: white;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Отключаем стандартные стили автозаполнения */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px #13515e inset !important; /* цвет фона */
+  -webkit-text-fill-color: #fecda7 !important; /* цвет текста */
+  transition: background-color 5000s ease-in-out 0s;
+  caret-color: #fecda7; /* цвет курсора */
+  border-radius: inherit;
+  position: relative;
+  z-index: 3;
+}
+
+/* Для Firefox */
+input:-moz-autofill {
+  box-shadow: 0 0 0 1000px #13515e inset !important;
+  color: #fecda7 !important;
+}
+
 .input::placeholder {
   font-family: 'Naga', serif;
   font-weight: 400;
@@ -248,6 +296,21 @@
   font-size: 1.5rem;
   line-height: 100%;
   color: #fecda7;
+}
+
+.loadingWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.errorLoading {
+  font-family: 'Naga', serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1rem;
+  line-height: 100%;
+  color: #ff0000;
 }
 
 @media (hover: hover) {
@@ -380,6 +443,10 @@
   }
 
   .textBtn {
+    font-size: 0.75rem;
+  }
+
+  .errorLoading {
     font-size: 0.75rem;
   }
 

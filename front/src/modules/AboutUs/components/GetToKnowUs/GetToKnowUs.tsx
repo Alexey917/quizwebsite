@@ -10,7 +10,7 @@ export const GetToKnowUs = () => {
       </h3>
       <div className={classes.wrapper} role="list">
         <a
-          href="#"
+          href="https://t.me/Quizytales"
           className={classes.linkWrapper}
           target="_blank"
           rel="noopener noreferrer"
@@ -28,7 +28,7 @@ export const GetToKnowUs = () => {
           </span>
         </a>
         <a
-          href="#"
+          href="https://vk.com/quizytales"
           className={classes.linkWrapper}
           target="_blank"
           rel="noopener noreferrer"

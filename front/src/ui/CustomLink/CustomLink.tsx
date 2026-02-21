@@ -65,7 +65,7 @@ export const CustomLink: FC<ICustomLink> = ({
         <Link
           to={to}
           className={getLinkClass(variant)}
-          onClick={(e) => saveRate(e, to, '')}
+          onClick={(e) => saveRate(e, to, { name: '', id: null })}
         >
           {text}
           {textBr && (
