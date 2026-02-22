@@ -60,7 +60,6 @@ export const Reviews = () => {
       try {
         const result = await reviewsApi();
         setReviews(result.data);
-        console.log(result.data);
       } catch (e: unknown) {
         const message = getErrorMessage(e);
         setError(message);
@@ -80,6 +79,21 @@ export const Reviews = () => {
         classTitle={`${classes.title}`}
         text="Отзывы"
       />
+    );
+  }
+
+  if (reviews.length === 0) {
+    return (
+      <section className={classes.section} aria-label="Отзывы еще не добавлены">
+        <div className={classes.container}>
+          <h2 className={classes.title}>Отзывы</h2>
+          <div className={classes.align}>
+            <span className={classes.info} role="alert">
+              Отзывы еще не добавлены
+            </span>
+          </div>
+        </div>
+      </section>
     );
   }
 

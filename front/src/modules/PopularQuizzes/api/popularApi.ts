@@ -1,12 +1,13 @@
 import { client } from '../../../api/client';
 
 export interface IPopularQuizzes {
+  id: number;
   title: string;
-  preview_text: string;
+  preview_text?: string;
   preview_image: string;
   detail_image: string;
-  description: string;
-  background_image_text: string;
+  description?: string;
+  background_image_text?: string;
   is_popular: boolean;
 }
 

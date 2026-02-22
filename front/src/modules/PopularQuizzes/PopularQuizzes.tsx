@@ -53,7 +53,6 @@ export const PopularQuizzes = () => {
 
       try {
         const result = await popularApi();
-        console.log(result.data);
         setQuizzes(result.data);
       } catch (e: unknown) {
         const message = getErrorMessage(e);
@@ -121,6 +120,21 @@ export const PopularQuizzes = () => {
     );
   }
 
+  if (quizzes.length === 0) {
+    return (
+      <section className={classes.section} aria-label="Квизы еще добавлены">
+        <div className={classes.container}>
+          <h2 className={classes.title}>Популярные квизы</h2>
+          <div className={classes.align}>
+            <span className={classes.info} role="alert">
+              Квизы еще добавлены
+            </span>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className={classes.section} aria-label="Популярные квизы">
       <div className={classes.container}>
@@ -143,51 +157,52 @@ export const PopularQuizzes = () => {
           modules={[EffectCube, Navigation]}
           className={classes.swiperWrapper}
         >
-          {quizzes.map((quiz, index) => (
-            <div key={`${index + 1}-${quiz.title}`}>
-              {quiz.is_popular && (
-                <SwiperSlide
-                  role="group"
-                  aria-roledescription="slide"
-                  aria-label={`${quiz.title}. ${quiz.preview_text}`}
-                >
-                  <div className={classes.quizOverlay} aria-hidden="true"></div>
+          {quizzes
+            .filter((quiz) => quiz.is_popular)
+            .map((quiz) => (
+              <SwiperSlide
+                key={`${quiz.id}-${quiz.title}`}
+                role="group"
+                aria-roledescription="slide"
+                aria-label={`${quiz.title}. ${quiz.preview_text}`}
+              >
+                <div className={classes.quizOverlay} aria-hidden="true"></div>
 
-                  <div className={classes.quiz}>
-                    <img
-                      src={quiz.detail_image}
-                      alt={quiz.title}
-                      loading="lazy"
-                      className={classes.quizImage}
-                    />
-                    <h3 className={classes.quizTitle}>{quiz.title}</h3>
+                <div className={classes.quiz}>
+                  <img
+                    src={quiz.detail_image}
+                    alt={quiz.title}
+                    loading="lazy"
+                    className={classes.quizImage}
+                  />
+                  <h3 className={classes.quizTitle}>{quiz.title}</h3>
+                  {quiz.preview_text && (
                     <p className={classes.quizText}>{quiz.preview_text}</p>
+                  )}
 
-                    <div className={classes.linkWrapper}>
-                      <Link
-                        to={`/catalog/quizzes/${index + 1}-${createSlug(
-                          quiz.title,
-                        )}`}
-                        onClick={(e) =>
-                          handleQuiz(
-                            e,
-                            `/catalog/quizzes/${index + 1}-${createSlug(
-                              quiz.title,
-                            )}`,
+                  <div className={classes.linkWrapper}>
+                    <Link
+                      to={`/catalog/quizzes/${quiz.id}-${createSlug(
+                        quiz.title,
+                      )}`}
+                      onClick={(e) =>
+                        handleQuiz(
+                          e,
+                          `/catalog/quizzes/${quiz.id}-${createSlug(
                             quiz.title,
-                          )
-                        }
-                        className={classes.quizLink}
-                        aria-label={`Подробнее о квизе: ${quiz.title}`}
-                      >
-                        Подробнее
-                      </Link>
-                    </div>
+                          )}`,
+                          quiz.title,
+                        )
+                      }
+                      className={classes.quizLink}
+                      aria-label={`Подробнее о квизе: ${quiz.title}`}
+                    >
+                      Подробнее
+                    </Link>
                   </div>
-                </SwiperSlide>
-              )}
-            </div>
-          ))}
+                </div>
+              </SwiperSlide>
+            ))}
         </Swiper>
 
         <div className={classes.customNavigation}>

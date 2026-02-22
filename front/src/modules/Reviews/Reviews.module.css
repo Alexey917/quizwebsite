@@ -104,6 +104,27 @@ path.two {
   transform: translateX(-30%);
 }
 
+.align {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.error,
+.info {
+  font-family: 'Naga', serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.5rem;
+  line-height: 100%;
+  color: #ff0000;
+  text-align: center;
+}
+
+.info {
+  color: #f1ae79;
+}
+
 @-webkit-keyframes color_anim {
   0% {
     fill: #fecda7;
@@ -298,6 +319,11 @@ path.two {
   .section {
     height: 72.75rem;
   }
+
+  .error,
+  .info {
+    font-size: 1.25rem;
+  }
 }
 
 @media (max-width: 576px) {
@@ -330,6 +356,11 @@ path.two {
   .section {
     height: 56.75rem;
   }
+
+  .error,
+  .info {
+    font-size: 1.125rem;
+  }
 }
 
 @media (max-width: 360px) {
@@ -357,5 +388,10 @@ path.two {
 
   .section {
     height: 43.75rem;
+  }
+
+  .error,
+  .info {
+    font-size: 0.875rem;
   }
 }

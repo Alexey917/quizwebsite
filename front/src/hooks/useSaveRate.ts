@@ -9,7 +9,7 @@ export const useSaveRate = () => {
   const saveRate = (
     e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement | HTMLElement>,
     to: string | null,
-    rate: { name: string; id: string | null },
+    rate: { name: string; id: number | null },
   ) => {
     e.preventDefault();
     dispatch(addRate(rate));

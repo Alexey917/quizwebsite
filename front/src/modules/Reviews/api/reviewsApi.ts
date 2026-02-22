@@ -2,7 +2,7 @@ import { client } from '../../../api/client';
 
 export interface IReviews {
   author: string;
-  company: string;
+  company?: string;
   review: string;
   rating: number;
 }

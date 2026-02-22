@@ -105,6 +105,11 @@
   color: #fecda7;
 }
 
+.starWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
 @media (max-width: 1200px) {
   .company {
     font-size: 18px;

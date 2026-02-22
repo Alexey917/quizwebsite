@@ -21,7 +21,11 @@ export const QuizPage = () => {
     <main className={classes.main}>
       <Navigation />
       <Quiz />
-      {isModal && <Modal>{rate.rate === '' ? <ModalRates /> : <Form />}</Modal>}
+      {isModal && (
+        <Modal>
+          {rate.rate.name === '' && !rate.rate.id ? <ModalRates /> : <Form />}
+        </Modal>
+      )}
     </main>
   );
 };

@@ -17,9 +17,9 @@ export const CustomButton: FC<ICustomButton> = ({ type, text, textBr }) => {
   const handleClick = (
     e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement | HTMLElement>,
     to: string | null,
-    title: string,
+    rate: { name: string; id: number | null },
   ) => {
-    saveRate(e, to, title);
+    saveRate(e, to, rate);
     dispatch(setModal(true));
   };
 
@@ -28,7 +28,7 @@ export const CustomButton: FC<ICustomButton> = ({ type, text, textBr }) => {
       <button
         type={type}
         className={classes.btn}
-        onClick={(e) => handleClick(e, null, '')}
+        onClick={(e) => handleClick(e, null, { name: '', id: null })}
       >
         {textBr ? (
           <span className={classes.text}>
