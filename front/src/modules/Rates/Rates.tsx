@@ -81,6 +81,21 @@ export const Rates = () => {
     );
   }
 
+  if (rates.length === 0) {
+    return (
+      <section className={classes.section} aria-label="Тарифы пока отсутствуют">
+        <div className={classes.container}>
+          <h2 className={classes.title}>Тарифы</h2>
+          <div className={classes.align}>
+            <span className={classes.info} role="alert">
+              Тарифы пока отсутствуют
+            </span>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   if (error) {
     return (
       <section className={classes.section} aria-label="Ошибка загрузки">
@@ -97,7 +112,7 @@ export const Rates = () => {
   }
 
   return (
-    <section className={classes.section}>
+    <section className={classes.section} id="tariffs-section">
       <div className={classes.container}>
         <h2 className={classes.title}>Тарифы</h2>
 
@@ -105,7 +120,7 @@ export const Rates = () => {
           role="region"
           aria-roledescription="carousel"
           aria-live="polite"
-          slidesPerView={1}
+          slidesPerView={2}
           spaceBetween={20}
           onSwiper={handleSwiper}
           onSlideChange={handleSlideChange}

@@ -79,6 +79,46 @@ export const Header: FC<IHeader> = ({ isMobile, setIsMobile }) => {
                   >
                     {route.title}
                   </Link>
+                ) : route.title === 'Тарифы' ? (
+                  <Link
+                    to={route.path}
+                    className={classes.link}
+                    aria-current={
+                      location.pathname === route.path ? 'page' : undefined
+                    }
+                    onClick={(e) => {
+                      e.preventDefault();
+
+                      if (location.pathname !== '/') {
+                        navigate('/');
+
+                        setTimeout(() => {
+                          const element =
+                            document.getElementById('tariffs-section');
+                          if (element) {
+                            element.scrollIntoView({ behavior: 'smooth' });
+                          } else {
+                            const interval = setInterval(() => {
+                              const el =
+                                document.getElementById('tariffs-section');
+                              if (el) {
+                                el.scrollIntoView({ behavior: 'smooth' });
+                                clearInterval(interval);
+                              }
+                            }, 100);
+                          }
+                        }, 300);
+                      } else {
+                        document
+                          .getElementById('tariffs-section')
+                          ?.scrollIntoView({
+                            behavior: 'smooth',
+                          });
+                      }
+                    }}
+                  >
+                    {route.title}
+                  </Link>
                 ) : (
                   <Link
                     to={route.path}

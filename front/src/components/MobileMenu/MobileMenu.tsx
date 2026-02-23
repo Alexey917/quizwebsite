@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { BrandedLettering } from '@/ui';
 import { routes } from '@/consts';
 
@@ -16,6 +16,7 @@ interface IMobileMenu {
 export const MobileMenu: FC<IMobileMenu> = ({ isMobile, setIsMobile }) => {
   const overlayRef = useRef<HTMLDivElement | null>(null);
   const navigationRef = useRef<HTMLDivElement | null>(null);
+  const navigate = useNavigate();
   const location = useLocation();
   const saveRate = useSaveRate();
 
@@ -60,10 +61,10 @@ export const MobileMenu: FC<IMobileMenu> = ({ isMobile, setIsMobile }) => {
   const mobileSaveRate = (
     e: React.MouseEvent<HTMLAnchorElement>,
     to: string,
-    title: string,
+    rate: { name: string; id: number | null },
   ) => {
     setIsMobile(false);
-    saveRate(e, to, title);
+    saveRate(e, to, rate);
   };
 
   return (
@@ -85,16 +86,73 @@ export const MobileMenu: FC<IMobileMenu> = ({ isMobile, setIsMobile }) => {
           <ul className={classes.list}>
             {routes.map((route) => (
               <li key={route.title}>
-                <Link
-                  to={route.path}
-                  className={classes.link}
-                  aria-current={
-                    location.pathname === route.path ? 'page' : undefined
-                  }
-                  onClick={(e) => mobileSaveRate(e, route.path, '')}
-                >
-                  {route.title}
-                </Link>
+                {route.title === 'Тарифы' ? (
+                  <Link
+                    to={route.path}
+                    className={classes.link}
+                    aria-current={
+                      location.pathname === route.path ? 'page' : undefined
+                    }
+                    onClick={(e) => {
+                      e.preventDefault();
+
+                      if (location.pathname !== '/') {
+                        setIsMobile(false);
+                        navigate('/');
+
+                        setTimeout(() => {
+                          const element =
+                            document.getElementById('tariffs-section');
+                          if (element) {
+                            element.scrollIntoView({ behavior: 'smooth' });
+                          } else {
+                            const interval = setInterval(() => {
+                              const el =
+                                document.getElementById('tariffs-section');
+                              if (el) {
+                                el.scrollIntoView({ behavior: 'smooth' });
+                                clearInterval(interval);
+                              }
+                            }, 100);
+                          }
+                        }, 300);
+                      } else {
+                        setIsMobile(false);
+                        setTimeout(() => {
+                          const element =
+                            document.getElementById('tariffs-section');
+                          if (element) {
+                            element.scrollIntoView({ behavior: 'smooth' });
+                          } else {
+                            const interval = setInterval(() => {
+                              const el =
+                                document.getElementById('tariffs-section');
+                              if (el) {
+                                el.scrollIntoView({ behavior: 'smooth' });
+                                clearInterval(interval);
+                              }
+                            }, 100);
+                          }
+                        }, 300);
+                      }
+                    }}
+                  >
+                    {route.title}
+                  </Link>
+                ) : (
+                  <Link
+                    to={route.path}
+                    className={classes.link}
+                    aria-current={
+                      location.pathname === route.path ? 'page' : undefined
+                    }
+                    onClick={(e) =>
+                      mobileSaveRate(e, route.path, { name: '', id: null })
+                    }
+                  >
+                    {route.title}
+                  </Link>
+                )}
               </li>
             ))}
           </ul>

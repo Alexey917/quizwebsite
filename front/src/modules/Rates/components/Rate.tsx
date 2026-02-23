@@ -4,6 +4,8 @@ import { useSaveRate } from '@/hooks';
 import { store } from '@/store';
 import { setModal } from '@/store/Modal/modal';
 
+import parse from 'html-react-parser';
+
 import classes from './Rate.module.css';
 import type { FC } from 'react';
 
@@ -43,20 +45,14 @@ export const Rate: FC<IRateProps> = ({ props, index }) => {
           to="catalog"
           className={classes.link}
           onClick={(e) =>
-            saveRate(e, 'catalog', { name: props.title, id: index + 1 })
+            saveRate(e, 'catalog', { name: props.title, id: props.id })
           }
         >
           <div className={classes.info}>
             {props.is_new && <span className={classes.new}>NEW</span>}
             <h3 className={classes.title}>{props.title}</h3>
-            <p className={classes.text}>{props.subtitle}</p>
-            <ul className={classes.list}>
-              {props.preview_description.split(',').map((listItem, index) => (
-                <li key={index} className={classes.listItem}>
-                  {listItem}
-                </li>
-              ))}
-            </ul>
+            <span className={classes.text}>{props.subtitle}</span>
+            {parse(props.preview_description)}
           </div>
           {props.old_price && (
             <span className={classes.oldPrice}>{`${props.old_price} ₽`}</span>
@@ -70,23 +66,17 @@ export const Rate: FC<IRateProps> = ({ props, index }) => {
         <div
           className={classes.btn}
           onClick={(e) =>
-            handleClick(e, null, { name: props.title, id: index + 1 })
+            handleClick(e, null, { name: props.title, id: props.id })
           }
         >
           <div className={classes.info}>
             <h3 className={classes.title}>{props.title}</h3>
-            <p className={classes.text}></p>
-            <ul className={classes.list}>
-              {props.preview_description.split(',').map((listItem, index) => (
-                <li key={index} className={classes.listItem}>
-                  {listItem}
-                </li>
-              ))}
-            </ul>
+            <span className={classes.text}>{props.subtitle}</span>
+            {parse(props.preview_description)}
           </div>
           <span className={classes.oldPrice}>{props.old_price}</span>
           <span className={classes.price}>{props.price}</span>
-          {/* <img src={img} className={classes.icon} alt="" /> */}
+          <img src={props.image} className={classes.icon} alt="" />
         </div>
       )}
     </>

@@ -1,6 +1,7 @@
 import { client } from './client';
 
 export interface IRates {
+  id: number;
   title: string;
   subtitle: string;
   preview_description: string;
