@@ -1,45 +1,45 @@
 .article {
-  margin-top: 72px;
+  margin-top: 4.5rem;
 }
 
 .title {
   margin: 0;
-  margin-bottom: 28px;
+  margin-bottom: 1.75rem;
   font-family: 'Naga', serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 36px;
+  font-size: 2.25rem;
   line-height: 100%;
   color: #f1ae79;
 }
 
 .benefitTitle {
   margin: 0;
-  margin-bottom: 32px;
-  max-width: 256px;
+  margin-bottom: 2rem;
+  max-width: 16rem;
   font-family: 'Naga', serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 28px;
+  font-size: 1.75rem;
   line-height: 110%;
   color: #f1ae79;
 }
 
 .text {
-  max-width: 307px;
+  max-width: 19.1875rem;
   font-family: 'Nunito', sans-serif;
   font-weight: 600;
   font-style: normal;
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 1.25rem;
+  line-height: 1.5rem;
   color: #f1ae79;
 }
 
 .benefitWrapper {
   --borderWidth: 0.125rem;
   --borderGradient: linear-gradient(266.43deg, #b46b48 0%, #fecda7 100%);
-  width: 387px;
-  height: 268px;
+  width: 24.1875rem;
+  height: 16.75rem;
   flex-shrink: 0;
   position: relative;
   border-radius: 2.5rem 0.5rem 2.5rem 2.5rem;
@@ -56,6 +56,8 @@
   border-radius: inherit;
   -webkit-mask: conic-gradient(#000 0 0) content-box, conic-gradient(#000 0 0);
   -webkit-mask-composite: xor;
+  -webkit-mask: conic-gradient(#000 0 0) content-box, conic-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
   mask: conic-gradient(#000 0 0) content-box exclude, conic-gradient(#000 0 0);
 }
 
@@ -64,14 +66,14 @@
   position: absolute;
   inset: 0;
   border-radius: inherit;
+  -webkit-filter: blur(15px);
   filter: blur(15px);
-
   box-shadow: 0px 0px 10px 0px #fecda7;
-
   z-index: -1;
 }
 
-.Masks {
+.imgWrapper {
+  overflow: hidden;
   position: absolute;
   top: -64px;
   right: -44px;
@@ -79,37 +81,158 @@
   height: 180px;
 }
 
+.Masks {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 11.6875rem;
+  height: 11.25rem;
+}
+
 .Box {
   position: absolute;
-  top: -64px;
-  right: -44px;
-  width: 180px;
-  height: 168px;
+  top: 0;
+  right: 0;
+  width: 11.25rem;
+  height: 10.5rem;
 }
 
 .Money {
   position: absolute;
-  top: -64px;
-  right: -44px;
-  width: 141px;
-  height: 168px;
+  top: 0;
+  right: 0;
+  width: 8.8125rem;
+  height: 10.5rem;
 }
 
 .Rocket {
   position: absolute;
-  top: -64px;
-  right: -44px;
-  width: 160px;
-  height: 160px;
+  top: 0;
+  right: 0;
+  width: 10rem;
+  height: 10rem;
 }
 
 .Clock {
   position: absolute;
-  top: -64px;
-  right: -44px;
+  top: 0;
+  right: 0;
   width: 160px;
   height: 160px;
 }
 
+.mySwiperSlider {
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
 @media (max-width: 1200px) {
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .benefitTitle {
+    margin-bottom: 1.25rem;
+    max-width: 13.6875rem;
+    font-size: 1.5rem;
+  }
+
+  .text {
+    font-size: 1rem;
+  }
+
+  .benefitWrapper {
+    width: 20.4375rem;
+    height: 14.875rem;
+    border-radius: 2rem 0.25rem 2rem 2rem;
+  }
+
+  .imgWrapper {
+    width: 8.625rem;
+    height: 8.3125rem;
+    top: -3.375rem;
+    right: -2.125rem;
+  }
+
+  .Rocket,
+  .Clock,
+  .Money {
+    width: 7.5rem;
+    height: 7.5rem;
+  }
+
+  .Box {
+    width: 7.5rem;
+    height: 7rem;
+  }
+
+  .Masks {
+    width: 8.625rem;
+    height: 8.3125rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .title {
+    margin-bottom: 0;
+    font-size: 1.5rem;
+  }
+
+  .benefitTitle {
+    max-width: 9rem;
+    font-size: 1.125rem;
+  }
+
+  .text {
+    font-size: 0.875rem;
+    line-height: 1.125rem;
+  }
+
+  .benefitWrapper {
+    width: 14.875rem;
+    height: 11.875rem;
+    border-radius: 1rem 0.125rem 1rem 1rem;
+    padding: 1.25rem;
+  }
+
+  .imgWrapper {
+    width: 5.5rem;
+    height: 5.5rem;
+    top: -2.125rem;
+    right: -1.5rem;
+  }
+
+  .Rocket,
+  .Clock,
+  .Money,
+  .Box {
+    width: 5.3125rem;
+    height: 5.3125rem;
+  }
+
+  .Masks {
+    width: 5.5rem;
+    height: 5.3125rem;
+  }
+
+  .mySwiperSlider {
+    height: 20.3125rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .title {
+    font-size: 1.25rem;
+  }
+
+  .benefitWrapper {
+    width: 18.1875rem;
+    height: 10.75rem;
+  }
+
+  .mySwiperSlider {
+    height: 17.1875rem;
+  }
 }

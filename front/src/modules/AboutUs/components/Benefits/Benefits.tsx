@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useMediaQuery } from 'react-responsive';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { Autoplay } from 'swiper/modules';
@@ -9,29 +9,23 @@ import classes from './Benefits.module.css';
 import 'swiper/css';
 
 export const Benefits = () => {
-  const [widthScreen, setWidthScreen] = useState<number>(window.innerWidth);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWidthScreen(window.innerWidth);
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  const isTablet = useMediaQuery({ minWidth: 904, maxWidth: 1024 });
+  const isMid = useMediaQuery({ minWidth: 576, maxWidth: 904 });
+  const isPhone = useMediaQuery({ minWidth: 360, maxWidth: 576 });
+  const isMin = useMediaQuery({ minWidth: 320, maxWidth: 360 });
 
   return (
-    <article className={classes.article}>
-      <h3 className={classes.title}>Наши преимущества:</h3>
+    <article className={classes.article} aria-labelledby="benefits-title">
+      <h3 id="benefits-title" className={classes.title}>
+        Наши преимущества:
+      </h3>
 
       <Swiper
-        slidesPerView={3}
-        spaceBetween={64}
+        slidesPerView={isMid || isPhone ? 2 : isMin ? 1 : 3}
+        spaceBetween={isTablet || isMid ? 200 : isPhone ? 320 : 120}
         loop={true}
-        // style={{ width: widthScreen - 210 }}
         autoplay={{
-          delay: 2500,
+          delay: 3500,
           disableOnInteraction: false,
         }}
         modules={[Autoplay]}
@@ -40,19 +34,20 @@ export const Benefits = () => {
         {benefits.map((benefit) => (
           <SwiperSlide
             key={benefit.title}
-            style={{
-              height: '400px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'flex-start',
-            }}
+            className={classes.mySwiperSlider}
+            aria-label="Наши преимущества"
+            role="region"
           >
             <div className={classes.benefitWrapper}>
-              <img
-                src={benefit.svg}
-                className={classes[benefit.class]}
-                alt="masks"
-              />
+              <div className={classes.imgWrapper}>
+                <img
+                  src={benefit.svg}
+                  className={classes[benefit.class]}
+                  alt={`Иконка: ${benefit.title}`}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
               <h4 className={classes.benefitTitle}>{benefit.title}</h4>
               <p className={classes.text}>{benefit.description}</p>
             </div>
