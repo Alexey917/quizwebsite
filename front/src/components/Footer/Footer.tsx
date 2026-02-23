@@ -14,7 +14,7 @@ export const Footer = () => {
           <li className={classes.listItem}>
             <img src={tgMini} className={classes.miniImg} alt="" />
             <a
-              href="#"
+              href="https://t.me/DerrKaterr"
               className={classes.link}
               target="_blank"
               rel="noopener noreferrer"
@@ -27,7 +27,7 @@ export const Footer = () => {
           <li className={classes.listItem}>
             <img src={tgMini} className={classes.miniImg} alt="" />
             <a
-              href="#"
+              href="https://t.me/Renardren"
               className={classes.link}
               target="_blank"
               rel="noopener noreferrer"
@@ -39,7 +39,7 @@ export const Footer = () => {
           </li>
           <li>
             <a
-              href="#"
+              href="https://t.me/Quizytales"
               className={classes.link}
               target="_blank"
               rel="noopener noreferrer"
@@ -55,7 +55,7 @@ export const Footer = () => {
           </li>
           <li>
             <a
-              href="#"
+              href="https://vk.com/quizytales"
               className={classes.link}
               target="_blank"
               rel="noopener noreferrer"
