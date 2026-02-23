@@ -81,21 +81,6 @@ export const Rates = () => {
     );
   }
 
-  if (rates.length === 0) {
-    return (
-      <section className={classes.section} aria-label="Тарифы пока отсутствуют">
-        <div className={classes.container}>
-          <h2 className={classes.title}>Тарифы</h2>
-          <div className={classes.align}>
-            <span className={classes.info} role="alert">
-              Тарифы пока отсутствуют
-            </span>
-          </div>
-        </div>
-      </section>
-    );
-  }
-
   if (error) {
     return (
       <section className={classes.section} aria-label="Ошибка загрузки">
@@ -104,6 +89,21 @@ export const Rates = () => {
           <div className={classes.align}>
             <span className={classes.error} role="alert">
               {error}
+            </span>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (rates.length === 0) {
+    return (
+      <section className={classes.section} aria-label="Тарифы пока отсутствуют">
+        <div className={classes.container}>
+          <h2 className={classes.title}>Тарифы</h2>
+          <div className={classes.align}>
+            <span className={classes.info} role="alert">
+              Тарифы пока отсутствуют
             </span>
           </div>
         </div>
@@ -122,6 +122,21 @@ export const Rates = () => {
           aria-live="polite"
           slidesPerView={2}
           spaceBetween={20}
+          breakpoints={{
+            // от 320px до 576px
+            320: {
+              slidesPerView: 1,
+              spaceBetween: 10,
+            },
+            576: {
+              slidesPerView: 1,
+              spaceBetween: 442,
+            },
+            904: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+          }}
           onSwiper={handleSwiper}
           onSlideChange={handleSlideChange}
           modules={[Navigation]}

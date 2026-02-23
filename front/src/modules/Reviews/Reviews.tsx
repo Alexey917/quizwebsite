@@ -82,21 +82,6 @@ export const Reviews = () => {
     );
   }
 
-  if (reviews.length === 0) {
-    return (
-      <section className={classes.section} aria-label="Отзывы еще не добавлены">
-        <div className={classes.container}>
-          <h2 className={classes.title}>Отзывы</h2>
-          <div className={classes.align}>
-            <span className={classes.info} role="alert">
-              Отзывы еще не добавлены
-            </span>
-          </div>
-        </div>
-      </section>
-    );
-  }
-
   if (error) {
     return (
       <section className={classes.section} aria-label="Ошибка загрузки">
@@ -105,6 +90,21 @@ export const Reviews = () => {
           <div className={classes.align}>
             <span className={classes.error} role="alert">
               {error}
+            </span>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (reviews.length === 0) {
+    return (
+      <section className={classes.section} aria-label="Отзывы еще не добавлены">
+        <div className={classes.container}>
+          <h2 className={classes.title}>Отзывы</h2>
+          <div className={classes.align}>
+            <span className={classes.info} role="alert">
+              Отзывы еще не добавлены
             </span>
           </div>
         </div>

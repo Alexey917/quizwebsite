@@ -35,7 +35,7 @@
 .customNavigation {
   position: absolute;
 
-  padding: 0 6.375rem;
+  padding: 0;
   display: flex;
   gap: 182px;
   align-items: center;
@@ -55,13 +55,25 @@ path.two {
   transform: translateX(-30%);
 }
 
-.error {
+.align {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error,
+.info {
   font-family: 'Naga', serif;
   font-weight: 400;
   font-style: normal;
   font-size: 1.5rem;
   line-height: 100%;
   color: #ff0000;
+  text-align: center;
+}
+
+.info {
+  color: #f1ae79;
 }
 
 @-webkit-keyframes color_anim {
@@ -165,16 +177,58 @@ path.two {
   .container {
     width: 36rem;
   }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .swiperWrapper {
+    height: 500px;
+  }
+
+  .customNavigation {
+    gap: 100px;
+    right: 152px;
+  }
+
+  .error,
+  .info {
+    font-size: 1.25rem;
+  }
 }
 
 @media (max-width: 576px) {
   .container {
     width: 22.5rem;
   }
+
+  .title {
+    margin-bottom: 40px;
+    font-size: 24px;
+  }
+
+  .customNavigation {
+    gap: 40px;
+    right: 86px;
+  }
+
+  .swiperWrapper {
+    height: 352px;
+  }
+
+  .error,
+  .info {
+    font-size: 1.125rem;
+  }
 }
 
 @media (max-width: 360px) {
   .container {
     width: 20rem;
+  }
+
+  .error,
+  .info {
+    font-size: 0.875rem;
   }
 }

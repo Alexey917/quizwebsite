@@ -286,9 +286,91 @@
 }
 
 @media (max-width: 904px) {
+  .oldPrice {
+    left: 32%;
+  }
+
+  .price {
+    font-size: 24px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .text {
+    font-size: 18px;
+  }
+
+  .info {
+    max-height: 278px;
+  }
 }
 
 @media (max-width: 576px) {
+  .link,
+  .btn {
+    width: 320px;
+    border-radius: 20px 2px 20px 20px;
+    padding: 12px;
+  }
+
+  .info {
+    width: 296px;
+    max-height: 219px;
+    border-radius: 16px 2px 16px 16px;
+    padding: 12px;
+  }
+
+  .info ul,
+  .info p {
+    max-height: 152px;
+  }
+
+  .info ul {
+    padding-left: 12px;
+  }
+
+  .info li,
+  .info p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .oldPrice {
+    left: 37%;
+    bottom: 16%;
+    line-height: 21.15px;
+  }
+
+  .icon {
+    width: 166px;
+    height: 166px;
+  }
+
+  .price {
+    width: 226px;
+    height: 60px;
+    border-radius: 1.25rem 0.25rem 1.25rem 1.25rem;
+    font-size: 28px;
+  }
+
+  .title {
+    margin-bottom: 12px;
+    font-size: 28px;
+  }
+
+  .new {
+    top: 24px;
+    right: 21px;
+    font-size: 20px;
+  }
+
+  .text {
+    margin-bottom: 19px;
+    max-width: 277px;
+    font-size: 20px;
+  }
 }
 
 @media (max-width: 360px) {
