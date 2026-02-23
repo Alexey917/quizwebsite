@@ -212,3 +212,84 @@
     background: #fecda7;
   }
 }
+
+@media (max-width: 1200px) {
+  .link,
+  .btn {
+    width: 442px;
+    border-radius: 30.21px 6.04px 30.21px 30.21px;
+    padding: 20px;
+  }
+
+  .info {
+    width: 402px;
+    max-height: 292px;
+    border-radius: 1.5rem 0.25rem 1.5rem 1.5rem;
+    padding: 1.25rem;
+  }
+
+  .info ul,
+  .info p {
+    max-height: 180px;
+  }
+
+  .info ul {
+    padding-left: 20px;
+  }
+
+  .info li,
+  .info p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .oldPrice {
+    left: 37%;
+    bottom: 16%;
+    line-height: 21.15px;
+  }
+
+  .icon {
+    width: 166px;
+    height: 166px;
+  }
+
+  .price {
+    width: 226px;
+    height: 60px;
+    border-radius: 1.25rem 0.25rem 1.25rem 1.25rem;
+    font-size: 28px;
+  }
+
+  .title {
+    margin-bottom: 12px;
+    font-size: 28px;
+  }
+
+  .new {
+    top: 24px;
+    right: 21px;
+    font-size: 20px;
+  }
+
+  .text {
+    margin-bottom: 19px;
+    max-width: 277px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .oldPrice {
+    left: 41%;
+  }
+}
+
+@media (max-width: 904px) {
+}
+
+@media (max-width: 576px) {
+}
+
+@media (max-width: 360px) {
+}

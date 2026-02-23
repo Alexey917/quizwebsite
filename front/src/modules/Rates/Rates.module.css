@@ -144,6 +144,15 @@ path.two {
   .container {
     width: 64rem;
   }
+
+  .title {
+    margin-bottom: 72px;
+    font-size: 36px;
+  }
+
+  .swiperWrapper {
+    height: 546px;
+  }
 }
 
 @media (max-width: 1024px) {
