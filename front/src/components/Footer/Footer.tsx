@@ -71,10 +71,12 @@ export const Footer = () => {
           </li>
           <li className={classes.offer}>
             <a
-              href="#"
+              href="/files/oferta.pdf"
               className={classes.link}
+              download="Оферта_QuizyTales.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="Скачать оферту"
-              download=""
             >
               Оферта
             </a>
