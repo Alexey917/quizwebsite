@@ -15,9 +15,6 @@ export const QuizPage = () => {
 
   useScrollLock(isModal);
 
-  console.log(rate);
-  console.log(rate.status);
-
   return (
     <main className={classes.main}>
       <Navigation />
