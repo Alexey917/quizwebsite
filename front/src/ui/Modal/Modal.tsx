@@ -67,17 +67,22 @@ export const Modal = ({ children }: TModal) => {
   };
 
   return (
-    <div
-      className={classes.overlay}
-      ref={overlayRef}
-      role="dialog"
-      aria-modal="true"
-      tabIndex={-1}
-      id="modal-id"
-    >
-      <div className={classes.wrapper} ref={wrapperRef}>
+    <div className={classes.overlay} ref={overlayRef} role="presentation">
+      <div
+        className={classes.wrapper}
+        ref={wrapperRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+        aria-describedby="modal-description"
+        tabIndex={-1}
+      >
         <div className={classes.content}>
-          <button className={classes.btnClose} onClick={() => resetState()}>
+          <button
+            className={classes.btnClose}
+            onClick={() => resetState()}
+            aria-label="Закрыть модальное окно"
+          >
             <svg
               className={classes.closeIcon}
               aria-hidden="true"

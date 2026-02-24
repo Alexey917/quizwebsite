@@ -59,45 +59,76 @@ export const CustomSelect = ({
   };
 
   return (
-    <>
-      <fieldset className={error ? classes.inputError : classes.inputGroup}>
+    <fieldset className={error ? classes.inputError : classes.inputGroup}>
+      <div
+        ref={selectRef}
+        className={`${classes.customSelect} ${isOpen ? classes.open : ''} ${
+          disabled ? classes.disabled : ''
+        }`}
+      >
         <div
-          ref={selectRef}
-          className={`${classes.customSelect} ${isOpen ? classes.open : ''} ${
-            disabled ? classes.disabled : ''
-          }`}
+          className={classes.selectTrigger}
+          onClick={() => !disabled && setIsOpen(!isOpen)}
+          role="combobox"
+          aria-expanded={isOpen}
+          aria-haspopup="listbox"
+          aria-controls="select-dropdown"
+          aria-label={placeholder}
+          aria-required={required}
+          aria-invalid={!!error}
+          aria-disabled={disabled}
+          tabIndex={disabled ? -1 : 0}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              !disabled && setIsOpen(!isOpen);
+            }
+            if (e.key === 'Escape' && isOpen) {
+              setIsOpen(false);
+            }
+          }}
         >
-          <div
-            className={classes.selectTrigger}
-            onClick={() => !disabled && setIsOpen(!isOpen)}
-          >
-            <span
-              className={selectedLabel ? classes.value : classes.placeholder}
-            >
-              {selectedLabel || placeholder}
-            </span>
-          </div>
-
-          {isOpen && (
-            <div className={classes.dropdown} tabIndex={0}>
-              {options.map((option) => (
-                <div
-                  key={option.value}
-                  className={`${classes.option} ${
-                    option.value === value ? classes.selected : ''
-                  }`}
-                  onClick={() => handleSelect(option)}
-                >
-                  {option.label}
-                </div>
-              ))}
-            </div>
-          )}
+          <span className={selectedLabel ? classes.value : classes.placeholder}>
+            {selectedLabel || placeholder}
+          </span>
         </div>
 
-        {required && <span className={classes.required}>*</span>}
-        {error && <span className={classes.error}>{error}</span>}
-      </fieldset>
-    </>
+        {isOpen && (
+          <div
+            className={classes.dropdown}
+            tabIndex={0}
+            role="listbox"
+            id="select-dropdown"
+            aria-label={placeholder}
+          >
+            {options.map((option) => (
+              <div
+                key={option.value}
+                className={`${classes.option} ${
+                  option.value === value ? classes.selected : ''
+                }`}
+                onClick={() => handleSelect(option)}
+                role="option"
+                aria-selected={option.value === value}
+                tabIndex={-1}
+              >
+                {option.label}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {required && (
+        <span className={classes.required} aria-hidden="true">
+          *
+        </span>
+      )}
+      {error && (
+        <span className={classes.error} role="alert">
+          {error}
+        </span>
+      )}
+    </fieldset>
   );
 };

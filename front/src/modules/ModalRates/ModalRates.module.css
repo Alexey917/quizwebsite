@@ -40,11 +40,17 @@
   padding: var(--borderWidth);
   background-image: var(--borderGradient);
   border-radius: inherit;
-  -webkit-mask: conic-gradient(#000 0 0) content-box, conic-gradient(#000 0 0);
+  -webkit-mask:
+    conic-gradient(#000 0 0) content-box,
+    conic-gradient(#000 0 0);
   -webkit-mask-composite: xor;
-  -webkit-mask: conic-gradient(#000 0 0) content-box, conic-gradient(#000 0 0);
+  -webkit-mask:
+    conic-gradient(#000 0 0) content-box,
+    conic-gradient(#000 0 0);
   -webkit-mask-composite: xor;
-  mask: conic-gradient(#000 0 0) content-box exclude, conic-gradient(#000 0 0);
+  mask:
+    conic-gradient(#000 0 0) content-box exclude,
+    conic-gradient(#000 0 0);
   z-index: 0;
 }
 
@@ -183,11 +189,17 @@
   padding: var(--borderWidth);
   background-image: var(--borderGradient);
   border-radius: inherit;
-  -webkit-mask: conic-gradient(#000 0 0) content-box, conic-gradient(#000 0 0);
+  -webkit-mask:
+    conic-gradient(#000 0 0) content-box,
+    conic-gradient(#000 0 0);
   -webkit-mask-composite: xor;
-  -webkit-mask: conic-gradient(#000 0 0) content-box, conic-gradient(#000 0 0);
+  -webkit-mask:
+    conic-gradient(#000 0 0) content-box,
+    conic-gradient(#000 0 0);
   -webkit-mask-composite: xor;
-  mask: conic-gradient(#000 0 0) content-box exclude, conic-gradient(#000 0 0);
+  mask:
+    conic-gradient(#000 0 0) content-box exclude,
+    conic-gradient(#000 0 0);
   z-index: 0;
 }
 
@@ -250,6 +262,32 @@
   font-size: 1.25rem;
   line-height: 100%;
   color: #f1ae79;
+}
+
+.align {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error,
+.info {
+  margin-bottom: 20px;
+  font-family: 'Naga', serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.25rem;
+  line-height: 100%;
+  color: #ff0000;
+  text-align: center;
+}
+
+.titleError {
+  text-align: center;
+}
+
+.info {
+  color: #fecda7;
 }
 
 @media (hover: hover) {
@@ -354,6 +392,13 @@
   }
 }
 
+@media (max-width: 904px) {
+  .error,
+  .info {
+    font-size: 1.25rem;
+  }
+}
+
 @media (max-width: 576px) {
   .title {
     font-size: 0.75rem;
@@ -404,6 +449,11 @@
   }
 
   .price {
+    font-size: 0.875rem;
+  }
+
+  .error,
+  .info {
     font-size: 0.875rem;
   }
 }

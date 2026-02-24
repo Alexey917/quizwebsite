@@ -5,6 +5,7 @@ import parse from 'html-react-parser';
 
 import classes from './ModalRates.module.css';
 import { useSaveRate } from '@/hooks';
+import { Loader } from '@/ui';
 
 interface IModalRates {
   variant?: 'authorial' | 'usual';
@@ -23,8 +24,10 @@ export const ModalRates = ({ variant = 'usual' }: IModalRates) => {
 
       try {
         const result = await RatesApi();
-        setRates(result?.data);
-        console.log(result.data);
+
+        if (result?.data) {
+          setRates(result.data);
+        }
       } catch (e: unknown) {
         const message = getErrorMessage(e);
         setError(message);
@@ -38,25 +41,42 @@ export const ModalRates = ({ variant = 'usual' }: IModalRates) => {
 
   if (loading) {
     return (
-      <Loading
-        ariaLabel="Загрузка тарифов"
-        classSection={`${classes.section}`}
-        classTitle={`${classes.title}`}
-        text="Тарифы"
-      />
+      <section className={classes.wrapper} aria-label="Загрузка тарифов">
+        <h2 className={classes.title}>Выберите тариф:</h2>
+        <div className={classes.align}>
+          <Loader />
+        </div>
+      </section>
     );
   }
 
   if (error) {
     return (
-      <section className={classes.section} aria-label="Ошибка загрузки">
-        <div className={classes.container}>
-          <h2 className={classes.title}>Выберите тариф:</h2>
-          <div className={classes.align}>
-            <span className={classes.error} role="alert">
-              {error}
-            </span>
-          </div>
+      <section className={classes.wrapper} aria-label="Ошибка загрузки">
+        <h2 className={classes.title} style={{ textAlign: 'center' }}>
+          Выберите тариф:
+        </h2>
+        <div className={classes.align}>
+          <span className={classes.error} role="alert">
+            {error}
+          </span>
+        </div>
+      </section>
+    );
+  }
+
+  if (rates.length === 0) {
+    return (
+      <section className={classes.wrapper} aria-label="Нет доступных тарифов">
+        <h2 className={classes.title} style={{ textAlign: 'center' }}>
+          Выберите тариф:
+        </h2>
+        <div className={classes.align}>
+          <span className={classes.info} role="alert">
+            {variant === 'usual'
+              ? 'Нет доступных тарифов'
+              : 'Нет доступных авторских тарифов'}
+          </span>
         </div>
       </section>
     );
@@ -70,16 +90,16 @@ export const ModalRates = ({ variant = 'usual' }: IModalRates) => {
         .filter((rate) =>
           variant === 'usual' ? !rate.is_authorial : rate.is_authorial,
         )
-        .map((rate, index) => (
+        .map((rate) => (
           <article
             className={classes.rate}
-            key={`${index}-${rate.title}`}
-            aria-labelledby={`rate-title-${index}`}
+            key={`${rate.id}-${rate.title}`}
+            aria-labelledby={`rate-title-${rate.id}`}
             onClick={(e) =>
               saveRate(e, null, { name: rate.title, id: rate.id })
             }
           >
-            <h3 className={classes.rateTitle} id={`rate-title-${index}`}>
+            <h3 className={classes.rateTitle} id={`rate-title-${rate.id}`}>
               {rate.title}
             </h3>
             {parse(rate.preview_description)}

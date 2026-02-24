@@ -71,12 +71,6 @@ export const Form = ({ variant = 'usual' }: IForm) => {
 
   const onSubmit = async (data: IAuthorialApplication | IUsualApplication) => {
     const formData = createFormData(data);
-
-    console.log('📤 Отправка FormData:');
-    for (let [key, value] of formData.entries()) {
-      console.log(`${key}: ${value}`);
-    }
-
     setLoading(true);
     setError(null);
 
@@ -131,8 +125,12 @@ export const Form = ({ variant = 'usual' }: IForm) => {
             {...register('tariff_id', { required: 'Тариф не выбран!' })}
             value={rate?.rate?.id || ''}
           />
-          <span className={classes.required}>*</span>
-          <span className={classes.error}>{errors?.tariff_id?.message}</span>
+          <span className={classes.required} aria-hidden="true">
+            *
+          </span>
+          <span className={classes.error} role="alert">
+            {errors?.tariff_id?.message}
+          </span>
         </fieldset>
 
         {variant === 'authorial' ? (
@@ -150,8 +148,12 @@ export const Form = ({ variant = 'usual' }: IForm) => {
               readOnly
             />
 
-            <span className={classes.required}>*</span>
-            <span className={classes.error}>{errors?.quiz_id?.message}</span>
+            <span className={classes.required} aria-hidden="true">
+              *
+            </span>
+            <span className={classes.error} role="alert">
+              {errors?.quiz_id?.message}
+            </span>
           </fieldset>
         ) : (
           <fieldset
@@ -173,8 +175,12 @@ export const Form = ({ variant = 'usual' }: IForm) => {
               value={rate?.title?.id || ''}
             />
 
-            <span className={classes.required}>*</span>
-            <span className={classes.error}>{errors?.quiz_id?.message}</span>
+            <span className={classes.required} aria-hidden="true">
+              *
+            </span>
+            <span className={classes.error} role="alert">
+              {errors?.quiz_id?.message}
+            </span>
           </fieldset>
         )}
 
@@ -199,8 +205,10 @@ export const Form = ({ variant = 'usual' }: IForm) => {
               },
             })}
           />
-          <span className={classes.required}>*</span>
-          <span className={classes.error}>
+          <span className={classes.required} aria-hidden="true">
+            *
+          </span>
+          <span className={classes.error} role="alert">
             {errors?.quantity_of_guests?.message}
           </span>
         </fieldset>
@@ -228,8 +236,12 @@ export const Form = ({ variant = 'usual' }: IForm) => {
               },
             })}
           />
-          <span className={classes.required}>*</span>
-          <span className={classes.error}>{errors?.name?.message}</span>
+          <span className={classes.required} aria-hidden="true">
+            *
+          </span>
+          <span className={classes.error} role="alert">
+            {errors?.name?.message}
+          </span>
         </fieldset>
 
         <fieldset
@@ -256,8 +268,12 @@ export const Form = ({ variant = 'usual' }: IForm) => {
               },
             })}
           />
-          <span className={classes.required}>*</span>
-          <span className={classes.error}>{errors?.phone?.message}</span>
+          <span className={classes.required} aria-hidden="true">
+            *
+          </span>
+          <span className={classes.error} role="alert">
+            {errors?.phone?.message}
+          </span>
         </fieldset>
 
         <Controller
@@ -321,8 +337,12 @@ export const Form = ({ variant = 'usual' }: IForm) => {
               })}
             />
 
-            <span className={classes.required}>*</span>
-            <span className={classes.error}>{errors?.login?.message}</span>
+            <span className={classes.required} aria-hidden="true">
+              *
+            </span>
+            <span className={classes.error} role="alert">
+              {errors?.login?.message}
+            </span>
           </fieldset>
         )}
 
@@ -350,9 +370,11 @@ export const Form = ({ variant = 'usual' }: IForm) => {
                 },
               })}
             />
-            <span className={classes.required}>*</span>
+            <span className={classes.required} aria-hidden="true">
+              *
+            </span>
             {'quiz_description' in errors && errors.quiz_description && (
-              <span className={classes.error}>
+              <span className={classes.error} role="alert">
                 {errors.quiz_description?.message}
               </span>
             )}
@@ -360,7 +382,9 @@ export const Form = ({ variant = 'usual' }: IForm) => {
         )}
         {error && (
           <div className={classes.loadingWrapper}>
-            <span className={classes.errorLoading}>{error}</span>
+            <span className={classes.errorLoading} role="alert">
+              {error}
+            </span>
           </div>
         )}
         {loading ? (
