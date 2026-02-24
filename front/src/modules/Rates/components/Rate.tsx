@@ -12,7 +12,6 @@ import { addTitle } from '@/store/Choice/choice';
 
 interface IRateProps {
   props: IRates;
-  index: number;
 }
 
 export const Rate: FC<IRateProps> = ({ props }) => {
@@ -38,19 +37,37 @@ export const Rate: FC<IRateProps> = ({ props }) => {
           onClick={(e) =>
             saveRate(e, 'catalog', { name: props.title, id: props.id })
           }
+          aria-label={`Тариф ${props.title} - ${props.price} ₽`}
         >
           <div className={classes.info}>
-            {props.is_new && <span className={classes.new}>NEW</span>}
+            {props.is_new && (
+              <span className={classes.new} aria-label="Новый тариф">
+                NEW
+              </span>
+            )}
             <h3 className={classes.title}>{props.title}</h3>
-            <span className={classes.text}>{props.subtitle}</span>
+            {props.subtitle && (
+              <span className={classes.text}>{props.subtitle}</span>
+            )}
             {parse(props.preview_description)}
           </div>
           {props.old_price && (
-            <span className={classes.oldPrice}>{`${props.old_price} ₽`}</span>
+            <span
+              className={classes.oldPrice}
+              aria-label="Старая цена"
+            >{`${props.old_price} ₽`}</span>
           )}
-          <span className={classes.price}>{`${props.price} ₽`}</span>
-          {props.image !== '' && (
-            <img src={props.image} className={classes.icon} alt="" />
+          <span
+            className={classes.price}
+            aria-label="Текущая цена"
+          >{`${props.price} ₽`}</span>
+          {props.image && (
+            <img
+              src={props.image}
+              className={classes.icon}
+              alt={`Иконка тарифа ${props.title}`}
+              loading="lazy"
+            />
           )}
         </Link>
       ) : (
@@ -59,15 +76,38 @@ export const Rate: FC<IRateProps> = ({ props }) => {
           onClick={(e) =>
             handleClick(e, null, { name: props.title, id: props.id })
           }
+          role="button"
+          tabIndex={0}
+          aria-label={`Авторский тариф ${props.title} - ${props.price} ₽`}
         >
           <div className={classes.info}>
+            {props.is_new && (
+              <span className={classes.new} aria-label="Новый тариф">
+                NEW
+              </span>
+            )}
             <h3 className={classes.title}>{props.title}</h3>
-            <span className={classes.text}>{props.subtitle}</span>
+            {props.subtitle && (
+              <span className={classes.text}>{props.subtitle}</span>
+            )}
             {parse(props.preview_description)}
           </div>
-          <span className={classes.oldPrice}>{props.old_price}</span>
-          <span className={classes.price}>{props.price}</span>
-          <img src={props.image} className={classes.icon} alt="" />
+          {props.old_price && (
+            <span className={classes.oldPrice} aria-label="Старая цена">
+              {props.old_price}
+            </span>
+          )}
+          <span className={classes.price} aria-label="Текущая цена">
+            {props.price}
+          </span>
+          {props.image && (
+            <img
+              src={props.image}
+              className={classes.icon}
+              alt={`Иконка тарифа ${props.title}`}
+              loading="lazy"
+            />
+          )}
         </div>
       )}
     </>

@@ -94,8 +94,6 @@ export const Form = ({ variant = 'usual' }: IForm) => {
 
   useEffect(() => {
     if (rate?.rate && rate.rate.id) {
-      // В инпут кладем название (для отображения)
-      // setValue('tariff_name', rate.rate.name);
       setValue('tariff_id', rate.rate.id);
     }
 
@@ -246,7 +244,7 @@ export const Form = ({ variant = 'usual' }: IForm) => {
               pattern: {
                 value:
                   /^(\+7|8)?[\s-]?\(?\d{3}\)?[\s-]?\d{3}[\s-]?\d{2}[\s-]?\d{2}$/,
-                message: 'Введите корректный номер телефона',
+                message: '+7 (ХХХ) ХХХ-ХХ-ХХ или с 8',
               },
               minLength: {
                 value: 10,

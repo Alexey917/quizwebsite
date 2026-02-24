@@ -1,24 +1,24 @@
 .section {
-  margin-top: 92px;
+  margin-top: 5.75rem;
   position: relative;
 }
 
 .container {
-  width: 1200px;
+  width: 75rem;
   margin: auto;
 }
 
 .swiperWrapper {
-  height: 750px;
+  height: 46.875rem;
 }
 
 .title {
   margin: 0;
-  margin-bottom: 107px;
+  margin-bottom: 6.6875rem;
   font-family: 'Naga', serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 48px;
+  font-size: 3rem;
   line-height: 100%;
   color: #f1ae79;
 }
@@ -37,11 +37,11 @@
 
   padding: 0;
   display: flex;
-  gap: 182px;
+  gap: 11.375rem;
   align-items: center;
   justify-content: space-between;
   top: 0;
-  right: 75px;
+  right: 4.6875rem;
   z-index: 2;
 }
 
@@ -158,12 +158,12 @@ path.two {
   }
 
   .title {
-    margin-bottom: 72px;
-    font-size: 36px;
+    margin-bottom: 4.5rem;
+    font-size: 2.25rem;
   }
 
   .swiperWrapper {
-    height: 546px;
+    height: 34.125rem;
   }
 }
 
@@ -179,16 +179,16 @@ path.two {
   }
 
   .title {
-    font-size: 28px;
+    font-size: 1.75rem;
   }
 
   .swiperWrapper {
-    height: 500px;
+    height: 31.25rem;
   }
 
   .customNavigation {
-    gap: 100px;
-    right: 152px;
+    gap: 6.25rem;
+    right: 9.5rem;
   }
 
   .error,
@@ -203,17 +203,17 @@ path.two {
   }
 
   .title {
-    margin-bottom: 40px;
-    font-size: 24px;
+    margin-bottom: 2.5rem;
+    font-size: 1.5rem;
   }
 
   .customNavigation {
-    gap: 40px;
-    right: 86px;
+    gap: 2.5rem;
+    right: 5.375rem;
   }
 
   .swiperWrapper {
-    height: 352px;
+    height: 23.625rem;
   }
 
   .error,
@@ -230,5 +230,13 @@ path.two {
   .error,
   .info {
     font-size: 0.875rem;
+  }
+
+  .title {
+    font-size: 1.25rem;
+  }
+
+  .customNavigation {
+    right: 1.25rem;
   }
 }

@@ -3,13 +3,13 @@ import { client } from './client';
 export interface IRates {
   id: number;
   title: string;
-  subtitle: string;
+  subtitle?: string;
   preview_description: string;
-  old_price: number | null;
+  old_price?: number | null;
   price: number;
-  is_new: boolean;
+  is_new?: boolean;
   is_authorial: boolean;
-  image: string;
+  image?: string;
 }
 
 export const RatesApi = async () => {

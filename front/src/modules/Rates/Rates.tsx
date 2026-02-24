@@ -6,7 +6,6 @@ import { SliderArrow } from '@/ui';
 import { Loading } from '@/components';
 import { getErrorMessage } from '@/api';
 import { RatesApi, type IRates } from '@/api';
-import { rates } from '@/consts';
 
 import classes from './Rates.module.css';
 import { Rate } from './components';
@@ -58,7 +57,6 @@ export const Rates = () => {
       try {
         const result = await RatesApi();
         setRates(result.data);
-        console.log(result.data);
       } catch (e: unknown) {
         const message = getErrorMessage(e);
         setError(message);
@@ -119,18 +117,18 @@ export const Rates = () => {
         <Swiper
           role="region"
           aria-roledescription="carousel"
+          aria-label="Тарифы"
           aria-live="polite"
           slidesPerView={2}
           spaceBetween={20}
           breakpoints={{
-            // от 320px до 576px
             320: {
               slidesPerView: 1,
-              spaceBetween: 10,
+              spaceBetween: 20,
             },
             576: {
               slidesPerView: 1,
-              spaceBetween: 442,
+              spaceBetween: 20,
             },
             904: {
               slidesPerView: 2,
@@ -143,16 +141,14 @@ export const Rates = () => {
           className={classes.swiperWrapper}
         >
           {rates.map((rate, index) => (
-            <>
-              <SwiperSlide
-                key={`${rate.title}-${index}`}
-                role="group"
-                aria-roledescription="slide"
-                aria-label={`${rate.title}`}
-              >
-                <Rate props={rate} index={index} />
-              </SwiperSlide>
-            </>
+            <SwiperSlide
+              key={`${rate.title}-${index}`}
+              role="group"
+              aria-roledescription="slide"
+              aria-label={`Тариф ${rate.title}`}
+            >
+              <Rate props={rate} />
+            </SwiperSlide>
           ))}
         </Swiper>
 
