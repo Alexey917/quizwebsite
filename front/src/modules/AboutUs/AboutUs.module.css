@@ -55,31 +55,31 @@
 }
 
 .large {
-  fill: rgb(97 179 182);
+  fill: rgb(45 113 123);
 }
 
 .medium {
-  fill: rgb(60 133 141);
+  fill: rgb(54 125 133);
 }
 
 .small {
-  fill: rgb(43 111 121);
+  fill: rgb(50 120 129);
 }
 
 .desktop {
-  fill: rgb(26 90 102);
+  fill: rgb(44 113 123);
 }
 
 .tablet {
-  fill: rgb(63 136 144);
+  fill: rgb(22 85 97);
 }
 
 .phone {
-  fill: rgb(34 98 110);
+  fill: rgb(22 85 98);
 }
 
 .smallPhone {
-  fill: rgb(103 187 189);
+  fill: rgb(21 83 96);
 }
 
 .visuallyHidden {
@@ -225,6 +225,10 @@
   .content {
     top: 9.375rem;
   }
+
+  .section {
+    height: 115.8125rem;
+  }
 }
 
 @media (max-width: 360px) {
@@ -251,5 +255,9 @@
 
   .content {
     top: 6.125rem;
+  }
+
+  .section {
+    height: 109.8125rem;
   }
 }
