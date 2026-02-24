@@ -3,6 +3,7 @@ import { useSaveRate } from '@/hooks';
 import { store } from '@/store';
 import { setModal } from '@/store/Modal/modal';
 import classes from './CustomButton.module.css';
+import { addTitle } from '@/store/Choice/choice';
 
 interface ICustomButton {
   type: 'button' | 'submit';
@@ -21,6 +22,7 @@ export const CustomButton: FC<ICustomButton> = ({ type, text, textBr }) => {
   ) => {
     saveRate(e, to, rate);
     dispatch(setModal(true));
+    dispatch(addTitle({ name: 'Авторский квиз', id: null }));
   };
 
   return (

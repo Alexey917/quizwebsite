@@ -90,8 +90,12 @@ export const Catalog = ({ variant }: IVariant) => {
   return (
     <section className={classes.section}>
       <div className={classes.container}>
-        {data.map((elem, index) => (
-          <Card key={`${elem.title}-${index}`} data={elem} dataIndex={index} />
+        {data.map((elem) => (
+          <Card
+            key={`${elem.title}-${elem.id}`}
+            data={elem}
+            dataIndex={elem.id}
+          />
         ))}
       </div>
     </section>

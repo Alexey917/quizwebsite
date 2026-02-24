@@ -16,6 +16,7 @@ export const QuizPage = () => {
   useScrollLock(isModal);
 
   console.log(rate);
+  console.log(rate.status);
 
   return (
     <main className={classes.main}>
@@ -23,7 +24,13 @@ export const QuizPage = () => {
       <Quiz />
       {isModal && (
         <Modal>
-          {rate.rate.name === '' && !rate.rate.id ? <ModalRates /> : <Form />}
+          {rate.rate.name === '' && !rate.rate.id ? (
+            <ModalRates />
+          ) : rate.status !== 'success' ? (
+            <Form />
+          ) : (
+            <span className={classes.success}>Форма успешно отправлена!</span>
+          )}
         </Modal>
       )}
     </main>

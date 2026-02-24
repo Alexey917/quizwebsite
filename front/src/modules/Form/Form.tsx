@@ -1,7 +1,7 @@
 import { useForm, Controller } from 'react-hook-form';
 import { CustomSelect, Loader } from '@/ui';
 import { useSelector } from 'react-redux';
-import { getChoice } from '@/store';
+import { getChoice, store } from '@/store';
 import { useEffect, useState } from 'react';
 import {
   applicationApi,
@@ -11,6 +11,7 @@ import {
 import { getErrorMessage } from '@/api';
 
 import classes from './Form.module.css';
+import { setStatus } from '@/store/Choice/choice';
 
 interface IForm {
   variant?: 'authorial' | 'usual';
@@ -18,6 +19,7 @@ interface IForm {
 
 export const Form = ({ variant = 'usual' }: IForm) => {
   const rate = useSelector(getChoice);
+  const dispatch = store.dispatch;
 
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
@@ -44,7 +46,11 @@ export const Form = ({ variant = 'usual' }: IForm) => {
     formData.append('name', data.name);
     formData.append('phone', data.phone);
     formData.append('tariff_id', data.tariff_id.toString());
-    formData.append('quiz_id', data.quiz_id);
+
+    if ('quiz_id' in data && data.quiz_id) {
+      formData.append('quiz_id', data.quiz_id.toString());
+    }
+
     formData.append('quantity_of_guests', data.quantity_of_guests.toString());
     formData.append('communication', data.communication);
 
@@ -76,8 +82,8 @@ export const Form = ({ variant = 'usual' }: IForm) => {
 
     try {
       await applicationApi(formData);
-      alert(data);
       reset();
+      dispatch(setStatus('success'));
     } catch (e: unknown) {
       const message = getErrorMessage(e);
       setError(message);
@@ -90,14 +96,16 @@ export const Form = ({ variant = 'usual' }: IForm) => {
     if (rate?.rate && rate.rate.id) {
       // В инпут кладем название (для отображения)
       // setValue('tariff_name', rate.rate.name);
-      console.log('✅ ID тарифа:', rate.rate.id);
-      console.log('🔢 Тип:', typeof rate.rate.id);
-      setValue('tariff_id', 1);
+      setValue('tariff_id', rate.rate.id);
     }
-    setValue(
-      'quiz_id',
-      variant === 'authorial' ? 'Авторский квиз' : rate.title,
-    );
+
+    if (rate?.title && rate.title.id) {
+      setValue('quiz_id', variant === 'authorial' ? null : rate.title.id);
+    }
+
+    if (variant === 'authorial') {
+      setValue('quiz_display_name', rate.title.name);
+    }
   }, [rate, variant]);
 
   return (
@@ -107,7 +115,11 @@ export const Form = ({ variant = 'usual' }: IForm) => {
         9:00 до 18:00
       </legend>
       <div className={classes.wrapper}>
-        <fieldset className={classes.inputGroup}>
+        <fieldset
+          className={
+            errors?.tariff_id ? classes.inputError : classes.inputGroup
+          }
+        >
           <input
             className={classes.input}
             type="text"
@@ -128,17 +140,18 @@ export const Form = ({ variant = 'usual' }: IForm) => {
         {variant === 'authorial' ? (
           <fieldset
             className={
-              errors?.tariff_id ? classes.inputError : classes.inputGroup
+              errors?.quiz_id ? classes.inputError : classes.inputGroup
             }
           >
             <input
               className={classes.input}
               type="text"
-              placeholder=""
-              value="Авторский квиз"
+              placeholder="Выбранный квиз"
+              value={rate?.title?.name || ''}
+              {...register('quiz_display_name')}
               readOnly
-              {...register('quiz_id', { required: 'Квиз не выбран' })}
             />
+
             <span className={classes.required}>*</span>
             <span className={classes.error}>{errors?.quiz_id?.message}</span>
           </fieldset>
@@ -152,8 +165,16 @@ export const Form = ({ variant = 'usual' }: IForm) => {
               className={classes.input}
               type="text"
               placeholder="Выбранный квиз"
-              {...register('quiz_id', { required: 'Квиз не выбран' })}
+              value={rate.title.name}
+              readOnly
             />
+
+            <input
+              type="hidden"
+              {...register('quiz_id', { required: 'Квиз не выбран' })}
+              value={rate?.title?.id || ''}
+            />
+
             <span className={classes.required}>*</span>
             <span className={classes.error}>{errors?.quiz_id?.message}</span>
           </fieldset>
@@ -260,7 +281,7 @@ export const Form = ({ variant = 'usual' }: IForm) => {
                 options={[
                   { value: 'call', label: 'Звонок' },
                   { value: 'telegram', label: 'Telegram' },
-                  { value: 'whatsApp', label: 'WhatsApp' },
+                  { value: 'whatsapp', label: 'WhatsApp' },
                 ]}
                 value={field.value}
                 onChange={field.onChange}
@@ -323,11 +344,11 @@ export const Form = ({ variant = 'usual' }: IForm) => {
                   variant === 'authorial' ? 'Опишите желаемый квиз' : false,
                 minLength: {
                   value: 20,
-                  message: 'Описание должно содержать минимум 20 символов',
+                  message: 'Минимум 20 символов',
                 },
                 maxLength: {
                   value: 2000,
-                  message: 'Описание не может быть длиннее 2000 символов',
+                  message: 'Не длиннее 2000 символов',
                 },
               })}
             />

@@ -4,7 +4,8 @@ export interface IUsualApplication {
   name: string;
   phone: string;
   tariff_id: number;
-  quiz_id: string;
+  quiz_id: number | null;
+  quiz_display_name?: string;
   quantity_of_guests: string;
   communication: string;
   login: string;

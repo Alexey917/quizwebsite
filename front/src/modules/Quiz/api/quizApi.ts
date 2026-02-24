@@ -1,6 +1,7 @@
 import { client } from '@/api';
 
 export interface IQuiz {
+  id: number;
   background_image_text: string;
   title: string;
   detail_image: string;

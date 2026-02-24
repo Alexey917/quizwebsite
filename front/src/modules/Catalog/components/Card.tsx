@@ -9,7 +9,7 @@ interface ICard {
   dataIndex: number;
 }
 
-export const Card = ({ data, dataIndex }: ICard) => {
+export const Card = ({ data }: ICard) => {
   const location = useLocation();
   const navigate = useNavigate();
   const { categoryId } = useParams<{ categoryId: string }>();
@@ -51,11 +51,11 @@ export const Card = ({ data, dataIndex }: ICard) => {
       {location.pathname === '/catalog' ? (
         <Link
           className={classes.link}
-          to={`/catalog/${dataIndex + 1}-${createSlug(data.title)}/quizzes`}
+          to={`/catalog/${data.id}-${createSlug(data.title)}/quizzes`}
           onClick={(e) =>
             handleCategory(
               e,
-              `/catalog/${dataIndex + 1}-${createSlug(data.title)}/quizzes`,
+              `/catalog/${data.id}-${createSlug(data.title)}/quizzes`,
             )
           }
         >
@@ -64,13 +64,13 @@ export const Card = ({ data, dataIndex }: ICard) => {
       ) : (
         <Link
           className={classes.link}
-          to={`/catalog/${categoryId}/quizzes/${dataIndex}-${createSlug(
+          to={`/catalog/${categoryId}/quizzes/${data.id}-${createSlug(
             data.title,
           )}`}
           onClick={(e) =>
             handleQuiz(
               e,
-              `/catalog/${categoryId}/quizzes/${dataIndex}-${createSlug(
+              `/catalog/${categoryId}/quizzes/${data.id}-${createSlug(
                 data.title,
               )}`,
             )

@@ -7,7 +7,8 @@ type TRate = {
 
 interface IChoice {
   rate: TRate;
-  title: string;
+  title: TRate;
+  status: string;
 }
 
 const initialChoiceState: IChoice = {
@@ -15,7 +16,11 @@ const initialChoiceState: IChoice = {
     id: null,
     name: '',
   },
-  title: '',
+  title: {
+    name: '',
+    id: null,
+  },
+  status: '',
 };
 
 const ChoiceSlice = createSlice({
@@ -27,12 +32,17 @@ const ChoiceSlice = createSlice({
       state.rate.name = action.payload.name;
     },
 
-    addTitle: (state, action: { payload: string }) => {
-      state.title = action.payload;
+    addTitle: (state, action: { payload: TRate }) => {
+      state.title.name = action.payload.name;
+      state.title.id = action.payload.id;
+    },
+
+    setStatus: (state, action: { payload: string }) => {
+      state.status = action.payload;
     },
   },
 });
 
-export const { addRate, addTitle } = ChoiceSlice.actions;
+export const { addRate, addTitle, setStatus } = ChoiceSlice.actions;
 
 export const ChoiceReducer = ChoiceSlice.reducer;

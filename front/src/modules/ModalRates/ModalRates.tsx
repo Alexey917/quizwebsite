@@ -75,7 +75,9 @@ export const ModalRates = ({ variant = 'usual' }: IModalRates) => {
             className={classes.rate}
             key={`${index}-${rate.title}`}
             aria-labelledby={`rate-title-${index}`}
-            onClick={(e) => saveRate(e, null, rate.title)}
+            onClick={(e) =>
+              saveRate(e, null, { name: rate.title, id: rate.id })
+            }
           >
             <h3 className={classes.rateTitle} id={`rate-title-${index}`}>
               {rate.title}
@@ -85,7 +87,9 @@ export const ModalRates = ({ variant = 'usual' }: IModalRates) => {
               type="button"
               className={classes.rateBtn}
               aria-label={`Выбрать тариф "${rate.title}" за ${rate.price} рублей`}
-              onClick={(e) => saveRate(e, null, rate.title)}
+              onClick={(e) =>
+                saveRate(e, null, { name: rate.title, id: rate.id })
+              }
             >
               <span className={classes.rateBtnText}>Выбрать</span>
             </button>

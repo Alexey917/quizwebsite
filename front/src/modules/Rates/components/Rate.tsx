@@ -1,31 +1,21 @@
 import { Link } from 'react-router-dom';
 import { type IRates } from '@/api';
 import { useSaveRate } from '@/hooks';
-import { store } from '@/store';
+import { getChoice, store } from '@/store';
 import { setModal } from '@/store/Modal/modal';
 
 import parse from 'html-react-parser';
 
 import classes from './Rate.module.css';
 import type { FC } from 'react';
+import { addTitle } from '@/store/Choice/choice';
 
 interface IRateProps {
   props: IRates;
   index: number;
 }
 
-/*
-is_authorial,
-  title,
-  preview_description,
-  price,
-  old_price,
-  subtitle,
-  image,
-  is_new,
-*/
-
-export const Rate: FC<IRateProps> = ({ props, index }) => {
+export const Rate: FC<IRateProps> = ({ props }) => {
   const saveRate = useSaveRate();
   const dispatch = store.dispatch;
 
@@ -36,6 +26,7 @@ export const Rate: FC<IRateProps> = ({ props, index }) => {
   ) => {
     saveRate(e, to, rate);
     dispatch(setModal(true));
+    dispatch(addTitle({ name: 'Авторский квиз', id: null }));
   };
 
   return (

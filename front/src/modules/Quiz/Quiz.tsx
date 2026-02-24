@@ -33,7 +33,7 @@ export const Quiz = () => {
     return numericPart;
   };
 
-  const handleClick = (title: string) => {
+  const handleClick = (title: { name: string; id: null | number }) => {
     dispatch(setModal(true));
     dispatch(addTitle(title));
   };
@@ -50,8 +50,8 @@ export const Quiz = () => {
           const numericId = extractNumericId(quizId);
           const numericQuiz = extractNumericQuiz(categoryId);
           result = await quizApi({ numericQuiz });
-          console.log(result.data[numericId]);
-          setQuiz(result?.data?.[numericId]);
+          console.log(result.data.find((elem: IQuiz) => elem.id === numericId));
+          setQuiz(result.data.find((elem: IQuiz) => elem.id === numericId));
         } else if (quizId && !categoryId) {
           const numericQuiz = extractNumericQuiz(quizId);
           result = await quizPopularApi({ numericQuiz });
@@ -112,7 +112,7 @@ export const Quiz = () => {
           <button
             type="button"
             className={classes.btn}
-            onClick={() => handleClick(quiz.title)}
+            onClick={() => handleClick({ name: quiz.title, id: quiz.id })}
           >
             <span className={classes.btnText}>Выбрать</span>
           </button>

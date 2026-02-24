@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 
 import classes from './Modal.module.css';
 import sprite from '../../assets/sprite.svg';
+import { addRate, addTitle, setStatus } from '@/store/Choice/choice';
 
 type TModal = {
   children: ReactNode;
@@ -25,6 +26,9 @@ export const Modal = ({ children }: TModal) => {
         !wrapperRef.current?.contains(e.target as Node)
       ) {
         dispatch(setModal(false));
+        dispatch(addTitle({ name: '', id: null }));
+        dispatch(addRate({ name: '', id: null }));
+        dispatch(setStatus(''));
       }
     };
 
@@ -55,6 +59,13 @@ export const Modal = ({ children }: TModal) => {
     };
   }, [isModal]);
 
+  const resetState = () => {
+    dispatch(setModal(false));
+    dispatch(addTitle({ name: '', id: null }));
+    dispatch(addRate({ name: '', id: null }));
+    dispatch(setStatus(''));
+  };
+
   return (
     <div
       className={classes.overlay}
@@ -66,10 +77,7 @@ export const Modal = ({ children }: TModal) => {
     >
       <div className={classes.wrapper} ref={wrapperRef}>
         <div className={classes.content}>
-          <button
-            className={classes.btnClose}
-            onClick={() => dispatch(setModal(false))}
-          >
+          <button className={classes.btnClose} onClick={() => resetState()}>
             <svg
               className={classes.closeIcon}
               aria-hidden="true"

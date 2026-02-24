@@ -4,3 +4,41 @@
   min-height: 100vh;
   background: linear-gradient(180deg, #165b6a 10%, #6ec4c5 100%);
 }
+
+.success {
+  margin-bottom: 60px;
+  font-family: 'Nunito';
+  font-weight: 500;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: 0%;
+  text-align: center;
+  color: #fecda7;
+}
+
+@media (max-width: 1200px) {
+  .success {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .success {
+    margin-bottom: 40px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  .success {
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 360px) {
+  .success {
+    font-size: 12px;
+  }
+}

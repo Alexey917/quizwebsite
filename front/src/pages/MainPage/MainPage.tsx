@@ -20,7 +20,7 @@ export const MainPage = () => {
       <Reviews />
       {isModal && (
         <Modal>
-          {rate.rate === '' ? (
+          {rate.rate.name === '' ? (
             <ModalRates variant="authorial" />
           ) : (
             <Form variant="authorial" />
