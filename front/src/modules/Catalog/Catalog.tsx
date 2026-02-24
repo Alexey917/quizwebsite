@@ -38,13 +38,11 @@ export const Catalog = ({ variant }: IVariant) => {
         let result;
         if (variant === 'categories') {
           result = await categoriesApi();
-          console.log(result.data);
         } else {
           if (categoryId) {
             const numericId = extractNumericId(categoryId);
 
             result = await quizzesApi({ numericId });
-            console.log(result.data);
           }
         }
 
@@ -76,10 +74,33 @@ export const Catalog = ({ variant }: IVariant) => {
   if (error) {
     return (
       <section className={classes.section} aria-label="Ошибка загрузки">
-        <div className={classes.container}>
+        <div className={`${classes.container} ${classes.align}`}>
           <div className={classes.align}>
             <span className={classes.error} role="alert">
               {error}
+            </span>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (data.length === 0) {
+    return (
+      <section
+        className={classes.section}
+        aria-label={
+          variant === 'categories'
+            ? 'Нет доступных категорий'
+            : 'Нет доступных квизов'
+        }
+      >
+        <div className={`${classes.container} ${classes.align}`}>
+          <div className={classes.align}>
+            <span className={classes.info} role="alert">
+              {variant === 'categories'
+                ? 'Нет доступных категорий'
+                : 'Нет доступных квизов'}
             </span>
           </div>
         </div>

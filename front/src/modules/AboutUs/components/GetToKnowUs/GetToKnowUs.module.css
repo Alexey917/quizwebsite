@@ -44,6 +44,7 @@
   );
   border: 0.0313rem solid #13515e;
   text-decoration: none;
+  animation: spin 4s linear infinite;
 }
 
 .innerWrapper {
@@ -108,12 +109,20 @@
   }
 }
 
+.img {
+  transition: transform 1.5s ease;
+}
+
 @media (hover: hover) {
   .linkWrapper:hover,
   .innerWrapper:hover {
     cursor: pointer;
     -webkit-animation: spin 3s linear infinite;
-    animation: spin 3s linear infinite;
+    animation: spin 2.5s linear infinite;
+  }
+
+  .innerWrapper:hover .img {
+    transform: rotateY(360deg);
   }
 }
 

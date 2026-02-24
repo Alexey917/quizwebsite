@@ -4,7 +4,7 @@ import classes from './Preview.module.css';
 
 interface IPreview {
   img: string;
-  text: string;
+  text?: string;
   title: string;
   preview_text: string;
 }
@@ -26,10 +26,12 @@ export const Preview = ({ img, text, title, preview_text }: IPreview) => {
         {title}
       </h2>
       <p className={classes.previewText}>{preview_text}</p>
-      <div className={classes.text}>
-        <h3 className={classes.await}>Что вас ждёт:</h3>
-        {parse(text)}
-      </div>
+      {text && (
+        <div className={classes.text}>
+          <h3 className={classes.await}>Что вас ждёт:</h3>
+          {parse(text)}
+        </div>
+      )}
     </article>
   );
 };

@@ -13,6 +13,27 @@
   margin: auto;
 }
 
+.align {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error,
+.info {
+  font-family: 'Naga', serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.5rem;
+  line-height: 100%;
+  color: #ff0000;
+  text-align: center;
+}
+
+.info {
+  color: #fecda7;
+}
+
 @media (max-width: 1200px) {
   .container {
     width: 64rem;
@@ -30,16 +51,31 @@
   .container {
     width: 36rem;
   }
+
+  .error,
+  .info {
+    font-size: 1.25rem;
+  }
 }
 
 @media (max-width: 576px) {
   .container {
     width: 22.5rem;
   }
+
+  .error,
+  .info {
+    font-size: 1.125rem;
+  }
 }
 
 @media (max-width: 360px) {
   .container {
     width: 20rem;
+  }
+
+  .error,
+  .info {
+    font-size: 0.875rem;
   }
 }

@@ -50,12 +50,10 @@ export const Quiz = () => {
           const numericId = extractNumericId(quizId);
           const numericQuiz = extractNumericQuiz(categoryId);
           result = await quizApi({ numericQuiz });
-          console.log(result.data.find((elem: IQuiz) => elem.id === numericId));
           setQuiz(result.data.find((elem: IQuiz) => elem.id === numericId));
         } else if (quizId && !categoryId) {
           const numericQuiz = extractNumericQuiz(quizId);
           result = await quizPopularApi({ numericQuiz });
-          console.log(result.data);
           setQuiz(result?.data);
         }
       } catch (e: unknown) {
@@ -83,10 +81,27 @@ export const Quiz = () => {
   if (error) {
     return (
       <section className={classes.section} aria-label="Ошибка загрузки">
-        <div className={classes.container}>
+        <div className={`${classes.container} ${classes.align}`}>
           <div className={classes.align}>
             <span className={classes.error} role="alert">
               {error}
+            </span>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (!quiz) {
+    return (
+      <section
+        className={classes.section}
+        aria-label="Подробная информация отсутствует"
+      >
+        <div className={`${classes.container} ${classes.align}`}>
+          <div className={classes.align}>
+            <span className={classes.info} role="alert">
+              Подробная информация отсутствует
             </span>
           </div>
         </div>

@@ -31,13 +31,21 @@
   padding: var(--borderWidth);
   background-image: var(--borderGradient);
   border-radius: inherit;
-  -webkit-mask: conic-gradient(#000 0 0) content-box, conic-gradient(#000 0 0);
+  -webkit-mask:
+    conic-gradient(#000 0 0) content-box,
+    conic-gradient(#000 0 0);
   -webkit-mask-composite: xor;
-  -webkit-mask: conic-gradient(#000 0 0) content-box, conic-gradient(#000 0 0);
+  -webkit-mask:
+    conic-gradient(#000 0 0) content-box,
+    conic-gradient(#000 0 0);
   -webkit-mask-composite: xor;
-  -webkit-mask: conic-gradient(#000 0 0) content-box, conic-gradient(#000 0 0);
+  -webkit-mask:
+    conic-gradient(#000 0 0) content-box,
+    conic-gradient(#000 0 0);
   -webkit-mask-composite: xor;
-  mask: conic-gradient(#000 0 0) content-box exclude, conic-gradient(#000 0 0);
+  mask:
+    conic-gradient(#000 0 0) content-box exclude,
+    conic-gradient(#000 0 0);
 }
 
 .number {
@@ -73,6 +81,7 @@
   font-size: 1.25rem;
   line-height: 1.75rem;
   color: #fecda7;
+  overflow-x: hidden;
   overflow-y: auto;
   scrollbar-color: #f1ae79 transparent;
   scrollbar-width: none;
