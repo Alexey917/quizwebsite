@@ -5,9 +5,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Link, useNavigate } from 'react-router-dom';
 
 import { Navigation, EffectCube } from 'swiper/modules';
-import { popularQuizzes } from '@/consts';
 import { Loading } from '@/components';
-import { SliderArrow, Loader } from '@/ui';
+import { SliderArrow } from '@/ui';
 import { createSlug } from '@/utils';
 import { popularApi, type IPopularQuizzes } from './api/popularApi';
 import { getErrorMessage } from '@/api';

@@ -4,7 +4,6 @@ import { Modal } from '@/ui';
 import { useScrollLock } from '@/hooks';
 
 import classes from './QuizPage.module.css';
-import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { getChoice, getModal } from '@/store';
 

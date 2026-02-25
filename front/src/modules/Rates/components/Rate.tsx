@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { type IRates } from '@/api';
 import { useSaveRate } from '@/hooks';
-import { getChoice, store } from '@/store';
+import { store } from '@/store';
 import { setModal } from '@/store/Modal/modal';
 
 import parse from 'html-react-parser';

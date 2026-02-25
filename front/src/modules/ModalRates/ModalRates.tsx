@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { RatesApi, type IRates, getErrorMessage } from '@/api';
-import { Loading } from '@/components';
 import parse from 'html-react-parser';
 
 import classes from './ModalRates.module.css';

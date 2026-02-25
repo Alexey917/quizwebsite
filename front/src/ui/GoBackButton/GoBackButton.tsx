@@ -2,7 +2,6 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 import classes from './GoBackButton.module.css';
 import back from '../../assets/sprite.svg';
-import { useEffect, useState, useRef } from 'react';
 
 interface IGoBack {
   classBtn: string;

@@ -30,7 +30,7 @@ export const translitToRussian = (text: string): string => {
     result = result.replace(regex, map[key]);
   }
 
-  result = result.replace(/(^|\.\s+)([а-я])/g, (match, p1, p2) => {
+  result = result.replace(/(^|\.\s+)([а-я])/g, (p1, p2) => {
     return p1 + p2.toUpperCase();
   });
 

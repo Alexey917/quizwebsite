@@ -4,8 +4,6 @@ export const getErrorMessage = (
   error: unknown,
   defaultMessage: string = 'Произошла ошибка',
 ): string => {
-  let message: null | string = null;
-
   if (error instanceof AxiosError) {
     const status = error.response?.status;
     const data = error.response?.data as {
