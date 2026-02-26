@@ -86,9 +86,9 @@
   line-height: 2rem;
   z-index: 2;
   color: #fecda7;
-  overflow-y: auto;
+  /* overflow-y: auto;
   scrollbar-color: #f1ae79 transparent;
-  scrollbar-width: none;
+  scrollbar-width: none; */
 }
 
 .quizText::-webkit-scrollbar {

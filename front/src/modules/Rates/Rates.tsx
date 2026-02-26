@@ -125,19 +125,38 @@ export const Rates = () => {
             320: {
               slidesPerView: 1,
               spaceBetween: 20,
+              slidesOffsetBefore: 0,
+            },
+            360: {
+              slidesPerView: 1,
+              spaceBetween: 20,
+              slidesOffsetBefore: 15,
             },
             576: {
               slidesPerView: 1,
               spaceBetween: 20,
+              slidesOffsetBefore: 50,
             },
             768: {
               slidesPerView: 1,
               spaceBetween: 20,
+              slidesOffsetBefore: 50,
             },
 
             904: {
               slidesPerView: 2,
               spaceBetween: 20,
+              slidesOffsetBefore: 0,
+            },
+            1024: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+              slidesOffsetBefore: 25,
+            },
+            1200: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+              slidesOffsetBefore: 0,
             },
           }}
           onSwiper={handleSwiper}

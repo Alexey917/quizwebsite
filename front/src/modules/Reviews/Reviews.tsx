@@ -137,6 +137,7 @@ export const Reviews = () => {
             pagination={{
               clickable: true,
             }}
+            allowTouchMove={false}
             loop={true}
             autoplay={{
               delay: 5000,

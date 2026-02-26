@@ -54,11 +54,17 @@
   padding-bottom: 0;
   background-image: var(--borderGradient);
   border-radius: inherit;
-  -webkit-mask: conic-gradient(#000 0 0) content-box, conic-gradient(#000 0 0);
+  -webkit-mask:
+    conic-gradient(#000 0 0) content-box,
+    conic-gradient(#000 0 0);
   -webkit-mask-composite: xor;
-  -webkit-mask: conic-gradient(#000 0 0) content-box, conic-gradient(#000 0 0);
+  -webkit-mask:
+    conic-gradient(#000 0 0) content-box,
+    conic-gradient(#000 0 0);
   -webkit-mask-composite: xor;
-  mask: conic-gradient(#000 0 0) content-box exclude, conic-gradient(#000 0 0);
+  mask:
+    conic-gradient(#000 0 0) content-box exclude,
+    conic-gradient(#000 0 0);
 }
 
 .benefitWrapper::after {
@@ -191,8 +197,8 @@
   }
 
   .benefitWrapper {
-    width: 14.875rem;
-    height: 11.875rem;
+    width: 17.875rem;
+    height: 10.875rem;
     border-radius: 1rem 0.125rem 1rem 1rem;
     padding: 1.25rem;
   }

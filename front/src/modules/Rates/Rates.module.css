@@ -1,15 +1,16 @@
 .section {
   margin-top: 5.75rem;
-  position: relative;
+  /* position: relative; */
 }
 
 .container {
+  position: relative;
   width: 75rem;
   margin: auto;
 }
 
 .swiperWrapper {
-  height: 46.875rem;
+  height: 48.875rem;
 }
 
 .title {
@@ -41,7 +42,7 @@
   align-items: center;
   justify-content: space-between;
   top: 0;
-  right: 4.6875rem;
+  right: 0;
   z-index: 2;
 }
 
@@ -183,12 +184,11 @@ path.two {
   }
 
   .swiperWrapper {
-    height: 31.25rem;
+    height: 34.25rem;
   }
 
   .customNavigation {
     gap: 6.25rem;
-    right: 9.5rem;
   }
 
   .error,
@@ -209,7 +209,6 @@ path.two {
 
   .customNavigation {
     gap: 2.5rem;
-    right: 5.375rem;
   }
 
   .swiperWrapper {
@@ -234,9 +233,5 @@ path.two {
 
   .title {
     font-size: 1.25rem;
-  }
-
-  .customNavigation {
-    right: 1.25rem;
   }
 }

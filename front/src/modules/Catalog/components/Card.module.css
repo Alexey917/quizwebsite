@@ -1,7 +1,7 @@
 .card {
   position: relative;
   width: 24.1875rem;
-  height: 31.25rem;
+  height: 37.25rem;
   background: linear-gradient(13.45deg, #13515e 4.1%, #217987 95.9%);
   border-radius: 2.5rem 0.5rem 2.5rem 2.5rem;
 
@@ -51,8 +51,8 @@
   margin: 0;
   margin-top: 1rem;
   width: 23.5625rem;
-  height: 10.5rem;
-  overflow-y: auto;
+  height: 15.5rem;
+  overflow-y: hidden;
   padding: 0px 1.6875rem;
   font-family: 'Nunito', sans-serif;
   font-weight: 600;
@@ -62,8 +62,8 @@
   color: #fecda7;
   z-index: 2;
 
-  scrollbar-width: thin;
-  scrollbar-color: #f1ae79 transparent;
+  /* scrollbar-width: thin;
+  scrollbar-color: #f1ae79 transparent; */
 }
 
 .description::-webkit-scrollbar {
@@ -128,13 +128,21 @@
   padding: var(--borderWidth);
   background-image: var(--borderGradient);
   border-radius: inherit;
-  -webkit-mask: conic-gradient(#000 0 0) content-box, conic-gradient(#000 0 0);
+  -webkit-mask:
+    conic-gradient(#000 0 0) content-box,
+    conic-gradient(#000 0 0);
   -webkit-mask-composite: xor;
-  -webkit-mask: conic-gradient(#000 0 0) content-box, conic-gradient(#000 0 0);
+  -webkit-mask:
+    conic-gradient(#000 0 0) content-box,
+    conic-gradient(#000 0 0);
   -webkit-mask-composite: xor;
-  -webkit-mask: conic-gradient(#000 0 0) content-box, conic-gradient(#000 0 0);
+  -webkit-mask:
+    conic-gradient(#000 0 0) content-box,
+    conic-gradient(#000 0 0);
   -webkit-mask-composite: xor;
-  mask: conic-gradient(#000 0 0) content-box exclude, conic-gradient(#000 0 0);
+  mask:
+    conic-gradient(#000 0 0) content-box exclude,
+    conic-gradient(#000 0 0);
 }
 
 .link::after {
@@ -189,7 +197,7 @@
   .description {
     font-size: 1.125rem;
     width: 19.875rem;
-    height: 8.25rem;
+    height: 16.25rem;
   }
 
   .link {
@@ -273,7 +281,7 @@
     line-height: 1.5rem;
     padding: 0 0.75rem;
     width: 19.3125rem;
-    height: 4.375rem;
+    height: 12.375rem;
   }
 
   .link {
@@ -285,7 +293,7 @@
 
   .card {
     width: 19.9375rem;
-    height: 22rem;
+    height: 28rem;
     border-radius: 1rem 0.125rem 1rem 1rem;
   }
 
