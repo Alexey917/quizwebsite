@@ -126,6 +126,10 @@
   .headerLettering {
     display: none;
   }
+
+  .Lettering {
+    display: none;
+  }
 }
 
 @media (max-width: 904px) {

@@ -24,10 +24,10 @@ export const Benefits = () => {
         slidesPerView={isMid || isPhone ? 2 : isMin ? 1 : 3}
         spaceBetween={isTablet || isMid ? 200 : isPhone ? 320 : 120}
         loop={true}
-        // autoplay={{
-        //   delay: 4500,
-        //   disableOnInteraction: false,
-        // }}
+        autoplay={{
+          delay: 4500,
+          disableOnInteraction: false,
+        }}
         modules={[Autoplay]}
         className={classes.swiperWrapper}
       >

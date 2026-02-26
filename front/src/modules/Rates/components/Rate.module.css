@@ -171,7 +171,7 @@
   grid-area: 2 / 2 / 3 / 3;
   justify-self: end;
   align-self: end;
-  position: absolute;
+  /* position: absolute; */
   width: 15rem;
   height: 15rem;
 }

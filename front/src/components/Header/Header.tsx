@@ -55,7 +55,7 @@ export const Header: FC<IHeader> = ({ isMobile, setIsMobile }) => {
         }
       >
         {location.pathname !== '/' && (
-          <Link to="/">
+          <Link to="/" className={classes.Lettering}>
             <BrandedLettering
               positionX={10}
               positionY={40}
