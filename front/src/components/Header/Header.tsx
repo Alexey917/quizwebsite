@@ -55,14 +55,16 @@ export const Header: FC<IHeader> = ({ isMobile, setIsMobile }) => {
         }
       >
         {location.pathname !== '/' && (
-          <BrandedLettering
-            positionX={10}
-            positionY={40}
-            boxWidth={320}
-            boxHeight={30}
-            variant="header"
-            label="QuizyTales"
-          />
+          <Link to="/">
+            <BrandedLettering
+              positionX={10}
+              positionY={40}
+              boxWidth={320}
+              boxHeight={30}
+              variant="header"
+              label="QuizyTales"
+            />
+          </Link>
         )}
 
         <nav className={classes.navigation} aria-label="Основная навигация">
@@ -142,7 +144,9 @@ export const Header: FC<IHeader> = ({ isMobile, setIsMobile }) => {
 
         <GoBackButton classBtn="btnMenu" />
 
-        <h2 className={classes.currentPath}>{mobileTitle}</h2>
+        {mobileTitle !== 'Главная' && (
+          <h2 className={classes.currentPath}>{mobileTitle}</h2>
+        )}
 
         <MobileMenuBtn setIsMobile={setIsMobile} isMobile={isMobile} />
       </div>

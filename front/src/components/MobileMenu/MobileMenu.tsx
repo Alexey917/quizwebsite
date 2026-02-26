@@ -139,6 +139,8 @@ export const MobileMenu: FC<IMobileMenu> = ({ isMobile, setIsMobile }) => {
                   >
                     {route.title}
                   </Link>
+                ) : route.path === '/' && location.pathname == '/' ? (
+                  ''
                 ) : (
                   <Link
                     to={route.path}
@@ -157,14 +159,23 @@ export const MobileMenu: FC<IMobileMenu> = ({ isMobile, setIsMobile }) => {
             ))}
           </ul>
 
-          <BrandedLettering
-            positionX={10}
-            positionY={0}
-            boxWidth={310}
-            boxHeight={95}
-            variant="menu"
-            label="QuizyTales"
-          />
+          <Link
+            to="/"
+            onClick={(e) => {
+              e.preventDefault();
+              setIsMobile(false);
+              navigate('/');
+            }}
+          >
+            <BrandedLettering
+              positionX={10}
+              positionY={0}
+              boxWidth={310}
+              boxHeight={95}
+              variant="menu"
+              label="QuizyTales"
+            />
+          </Link>
         </nav>
       </div>
     </div>

@@ -14,12 +14,20 @@ export const AboutUs = () => {
       <h2 id="about-us-title" className={classes.visuallyHidden}>
         О нашей компании
       </h2>
-      <svg className={classes.wavesBg} aria-hidden="true">
-        <use href={`${sprite}#wavesBg`}></use>
+      <svg
+        className={classes.wavesBg}
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <use href={`${sprite}#wavesBg `} xlinkHref={`${sprite}#wavesBg`}></use>
       </svg>
 
-      <svg className={classes.waves} aria-hidden="true">
-        <use href={`${sprite}#waves`}></use>
+      <svg
+        className={classes.waves}
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <use href={`${sprite}#waves`} xlinkHref={`${sprite}#waves`}></use>
       </svg>
       <div className={classes.content}>
         <div className={classes.container}>

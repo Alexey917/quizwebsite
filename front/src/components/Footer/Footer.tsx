@@ -1,4 +1,5 @@
 import { Logo } from '@/ui';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 import classes from './Footer.module.css';
 import tg from '../../assets/tg.svg';
@@ -6,10 +7,35 @@ import vk from '../../assets/vk.svg';
 import tgMini from '../../assets/tgmini.svg';
 
 export const Footer = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
   return (
     <footer className={classes.footer}>
       <div className={classes.container}>
-        <Logo className="footer" aria-label="Логотип QuizyTales" />
+        <Link
+          to="/"
+          onClick={(e) => {
+            e.preventDefault();
+            if (location.pathname !== '/') {
+              navigate('/');
+
+              setTimeout(() => {
+                window.scrollTo({
+                  top: 0,
+                  behavior: 'smooth',
+                });
+              }, 300);
+            } else {
+              window.scrollTo({
+                top: 0,
+                behavior: 'smooth',
+              });
+            }
+          }}
+        >
+          <Logo className="footer" aria-label="Логотип QuizyTales" />
+        </Link>
         <ul className={classes.list}>
           <li className={classes.listItem}>
             <img src={tgMini} className={classes.miniImg} alt="" />
