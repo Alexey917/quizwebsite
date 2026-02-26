@@ -46,8 +46,9 @@
   top: 11.25rem;
   left: 6.375rem;
   width: 55.9375rem;
-  height: 16.375rem;
+  max-height: 18.475rem;
   z-index: 1;
+  overflow: hidden;
 
   --borderWidth: 0.125rem;
   --borderGradient: linear-gradient(
@@ -69,11 +70,17 @@
   padding: var(--borderWidth);
   background-image: var(--borderGradient);
   border-radius: inherit;
-  -webkit-mask: conic-gradient(#000 0 0) content-box, conic-gradient(#000 0 0);
+  -webkit-mask:
+    conic-gradient(#000 0 0) content-box,
+    conic-gradient(#000 0 0);
   -webkit-mask-composite: xor;
-  -webkit-mask: conic-gradient(#000 0 0) content-box, conic-gradient(#000 0 0);
+  -webkit-mask:
+    conic-gradient(#000 0 0) content-box,
+    conic-gradient(#000 0 0);
   -webkit-mask-composite: xor;
-  mask: conic-gradient(#000 0 0) content-box exclude, conic-gradient(#000 0 0);
+  mask:
+    conic-gradient(#000 0 0) content-box exclude,
+    conic-gradient(#000 0 0);
   pointer-events: none;
 }
 
@@ -82,10 +89,11 @@
   padding: 0;
   padding-left: 1.75rem;
   margin: 1.75rem;
-  height: 12.875rem;
-  overflow-y: auto;
+  max-height: 15.5rem;
+  overflow: hidden;
+  /* overflow-y: auto;
   scrollbar-color: #f1ae79 transparent;
-  scrollbar-width: none;
+  scrollbar-width: none; */
 }
 
 .text li {
@@ -159,19 +167,19 @@
   .img,
   .overlay {
     width: 56.5rem;
-    height: 28.25rem;
+    max-height: 32.25rem;
   }
 
   .text {
     top: 9.25rem;
     width: 42.0625rem;
-    height: 13.6875rem;
+    /* height: 13.6875rem; */
     border-radius: 1.25rem;
   }
 
   .text ul {
     margin: 1.25rem;
-    height: 11.1875rem;
+    /* height: 11.1875rem; */
   }
 
   .text li {
@@ -187,20 +195,20 @@
   .img,
   .overlay {
     width: 36rem;
-    height: 22rem;
+    max-height: 28rem;
   }
 
   .text {
     top: 6.625rem;
     left: 3.125rem;
     width: 29.75rem;
-    height: 13.6875rem;
+    /* height: 13.6875rem; */
     border-radius: 1.25rem;
   }
 
   .text ul {
     margin: 1.25rem;
-    height: 11.1875rem;
+    /* height: 11.1875rem; */
   }
 
   .text li {
@@ -223,17 +231,18 @@
 
   .text {
     position: relative;
-    top: 0;
+    top: 40px;
     left: 0;
     width: 22.5rem;
-    height: 12.125rem;
+    max-height: 16rem;
     border-radius: 1.25rem 0.125rem 1.25rem 1.25rem;
+    display: none;
   }
 
   .text ul {
     margin: 0;
     padding-left: 2.25rem;
-    height: 9rem;
+    max-height: 12.5rem;
   }
 
   .text li {
@@ -292,7 +301,7 @@
     top: 1.25rem;
     left: 0;
     width: 20rem;
-    height: 12.125rem;
+    /* height: 12.125rem; */
   }
 
   .text ul {

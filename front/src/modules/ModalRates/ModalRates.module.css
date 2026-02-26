@@ -25,7 +25,7 @@
   padding: 1.75rem;
   position: relative;
   width: 36.875rem;
-  height: 14.1875rem;
+  /* height: 14.1875rem; */
   border-radius: 2.5rem 0.25rem 2.5rem 2.5rem;
   --borderWidth: 0.125rem;
   --borderGradient: linear-gradient(266.43deg, #fecda7 0%, #b46b48 100%);
@@ -94,10 +94,10 @@
   margin: 0;
   padding-left: 1.75rem;
   width: 31.625rem;
-  height: 4.8125rem;
-  overflow-y: auto;
+  /* height: 4.8125rem; */
+  /* overflow-y: auto;
   scrollbar-color: #f1ae79 transparent;
-  scrollbar-width: none;
+  scrollbar-width: none; */
 }
 
 .rate p {
@@ -105,10 +105,10 @@
   padding: 0;
   margin: 0;
   width: 31.625rem;
-  height: 4.8125rem;
+  /* height: 4.8125rem;
   overflow-y: auto;
   scrollbar-color: #f1ae79 transparent;
-  scrollbar-width: none;
+  scrollbar-width: none; */
 }
 
 .rate ul::-webkit-scrollbar {
@@ -347,7 +347,7 @@
 
   .rate {
     width: 30.125rem;
-    height: 11.4375rem;
+    /* height: 11.4375rem; */
     border-radius: 2.1187rem 0.2119rem 2.1187rem 2.1187rem;
     grid-row-gap: 0.6875rem;
     padding: 1.25rem;
@@ -361,7 +361,7 @@
   .rate ul,
   .rate p {
     width: 442px;
-    height: 67px;
+    /* height: 67px; */
   }
 
   .rate li {
@@ -385,6 +385,7 @@
 
   .oldPrice {
     font-size: 0.75rem;
+    top: -1rem;
   }
 
   .price {
@@ -409,11 +410,11 @@
   }
 
   .rate {
-    width: 15.5rem;
-    height: 10.625rem;
+    width: 18.5rem;
+    /* height: 10.625rem; */
     border-radius: 0.875rem 0.125rem 0.875rem 0.875rem;
-    grid-row-gap: 0;
-    padding: 0.75rem;
+    grid-row-gap: 1.25rem;
+    padding: 1rem 0.75rem;
   }
 
   .rateTitle,
@@ -423,8 +424,8 @@
 
   .rate ul,
   .rate p {
-    width: 14rem;
-    height: 4.5rem;
+    width: 17rem;
+    /* height: 4.5rem; */
   }
 
   .rate li {
@@ -444,7 +445,7 @@
   }
 
   .oldPrice {
-    top: 0;
+    top: -0.9375rem;
     font-size: 0.625rem;
   }
 
@@ -455,5 +456,15 @@
   .error,
   .info {
     font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .rate {
+    width: 15.5rem;
+  }
+
+  .rate ul {
+    width: 14rem;
   }
 }

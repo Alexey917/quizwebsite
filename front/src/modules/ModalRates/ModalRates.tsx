@@ -42,7 +42,7 @@ export const ModalRates = ({ variant = 'usual' }: IModalRates) => {
     return (
       <section className={classes.wrapper} aria-label="Загрузка тарифов">
         <h2 className={classes.title}>Выберите тариф:</h2>
-        <div className={classes.align}>
+        <div className={classes.align} style={{ marginBottom: '20px' }}>
           <Loader />
         </div>
       </section>

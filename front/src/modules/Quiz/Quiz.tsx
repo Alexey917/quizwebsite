@@ -121,17 +121,24 @@ export const Quiz = () => {
           />
         )}
       </div>
-      {quiz && <Description description={quiz.description} />}
-      <div className={classes.container}>
-        {quiz && (
-          <button
-            type="button"
-            className={classes.btn}
-            onClick={() => handleClick({ name: quiz.title, id: quiz.id })}
-          >
-            <span className={classes.btnText}>Выбрать</span>
-          </button>
-        )}
+      {quiz && (
+        <Description
+          description={quiz.description}
+          text={quiz.background_image_text}
+        />
+      )}
+      <div className={classes.wrapperBtn}>
+        <div className={classes.container}>
+          {quiz && (
+            <button
+              type="button"
+              className={classes.btn}
+              onClick={() => handleClick({ name: quiz.title, id: quiz.id })}
+            >
+              <span className={classes.btnText}>Выбрать</span>
+            </button>
+          )}
+        </div>
       </div>
     </>
   );

@@ -73,7 +73,7 @@
 
 .textDescription {
   max-width: 49.625rem;
-  height: 8.125rem;
+  /* height: 12.125rem; */
   margin: 0;
   font-family: 'Nunito', sans-serif;
   font-weight: 500;
@@ -81,10 +81,10 @@
   font-size: 1.25rem;
   line-height: 1.75rem;
   color: #fecda7;
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: hidden;
+  /* overflow-y: auto;
   scrollbar-color: #f1ae79 transparent;
-  scrollbar-width: none;
+  scrollbar-width: none; */
 }
 
 .textDescription::-webkit-scrollbar {
@@ -137,7 +137,7 @@
 
   .textDescription {
     width: 42.0625rem;
-    height: 6.625rem;
+    /* max-height: 12.625rem; */
     font-size: 1.125rem;
   }
 }
@@ -169,6 +169,11 @@
   .number {
     font-size: 1.75rem;
   }
+
+  .textDescription {
+    width: 31.0625rem;
+    /* max-height: 14.625rem; */
+  }
 }
 
 @media (max-width: 576px) {
@@ -196,6 +201,8 @@
   }
 
   .textDescription {
+    width: 18.5625rem;
+    /* max-height: 11.5rem; */
     font-size: 0.875rem;
     line-height: 1.375rem;
   }
@@ -219,5 +226,9 @@
 
   .wrapperNum {
     --borderWidth: 0.125rem;
+  }
+
+  .textDescription {
+    width: 16.5625rem;
   }
 }

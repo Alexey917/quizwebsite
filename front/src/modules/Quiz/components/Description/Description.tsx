@@ -1,12 +1,14 @@
 import classes from './Description.module.css';
 import sprite from '../../../../assets/sprite.svg';
 import { Step } from '@/ui/Step/Step';
+import parse from 'html-react-parser';
 
 interface IDescription {
   description?: string[] | string;
+  text?: string;
 }
 
-export const Description = ({ description }: IDescription) => {
+export const Description = ({ description, text }: IDescription) => {
   const descriptionArray = (() => {
     if (!description) return [];
     if (Array.isArray(description)) return description;
@@ -25,6 +27,12 @@ export const Description = ({ description }: IDescription) => {
       </svg>
       <div className={classes.content}>
         <div className={classes.container}>
+          {text && (
+            <div className={classes.text}>
+              <h3 className={classes.await}>Что вас ждёт:</h3>
+              {parse(text)}
+            </div>
+          )}
           <h2 className={classes.title} id="description-title">
             Описание
           </h2>
