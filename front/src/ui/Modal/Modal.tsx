@@ -3,6 +3,7 @@ import { useRef, useEffect } from 'react';
 import { getModal, store } from '@/store';
 import { setModal } from '@/store/Modal/modal';
 import { useSelector } from 'react-redux';
+import { LogoModal } from '../LogoModal';
 
 import classes from './Modal.module.css';
 import sprite from '../../assets/sprite.svg';
@@ -96,7 +97,8 @@ export const Modal = ({ children }: TModal) => {
             aria-hidden="true"
             focusable="false"
           >
-            <use href={`${sprite}#modalLogo`}></use>
+            {/* <use href={`${sprite}#modalLogo`}></use> */}
+            <LogoModal />
           </svg>
           {children}
         </div>

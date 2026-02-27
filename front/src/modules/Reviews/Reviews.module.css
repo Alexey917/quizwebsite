@@ -70,6 +70,7 @@
 }
 
 .swiperWrapper {
+  touch-action: pan-y;
   height: 59.375rem;
 }
 

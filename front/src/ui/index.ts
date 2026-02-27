@@ -9,3 +9,4 @@ export { Loader } from './Loader/Loader';
 export { ScrollStart } from './ScrollStart/ScrollStart';
 export { Modal } from './Modal/Modal';
 export { CustomSelect } from './CustomSelect/CustomSelect';
+export { Title } from './Title/Title';

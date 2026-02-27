@@ -8,7 +8,6 @@ import { useSelector } from 'react-redux';
 import { getChoice, getModal } from '@/store';
 
 export const QuizPage = () => {
-  // const [isModal, setIsModal] = useState<boolean>(false);
   const isModal = useSelector(getModal);
   const rate = useSelector(getChoice);
 

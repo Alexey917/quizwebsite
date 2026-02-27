@@ -17,7 +17,7 @@ export const Loading = ({
 }: ILoading) => {
   return (
     <section className={classSection} aria-label={ariaLabel}>
-      <div className={classes.container}>
+      <div className={classes.container} style={{ marginBottom: '20px' }}>
         <h2 className={classTitle}>{text}</h2>
         <div className={classes.align}>
           <Loader />
