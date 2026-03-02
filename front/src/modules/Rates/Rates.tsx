@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Swiper as SwiperType } from 'swiper';
-import { Navigation } from 'swiper/modules';
+import { Navigation, Autoplay, Mousewheel } from 'swiper/modules';
 import { SliderArrow } from '@/ui';
 import { Loading } from '@/components';
 import { getErrorMessage } from '@/api';
@@ -20,6 +20,7 @@ export const Rates = () => {
   const [rates, setRates] = useState<IRates[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
+  const [isResetting, setIsResetting] = useState(false);
 
   const handlePrev = () => {
     if (swiperState.instance) {
@@ -159,9 +160,24 @@ export const Rates = () => {
               slidesOffsetBefore: 0,
             },
           }}
+          autoplay={{
+            delay: 4500,
+            disableOnInteraction: false,
+          }}
+          modules={[Navigation, Autoplay, Mousewheel]}
+          mousewheel={true}
+          direction="horizontal"
+          simulateTouch={true}
+          touchRatio={1.5}
+          touchAngle={45}
+          threshold={5}
           onSwiper={handleSwiper}
           onSlideChange={handleSlideChange}
-          modules={[Navigation]}
+          onReachEnd={(swiper) => {
+            setTimeout(() => {
+              swiper.slideTo(0, 600);
+            }, 4000);
+          }}
           className={classes.swiperWrapper}
         >
           {rates.map((rate, index) => (

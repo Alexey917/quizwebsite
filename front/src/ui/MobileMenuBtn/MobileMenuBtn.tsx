@@ -1,7 +1,5 @@
 import type { FC } from 'react';
 import classes from './MobileMenuBtn.module.css';
-import menu from '../../assets/sprite.svg';
-import menuClose from '../../assets/sprite.svg';
 
 interface IMobileBtn {
   isMobile: boolean;
@@ -26,7 +24,6 @@ export const MobileMenuBtn: FC<IMobileBtn> = ({ isMobile, setIsMobile }) => {
             focusable="false"
           >
             <title>Иконка закрытия</title>
-            {/* <use href={menuClose + '#menuClose'}></use> */}
             <svg
               viewBox="0 0 60 60"
               fill="none"
@@ -79,7 +76,6 @@ export const MobileMenuBtn: FC<IMobileBtn> = ({ isMobile, setIsMobile }) => {
             focusable="false"
           >
             <title>Иконка меню</title>
-            {/* <use href={menu + '#menu'}></use> */}
             <svg
               viewBox="0 0 60 60"
               fill="none"

@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { Logo, CustomButton, Title } from '@/ui';
 
 import classes from './QuizyTales.module.css';
-import title from '../../assets/sprite.svg';
 import { useSaveRate } from '@/hooks';
 
 export const QuizyTales = () => {
@@ -19,7 +18,6 @@ export const QuizyTales = () => {
         <div className={classes.contentWrapper}>
           <h1 id="quizy-tales-title" className={classes.title}>
             <svg className={classes.icon} aria-label="QuizyTales" role="img">
-              {/* <use href={title + '#title'}></use> */}
               <Title />
             </svg>
           </h1>

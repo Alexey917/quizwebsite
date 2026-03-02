@@ -1,7 +1,6 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import classes from './GoBackButton.module.css';
-// import back from '../../assets/sprite.svg';
 
 interface IGoBack {
   classBtn: string;
@@ -31,7 +30,6 @@ export const GoBackButton = ({ classBtn }: IGoBack) => {
         focusable="false"
       >
         <title>Стрелка назад</title>
-        {/* <use href={back + '#back'}></use> */}
         <svg
           viewBox="0 0 60 60"
           fill="none"

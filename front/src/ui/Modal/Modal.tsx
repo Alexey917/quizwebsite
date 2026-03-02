@@ -97,7 +97,6 @@ export const Modal = ({ children }: TModal) => {
             aria-hidden="true"
             focusable="false"
           >
-            {/* <use href={`${sprite}#modalLogo`}></use> */}
             <LogoModal />
           </svg>
           {children}

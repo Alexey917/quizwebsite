@@ -4,7 +4,6 @@ import { GetToKnowUs } from './components/GetToKnowUs';
 import { useScreenType } from './hooks';
 
 import classes from './AboutUs.module.css';
-import sprite from '../../assets/sprite.svg';
 
 export const AboutUs = () => {
   const screenType = useScreenType();
@@ -15,7 +14,6 @@ export const AboutUs = () => {
         О нашей компании
       </h2>
       <svg className={classes.wavesBg} aria-hidden="true">
-        {/* <use href={`${sprite}#wavesBg `}></use> */}
         <svg
           viewBox="0 0 1440 250"
           fill="none"
@@ -30,7 +28,6 @@ export const AboutUs = () => {
       </svg>
 
       <svg className={classes.waves} aria-hidden="true">
-        {/* <use href={`${sprite}#waves`}></use> */}
         <svg
           viewBox="0 0 1440 267"
           fill="none"
@@ -67,7 +64,6 @@ export const AboutUs = () => {
       </div>
 
       <svg className={classes.wavesBottom} aria-hidden="true">
-        {/* <use href={`${sprite}#waves`}></use> */}
         <svg
           viewBox="0 0 1440 267"
           fill="none"
@@ -100,7 +96,6 @@ export const AboutUs = () => {
         className={`${classes.wavesBgBottom} ${classes[screenType]}`}
         aria-hidden="true"
       >
-        {/* <use href={`${sprite}#wavesBgBottom`}></use> */}
         <svg
           viewBox="0 0 1440 250"
           xmlns="http://www.w3.org/2000/svg"

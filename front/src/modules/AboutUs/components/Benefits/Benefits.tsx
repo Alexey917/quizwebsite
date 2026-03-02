@@ -1,7 +1,7 @@
 import { useMediaQuery } from 'react-responsive';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { Autoplay } from 'swiper/modules';
+import { Autoplay, Mousewheel } from 'swiper/modules';
 import { benefits } from '@/consts';
 
 import classes from './Benefits.module.css';
@@ -28,7 +28,13 @@ export const Benefits = () => {
           delay: 4500,
           disableOnInteraction: false,
         }}
-        modules={[Autoplay]}
+        modules={[Autoplay, Mousewheel]}
+        mousewheel={true}
+        direction="horizontal"
+        simulateTouch={true}
+        touchRatio={1.5}
+        touchAngle={45}
+        threshold={5}
         className={classes.swiperWrapper}
       >
         {benefits.map((benefit) => (

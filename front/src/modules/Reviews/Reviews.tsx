@@ -7,11 +7,9 @@ import { reviewsApi, type IReviews } from './api';
 import { getErrorMessage } from '@/api';
 
 import { Review } from './components';
-// import { reviews } from '@/consts';
-import { Navigation, EffectFade, Autoplay } from 'swiper/modules';
+import { Navigation, EffectFade, Autoplay, Mousewheel } from 'swiper/modules';
 
 import classes from './Reviews.module.css';
-import sprite from '../../assets/sprite.svg';
 
 export const Reviews = () => {
   const [swiperState, setSwiperState] = useState({
@@ -115,7 +113,6 @@ export const Reviews = () => {
   return (
     <section className={classes.section} aria-label="Отзывы">
       <svg className={classes.wavesBg} aria-hidden="true">
-        {/* <use href={`${sprite}#wavesBg`}></use> */}
         <svg
           viewBox="0 0 1440 250"
           fill="none"
@@ -175,12 +172,16 @@ export const Reviews = () => {
               clickable: true,
             }}
             allowTouchMove={false}
-            loop={true}
             autoplay={{
               delay: 5000,
               disableOnInteraction: false,
             }}
-            modules={[EffectFade, Navigation, Autoplay]}
+            modules={[EffectFade, Navigation, Autoplay, Mousewheel]}
+            mousewheel={true}
+            simulateTouch={true}
+            touchRatio={1.5}
+            touchAngle={45}
+            threshold={5}
             className={classes.swiperWrapper}
           >
             {reviews.map((review, index) => (

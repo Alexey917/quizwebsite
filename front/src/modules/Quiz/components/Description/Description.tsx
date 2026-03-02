@@ -1,5 +1,4 @@
 import classes from './Description.module.css';
-import sprite from '../../../../assets/sprite.svg';
 import { Step } from '@/ui/Step/Step';
 import parse from 'html-react-parser';
 
@@ -12,14 +11,13 @@ export const Description = ({ description, text }: IDescription) => {
   const descriptionArray = (() => {
     if (!description) return [];
     if (Array.isArray(description)) return description;
-    if (typeof description === 'string') return [description]; // строка -> массив с одним элементом
+    if (typeof description === 'string') return [description];
     return [];
   })();
 
   return (
     <article className={classes.article} aria-labelledby="description-title">
       <svg className={classes.wavesBg} aria-hidden="true">
-        {/* <use href={`${sprite}#wavesBg`}></use> */}
         <svg
           viewBox="0 0 1440 250"
           fill="none"
@@ -34,7 +32,6 @@ export const Description = ({ description, text }: IDescription) => {
       </svg>
 
       <svg className={classes.waves} aria-hidden="true">
-        {/* <use href={`${sprite}#waves`}></use> */}
         <svg
           viewBox="0 0 1440 267"
           fill="none"
