@@ -33,6 +33,7 @@ export const Footer = () => {
               });
             }
           }}
+          className={classes.logoLink}
         >
           <Logo className="footer" aria-label="Логотип QuizyTales" />
         </Link>
@@ -41,7 +42,7 @@ export const Footer = () => {
             <img src={tgMini} className={classes.miniImg} alt="" />
             <a
               href="https://t.me/DerrKaterr"
-              className={classes.link}
+              className={`${classes.link} ${classes.linkDer}`}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -54,7 +55,7 @@ export const Footer = () => {
             <img src={tgMini} className={classes.miniImg} alt="" />
             <a
               href="https://t.me/Renardren"
-              className={classes.link}
+              className={`${classes.link} ${classes.linkRen}`}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -63,7 +64,7 @@ export const Footer = () => {
               @Renardren
             </a>
           </li>
-          <li>
+          <li className={classes.tgItem}>
             <a
               href="https://t.me/Quizytales"
               className={classes.link}
@@ -79,7 +80,7 @@ export const Footer = () => {
               />
             </a>
           </li>
-          <li>
+          <li className={classes.vkItem}>
             <a
               href="https://vk.com/quizytales"
               className={classes.link}
@@ -105,6 +106,34 @@ export const Footer = () => {
               aria-label="Скачать оферту"
             >
               Оферта
+            </a>
+          </li>
+          <li className={classes.policy}>
+            <a
+              href="/files/privacy_policy.pdf"
+              className={classes.link}
+              download="Политика_конфиденциальности.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Скачать политику конфиденциальности"
+            >
+              Политика
+              <br />
+              конфиденциальности
+            </a>
+          </li>
+          <li className={classes.data}>
+            <a
+              href="/files/consent_to_data_processing.pdf"
+              className={classes.link}
+              download="Соглашение_на_обработку_данных.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Скачать соглашение на обработку данных"
+            >
+              Соглашение
+              <br />
+              на обработку данных
             </a>
           </li>
         </ul>

@@ -20,7 +20,6 @@ export const Rates = () => {
   const [rates, setRates] = useState<IRates[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
-  const [isResetting, setIsResetting] = useState(false);
 
   const handlePrev = () => {
     if (swiperState.instance) {
