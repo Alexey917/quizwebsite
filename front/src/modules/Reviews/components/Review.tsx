@@ -1,7 +1,7 @@
 import React from 'react';
 
 import classes from './Review.module.css';
-import avatar from '../../../assets/avatar.png';
+import avatar from '../../../assets/avatar.webp';
 import sprite from '../../../assets/sprite.svg';
 
 interface IReviews {

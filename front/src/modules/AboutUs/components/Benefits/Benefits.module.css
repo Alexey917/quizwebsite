@@ -163,9 +163,14 @@
   }
 
   .Rocket,
-  .Clock,
-  .Money {
+  .Clock {
     width: 7.5rem;
+    height: 7.5rem;
+  }
+
+  .Money {
+    right: 5px;
+    width: 6rem;
     height: 7.5rem;
   }
 
@@ -212,9 +217,13 @@
 
   .Rocket,
   .Clock,
-  .Money,
   .Box {
     width: 5.3125rem;
+    height: 5.3125rem;
+  }
+
+  .Money {
+    width: 4.5rem;
     height: 5.3125rem;
   }
 

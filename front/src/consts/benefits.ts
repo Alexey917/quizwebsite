@@ -1,8 +1,8 @@
-import Masks from '../assets/Masks.svg';
-import Clock from '../assets/Clock.svg';
-import Rocket from '../assets/Rocket.svg';
-import Box from '../assets/Box.svg';
-import Money from '../assets/Money.svg';
+import Masks from '../assets/Masks.webp';
+import Clock from '../assets/Clock.webp';
+import Rocket from '../assets/Rocket.webp';
+import Box from '../assets/Box.webp';
+import Money from '../assets/Money.webp';
 
 export interface IBenefits {
   title: string;
