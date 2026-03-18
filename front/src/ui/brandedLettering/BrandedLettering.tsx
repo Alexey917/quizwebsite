@@ -5,19 +5,12 @@ import classes from './BrandedLettering.module.css';
 type TVariant = 'header' | 'menu' | 'main';
 
 interface IBrandedLettering {
-  /** X координата viewBox */
   positionX?: number;
-  /** Y координата viewBox */
   positionY?: number;
-  /** Ширина viewBox */
   boxWidth?: number;
-  /** Высота viewBox */
   boxHeight?: number;
-  /** Вариант стилизации */
   variant: TVariant;
-  /** Текстовое описание для скринридеров */
   label?: string;
-  /** Дополнительное описание (длинный текст) */
   description?: string;
 }
 

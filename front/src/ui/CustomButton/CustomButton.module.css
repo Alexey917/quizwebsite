@@ -22,13 +22,21 @@
   padding: 0 var(--borderWidth) var(--borderWidth) 0;
   background-image: var(--borderGradient);
   border-radius: inherit;
-  -webkit-mask: conic-gradient(#000 0 0) content-box, conic-gradient(#000 0 0);
+  -webkit-mask:
+    conic-gradient(#000 0 0) content-box,
+    conic-gradient(#000 0 0);
   -webkit-mask-composite: xor;
-  -webkit-mask: conic-gradient(#000 0 0) content-box, conic-gradient(#000 0 0);
+  -webkit-mask:
+    conic-gradient(#000 0 0) content-box,
+    conic-gradient(#000 0 0);
   -webkit-mask-composite: xor;
-  -webkit-mask: conic-gradient(#000 0 0) content-box, conic-gradient(#000 0 0);
+  -webkit-mask:
+    conic-gradient(#000 0 0) content-box,
+    conic-gradient(#000 0 0);
   -webkit-mask-composite: xor;
-  mask: conic-gradient(#000 0 0) content-box exclude, conic-gradient(#000 0 0);
+  mask:
+    conic-gradient(#000 0 0) content-box exclude,
+    conic-gradient(#000 0 0);
   z-index: -1;
 }
 
@@ -73,9 +81,6 @@
   .btn:hover {
     color: #fecda7;
     cursor: pointer;
-  }
-
-  .btn:hover {
     box-shadow: 0.0625rem 0.0625rem 1.5625rem 0 #fecda7;
   }
 

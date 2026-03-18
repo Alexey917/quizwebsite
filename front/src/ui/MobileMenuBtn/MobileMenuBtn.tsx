@@ -17,6 +17,8 @@ export const MobileMenuBtn: FC<IMobileBtn> = ({ isMobile, setIsMobile }) => {
           aria-label="Закрыть мобильное меню"
           title="Открыть меню навигации"
           aria-controls="mobile-menu-id"
+          aria-haspopup="true"
+          aria-expanded={isMobile}
         >
           <svg
             className={classes.menuIcon}
