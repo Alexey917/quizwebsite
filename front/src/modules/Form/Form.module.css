@@ -91,6 +91,13 @@
 
 .btn:disabled {
   cursor: not-allowed;
+  --borderGradient: linear-gradient(
+    90deg,
+    #93908d 0%,
+    rgba(22, 91, 106, 0) 50%,
+    rgba(110, 196, 197, 0) 75%,
+    #93908d 100%
+  );
 }
 
 .inputGroup,
@@ -315,6 +322,10 @@ input:-moz-autofill {
   color: #fecda7;
 }
 
+.btn:disabled .textBtn {
+  color: #93908d;
+}
+
 .loadingWrapper {
   display: flex;
   align-items: center;
@@ -335,14 +346,28 @@ input:-moz-autofill {
     color: #fecda7;
   }
 
+  .btn:disabled:hover .textBtn {
+    color: #93908d;
+  }
+
   .btn:hover {
     box-shadow: 0.0625rem 0.0625rem 1.5625rem 0 #fecda7;
+  }
+
+  .btn:disabled:hover {
+    box-shadow: 0rem 0.25rem 0.25rem 0rem #00000040;
   }
 
   .btn:hover:after {
     left: 100%;
     opacity: 1;
     transform: rotate(-45deg) translateY(100%);
+  }
+
+  .btn:disabled:after {
+    transform: rotate(-45deg);
+    opacity: 0;
+    transition: all 650ms;
   }
 }
 
