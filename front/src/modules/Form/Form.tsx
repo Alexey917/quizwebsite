@@ -189,22 +189,24 @@ export const Form = ({ variant = 'usual' }: IForm) => {
             errors?.quantity_of_guests ? classes.inputError : classes.inputGroup
           }
         >
-          <input
-            className={classes.input}
-            type="number"
-            placeholder="Количество участников"
-            {...register('quantity_of_guests', {
-              required: 'Укажите количество участников!',
-              min: {
-                value: 1,
-                message: 'Слишком мало участников!',
-              },
-              max: {
-                value: 100,
-                message: 'Слишком много участников!',
-              },
-            })}
-          />
+          <div className={classes.autofillWrapper}>
+            <input
+              className={classes.input}
+              type="number"
+              placeholder="Количество участников"
+              {...register('quantity_of_guests', {
+                required: 'Укажите количество участников!',
+                min: {
+                  value: 1,
+                  message: 'Слишком мало участников!',
+                },
+                max: {
+                  value: 100,
+                  message: 'Слишком много участников!',
+                },
+              })}
+            />
+          </div>
           <span className={classes.required} aria-hidden="true">
             *
           </span>
@@ -216,26 +218,28 @@ export const Form = ({ variant = 'usual' }: IForm) => {
         <fieldset
           className={errors?.name ? classes.inputError : classes.inputGroup}
         >
-          <input
-            className={classes.input}
-            type="text"
-            placeholder="Имя"
-            {...register('name', {
-              required: 'Укажите имя!',
-              minLength: {
-                value: 2,
-                message: 'Минимум 2 символа',
-              },
-              maxLength: {
-                value: 50,
-                message: 'Не длиннее 50 символов',
-              },
-              pattern: {
-                value: /^[А-Яа-яЁёA-Za-z\s-]+$/,
-                message: 'Может содержать только буквы, пробелы и дефисы',
-              },
-            })}
-          />
+          <div className={classes.autofillWrapper}>
+            <input
+              className={classes.input}
+              type="text"
+              placeholder="Имя"
+              {...register('name', {
+                required: 'Укажите имя!',
+                minLength: {
+                  value: 2,
+                  message: 'Минимум 2 символа',
+                },
+                maxLength: {
+                  value: 50,
+                  message: 'Не длиннее 50 символов',
+                },
+                pattern: {
+                  value: /^[А-Яа-яЁёA-Za-z\s-]+$/,
+                  message: 'Может содержать только буквы, пробелы и дефисы',
+                },
+              })}
+            />
+          </div>
           <span className={classes.required} aria-hidden="true">
             *
           </span>
@@ -247,27 +251,29 @@ export const Form = ({ variant = 'usual' }: IForm) => {
         <fieldset
           className={errors?.phone ? classes.inputError : classes.inputGroup}
         >
-          <input
-            className={classes.input}
-            type="text"
-            placeholder="Номер телефона"
-            {...register('phone', {
-              required: 'Укажите телефон!',
-              pattern: {
-                value:
-                  /^(\+7|8)?[\s-]?\(?\d{3}\)?[\s-]?\d{3}[\s-]?\d{2}[\s-]?\d{2}$/,
-                message: '+7 (ХХХ) ХХХ-ХХ-ХХ или с 8',
-              },
-              minLength: {
-                value: 10,
-                message: 'Минимум 10 цифр',
-              },
-              maxLength: {
-                value: 15,
-                message: 'Не может быть длиннее 15 символов',
-              },
-            })}
-          />
+          <div className={classes.autofillWrapper}>
+            <input
+              className={classes.input}
+              type="text"
+              placeholder="Номер телефона"
+              {...register('phone', {
+                required: 'Укажите телефон!',
+                pattern: {
+                  value:
+                    /^(\+7|8)?[\s-]?\(?\d{3}\)?[\s-]?\d{3}[\s-]?\d{2}[\s-]?\d{2}$/,
+                  message: '+7 (ХХХ) ХХХ-ХХ-ХХ или с 8',
+                },
+                minLength: {
+                  value: 10,
+                  message: 'Минимум 10 цифр',
+                },
+                maxLength: {
+                  value: 15,
+                  message: 'Не может быть длиннее 15 символов',
+                },
+              })}
+            />
+          </div>
           <span className={classes.required} aria-hidden="true">
             *
           </span>
@@ -315,27 +321,29 @@ export const Form = ({ variant = 'usual' }: IForm) => {
                 : `${classes.inputGroup} ${classes.login}`
             }
           >
-            <input
-              className={classes.input}
-              type="text"
-              placeholder="Логин Telegram"
-              {...register('login', {
-                required:
-                  watch('communication') === 'telegram'
-                    ? 'Введите логин Telegram'
-                    : false,
-                pattern: {
-                  value: /^@?[A-Za-z0-9_]{3,32}$/,
-                  message: 'Введите корректный логин Telegram',
-                },
-                validate: (value) => {
-                  const comm = watch('communication');
-                  if (comm === 'telegram' && !value)
-                    return 'Введите логин Telegram';
-                  return true;
-                },
-              })}
-            />
+            <div className={classes.autofillWrapper}>
+              <input
+                className={classes.input}
+                type="text"
+                placeholder="Логин Telegram"
+                {...register('login', {
+                  required:
+                    watch('communication') === 'telegram'
+                      ? 'Введите логин Telegram'
+                      : false,
+                  pattern: {
+                    value: /^@?[A-Za-z0-9_]{5,32}$/,
+                    message: 'Введите корректный логин Telegram',
+                  },
+                  validate: (value) => {
+                    const comm = watch('communication');
+                    if (comm === 'telegram' && !value)
+                      return 'Введите логин Telegram';
+                    return true;
+                  },
+                })}
+              />
+            </div>
 
             <span className={classes.required} aria-hidden="true">
               *
@@ -354,22 +362,25 @@ export const Form = ({ variant = 'usual' }: IForm) => {
                 : `${classes.textAreaGroup} ${classes.login}`
             }
           >
-            <textarea
-              className={classes.textarea}
-              placeholder="Опишите желаемый квиз"
-              {...register('quiz_description', {
-                required:
-                  variant === 'authorial' ? 'Опишите желаемый квиз' : false,
-                minLength: {
-                  value: 20,
-                  message: 'Минимум 20 символов',
-                },
-                maxLength: {
-                  value: 2000,
-                  message: 'Не длиннее 2000 символов',
-                },
-              })}
-            />
+            <div className={classes.autofillWrapper}>
+              <textarea
+                className={classes.textarea}
+                placeholder="Опишите желаемый квиз"
+                {...register('quiz_description', {
+                  required:
+                    variant === 'authorial' ? 'Опишите желаемый квиз' : false,
+                  minLength: {
+                    value: 20,
+                    message: 'Минимум 20 символов',
+                  },
+                  maxLength: {
+                    value: 2000,
+                    message: 'Не длиннее 2000 символов',
+                  },
+                })}
+              />
+            </div>
+
             <span className={classes.required} aria-hidden="true">
               *
             </span>
