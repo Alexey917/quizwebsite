@@ -27,7 +27,10 @@ export const CustomSelect = ({
 }: CustomSelectProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedLabel, setSelectedLabel] = useState('');
+  const [touched, setTouched] = useState(false);
   const selectRef = useRef<HTMLDivElement>(null);
+
+  console.log(touched);
 
   useEffect(() => {
     if (value) {
@@ -44,12 +47,23 @@ export const CustomSelect = ({
         selectRef.current &&
         !selectRef.current.contains(event.target as Node)
       ) {
+        if (isOpen) {
+          setTouched(true);
+        }
         setIsOpen(false);
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
+  }, [isOpen]);
+
+  useEffect(() => {
+    // Триггерим валидацию при монтировании и изменении selectedLabel
+    if (required && !value && onChange) {
+      // Это вызовет валидацию react-hook-form
+      onChange('');
+    }
+  }, [required, value, onChange]);
 
   const handleSelect = (option: Option) => {
     if (onChange) {
@@ -58,8 +72,10 @@ export const CustomSelect = ({
     setIsOpen(false);
   };
 
+  const showError = error && touched && !selectedLabel && !isOpen;
+
   return (
-    <fieldset className={error ? classes.inputError : classes.inputGroup}>
+    <fieldset className={showError ? classes.inputError : classes.inputGroup}>
       <div
         ref={selectRef}
         className={`${classes.customSelect} ${isOpen ? classes.open : ''} ${
@@ -88,9 +104,13 @@ export const CustomSelect = ({
             }
           }}
         >
-          <span className={selectedLabel ? classes.value : classes.placeholder}>
-            {selectedLabel || placeholder}
-          </span>
+          {!isOpen && (
+            <span
+              className={selectedLabel ? classes.value : classes.placeholder}
+            >
+              {selectedLabel || placeholder}
+            </span>
+          )}
         </div>
 
         {isOpen && (
@@ -124,7 +144,7 @@ export const CustomSelect = ({
           *
         </span>
       )}
-      {error && (
+      {showError && (
         <span className={classes.error} role="alert">
           {error}
         </span>
