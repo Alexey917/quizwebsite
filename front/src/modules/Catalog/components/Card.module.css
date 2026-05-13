@@ -69,6 +69,7 @@
 .description::-webkit-scrollbar {
   width: 0.375rem;
   opacity: 0;
+  -webkit-transition: opacity 0.3s ease;
   transition: opacity 0.3s ease;
 }
 
@@ -140,6 +141,10 @@
     conic-gradient(#000 0 0) content-box,
     conic-gradient(#000 0 0);
   -webkit-mask-composite: xor;
+  -webkit-mask:
+    conic-gradient(#000 0 0) content-box,
+    conic-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
   mask:
     conic-gradient(#000 0 0) content-box exclude,
     conic-gradient(#000 0 0);
@@ -157,6 +162,11 @@
   opacity: 0;
   transition: all 650ms;
   z-index: 1;
+}
+
+.placeholder {
+  -o-object-fit: contain;
+  object-fit: contain;
 }
 
 @media (hover: hover) {

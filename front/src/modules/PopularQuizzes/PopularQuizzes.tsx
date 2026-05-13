@@ -10,13 +10,14 @@ import { SliderArrow } from '@/ui';
 import { createSlug } from '@/utils';
 import { popularApi, type IPopularQuizzes } from './api/popularApi';
 import { getErrorMessage } from '@/api';
+import { useSaveRate } from '@/hooks';
 
 import 'swiper/css';
 import 'swiper/css/effect-cube';
 import 'swiper/css/pagination';
 
 import classes from './PopularQuizzes.module.css';
-import { useSaveRate } from '@/hooks';
+import { QuizImage } from './components';
 
 export const PopularQuizzes = () => {
   const navigate = useNavigate();
@@ -168,12 +169,7 @@ export const PopularQuizzes = () => {
                 <div className={classes.quizOverlay} aria-hidden="true"></div>
 
                 <div className={classes.quiz}>
-                  <img
-                    src={quiz.detail_image}
-                    alt={quiz.title}
-                    loading="lazy"
-                    className={classes.quizImage}
-                  />
+                  <QuizImage image={quiz.detail_image} title={quiz.title} />
                   <h3 className={classes.quizTitle}>{quiz.title}</h3>
                   {quiz.preview_text && (
                     <p className={classes.quizText}>{quiz.preview_text}</p>

@@ -1,8 +1,10 @@
 import { Link, useLocation, useParams, useNavigate } from 'react-router-dom';
 import type { ICategories, IQuizzes } from '../api';
 import { createSlug } from '@/utils';
+import { useImageError } from '@/hooks';
 
 import classes from './Card.module.css';
+import logo from '../../../assets/Logo.png';
 
 interface ICard {
   data: ICategories | IQuizzes;
@@ -13,6 +15,7 @@ export const Card = ({ data }: ICard) => {
   const location = useLocation();
   const navigate = useNavigate();
   const { categoryId } = useParams<{ categoryId: string }>();
+  const { imageSrc, handleImageError } = useImageError(data.preview_image);
 
   const handleCategory = (
     e: React.MouseEvent<HTMLAnchorElement>,
@@ -37,12 +40,14 @@ export const Card = ({ data }: ICard) => {
       aria-labelledby={`card-title-${data.title}`}
     >
       <img
-        src={data.preview_image}
-        className={classes.img}
+        src={imageSrc}
+        className={`${classes.img} ${imageSrc === logo ? classes.placeholder : ''}`}
         alt={`${data.title} картинка`}
         loading="lazy"
         decoding="async"
+        onError={handleImageError}
       />
+
       <div className={classes.overlay} aria-hidden="true"></div>
       <h3 id={`card-title-${data.title}`} className={classes.title}>
         {data.title}

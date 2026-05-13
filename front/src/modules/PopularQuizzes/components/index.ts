@@ -1,0 +1,1 @@
+export { QuizImage } from './QuizImage';

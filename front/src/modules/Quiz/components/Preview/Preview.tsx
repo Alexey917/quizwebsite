@@ -1,6 +1,8 @@
 import parse from 'html-react-parser';
+import { useImageError } from '@/hooks';
 
 import classes from './Preview.module.css';
+import logo from '../../../../assets/Logo.png';
 
 interface IPreview {
   img: string;
@@ -11,15 +13,17 @@ interface IPreview {
 
 export const Preview = ({ img, text, title, preview_text }: IPreview) => {
   const elementId = title?.replace(/\s+/g, '-').toLowerCase();
+  const { imageSrc, handleImageError } = useImageError(img);
 
   return (
     <article className={classes.article} aria-labelledby={`${elementId}-id`}>
       <img
-        className={classes.img}
-        src={img}
+        className={`${classes.img} ${imageSrc === logo ? classes.placeholder : ''}`}
+        src={imageSrc}
         alt={title ? `${title} превью` : 'Превью'}
         aria-label={title ? `${title} превью` : 'Превью'}
         loading="lazy"
+        onError={handleImageError}
       />
       <div className={classes.overlay} aria-hidden="true"></div>
       <h2 className={classes.title} id={`${elementId}-id`}>

@@ -96,7 +96,8 @@
   scrollbar-width: none; */
 }
 
-.text li {
+.text li,
+.text p {
   font-family: 'Nunito', sans-serif;
   font-weight: 600;
   font-style: normal;
@@ -125,6 +126,13 @@
   background: #f1ae79;
   border-radius: 0.5rem;
   border: 0.0625rem solid #0a2f36;
+}
+
+.placeholder {
+  -o-object-fit: contain;
+  object-fit: contain;
+  image-rendering: auto;
+  background: rgba(0, 0, 0, 0.5);
 }
 
 @media (hover: hover) {

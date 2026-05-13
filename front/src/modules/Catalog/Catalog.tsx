@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-// import { categories } from '@/consts';
 import { getErrorMessage } from '@/api';
 import { Card } from './components';
 import { Loading } from '@/components';

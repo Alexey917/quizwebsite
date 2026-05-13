@@ -41,7 +41,7 @@ export const Description = ({ description, text }: IDescription) => {
           <path
             d="M0 1.68719L60 39.8786C120 77.202 240 151.849 360 177.021C480 202.192 600 177.021 720 157.925C840 139.697 960 126.677 1080 145.773C1200 164.869 1320 214.344 1380 239.516L1440 264.687"
             stroke="url(#paint0_linear_203_246)"
-            stroke-width="4"
+            strokeWidth="4"
           />
           <defs>
             <linearGradient
