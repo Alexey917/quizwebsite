@@ -90,7 +90,6 @@ export const PopularQuizzes = () => {
     localStorage.setItem('popular', title);
     localStorage.removeItem('quiz');
     localStorage.removeItem('category');
-    navigate(to);
     saveRate(e, to, { name: '', id: null });
   };
 
