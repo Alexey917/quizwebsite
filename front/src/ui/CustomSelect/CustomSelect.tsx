@@ -58,9 +58,7 @@ export const CustomSelect = ({
   }, [isOpen]);
 
   useEffect(() => {
-    // Триггерим валидацию при монтировании и изменении selectedLabel
     if (required && !value && onChange) {
-      // Это вызовет валидацию react-hook-form
       onChange('');
     }
   }, [required, value, onChange]);

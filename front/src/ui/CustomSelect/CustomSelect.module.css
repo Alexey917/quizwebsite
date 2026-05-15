@@ -177,6 +177,7 @@
 
 .required {
   position: absolute;
+  font-family: 'Courier New', monospace;
   top: 0.625rem;
   right: 0.625rem;
   color: #ff0000;

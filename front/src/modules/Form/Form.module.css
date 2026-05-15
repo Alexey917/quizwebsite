@@ -319,7 +319,8 @@ input:-moz-autofill {
 }
 
 .inputGroup:focus-within,
-.inputError:focus-within {
+.inputError:focus-within,
+.textAreaGroup:focus-within {
   box-shadow: 0.0625rem 0.0625rem 0.9375rem 0 #fecda7;
 }
 

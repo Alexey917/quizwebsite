@@ -12,7 +12,7 @@ export const useScreenType = () => {
       if (width >= 905) return 'desktop';
       if (width >= 577) return 'tablet';
       if (width >= 361) return 'phone';
-      if (width >= 321) return 'smallPhone';
+      if (width >= 320) return 'smallPhone';
       return 'default';
     };
 

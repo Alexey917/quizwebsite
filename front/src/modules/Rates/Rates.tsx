@@ -127,12 +127,12 @@ export const Rates = () => {
               spaceBetween: 20,
               slidesOffsetBefore: 0,
             },
-            360: {
+            361: {
               slidesPerView: 1,
               spaceBetween: 20,
               slidesOffsetBefore: 15,
             },
-            576: {
+            577: {
               slidesPerView: 1,
               spaceBetween: 20,
               slidesOffsetBefore: 50,
@@ -143,12 +143,12 @@ export const Rates = () => {
               slidesOffsetBefore: 50,
             },
 
-            904: {
+            905: {
               slidesPerView: 2,
               spaceBetween: 20,
               slidesOffsetBefore: 0,
             },
-            1024: {
+            1025: {
               slidesPerView: 2,
               spaceBetween: 20,
               slidesOffsetBefore: 25,
