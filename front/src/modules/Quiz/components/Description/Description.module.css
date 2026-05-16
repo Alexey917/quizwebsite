@@ -126,7 +126,8 @@
   scrollbar-width: none; */
 }
 
-.text li {
+.text li,
+.text p {
   font-family: 'Nunito', sans-serif;
   font-weight: 600;
   font-style: normal;
@@ -230,7 +231,8 @@
     width: 49.6875rem;
   }
 
-  .text li {
+  .text li,
+  .text p {
     font-size: 1.125rem;
   }
 }
@@ -274,7 +276,8 @@
     /* height: 11.1875rem; */
   }
 
-  .text li {
+  .text li,
+  .text p {
     font-size: 1rem;
   }
 }
@@ -322,7 +325,8 @@
     /* height: 11.1875rem; */
   }
 
-  .text li {
+  .text li,
+  .text p {
     font-size: 1rem;
   }
 }
@@ -378,7 +382,8 @@
     max-height: 12.5rem;
   }
 
-  .text li {
+  .text li,
+  .text p {
     font-size: 0.875rem;
     line-height: 1.5rem;
     color: #fecda7;

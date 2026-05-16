@@ -55,6 +55,7 @@
 }
 
 .currentPath {
+  margin: 0;
   display: none;
   color: #f1ae79;
   font-family: 'Naga', serif;

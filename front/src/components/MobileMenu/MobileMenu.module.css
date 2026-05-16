@@ -67,7 +67,7 @@
 @media (max-width: 1024px) {
   .overlay,
   .navigation {
-    top: 6.625rem;
+    top: 6.425rem;
   }
 }
 
@@ -78,7 +78,7 @@
 
   .overlay,
   .navigation {
-    top: 6.6125rem;
+    top: 6.4125rem;
   }
 }
 
@@ -108,7 +108,7 @@
 
   .overlay,
   .navigation {
-    top: 3.3rem;
+    top: 2.7rem;
   }
 
   .link {

@@ -1,4 +1,5 @@
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useScrollToTop } from '@/hooks';
 
 import classes from './GoBackButton.module.css';
 
