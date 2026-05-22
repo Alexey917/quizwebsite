@@ -1,13 +1,13 @@
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useScrollToTop } from '@/hooks';
 
 import classes from './GoBackButton.module.css';
+import { memo } from 'react';
 
 interface IGoBack {
   classBtn: string;
 }
 
-export const GoBackButton = ({ classBtn }: IGoBack) => {
+export const GoBackButton = memo(({ classBtn }: IGoBack) => {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -71,4 +71,4 @@ export const GoBackButton = ({ classBtn }: IGoBack) => {
       </svg>
     </button>
   );
-};
+});

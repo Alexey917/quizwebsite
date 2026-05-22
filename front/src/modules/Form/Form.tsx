@@ -9,6 +9,7 @@ import {
   type IUsualApplication,
 } from './api';
 import { getErrorMessage } from '@/api';
+import { options } from '@/consts';
 
 import classes from './Form.module.css';
 import { setStatus } from '@/store/Choice/choice';
@@ -298,11 +299,7 @@ export const Form = ({ variant = 'usual' }: IForm) => {
           render={({ field }) => {
             return (
               <CustomSelect
-                options={[
-                  { value: 'call', label: 'Звонок' },
-                  { value: 'telegram', label: 'Telegram' },
-                  { value: 'whatsapp', label: 'WhatsApp' },
-                ]}
+                options={options}
                 value={field.value}
                 onChange={field.onChange}
                 placeholder="Способ связи"

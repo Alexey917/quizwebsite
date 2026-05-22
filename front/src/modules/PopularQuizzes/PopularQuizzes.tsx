@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { Swiper as SwiperType } from 'swiper';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -93,6 +93,11 @@ export const PopularQuizzes = () => {
     saveRate(e, to, { name: '', id: null });
   };
 
+  const popularQuizzes = useMemo(
+    () => quizzes.filter((quiz) => quiz.is_popular),
+    [quizzes],
+  );
+
   if (loading) {
     return (
       <Loading
@@ -156,9 +161,11 @@ export const PopularQuizzes = () => {
           modules={[EffectCube, Navigation]}
           className={classes.swiperWrapper}
         >
-          {quizzes
-            .filter((quiz) => quiz.is_popular)
-            .map((quiz) => (
+          {popularQuizzes.map((quiz) => {
+            const slug = createSlug(quiz.title);
+            const path = `/catalog/quizzes/${quiz.id}-${slug}`;
+
+            return (
               <SwiperSlide
                 key={`${quiz.id}-${quiz.title}`}
                 role="group"
@@ -176,18 +183,8 @@ export const PopularQuizzes = () => {
 
                   <div className={classes.linkWrapper}>
                     <Link
-                      to={`/catalog/quizzes/${quiz.id}-${createSlug(
-                        quiz.title,
-                      )}`}
-                      onClick={(e) =>
-                        handleQuiz(
-                          e,
-                          `/catalog/quizzes/${quiz.id}-${createSlug(
-                            quiz.title,
-                          )}`,
-                          quiz.title,
-                        )
-                      }
+                      to={path}
+                      onClick={(e) => handleQuiz(e, path, quiz.title)}
                       className={classes.quizLink}
                       aria-label={`Подробнее о квизе: ${quiz.title}`}
                     >
@@ -196,7 +193,8 @@ export const PopularQuizzes = () => {
                   </div>
                 </div>
               </SwiperSlide>
-            ))}
+            );
+          })}
         </Swiper>
 
         <div className={classes.customNavigation}>

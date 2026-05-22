@@ -179,9 +179,9 @@ export const Rates = () => {
           }}
           className={classes.swiperWrapper}
         >
-          {rates.map((rate, index) => (
+          {rates.map((rate) => (
             <SwiperSlide
-              key={`${rate.title}-${index}`}
+              key={rate.id}
               role="group"
               aria-roledescription="slide"
               aria-label={`Тариф ${rate.title}`}

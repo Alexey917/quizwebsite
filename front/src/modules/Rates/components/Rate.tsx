@@ -7,14 +7,14 @@ import { setModal } from '@/store/Modal/modal';
 import parse from 'html-react-parser';
 
 import classes from './Rate.module.css';
-import type { FC } from 'react';
+import { memo, type FC } from 'react';
 import { addTitle } from '@/store/Choice/choice';
 
 interface IRateProps {
   props: IRates;
 }
 
-export const Rate: FC<IRateProps> = ({ props }) => {
+export const Rate: FC<IRateProps> = memo(({ props }) => {
   const saveRate = useSaveRate();
   const dispatch = store.dispatch;
 
@@ -112,4 +112,4 @@ export const Rate: FC<IRateProps> = ({ props }) => {
       )}
     </>
   );
-};
+});

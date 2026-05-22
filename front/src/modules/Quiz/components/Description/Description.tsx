@@ -1,19 +1,20 @@
 import classes from './Description.module.css';
 import { Step } from '@/ui/Step/Step';
 import parse from 'html-react-parser';
+import { memo, useMemo } from 'react';
 
 interface IDescription {
   description?: string[] | string;
   text?: string;
 }
 
-export const Description = ({ description, text }: IDescription) => {
-  const descriptionArray = (() => {
+export const Description = memo(({ description, text }: IDescription) => {
+  const descriptionArray = useMemo(() => {
     if (!description) return [];
     if (Array.isArray(description)) return description;
     if (typeof description === 'string') return [description];
     return [];
-  })();
+  }, [description]);
 
   return (
     <article className={classes.article} aria-labelledby="description-title">
@@ -91,4 +92,4 @@ export const Description = ({ description, text }: IDescription) => {
       </div>
     </article>
   );
-};
+});

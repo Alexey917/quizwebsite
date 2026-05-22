@@ -1,4 +1,4 @@
-import type { FC } from 'react';
+import { memo, type FC } from 'react';
 import { Link } from 'react-router-dom';
 
 import classes from './CustomLink.module.css';
@@ -47,35 +47,31 @@ const getLinkClass = (variant: TLinkVariant): string => {
   }
 };
 
-export const CustomLink: FC<ICustomLink> = ({
-  to,
-  text,
-  textBr,
-  background,
-  variant = 'main',
-}) => {
-  const saveRate = useSaveRate();
+export const CustomLink: FC<ICustomLink> = memo(
+  ({ to, text, textBr, background, variant = 'main' }) => {
+    const saveRate = useSaveRate();
 
-  return (
-    <div role="presentation" className={getWrapperClass(variant)}>
-      <div
-        className={getInnerClass(variant)}
-        style={{ background: background }}
-      >
-        <Link
-          to={to}
-          className={getLinkClass(variant)}
-          onClick={(e) => saveRate(e, to, { name: '', id: null })}
+    return (
+      <div role="presentation" className={getWrapperClass(variant)}>
+        <div
+          className={getInnerClass(variant)}
+          style={{ background: background }}
         >
-          {text}
-          {textBr && (
-            <>
-              <br />
-              {textBr}
-            </>
-          )}
-        </Link>
+          <Link
+            to={to}
+            className={getLinkClass(variant)}
+            onClick={(e) => saveRate(e, to, { name: '', id: null })}
+          >
+            {text}
+            {textBr && (
+              <>
+                <br />
+                {textBr}
+              </>
+            )}
+          </Link>
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  },
+);

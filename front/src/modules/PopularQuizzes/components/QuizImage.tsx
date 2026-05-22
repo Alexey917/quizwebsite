@@ -2,13 +2,14 @@ import { useImageError } from '@/hooks';
 
 import logo from '../../../assets/Logo.png';
 import classes from './QuizImage.module.css';
+import { memo } from 'react';
 
 interface IPopularQuiz {
   image: string;
   title: string;
 }
 
-export const QuizImage = ({ image, title }: IPopularQuiz) => {
+export const QuizImage = memo(({ image, title }: IPopularQuiz) => {
   const { imageSrc, handleImageError } = useImageError(image);
 
   return (
@@ -20,4 +21,4 @@ export const QuizImage = ({ image, title }: IPopularQuiz) => {
       onError={handleImageError}
     />
   );
-};
+});

@@ -3,6 +3,7 @@ import { useImageError } from '@/hooks';
 
 import classes from './Preview.module.css';
 import logo from '../../../../assets/Logo.png';
+import { memo } from 'react';
 
 interface IPreview {
   img: string;
@@ -11,7 +12,7 @@ interface IPreview {
   preview_text: string;
 }
 
-export const Preview = ({ img, text, title, preview_text }: IPreview) => {
+export const Preview = memo(({ img, text, title, preview_text }: IPreview) => {
   const elementId = title?.replace(/\s+/g, '-').toLowerCase();
   const { imageSrc, handleImageError } = useImageError(img);
 
@@ -38,4 +39,4 @@ export const Preview = ({ img, text, title, preview_text }: IPreview) => {
       )}
     </article>
   );
-};
+});

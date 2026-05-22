@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { Link, useLocation, useParams, useNavigate } from 'react-router-dom';
 import type { ICategories, IQuizzes } from '../api';
 import { createSlug } from '@/utils';
@@ -8,10 +9,9 @@ import logo from '../../../assets/Logo.png';
 
 interface ICard {
   data: ICategories | IQuizzes;
-  dataIndex: number;
 }
 
-export const Card = ({ data }: ICard) => {
+export const Card = memo(({ data }: ICard) => {
   const location = useLocation();
   const navigate = useNavigate();
   const { categoryId } = useParams<{ categoryId: string }>();
@@ -86,4 +86,4 @@ export const Card = ({ data }: ICard) => {
       )}
     </article>
   );
-};
+});

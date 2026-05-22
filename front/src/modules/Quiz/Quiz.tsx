@@ -5,6 +5,7 @@ import { getErrorMessage } from '@/api';
 import { Description } from './components/Description';
 import { Preview } from './components/Preview';
 import { Loading } from '@/components';
+import { extractNumericId, extractNumericString } from '@/utils';
 
 import classes from './Quiz.module.css';
 import { quizPopularApi } from './api/quizApi';
@@ -23,16 +24,6 @@ export const Quiz = () => {
     categoryId: string;
   }>();
 
-  const extractNumericId = (param: string): number => {
-    const numericPart = param.split('-')[0];
-    return +numericPart;
-  };
-
-  const extractNumericQuiz = (param: string): string => {
-    const numericPart = param.split('-')[0];
-    return numericPart;
-  };
-
   const handleClick = (title: { name: string; id: null | number }) => {
     dispatch(setModal(true));
     dispatch(addTitle(title));
@@ -48,11 +39,11 @@ export const Quiz = () => {
 
         if (quizId && categoryId) {
           const numericId = extractNumericId(quizId);
-          const numericQuiz = extractNumericQuiz(categoryId);
+          const numericQuiz = extractNumericString(categoryId);
           result = await quizApi({ numericQuiz });
           setQuiz(result.data.find((elem: IQuiz) => elem.id === numericId));
         } else if (quizId && !categoryId) {
-          const numericQuiz = extractNumericQuiz(quizId);
+          const numericQuiz = extractNumericString(quizId);
           result = await quizPopularApi({ numericQuiz });
           setQuiz(result?.data);
         }

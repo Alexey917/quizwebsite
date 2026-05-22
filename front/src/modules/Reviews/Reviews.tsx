@@ -127,7 +127,6 @@ export const Reviews = () => {
       </svg>
 
       <svg className={classes.waves} aria-hidden="true">
-        {/* <use href={`${sprite}#waves`}></use> */}
         <svg
           viewBox="0 0 1440 267"
           fill="none"

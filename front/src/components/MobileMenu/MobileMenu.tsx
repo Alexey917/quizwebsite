@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { memo, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { BrandedLettering } from '@/ui';
 import { routes } from '@/consts';
@@ -13,7 +13,7 @@ interface IMobileMenu {
   setIsMobile: (flag: boolean) => void;
 }
 
-export const MobileMenu: FC<IMobileMenu> = ({ isMobile, setIsMobile }) => {
+export const MobileMenu: FC<IMobileMenu> = memo(({ isMobile, setIsMobile }) => {
   const overlayRef = useRef<HTMLDivElement | null>(null);
   const navigationRef = useRef<HTMLDivElement | null>(null);
   const navigate = useNavigate();
@@ -180,4 +180,4 @@ export const MobileMenu: FC<IMobileMenu> = ({ isMobile, setIsMobile }) => {
       </div>
     </div>
   );
-};
+});
