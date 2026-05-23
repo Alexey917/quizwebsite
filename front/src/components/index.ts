@@ -6,3 +6,4 @@ export { Stages } from './Stages';
 export { Footer } from './Footer';
 export { Loading } from './Loading';
 export { Navigation } from './Navigation/Navigation';
+export { LazySuspense } from './LazySuspense/LazySuspense';

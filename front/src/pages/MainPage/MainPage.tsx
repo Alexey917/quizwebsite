@@ -4,7 +4,6 @@ import { AboutUs, Form, QuizyTales, Rates, Reviews } from '@/modules';
 import { PopularQuizzes } from '@/modules/PopularQuizzes';
 import { getChoice, getModal } from '@/store';
 import { useSelector } from 'react-redux';
-// import { Modal } from '@/ui';
 import { ModalRates } from '@/modules';
 import { Loader } from '@/ui';
 
