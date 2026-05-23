@@ -2,7 +2,7 @@ import { useEffect, useState, useMemo } from 'react';
 import { Swiper as SwiperType } from 'swiper';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { Navigation, EffectCube } from 'swiper/modules';
 import { Loading } from '@/components';
@@ -20,8 +20,6 @@ import classes from './PopularQuizzes.module.css';
 import { QuizImage } from './components';
 
 export const PopularQuizzes = () => {
-  const navigate = useNavigate();
-
   const [swiperState, setSwiperState] = useState({
     instance: null as SwiperType | null,
     isBeginning: true,

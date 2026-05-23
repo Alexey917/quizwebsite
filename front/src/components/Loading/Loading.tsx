@@ -3,9 +3,9 @@ import { Loader } from '@/ui';
 import classes from './Loading.module.css';
 
 interface ILoading {
-  ariaLabel: string;
-  classSection: string;
-  classTitle: string;
+  ariaLabel?: string;
+  classSection?: string;
+  classTitle?: string;
   text?: string;
 }
 
@@ -16,7 +16,10 @@ export const Loading = ({
   text,
 }: ILoading) => {
   return (
-    <section className={classSection} aria-label={ariaLabel}>
+    <section
+      className={`${classSection} ${classSection === 'firstLoading' && classes.firstLoading}`}
+      aria-label={ariaLabel}
+    >
       <div className={classes.container} style={{ marginBottom: '20px' }}>
         <h2 className={classTitle}>{text}</h2>
         <div className={classes.align}>

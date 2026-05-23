@@ -11,3 +11,5 @@ export const CatalogPage = () => {
     </main>
   );
 };
+
+export default CatalogPage;

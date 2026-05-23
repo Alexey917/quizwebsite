@@ -11,3 +11,5 @@ export const QuizzesPage = () => {
     </main>
   );
 };
+
+export default QuizzesPage;

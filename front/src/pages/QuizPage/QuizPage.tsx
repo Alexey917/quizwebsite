@@ -31,3 +31,5 @@ export const QuizPage = () => {
     </main>
   );
 };
+
+export default QuizPage;
