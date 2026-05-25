@@ -11,7 +11,13 @@ export interface IPopularQuizzes {
   is_popular: boolean;
 }
 
-export const popularApi = async () => {
-  const response = await client.get('/api/quizzes');
+export const popularApi = async (limit: number, page: number) => {
+  const response = await client.get('/api/quizzes', {
+    params: {
+      limit: limit,
+      page: page,
+      is_popular: 1,
+    },
+  });
   return response.data;
 };

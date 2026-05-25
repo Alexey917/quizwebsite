@@ -9,6 +9,8 @@ export interface IQuizzes {
 
 interface IQuizzesApi {
   numericId: string;
+  page?: number;
+  limit?: number;
 }
 
 export const quizzesApi = async ({ numericId }: IQuizzesApi) => {

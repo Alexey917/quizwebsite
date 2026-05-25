@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { getErrorMessage } from '@/api';
 import { Card } from './components';
 import { Loading } from '@/components';
@@ -20,42 +20,125 @@ export const Catalog = ({ variant }: IVariant) => {
   const [data, setData] = useState<ICategories[] | IQuizzes[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
+  const [page, setPage] = useState<number>(1);
+  const [hasMore, setHasMore] = useState<boolean>(false);
+  const [isLoadingMore, setIsLoadingMore] = useState<boolean>(false);
 
+  const limit = 3;
   const { categoryId } = useParams<{ categoryId: string }>();
+  const target = useRef<HTMLDivElement | null>(null);
 
   const extractNumericId = (param: string): string => {
     const numericPart = param.split('-')[0];
     return numericPart;
   };
 
-  useEffect(() => {
-    const handleCategories = async () => {
+  const handleCategories = async (
+    pageNum: number,
+    isLoadMore: boolean = false,
+  ) => {
+    if (isLoadMore) {
+      setIsLoadingMore(true);
+    } else {
       setLoading(true);
-      setError(null);
+    }
+    setError(null);
 
-      try {
-        let result;
-        if (variant === 'categories') {
-          result = await categoriesApi();
-        } else {
-          if (categoryId) {
-            const numericId = extractNumericId(categoryId);
+    try {
+      let result;
+      if (variant === 'categories') {
+        result = await categoriesApi(pageNum, limit);
+      } else {
+        if (categoryId) {
+          const numericId = extractNumericId(categoryId);
 
-            result = await quizzesApi({ numericId });
-          }
+          result = await quizzesApi({ numericId });
         }
-
-        setData(result.data);
-      } catch (e: unknown) {
-        const message = getErrorMessage(e);
-        setError(message);
-      } finally {
-        setLoading(false);
       }
-    };
 
-    handleCategories();
+      if (result?.data) {
+        if (isLoadMore) {
+          setData((prev) => [...prev, ...result.data]);
+        } else {
+          setData(result.data);
+        }
+        if (variant === 'categories') {
+          setHasMore(result.data.length === limit);
+        }
+      }
+    } catch (e: unknown) {
+      const message = getErrorMessage(e);
+      setError(message);
+    } finally {
+      setLoading(false);
+      setIsLoadingMore(false);
+    }
+  };
+
+  useEffect(() => {
+    setPage(1);
+    setData([]);
+    setHasMore(true);
+    handleCategories(1, false);
   }, [variant, categoryId]);
+
+  useEffect(() => {
+    if (page > 1) {
+      handleCategories(page, true);
+    }
+  }, [page]);
+
+  useEffect(() => {
+    if (!target.current || !hasMore || loading || isLoadingMore) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (
+          entries[0].isIntersecting &&
+          !loading &&
+          !isLoadingMore &&
+          hasMore
+        ) {
+          setPage((prev) => prev + 1);
+        }
+      },
+      { threshold: 0.5, rootMargin: '100px' },
+    );
+
+    observer.observe(target.current);
+
+    return () => observer.disconnect();
+  }, [loading, isLoadingMore, hasMore]);
+
+  // useEffect(() => {
+  //   const handleCategories = async () => {
+  //     setLoading(true);
+  //     setError(null);
+
+  //     try {
+  //       let result;
+  //       if (variant === 'categories') {
+  //         result = await categoriesApi();
+  //       } else {
+  //         if (categoryId) {
+  //           const numericId = extractNumericId(categoryId);
+
+  //           result = await quizzesApi({ numericId, limit });
+  //           console.log(result);
+  //         }
+  //       }
+
+  //       setData(result.data);
+  //     } catch (e: unknown) {
+  //       const message = getErrorMessage(e);
+  //       setError(message);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
+
+  //   handleCategories();
+  // }, [variant, categoryId]);
 
   if (loading) {
     return (
@@ -113,6 +196,11 @@ export const Catalog = ({ variant }: IVariant) => {
         {data.map((elem) => (
           <Card key={`${elem.title}-${elem.id}`} data={elem} />
         ))}
+        {hasMore && (
+          <div className={classes.observer} ref={target}>
+            {isLoadingMore && <Loading />}
+          </div>
+        )}
       </div>
     </section>
   );

@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState } from 'react';
 import { Swiper as SwiperType } from 'swiper';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -29,6 +29,10 @@ export const PopularQuizzes = () => {
   const [quizzes, setQuizzes] = useState<IPopularQuizzes[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
+  const [page, setPage] = useState<number>(1);
+  const [hasMore, setHasMore] = useState<boolean>(true);
+
+  const limit = 3;
 
   const saveRate = useSaveRate();
 
@@ -50,8 +54,15 @@ export const PopularQuizzes = () => {
       setError(null);
 
       try {
-        const result = await popularApi();
-        setQuizzes(result.data);
+        const result = await popularApi(limit, page);
+        if (result?.data) {
+          if (page === 1) {
+            setQuizzes(result.data);
+          } else {
+            setQuizzes((prev) => [...prev, ...result.data]);
+          }
+          setHasMore(result.data.length === limit);
+        }
       } catch (e: unknown) {
         const message = getErrorMessage(e);
         setError(message);
@@ -61,7 +72,13 @@ export const PopularQuizzes = () => {
     };
 
     handleQuizzes();
-  }, []);
+  }, [page]);
+
+  const handleReachEnd = () => {
+    if (hasMore && !loading) {
+      setPage((prev) => prev + 1);
+    }
+  };
 
   const handleSwiper = (swiper: SwiperType) => {
     setSwiperState({
@@ -90,11 +107,6 @@ export const PopularQuizzes = () => {
     localStorage.removeItem('category');
     saveRate(e, to, { name: '', id: null });
   };
-
-  const popularQuizzes = useMemo(
-    () => quizzes.filter((quiz) => quiz.is_popular),
-    [quizzes],
-  );
 
   if (loading) {
     return (
@@ -154,12 +166,13 @@ export const PopularQuizzes = () => {
             shadowOffset: 20,
             shadowScale: 0.94,
           }}
+          onReachEnd={handleReachEnd}
           onSwiper={handleSwiper}
           onSlideChange={handleSlideChange}
           modules={[EffectCube, Navigation]}
           className={classes.swiperWrapper}
         >
-          {popularQuizzes.map((quiz) => {
+          {quizzes.map((quiz) => {
             const slug = createSlug(quiz.title);
             const path = `/catalog/quizzes/${quiz.id}-${slug}`;
 

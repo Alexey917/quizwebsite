@@ -7,7 +7,12 @@ export interface ICategories {
   preview_image: string;
 }
 
-export const categoriesApi = async () => {
-  const response = await client.get('/api/categories');
+export const categoriesApi = async (page: number, limit: number) => {
+  const response = await client.get('/api/categories', {
+    params: {
+      page: page,
+      limit: limit,
+    },
+  });
   return response.data;
 };

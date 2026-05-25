@@ -30,6 +30,11 @@
   text-align: center;
 }
 
+.observer {
+  width: 100%;
+  height: 50px;
+}
+
 .info {
   color: #fecda7;
 }
