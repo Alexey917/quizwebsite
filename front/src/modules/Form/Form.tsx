@@ -34,8 +34,8 @@ export const Form = ({ variant = 'usual' }: IForm) => {
     setValue,
     formState: { isValid, errors },
   } = useForm<IAuthorialApplication | IUsualApplication>({
-    mode: 'onBlur',
-    reValidateMode: 'onBlur',
+    mode: 'onChange',
+    reValidateMode: 'onChange',
     defaultValues: {
       communication: '',
     },

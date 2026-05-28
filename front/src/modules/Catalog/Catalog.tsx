@@ -62,8 +62,11 @@ export const Catalog = ({ variant }: IVariant) => {
         } else {
           setData(result.data);
         }
+
         if (variant === 'categories') {
           setHasMore(result.data.length === limit);
+        } else {
+          setHasMore(false);
         }
       }
     } catch (e: unknown) {
@@ -102,43 +105,13 @@ export const Catalog = ({ variant }: IVariant) => {
           setPage((prev) => prev + 1);
         }
       },
-      { threshold: 0.5, rootMargin: '100px' },
+      { threshold: 0.5, rootMargin: '300px' },
     );
 
     observer.observe(target.current);
 
     return () => observer.disconnect();
   }, [loading, isLoadingMore, hasMore]);
-
-  // useEffect(() => {
-  //   const handleCategories = async () => {
-  //     setLoading(true);
-  //     setError(null);
-
-  //     try {
-  //       let result;
-  //       if (variant === 'categories') {
-  //         result = await categoriesApi();
-  //       } else {
-  //         if (categoryId) {
-  //           const numericId = extractNumericId(categoryId);
-
-  //           result = await quizzesApi({ numericId, limit });
-  //           console.log(result);
-  //         }
-  //       }
-
-  //       setData(result.data);
-  //     } catch (e: unknown) {
-  //       const message = getErrorMessage(e);
-  //       setError(message);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-
-  //   handleCategories();
-  // }, [variant, categoryId]);
 
   if (loading) {
     return (
@@ -194,7 +167,7 @@ export const Catalog = ({ variant }: IVariant) => {
     <section className={classes.section}>
       <div className={classes.container}>
         {data.map((elem) => (
-          <Card key={`${elem.title}-${elem.id}`} data={elem} />
+          <Card key={elem.id} data={elem} />
         ))}
         {hasMore && (
           <div className={classes.observer} ref={target}>

@@ -135,6 +135,11 @@
   background: rgba(0, 0, 0, 0.5);
 }
 
+.loading {
+  opacity: 0.6;
+  filter: blur(10px);
+}
+
 @media (hover: hover) {
   .text ul:hover::-webkit-scrollbar,
   .text p:hover::-webkit-scrollbar {

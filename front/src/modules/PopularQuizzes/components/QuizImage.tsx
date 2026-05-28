@@ -10,14 +10,16 @@ interface IPopularQuiz {
 }
 
 export const QuizImage = memo(({ image, title }: IPopularQuiz) => {
-  const { imageSrc, handleImageError } = useImageError(image);
+  const { imageSrc, handleImageError, setIsLoadingImage, isLoadingImage } =
+    useImageError(image);
 
   return (
     <img
       src={imageSrc}
       alt={title}
       loading="lazy"
-      className={`${classes.quizImage} ${imageSrc === logo ? classes.placeholder : ''}`}
+      className={`${classes.quizImage} ${imageSrc === logo ? classes.placeholder : ''} ${isLoadingImage ? classes.loading : ''}`}
+      onLoad={() => setIsLoadingImage(false)}
       onError={handleImageError}
     />
   );

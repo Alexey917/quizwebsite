@@ -16,6 +16,11 @@
   background: rgba(0, 0, 0, 0.5);
 }
 
+.loading {
+  opacity: 0.6;
+  filter: blur(10px);
+}
+
 @media (max-width: 1024px) {
   .quizImage {
     border-radius: 2rem;

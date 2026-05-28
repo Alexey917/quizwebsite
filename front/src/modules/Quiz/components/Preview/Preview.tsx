@@ -14,16 +14,18 @@ interface IPreview {
 
 export const Preview = memo(({ img, text, title, preview_text }: IPreview) => {
   const elementId = title?.replace(/\s+/g, '-').toLowerCase();
-  const { imageSrc, handleImageError } = useImageError(img);
+  const { imageSrc, handleImageError, setIsLoadingImage, isLoadingImage } =
+    useImageError(img);
 
   return (
     <article className={classes.article} aria-labelledby={`${elementId}-id`}>
       <img
-        className={`${classes.img} ${imageSrc === logo ? classes.placeholder : ''}`}
+        className={`${classes.img} ${imageSrc === logo ? classes.placeholder : ''} ${isLoadingImage ? classes.loading : ''}`}
         src={imageSrc}
         alt={title ? `${title} превью` : 'Превью'}
         aria-label={title ? `${title} превью` : 'Превью'}
         loading="lazy"
+        onLoad={() => setIsLoadingImage(false)}
         onError={handleImageError}
       />
       <div className={classes.overlay} aria-hidden="true"></div>

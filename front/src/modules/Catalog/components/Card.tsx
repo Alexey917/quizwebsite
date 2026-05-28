@@ -15,7 +15,8 @@ export const Card = memo(({ data }: ICard) => {
   const location = useLocation();
   const navigate = useNavigate();
   const { categoryId } = useParams<{ categoryId: string }>();
-  const { imageSrc, handleImageError } = useImageError(data.preview_image);
+  const { imageSrc, handleImageError, setIsLoadingImage, isLoadingImage } =
+    useImageError(data.preview_image);
 
   const handleCategory = (
     e: React.MouseEvent<HTMLAnchorElement>,
@@ -41,10 +42,11 @@ export const Card = memo(({ data }: ICard) => {
     >
       <img
         src={imageSrc}
-        className={`${classes.img} ${imageSrc === logo ? classes.placeholder : ''}`}
+        className={`${classes.img} ${imageSrc === logo ? classes.placeholder : ''} ${isLoadingImage ? classes.loading : ''}`}
         alt={`${data.title} картинка`}
         loading="lazy"
         decoding="async"
+        onLoad={() => setIsLoadingImage(false)}
         onError={handleImageError}
       />
 

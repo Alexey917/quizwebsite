@@ -4,7 +4,6 @@
   height: 37.25rem;
   background: linear-gradient(13.45deg, #13515e 4.1%, #217987 95.9%);
   border-radius: 2.5rem 0.5rem 2.5rem 2.5rem;
-
   box-shadow: 0px 0.25rem 0.25rem 0px #00000040;
 }
 
@@ -169,6 +168,11 @@
   object-fit: contain;
 }
 
+.loading {
+  opacity: 0.6;
+  filter: blur(10px);
+}
+
 @media (hover: hover) {
   .link:hover {
     color: #fecda7;
@@ -183,6 +187,7 @@
 
   .card:hover {
     transform: scale(1.03);
+    transition: all 0.3s;
   }
 
   .description:hover::-webkit-scrollbar {
