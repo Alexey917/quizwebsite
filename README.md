@@ -78,11 +78,11 @@ npm install && npm run dev
 
 | Главная страница | Каталог | Детальная страница |
 |:---:|:---:|:---:|
-| ![Главный блок + шапка](./screenshots/main.png) ![Кому подходит](./screenshots/who.png) ![Кому подходит](./screenshots/who.png) ![Связаться с нами](./screenshots/communicate.png) ![Этапы сотрудничества](./screenshots/steps.png) ![Подвал + отзывы](./screenshots/footer.png) | ![Категории](./screenshots/catalog2.png) ![Категории](./screenshots/catalog.png) ![Выбор категории](./screenshots/choose_category.png) | ![Превью квиза](./screenshots/quiz_preview.png) ![Описание](./screenshots/description.png) ![Описание](./screenshots/description2.png)
+| ![Главный блок + шапка](./screenshots/main.png) ![Кому подходит](./screenshots/who.png) ![Кому подходит](./screenshots/who.png) ![Этапы сотрудничества](./screenshots/steps.png) ![Подвал + отзывы](./screenshots/footer.png) ![Модальное окно с тарифами](./screenshots/tariffs_modal.png) ![Авторский тариф](./screenshots/author_tariff.png) | ![Категории](./screenshots/catalog2.png) ![Категории](./screenshots/catalog.png) ![Выбор категории](./screenshots/choose_category.png) | ![Превью квиза](./screenshots/quiz_preview.png) ![Описание](./screenshots/description.png) ![Описание](./screenshots/description2.png)
 
 | Слайдеры | Форма заявки | Мобильная версия |
 |:---:|:---:|:---:|
-| ![Выбор категории](./screenshots/benefits.png) ![Популярное](./screenshots/popular.png) ![Тарифы](./screenshots/tariffs.png) ![Отзывы](./screenshots/reviews.png) | ![Авторская форма](./screenshots/author_tariff.png) ![Заполнение авторской формы](./screenshots/fill_author_form.png) |
+| ![Выбор категории](./screenshots/benefits.png) ![Популярное](./screenshots/popular.png) ![Тарифы](./screenshots/tariffs.png) ![Отзывы](./screenshots/reviews.png) | ![Заполнение авторской формы](./screenshots/fill_author_form.png) ![Обычная форма](./screenshots/form.png) | ![Мобильная версия](./screenshots/mobile.png) ![Мобильное меню](./screenshots/mobile_menu.png) ![Тарифы](./screenshots/mobile_tariffs.png) ![Каталог](./screenshots/mobile_card.png) ![Форма](./screenshots/mobile_form.png)
 
 
 
