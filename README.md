@@ -78,11 +78,11 @@ npm install && npm run dev
 
 | Главная страница | Каталог | Детальная страница |
 |:---:|:---:|:---:|
-| ![Обычный](./screenshots/1.png) | ![Пагинация](./screenshots/2.png) |
+| ![Главный блок + шапка](./screenshots/main.png) ![Кому подходит](./screenshots/who.png) ![Кому подходит](./screenshots/who.png) ![Связаться с нами](./screenshots/communicate.png) ![Этапы сотрудничества](./screenshots/steps.png) ![Подвал + отзывы](./screenshots/footer.png) | ![Категории](./screenshots/catalog2.png) ![Категории](./screenshots/catalog.png) ![Выбор категории](./screenshots/choose_category.png) | ![Превью квиза](./screenshots/quiz_preview.png) ![Описание](./screenshots/description.png) ![Описание](./screenshots/description2.png)
 
-| Слайдеры | Формы заявки | Мобильная версия |
+| Слайдеры | Форма заявки | Мобильная версия |
 |:---:|:---:|:---:|
-| ![Скролл 1](./screenshots/3.png) | ![Скролл 2](./screenshots/4.png) |
+| ![Выбор категории](./screenshots/benefits.png) ![Популярное](./screenshots/popular.png) ![Тарифы](./screenshots/tariffs.png) ![Отзывы](./screenshots/reviews.png) | ![Авторская форма](./screenshots/author_tariff.png) ![Заполнение авторской формы](./screenshots/fill_author_form.png) |
 
 
 
